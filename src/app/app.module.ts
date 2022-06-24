@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CriarEscalaComponent } from './components/criar-escala/criar-escala.component';
 
 
 
@@ -20,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
-    DashboardComponent
+    CriarEscalaComponent
   ],
   imports: [
     BrowserModule,

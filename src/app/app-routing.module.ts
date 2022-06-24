@@ -1,6 +1,6 @@
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeaderComponent } from './components/header/header.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CriarEscalaComponent} from './components/criar-escala/criar-escala.component'
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
   {path:'home',component:HomeComponent},
-  {path:'dashboard',component:DashboardComponent}
+  {path:'criar-escala',component:CriarEscalaComponent}
 ];
 
 @NgModule({

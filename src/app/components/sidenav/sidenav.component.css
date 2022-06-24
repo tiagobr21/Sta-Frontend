@@ -12,6 +12,11 @@ img{
 .mat-icon{
     vertical-align: center;
     margin: 1rem;
+    
+}
+
+h5{
+    margin-top: 10px;
 }
 
 .mat-divider{
@@ -19,9 +24,14 @@ img{
     border-color:white;
 }
 
+
 .mat-list-item{
     color:#94a3b8 !important;
     font-size: 0.8rem;
     height: 44px !important;
     margin-bottom:4px;
+    border-radius: 5px;
+    margin-top: 20px;
+   
 }
+

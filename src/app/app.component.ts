@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app-sta';
+  sideBarOpen = true;
+  
+  ngOnInit(){}
+
+  sideBarToggler(){
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 }
