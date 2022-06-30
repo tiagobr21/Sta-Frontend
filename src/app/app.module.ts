@@ -10,7 +10,12 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarEscalaComponent } from './components/criar-escala/criar-escala.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AppService } from './services/app.service';
+import { ConsultaEscalaComponent } from './consulta-escala/consulta-escala.component';
+import { PessoasComponent } from './components/pessoas/pessoas.component';
+import { CreatePdfComponent } from './components/create-pdf/create-pdf.component';
 
 
 
@@ -20,16 +25,23 @@ import { CriarEscalaComponent } from './components/criar-escala/criar-escala.com
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
-    CriarEscalaComponent
+    CriarEscalaComponent,
+    ConsultaEscalaComponent,
+    PessoasComponent,
+    CreatePdfComponent
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
     
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

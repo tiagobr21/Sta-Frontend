@@ -1,1 +1,50 @@
-@import"../home/home.component.css";
+.page{
+    color: white;
+    padding: 0 1rem;
+    background: #f1f5f9;
+    
+}
+
+.page__box{
+    min-height: 120px;
+    background: #1e293b;
+    margin: 0 -1rem;
+    font-size: 36px;
+ 
+}
+
+.page__content{
+    max-width: 100%;
+    min-height: calc(150vh - 5px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    font-size: 2rem;
+   
+} 
+
+.page__content-data{
+    margin: -34% 0 0 50%;
+    transform: translate(-50%,50%);
+}
+#nome,#data,#dia{
+  margin-bottom: -40px;
+}
+#hora,#comunidade,#acolito,#coroinha{
+    margin-bottom: 30px;
+}
+#hora{
+    margin-top:20px ;
+}
+label{
+    font-size: 25px;
+}
+p{
+    opacity: 0;
+}
+
+#enviar{
+    width: 50%;
+}
+

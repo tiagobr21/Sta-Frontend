@@ -23,7 +23,8 @@
 } 
 
 .page__content-data{
-    top:50%;
+    top:5%;
+    font-size: 45px;
     left: 50%;
     transform: translate(-50%,50%);
 }
