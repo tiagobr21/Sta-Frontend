@@ -11,12 +11,16 @@ import { AppService } from '../../services/app.service';
 export class CreatePdfComponent implements OnInit {
  @ViewChild('content',{static:false})el!:ElementRef;
  @ViewChild('meuP') parag:any;
-
+ @ViewChild('nome_escala') input:any;
   constructor(private service:AppService) { }
 
     
 readData:any;
 nome:any
+nome_escala:any
+
+
+
 
 
 quebrarLinha() {
@@ -29,12 +33,18 @@ quebrarLinha() {
     
       this.readData = res;
 
-      
 
   })
   }
 
   printSimplePDF(){
+    let pdf = new jsPDF();
+    pdf.html("this.el")
+    pdf.save("ola.pdf");
+   
+  }
+
+  /* printSimplePDF(){
     let pdf = new jsPDF('p','pt','a3');
     pdf.html(this.el.nativeElement,{
        callback:(pdf)=>{
@@ -42,7 +52,7 @@ quebrarLinha() {
        }
     }); 
    
-  }
+  } */
 
 
   deleteID(id:any){
