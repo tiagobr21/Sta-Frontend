@@ -15,7 +15,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppService } from './services/app.service';
 import { ConsultaEscalaComponent } from './consulta-escala/consulta-escala.component';
 import { PessoasComponent } from './components/pessoas/pessoas.component';
-import { CreatePdfComponent } from './components/create-pdf/create-pdf.component';
+import { EscalaComponent } from './components/escala/escala.component';
+
 
 
 
@@ -28,7 +29,8 @@ import { CreatePdfComponent } from './components/create-pdf/create-pdf.component
     CriarEscalaComponent,
     ConsultaEscalaComponent,
     PessoasComponent,
-    CreatePdfComponent
+    EscalaComponent,
+ 
   
   ],
   imports: [

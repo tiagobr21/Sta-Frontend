@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreatePdfComponent } from './create-pdf.component';
+import { EscalaComponent } from './escala.component';
 
-describe('CreatePdfComponent', () => {
-  let component: CreatePdfComponent;
-  let fixture: ComponentFixture<CreatePdfComponent>;
+describe('EscalaComponent', () => {
+  let component: EscalaComponent;
+  let fixture: ComponentFixture<EscalaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreatePdfComponent ]
+      declarations: [ EscalaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CreatePdfComponent);
+    fixture = TestBed.createComponent(EscalaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

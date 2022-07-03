@@ -26,7 +26,7 @@ export class CriarEscalaComponent implements OnInit {
   }
 
   userForm = new FormGroup({
-    'nome':new FormControl('',Validators.required),
+    'missa':new FormControl('',Validators.required),
     'data':new FormControl('',Validators.required),
     'dia':new FormControl('',Validators.required),
     'hora':new FormControl('',Validators.required),

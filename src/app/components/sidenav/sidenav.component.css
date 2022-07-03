@@ -1,12 +1,16 @@
 .logo{
     text-align: center;
-    padding: 2.6rem 1rem;
+    padding: 2.6rem 2rem;
+    background-color: #f1f5f9;
+    border-radius: 50px;
+    height: 100px;
+
    
 }
 
 img{
-    margin-top: -30px;
-    width: 100px;
+    margin-top: -40px;
+    width: 110%;
 }
 
 .mat-icon{
@@ -20,6 +24,7 @@ h5{
 }
 
 .mat-divider{
+    margin-top: 10px;
     border-top-width: 2px;
     border-color:white;
 }
@@ -34,4 +39,3 @@ h5{
     margin-top: 20px;
    
 }
-

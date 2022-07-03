@@ -1,3 +1,4 @@
+
 .page{
     color: white;
     padding: 0 1rem;
@@ -13,8 +14,67 @@
     margin-top: -10px;
 
 }
-
-.head{
-    background-color:#1e293b;
+.titulo-escala{
+    letter-spacing: 1px;
+    
 }
+.nome-escala{
+    letter-spacing: 3px;
+    
+}
+
+table{
+    margin-top: -40px;
+    margin-left: -20px;
+    
+}
+
+.tabela-1{
+   width: 95%;
+   color:black;
+   margin-left: 5px;
+
+
+}
+.tabela-2{
+    width: 83%;
+    color:black;
+    margin-left: 5px;
+    margin-top: 10px;
+
+ 
+}
+
+#missa-celebracao{
+    margin-top: 10px;
+}
+#meuP{
+    word-break: break-all;
+    font-size: 16px;
+    width: 28%;
+}
+
+.nome{
+    max-width: 100%;
+    text-align: center;
+
+}
+
+.pessoas{
+    width: 25%;
+}
+
+.editar{
+    display:flex;
+
+}
+
+#del,#alt{
+   margin:15px 0 0 5px;
+}
+
+#download{
+    margin-top: 20px;
+}
+
 

@@ -1,8 +1,101 @@
-<div class="container-fluid page">
+<div class="container-fluid page"   >
   <div class="page__box p-3 mt-2">Consultar Escala</div>
-    <div class="page__content shadow p-3 position-relative">
-        <app-create-pdf></app-create-pdf>
+    <div class="page__content shadow p-3 position-relative" id="content" #content>
+      <div>
+    
+        <div class="container mt-5" id="divisao">
         
+        <div>
+          <table class="table table-bordered">
+              
+        
+            <thead>
+              <tr>
+                <th class="titulo-escala" scope="col">NOME ESCALA :</th>
+                <th class="nome-escala" scope="col">PASTORAL DE COROINHAS E ACÓLITOS - ESCALA MÊS MAIO</th>
+              </tr>  
+              
+            </thead>
+               
+          </table>
+           
+        
+        <div  *ngFor="let dados of readData">
+          <table class="table table-bordered" id="missa-celebracao">
+              
+        
+            <thead>
+              <tr>
+                <th scope="col">MISSA / CELEBRACAO:</th>
+                <th scope="col">{{dados.missa}}</th>
+              </tr>  
+              
+            </thead>
+               
+          </table>
+          <br>
+          <table class="table table-bordered" class="tabela-1" >
+              
+        
+            <thead class="head">
+              <tr >
+                <th scope="col" class="id">Id</th>
+               
+                <th scope="col">Data</th>
+                <th scope="col">Dia</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Comunidade</th>
+               
+              </tr>  
+            
+            </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{dados.id}}</th>
+                    <td>{{dados.data}}</td>
+                    <td>{{dados.dia}}</td>
+                    <td>{{dados.hora}}</td>
+                    <td>{{dados.comunidade}}</td>
+                 
+                    
+                  </tr>
+            
+                </tbody>
+              
+          </table>
+        
+          <table class="table table-bordered" class="tabela-2" >
+              
+        
+            <thead class="head">
+              <tr>
+                <th scope="col">Acolito</th>
+                <th scope="col">Coroinha</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                  <tr>
+                    <td class="titulo-escala">{{dados.acolito}}</td>
+                    <td class="titulo-escala">{{dados.coroinha}}</td>
+                  </tr>
+            </tbody>
+              
+          </table>
+                      
+        <a id="alt" [routerLink]="['/criar-escala',dados.id]" class="btn btn-sm btn-primary">Editar</a>
+        <button id="del" class="btn btn-sm btn-danger" (click)="deleteID(dados.id)">Excluir</button>
+      
+     
+        </div>
+        
+        
+        
+        </div>
+        <button  id="download" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button>
+        </div>
     </div>
-</div>    
+  </div>
+   
+</div><!-- container-fluid page -->    
 

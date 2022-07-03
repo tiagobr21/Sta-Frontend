@@ -25,10 +25,10 @@
 } 
 
 .page__content-data{
-    margin: -34% 0 0 50%;
+    margin: -36% 0 0 50%;
     transform: translate(-50%,50%);
 }
-#nome,#data,#dia{
+#missa,#data,#dia{
   margin-bottom: -40px;
 }
 #hora,#comunidade,#acolito,#coroinha{
