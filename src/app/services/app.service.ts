@@ -13,6 +13,7 @@ export class AppService{
   urlRead = 'http://localhost:8080/escala_coroinha/read';
   urlDelete = 'http://localhost:8080/escala_coroinha/delete';
   urlUpdate = 'http://localhost:8080/escala_coroinha/update';
+  urlSelect = 'http://localhost:8080/escala_coroinha/select';
 
   constructor(private _http:HttpClient) { }
 
@@ -39,6 +40,10 @@ export class AppService{
    getSingleData(id:any):Observable<any>{
     let ids =id;
     return this._http.get(`${this.urlCreate}/${ids}`);
+  } 
+   
+  selectData():Observable<any>{
+    return this._http.get(`${this.urlSelect}`);
   } 
   
 

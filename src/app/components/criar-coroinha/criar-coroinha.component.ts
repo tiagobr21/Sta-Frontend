@@ -4,24 +4,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
 
-
-
 @Component({
-  selector: 'app-criar-escala',
-  templateUrl: './criar-escala.component.html',
-  styleUrls: ['./criar-escala.component.css']
+  selector: 'app-criar-coroinha',
+  templateUrl: './criar-coroinha.component.html',
+  styleUrls: ['./criar-coroinha.component.css']
 })
-export class CriarEscalaComponent implements OnInit {
-
+export class CriarCoroinhaComponent implements OnInit {
+  
 
   constructor(private service: AppService,private router:ActivatedRoute) { }
  
    getparamid:any;
+   selectData:any;
 
   ngOnInit(): void {
     this.getparamid = this.router.snapshot.paramMap.get('id'),'getid';
      this.service.getSingleData(this.getparamid).subscribe((res)=>{
         console.log(res);
+      });
+
+        this.service.selectData().subscribe((res)=>{
+          this.selectData = res;
     }); 
   }
 

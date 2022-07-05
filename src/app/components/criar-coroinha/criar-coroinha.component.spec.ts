@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CriarEscalaComponent } from './criar-escala.component';
+import { CriarCoroinhaComponent } from './criar-coroinha.component';
 
-describe('CriarEscalaComponent', () => {
-  let component: CriarEscalaComponent;
-  let fixture: ComponentFixture<CriarEscalaComponent>;
+describe('CriarCoroinhaComponent', () => {
+  let component: CriarCoroinhaComponent;
+  let fixture: ComponentFixture<CriarCoroinhaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CriarEscalaComponent ]
+      declarations: [ CriarCoroinhaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CriarEscalaComponent);
+    fixture = TestBed.createComponent(CriarCoroinhaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

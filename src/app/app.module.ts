@@ -9,13 +9,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CriarEscalaComponent } from './components/criar-escala/criar-escala.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppService } from './services/app.service';
-import { ConsultaEscalaComponent } from './consulta-escala/consulta-escala.component';
 import { PessoasComponent } from './components/pessoas/pessoas.component';
 import { EscalaComponent } from './components/escala/escala.component';
+import { CategoriaCriarEscalaComponent } from './components/categoria-criar-escala/categoria-criar-escala.component';
+import { ConsultarCoroinhaComponent } from './components/consultar-coroinha/consultar-coroinha.component';
+import { CriarCoroinhaComponent } from './components/criar-coroinha/criar-coroinha.component';
+
 
 
 
@@ -26,12 +28,11 @@ import { EscalaComponent } from './components/escala/escala.component';
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
-    CriarEscalaComponent,
-    ConsultaEscalaComponent,
     PessoasComponent,
     EscalaComponent,
- 
-  
+    CategoriaCriarEscalaComponent,
+    ConsultarCoroinhaComponent,
+    CriarCoroinhaComponent,  
   ],
   imports: [
     BrowserModule,
