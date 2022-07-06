@@ -10,12 +10,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./criar-coroinha.component.css']
 })
 export class CriarCoroinhaComponent implements OnInit {
-  
+  @ViewChild('teste') teste:any;
 
   constructor(private service: AppService,private router:ActivatedRoute) { }
  
    getparamid:any;
-   selectData:any;
+   selectData:any = [''];
 
   ngOnInit(): void {
     this.getparamid = this.router.snapshot.paramMap.get('id'),'getid';
@@ -35,7 +35,11 @@ export class CriarCoroinhaComponent implements OnInit {
     'hora':new FormControl('',Validators.required),
     'comunidade':new FormControl('',Validators.required),
     'acolito':new FormControl('',Validators.required),
-    'coroinha':new FormControl('',Validators.required)
+    'coroinha1':new FormControl('',Validators.required),
+    'coroinha2':new FormControl('',Validators.required),
+    'coroinha3':new FormControl('',Validators.required),
+    'coroinha4':new FormControl('',Validators.required),
+    'coroinha5':new FormControl('',Validators.required)
   });
   
 
@@ -48,6 +52,8 @@ export class CriarCoroinhaComponent implements OnInit {
       });
     }
   }
+
+ 
 
   userUpdate(){
 

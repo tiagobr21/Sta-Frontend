@@ -15,7 +15,7 @@
 
 .page__content{
     max-width: 100%;
-    min-height: calc(150vh - 5px);
+    min-height: calc(180vh - 5px);
     border-radius: 10px;
     margin-top: -2rem;
     background: white;
@@ -25,7 +25,7 @@
 } 
 
 .page__content-data{
-    margin: -36% 0 0 50%;
+    margin: -41.5% 0 0 50%;
     transform: translate(-50%,50%);
 }
 #missa,#data,#dia{
@@ -45,6 +45,10 @@ p{
 }
 
 #enviar{
+    margin-top: 20px;
     width: 50%;
 }
 
+#nomes-coroinha{
+    margin-bottom: 10px;
+}
