@@ -1,5 +1,7 @@
 <div class="container-fluid page"   >
     <div class="page__box p-3 mt-2">Consultar Escala - Coroinha</div>
+    <button id="ocultar" type="button" class="btn btn-dark" (click)="ocultarBotao()">Exibir/Ocultar Edição</button>
+  
       <div class="page__content shadow p-3 position-relative" id="content" #content>
         <div>
       
@@ -21,6 +23,7 @@
              
           
           <div  *ngFor="let dados of readData">
+           
             <table class="table table-bordered" id="missa-celebracao">
                 
           
@@ -29,12 +32,12 @@
                   <th scope="col">MISSA / CELEBRACAO:</th>
                   <th scope="col">{{dados.missa}}</th>
                 </tr>  
-                
               </thead>
                  
             </table>
+            
             <br>
-            <table class="table table-bordered" class="tabela-1" >
+            <table class="table table-hover table-bordered table-striped" class="tabela-1" >
                 
           
               <thead class="head">
@@ -49,11 +52,11 @@
   
               <tbody>
                   <tr>
-                      <td scope="col">{{dados.id}}</td>
-                      <td scope="col">{{dados.data}}</td>
-                      <td scope="col">{{dados.dia}}</td>
-                      <td scope="col">{{dados.hora}}</td>
-                      <td scope="col">{{dados.comunidade}}</td>
+                      <th scope="col">{{dados.id}}</th>
+                      <td>{{dados.data}}</td>
+                      <td>{{dados.dia}}</td>
+                      <td>{{dados.hora}}</td>
+                      <td>{{dados.comunidade}}</td>
                   </tr>
               </tbody>
                 
@@ -71,7 +74,14 @@
               
               <tbody>
                     <tr>
-                      <td class="titulo-escala">{{dados.acolito}}</td>
+                      <td class="titulo-escala">
+                        <div class="dados_acolito">
+                          {{dados.acolito1}}<br>
+                          {{dados.acolito2}}<br>
+                          {{dados.acolito3}}
+                        </div> 
+                        </td>
+
                       <td class="titulo-escala">
                         {{dados.coroinha1}}<br>
                         {{dados.coroinha2}}<br>
@@ -84,8 +94,8 @@
                 
             </table>
                         
-          <a id="alt" [routerLink]="['/criar-escala',dados.id]" class="btn btn-sm btn-primary">Editar</a>
-          <button id="del" class="btn btn-sm btn-danger" (click)="deleteID(dados.id)">Excluir</button>
+            <a *ngIf="alt" id="alt" [routerLink]="['/criar-coroinha',dados.id]" class="btn btn-sm btn-primary">Editar</a>
+            <button *ngIf="alt" id="alt" class="btn btn-sm btn-danger" (click)="deleteID(dados.id)">Excluir</button>
         
        
           </div>
@@ -93,11 +103,12 @@
           
           
           </div>
-          <button  id="download" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button>
+             
           </div>
       </div>
     </div>
-     
+    <button  id="download" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button><mat-icon id="print"> local_printshop</mat-icon>
+    
   </div><!-- container-fluid page -->    
   
   

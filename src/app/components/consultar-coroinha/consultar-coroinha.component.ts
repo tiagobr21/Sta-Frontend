@@ -20,7 +20,8 @@ export class ConsultarCoroinhaComponent implements OnInit {
   readData:any;
   nome:any;
   nome_escala:any;
- 
+  alt:any=true; 
+
   quebrarLinha() {
 
     if(this.parag.length >= 11){
@@ -28,9 +29,16 @@ export class ConsultarCoroinhaComponent implements OnInit {
      } 
  }
 
+ ocultarBotao(){
+   this.alt = !this.alt;
+  
+ }
+
   ngOnInit(): void {
     this.service.readData().subscribe((res)=>{
       this.readData = res;
+   /*    this.missa = this.readData[0]; */
+      
   })
   }
 

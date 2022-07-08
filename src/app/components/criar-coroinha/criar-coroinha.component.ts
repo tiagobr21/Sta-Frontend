@@ -11,35 +11,69 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CriarCoroinhaComponent implements OnInit {
   @ViewChild('teste') teste:any;
+   
+  @ViewChild('nomes-acolito3') acolito3:any; 
 
   constructor(private service: AppService,private router:ActivatedRoute) { }
  
    getparamid:any;
-   selectData:any = [''];
-
+   select_coroinhaData:any;
+   select_acolitoData:any;
+   select_comunidadeData:any;
+   
   ngOnInit(): void {
     this.getparamid = this.router.snapshot.paramMap.get('id'),'getid';
      this.service.getSingleData(this.getparamid).subscribe((res)=>{
         console.log(res);
+        this.userForm.patchValue({
+          missa:res[0].missa,
+          'data':res[0].data,
+          'dia':res[0].dia,
+          'hora':res[0].hora,
+          'comunidade':res[0].comunidade
+         
+     /*   acolito1:res.data[0].acolito1,
+          acolito2:res.data[0].acolito2,
+          acolito3:res.data[0].acolito3,
+          coroinha1:res.data[0].coroinha1,
+          coroinha2:res.data[0].coroinha2,
+          coroinha3:res.data[0].coroinha3,
+          coroinha4:res.data[0].coroinha4,
+          coroinha5:res.data[0].coroinha5, */
+        });
+        
+    
       });
 
-        this.service.selectData().subscribe((res)=>{
-          this.selectData = res;
+        this.service.select_coroinhaData().subscribe((res)=>{
+        this.select_coroinhaData = res;  
     }); 
-  }
 
+        this.service.select_acolitoData().subscribe((res)=>{
+        this.select_acolitoData = res;
+    });
+       
+        this.service.select_comunidadeData().subscribe((res)=>{
+        this.select_comunidadeData = res;
+        
+        })
+
+  }
+  
   userForm = new FormGroup({
     'missa':new FormControl('',Validators.required),
     'data':new FormControl('',Validators.required),
     'dia':new FormControl('',Validators.required),
     'hora':new FormControl('',Validators.required),
     'comunidade':new FormControl('',Validators.required),
-    'acolito':new FormControl('',Validators.required),
+    'acolito1':new FormControl('',Validators.required),
+    'acolito2':new FormControl('',Validators.prototype),
+    'acolito3':new FormControl('',Validators.prototype),
     'coroinha1':new FormControl('',Validators.required),
-    'coroinha2':new FormControl('',Validators.required),
-    'coroinha3':new FormControl('',Validators.required),
-    'coroinha4':new FormControl('',Validators.required),
-    'coroinha5':new FormControl('',Validators.required)
+    'coroinha2':new FormControl('',Validators.prototype),
+    'coroinha3':new FormControl('',Validators.prototype),
+    'coroinha4':new FormControl('',Validators.prototype),
+    'coroinha5':new FormControl('',Validators.prototype)
   });
   
 

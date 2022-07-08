@@ -9,8 +9,9 @@
                 <div class="form-group">
                     <label for="missa">Missa/Celebração</label>
                     <input type="text" class="form-control" id="missa" formControlName="missa" aria-describedby="emailHelp" placeholder="Ex: Novena das Rosas" />
-                    <small id="linha" class="form-text text-muted"><p>_____________________________________<p></small>
+                    <small id="linha" class="form-text text-muted"><p>_________________________________________________<p></small>
                 </div>
+
                 <div class="form-group">
                     <label for="data">Data</label>
                     <input type="text" class="form-control" id="data" formControlName="data" placeholder="Ex: 01/10/2022" />
@@ -19,7 +20,16 @@
 
                 <div class="form-group">
                     <label for="dia">Dia</label>
-                    <input class="form-control" id="dia" formControlName="dia" placeholder="Ex: Dom">
+                    <select class="form-select" id="dia" formControlName="dia">
+                        <option disabled>Escolha uma dia</option>
+                        <option>Domingo</option>
+                        <option>Segunda</option>
+                        <option>Terça</option>
+                        <option>Quarta</option>
+                        <option>Quinta</option>
+                        <option>Sexta</option>
+                        <option>Sábado</option>
+                    </select>
                 </div> <br>
                 
                 <div class="form-group">
@@ -29,53 +39,84 @@
                  
                 <div class="form-group">
                     <label id="label-data" for="comunidade">Comunidade</label>
-                    <input type="text" class="form-control" id="comunidade" formControlName="comunidade" placeholder="Ex: Santa Terezinha" />
+                    <select class="form-select" id="comunidade" formControlName="comunidade" placeholder="Ex: Santa Terezinha">
+                        <option>Escolha uma Comunidade</option>
+                        <option *ngFor="let nomes_comunidade of select_comunidadeData">{{nomes_comunidade.nome}}</option>
+                    </select>
+                </div>
+                 
+
+                  <div id="info" class="alert alert-primary d-flex align-items-center" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    <div>
+                        Escolha pelo menos um Acolito e um Coroinha
+                    </div>
+                  </div>
+
+                <div  class="form-group">
+                    <label id="label-data" for="acolito">Acolito</label>
+                    <select formControlName="acolito1" class="form-select" id="nomes-acolito1">  
+                        <option>Escolha o Acolito 1</option>
+                        <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                    </select>
+                </div>
+                 
+                <div class="form-group">
+                    <select formControlName="acolito2" class="form-select" id="nomes-acolito2">
+                        <option id="option">Escolha o Acolito 2</option>
+                        <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                    </select>
                 </div>
 
+                
                 <div class="form-group">
-                    <label id="label-data" for="acolito">Acolito</label>
-                    <textarea  type="text" class="form-control" id="acolito" formControlName="acolito" placeholder="Digite pelo menos um Acolito"></textarea>
+                    <select formControlName="acolito3" class="form-select" id="nomes-acolito3">
+                        <option>Escolha o Acolito 3</option>
+                        <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                    </select>
                 </div>
 
          
                 <div class="form-group">
                     <label id="label-data" for="coroinha">Coroinha</label>
                     <select formControlName="coroinha1" class="form-select" id="nomes-coroinha">
-                        <option>Escolha o coroinha</option>
-                        <option *ngFor="let nomes of selectData">{{nomes.nome}}</option>
+                        <option>Escolha o coroinha 1</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <select formControlName="coroinha2" class="form-select" id="nomes-coroinha">
-                        <option>Escolha o coroinha</option>
-                        <option *ngFor="let nomes of selectData">{{nomes.nome}}</option>
+                        <option>Escolha o coroinha 2</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <select formControlName="coroinha3" class="form-select" id="nomes-coroinha">
-                        <option>Escolha o coroinha</option>
-                        <option *ngFor="let nomes of selectData">{{nomes.nome}}</option>
+                        <option>Escolha o coroinha 3</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <select formControlName="coroinha4" class="form-select" id="nomes-coroinha">
-                        <option>Escolha o coroinha</option>
-                        <option *ngFor="let nomes of selectData">{{nomes.nome}}</option>
+                        <option>Escolha o coroinha 4</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
 
                 <div class="form-group">   
                     <select formControlName="coroinha5" class="form-select" id="nomes-coroinha">
-                        <option>Escolha o coroinha</option>
-                        <option *ngFor="let nomes of selectData">{{nomes.nome}}</option>
+                        <option>Escolha o coroinha 5</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
                 
               
-                <input *ngIf="!getparamid" type="submit" class="btn btn-success" id="enviar" value="Enviar" >
+                <input  *ngIf="!getparamid" type="submit" class="btn btn-success" id="enviar" value="Enviar" >
                 <input *ngIf="getparamid" type="submit" class="btn btn-success" id="enviar" value="Atualizar" >
             </form>
         </div>
