@@ -20,10 +20,10 @@
               </thead>
                  
             </table>
-             
+           
           
           <div  *ngFor="let dados of readData">
-           
+          <!--  
             <table class="table table-bordered" id="missa-celebracao">
                 
           
@@ -34,7 +34,7 @@
                 </tr>  
               </thead>
                  
-            </table>
+            </table> -->
             
             <br>
             <table class="table table-hover table-bordered table-striped" class="tabela-1" >
@@ -47,6 +47,8 @@
                   <th scope="col">Dia</th>
                   <th scope="col">Hora</th>
                   <th scope="col">Comunidade</th>
+                  <th scope="col">Acolitos</th>
+                  <th scope="col">Coroinhas</th>
                 </tr>
               </thead>
   
@@ -57,42 +59,24 @@
                       <td>{{dados.dia}}</td>
                       <td>{{dados.hora}}</td>
                       <td>{{dados.comunidade}}</td>
+                  
+                      <td>{{dados.acolito1}}
+                         {{dados.acolito2}}
+                         {{dados.acolito3}}</td>
+              
+                      <td>
+                          {{dados.coroinha1}}
+                          {{dados.coroinha2}}
+                          {{dados.coroinha3}}
+                          {{dados.coroinha4}}
+                          {{dados.coroinha5}}
+                      </td>
                   </tr>
               </tbody>
                 
             </table>
           
-            <table class="table table-bordered" class="tabela-2" >
-                
-          
-              <thead class="head">
-                <tr>
-                  <th scope="col">Acolito</th>
-                  <th scope="col">Coroinha</th>
-                </tr>
-              </thead>
-              
-              <tbody>
-                    <tr>
-                      <td class="titulo-escala">
-                        <div class="dados_acolito">
-                          {{dados.acolito1}}<br>
-                          {{dados.acolito2}}<br>
-                          {{dados.acolito3}}
-                        </div> 
-                        </td>
-
-                      <td class="titulo-escala">
-                        {{dados.coroinha1}}<br>
-                        {{dados.coroinha2}}<br>
-                        {{dados.coroinha3}}<br>
-                        {{dados.coroinha4}}<br>
-                        {{dados.coroinha5}}
-                      </td>
-                    </tr>
-              </tbody>
-                
-            </table>
+        
                         
             <a *ngIf="alt" id="alt" [routerLink]="['/criar-coroinha',dados.id]" class="btn btn-sm btn-primary">Editar</a>
             <button *ngIf="alt" id="alt" class="btn btn-sm btn-danger" (click)="deleteID(dados.id)">Excluir</button>

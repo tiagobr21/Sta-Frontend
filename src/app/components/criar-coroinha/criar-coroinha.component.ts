@@ -19,7 +19,7 @@ export class CriarCoroinhaComponent implements OnInit {
    getparamid:any;
    select_coroinhaData:any;
    select_acolitoData:any;
-   select_comunidadeData:any;
+   select_missaData:any;
    
   ngOnInit(): void {
     this.getparamid = this.router.snapshot.paramMap.get('id'),'getid';
@@ -28,9 +28,7 @@ export class CriarCoroinhaComponent implements OnInit {
         this.userForm.patchValue({
           missa:res[0].missa,
           'data':res[0].data,
-          'dia':res[0].dia,
-          'hora':res[0].hora,
-          'comunidade':res[0].comunidade
+
          
      /*   acolito1:res.data[0].acolito1,
           acolito2:res.data[0].acolito2,
@@ -52,20 +50,15 @@ export class CriarCoroinhaComponent implements OnInit {
         this.service.select_acolitoData().subscribe((res)=>{
         this.select_acolitoData = res;
     });
-       
-        this.service.select_comunidadeData().subscribe((res)=>{
-        this.select_comunidadeData = res;
         
-        })
-
+        this.service.select_missaData().subscribe((res)=>{
+        this.select_missaData = res;
+       });
   }
   
   userForm = new FormGroup({
     'missa':new FormControl('',Validators.required),
     'data':new FormControl('',Validators.required),
-    'dia':new FormControl('',Validators.required),
-    'hora':new FormControl('',Validators.required),
-    'comunidade':new FormControl('',Validators.required),
     'acolito1':new FormControl('',Validators.required),
     'acolito2':new FormControl('',Validators.prototype),
     'acolito3':new FormControl('',Validators.prototype),

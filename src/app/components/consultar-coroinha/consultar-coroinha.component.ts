@@ -45,7 +45,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
   
 
 printSimplePDF(){
-  let pdf = new jsPDF('p','pt','a3');
+  let pdf = new jsPDF('p','pt','a4');
   pdf.html(this.el.nativeElement,{
      callback:(pdf)=>{
        pdf.save('teste_pdf.pdf');
