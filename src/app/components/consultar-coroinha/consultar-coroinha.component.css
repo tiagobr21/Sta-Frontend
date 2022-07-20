@@ -11,63 +11,144 @@
     background: #1e293b;
     margin: 0 -1rem;
     font-size: 36px;
-    margin-top: -10px;
+    margin-top: 1px;
+    
+}
 
-}
-.titulo-escala{
-    letter-spacing: 1px;
-    
-}
-.nome-escala{
-    letter-spacing: 3px;
-    
+h4{
+    letter-spacing: 2px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top:-20px;
+    padding: 3px;
+    text-align: center;
+    border: 1px solid black;
 }
 
 #ocultar{
     margin-top: 10px;
 }
 
-table{
-    margin-top: -40px;
-    margin-left: -20px;
-    color: black;
-    
-}
-
-.tabela-1{
-   width: 95%;
-   color:black;
-   margin-left: 5px;
-
-
-}
-.tabela-2{
-    width: 83%;
+.container-search{
     color:black;
-    margin-left: 5px;
-    margin-top: 10px;
+    margin-bottom: 2rem;
+    width: 100%;    
+    display: inline-block; 
+}
 
+.container-search form{
+  width: 30%;  
+  position: relative;
+
+}
+
+.container-search #search{
+  top: 6px;
+  left: 8px;
+  position: absolute;
+
+}
+
+.container-search input{
+  padding: 0.3em;
+  width: 10cm;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 15px;  
+}
+
+/* ///////////////// */
+
+.alinhar{
+    display: flex;
+    justify-content: space-between;
+}
+
+div.container-data{
+    color:black;
+    margin-bottom: 2rem;
+    width: 100%;    
+    display: inline-block;
+   
+}
+
+.container-data form{
+    width: 30%;  
+    position: relative;
+  
+  }
+  
+  .container-data #data{
+    top: 6px;
+    left: 8px;
+    position: absolute;
+  
+  }
+  
+  .container-data input{
+    padding: 0.3em;
+    width: 5cm;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 15px;  
+  }
+  
+  
+
+
+
+
+
+#radios{
+    margin-left: -50px;
+}
+
+#content{
+    width: 75%;
  
 }
 
 
-#missa-celebracao{
-    margin-top: 10px;
+table{
+    margin-top: -30px;
+    margin-left: -30px;
+    color: black;
+    
+   
 }
-#meuP{
-    word-break: break-all;
-    font-size: 16px;
-    width: 28%;
+
+.tabela-1{
+   width: 106%;
+   color:black;
+   margin: 20px 0 20px -10px;
+   font-size: 14px;
+   
 }
+
+.divisão-tabela{
+  margin-left: -27px;
+  width: 19cm;
+  height: 1px;
+  padding: 1px;
+  background-color:#1e293b;
+}
+
+
 
 .nome{
     max-width: 100%;
     text-align: center;
-
 }
 
-tbody{
-    font-size: 16px;
+
+td{
+    margin-left: -100px;
+    font-size: 13px;
+}
+
+.coro{
+    margin-right: 20px;
 }
 
 .pessoas{
@@ -91,6 +172,7 @@ tbody{
 .dados_acolito{
     margin-top: -30px;
 }
+
 
 #print{
   color: black;

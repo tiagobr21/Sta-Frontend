@@ -1,48 +1,50 @@
-<div class="container-fluid page"   >
+<div class="container-fluid page">
     <div class="page__box p-3 mt-2">Consultar Escala - Coroinha</div>
     <button id="ocultar" type="button" class="btn btn-dark" (click)="ocultarBotao()">Exibir/Ocultar Edição</button>
-  
+ 
+    <div class="alinhar">
+
+        <div class="container-search">
+          <form>
+              <input type="text" [(ngModel)]="searchInput" name="searchInput" class="form-control"  id="search-input" placeholder="Pesquisar Escala...">
+              <mat-icon id="search">search</mat-icon>
+              
+          </form>
+      </div>
+
+      <div class="container-data">
+        <form>
+          <input type="text" class="form-control"  id="data-input" >
+            <mat-icon id="data">date_range</mat-icon>
+          </form>
+      </div>
+    </div>
+
+   
+   
+      
       <div class="page__content shadow p-3 position-relative" id="content" #content>
         <div>
-      
+
+         
+          
           <div class="container mt-5" id="divisao">
-          
-          <div>
-            <table class="table table-bordered">
-                
-          
-              <thead>
-                <tr>
-                  <th class="titulo-escala" scope="col">NOME ESCALA :</th>
-                  <th class="nome-escala" scope="col">PASTORAL DE COROINHAS E ACÓLITOS - ESCALA MÊS MAIO</th>
-                </tr>  
-                
-              </thead>
-                 
-            </table>
-           
-          
-          <div  *ngFor="let dados of readData">
-          <!--  
-            <table class="table table-bordered" id="missa-celebracao">
-                
-          
-              <thead>
-                <tr>
-                  <th scope="col">MISSA / CELEBRACAO:</th>
-                  <th scope="col">{{dados.missa}}</th>
-                </tr>  
-              </thead>
-                 
-            </table> -->
             
-            <br>
-            <table class="table table-hover table-bordered table-striped" class="tabela-1" >
-                
-          
+          <div>
+            
+           <h4>PASTORAL DE COROINHAS E ACÓLITOS - ESCALA MÊS</h4>
+          <br>
+          <div *ngFor="let dados of readData | filtroCoroinha:searchInput">
+         <!--    <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="radios">
+            </div> -->
+            
+            <table class="table table-bordered" class="tabela-1" >
+            
+             
               <thead class="head">
                 <tr>
-                  <th scope="col" class="id">Id</th>
+                  <th class="id" scope="col">Id</th>
                   <th scope="col">Data</th>
                   <th scope="col">Dia</th>
                   <th scope="col">Hora</th>
@@ -51,38 +53,70 @@
                   <th scope="col">Coroinhas</th>
                 </tr>
               </thead>
-  
+             
               <tbody>
                   <tr>
-                      <th scope="col">{{dados.id}}</th>
+                      <th>{{dados.id}}</th>
                       <td>{{dados.data}}</td>
                       <td>{{dados.dia}}</td>
                       <td>{{dados.hora}}</td>
                       <td>{{dados.comunidade}}</td>
-                  
-                      <td>{{dados.acolito1}}
-                         {{dados.acolito2}}
-                         {{dados.acolito3}}</td>
-              
-                      <td>
-                          {{dados.coroinha1}}
-                          {{dados.coroinha2}}
-                          {{dados.coroinha3}}
-                          {{dados.coroinha4}}
-                          {{dados.coroinha5}}
-                      </td>
+                      <td>{{dados.acolito1}}</td>
+                      <td>{{dados.coroinha1}}</td>
                   </tr>
+                  
+ 
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> {{dados.acolito2}}</td>
+                    <td>{{dados.coroinha2}}</td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{dados.acolito3}}</td>
+                    <td>{{dados.coroinha3}}</td>
+                  </tr>
+
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{dados.coroinha4}}</td>
+                  </tr>
+
+                  <tr >
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{dados.coroinha5}}</td>
+                  </tr>
+                 
               </tbody>
-                
+              
             </table>
-          
-        
+           
+            <div class="divisão-tabela"></div>
                         
             <a *ngIf="alt" id="alt" [routerLink]="['/criar-coroinha',dados.id]" class="btn btn-sm btn-primary">Editar</a>
             <button *ngIf="alt" id="alt" class="btn btn-sm btn-danger" (click)="deleteID(dados.id)">Excluir</button>
-        
+         
+        </div>
        
-          </div>
           
           
           
@@ -93,6 +127,8 @@
     </div>
     <button  id="download" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button><mat-icon id="print"> local_printshop</mat-icon>
     
+   
+
   </div><!-- container-fluid page -->    
   
   

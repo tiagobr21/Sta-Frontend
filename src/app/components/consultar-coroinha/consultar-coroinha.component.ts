@@ -1,7 +1,9 @@
-import { Component, OnInit,  ViewChild  } from '@angular/core';
 import { AppService } from '../../services/app.service';
 import {jsPDF} from 'jspdf';
-import { ElementRef} from '@angular/core';
+import { Inject,ElementRef,AfterViewInit,Component, OnInit,  ViewChild} from '@angular/core';
+import { __values } from 'tslib';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-consultar-coroinha',
@@ -12,44 +14,43 @@ export class ConsultarCoroinhaComponent implements OnInit {
   @ViewChild('content',{static:false})el!:ElementRef;
   @ViewChild('meuP') parag:any;
   @ViewChild('nome_escala') input:any;
+  formGroupPesquisa!: FormGroup;
 
-
-
-  constructor(private service:AppService) { }
+  constructor(private service:AppService,private formBuilder:FormBuilder) { }
    
   readData:any;
-  nome:any;
-  nome_escala:any;
-  alt:any=true; 
-
-  quebrarLinha() {
-
-    if(this.parag.length >= 11){
-       this.parag.value.replace("\n","<br>");
-     } 
- }
+  alt:any=false; 
+  radio:any=true;
+  searchInput:string="";
+  mês:any=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']; 
 
  ocultarBotao(){
-   this.alt = !this.alt;
-  
+   this.alt = !this.alt;  
+ }
+
+ selecionarRadio(id:any){
+   this.radio;
+   console.log(this.radio);
+   console.log(id,'deleteid->');
  }
 
   ngOnInit(): void {
     this.service.readData().subscribe((res)=>{
-      this.readData = res;
-   /*    this.missa = this.readData[0]; */
-      
-  })
-  }
+      this.readData = res;  
+    });
+     
+}
+
 
   
-
 printSimplePDF(){
-  let pdf = new jsPDF('p','pt','a4');
+  let pdf = new jsPDF('p','pt','a4',false);
+  
   pdf.html(this.el.nativeElement,{
      callback:(pdf)=>{
        pdf.save('teste_pdf.pdf');
      } 
+     
   }); 
 } 
 
