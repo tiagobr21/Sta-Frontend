@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppService } from './services/app.service';
-import { EscalaComponent } from './components/escala/escala.component';
 import { CategoriaCriarEscalaComponent } from './components/categoria-criar-escala/categoria-criar-escala.component';
 import { ConsultarCoroinhaComponent } from './components/consultar-coroinha/consultar-coroinha.component';
 import { CriarCoroinhaComponent } from './components/criar-coroinha/criar-coroinha.component';
@@ -32,7 +31,6 @@ import { FilterCoroinhaDataPipe } from './pipes/filter-coroinha-data.pipe';
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
-    EscalaComponent,
     CategoriaCriarEscalaComponent,
     ConsultarCoroinhaComponent,
     CriarCoroinhaComponent,

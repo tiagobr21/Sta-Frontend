@@ -39,3 +39,7 @@ h5{
     margin-top: 20px;
    
 }
+
+#criar-escala,#consultar-escala{
+    margin:10px 0 10px 30px;
+}
