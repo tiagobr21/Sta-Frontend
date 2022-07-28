@@ -55,7 +55,7 @@ h4{
   width: 10cm;
   text-align: center;
   border-radius: 10px;
-  margin-top: 15px;  
+  margin-top: 20px;  
 }
 
 /* ///////////////// */
@@ -63,6 +63,14 @@ h4{
 .alinhar{
     display: flex;
     justify-content: space-between;
+}
+
+.disable{
+    margin-left: -22px;
+    font-size: 11px;
+    color: black;
+    cursor: pointer;
+
 }
 
 div.container-data{
@@ -76,29 +84,29 @@ div.container-data{
 .container-data form{
     width: 30%;  
     position: relative;
+    margin: 18px 0 0 100px;
   
   }
   
   .container-data #data{
     top: 6px;
-    left: 8px;
+    left: 100px;
     position: absolute;
   
   }
   
   .container-data input{
     padding: 0.3em;
-    width: 5cm;
-    text-align: center;
+    width: 5.5cm;
     border-radius: 10px;
-    margin-top: 15px;  
+    margin: 30px 0 0 70px;  
   }
+
+.limpar-filtro{
+    margin:-68px 0 0 37%;
+   
+}
   
-  
-
-
-
-
 
 #radios{
     margin-left: -50px;
@@ -128,12 +136,11 @@ table{
 
 .divisão-tabela{
   margin-left: -27px;
-  width: 19cm;
+  width: 20.5cm;
   height: 1px;
   padding: 1px;
   background-color:#1e293b;
 }
-
 
 
 .nome{
@@ -156,13 +163,18 @@ td{
 }
 
 .editar{
-    display:flex;
+    color: black;   
+    float: right;
+    margin:-5% -3% 20% 0;
+    cursor: pointer;
 
 }
 
-#alt{
-   margin:15px 0 0 5px;
-   
+.deletar{
+    color: black;   
+    float: right;
+    margin:-10% -3% 20% 0;
+    cursor: pointer;
 }
 
 #download{

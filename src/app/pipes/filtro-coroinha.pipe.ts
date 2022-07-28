@@ -12,12 +12,15 @@ export class FiltroCoroinhaPipe implements PipeTransform {
      }
      const readDataArray:any[]=[];
      for(let i=0;i<value.length;i++){
+      console.log(value[i].data);
       let dataSearch:string=value[i].data;
       let diaSearch:string=value[i].dia;
       let horaSearch:string=value[i].hora;
-      let comSearch: string = value[i].comunidade;   
+      let comSearch: string = value[i].comunidade; 
+    
+     
 
-      if(dataSearch.toLowerCase().startsWith(sName)
+      if( dataSearch.toLowerCase().startsWith(sName)
        || diaSearch.toLowerCase().startsWith(sName) 
        || horaSearch.toLowerCase().startsWith(sName)
        || comSearch.toLowerCase().startsWith(sName)){

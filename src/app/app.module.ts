@@ -20,6 +20,7 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { CadastrarUsuarioComponent } from './components/cadastrar-usuario/cadastrar-usuario.component';
 import { ConsultarUsuarioComponent } from './components/consultar-usuario/consultar-usuario.component';
 import { FiltroCoroinhaPipe } from './pipes/filtro-coroinha.pipe';
+import { FilterCoroinhaDataPipe } from './pipes/filter-coroinha-data.pipe';
 
 
 
@@ -38,7 +39,8 @@ import { FiltroCoroinhaPipe } from './pipes/filtro-coroinha.pipe';
     CadastroComponent,
     CadastrarUsuarioComponent,
     ConsultarUsuarioComponent,
-    FiltroCoroinhaPipe,  
+    FiltroCoroinhaPipe,
+    FilterCoroinhaDataPipe
   ],
   imports: [
     BrowserModule,

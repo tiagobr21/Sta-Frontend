@@ -59,6 +59,7 @@ export class CriarCoroinhaComponent implements OnInit {
   userForm = new FormGroup({
     'missa':new FormControl('',Validators.required),
     'data':new FormControl('',Validators.required),
+    'mes':new FormControl('',Validators.required),
     'acolito1':new FormControl('',Validators.required),
     'acolito2':new FormControl('',Validators.prototype),
     'acolito3':new FormControl('',Validators.prototype),

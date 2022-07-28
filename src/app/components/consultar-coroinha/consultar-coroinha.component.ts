@@ -1,8 +1,10 @@
 import { AppService } from '../../services/app.service';
 import {jsPDF} from 'jspdf';
-import { Inject,ElementRef,AfterViewInit,Component, OnInit,  ViewChild} from '@angular/core';
+import { Inject,ElementRef,AfterViewInit,Component, OnInit,  ViewChild, ɵɵqueryRefresh} from '@angular/core';
 import { __values } from 'tslib';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ThisReceiver } from '@angular/compiler';
+
 
 
 @Component({
@@ -12,36 +14,74 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ConsultarCoroinhaComponent implements OnInit {
   @ViewChild('content',{static:false})el!:ElementRef;
-  @ViewChild('meuP') parag:any;
-  @ViewChild('nome_escala') input:any;
+  
+
+
   formGroupPesquisa!: FormGroup;
 
   constructor(private service:AppService,private formBuilder:FormBuilder) { }
-   
+  
+
   readData:any;
   alt:any=false; 
-  radio:any=true;
+  checked:any=[''];
+  check:any;
   searchInput:string="";
-  mês:any=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']; 
+  dataInput:string="Geral";
+  mes:string =""
+
+
 
  ocultarBotao(){
    this.alt = !this.alt;  
  }
 
- selecionarRadio(id:any){
-   this.radio;
-   console.log(this.radio);
-   console.log(id,'deleteid->');
- }
+/* checkButton(){
+   let checkBoxs = document.querySelectorAll('input[type=checkbox]');
+   
+   for(let i=0;i<this.readData.length;i++){
+     this.checked[i] = checkBoxs[i];
+   }
+
+   this.checked.forEach(function(value:any,key:any) {
+    console.log(key);
+     }); 
+  
+   
+      for(let j=0;j<this.readData.length;j++){
+
+            
+        if(j==0){
+          checkBoxs =  this.readData[0].id
+          console.log(checkBoxs);
+        }
+
+        if(j==1){
+          checkBoxs =  this.readData[1].id
+          console.log(checkBoxs);
+        }
+
+        if(j==2){
+          checkBoxs =  this.readData[2].id
+          console.log(checkBoxs);
+        }
+       
+    }  
+     
+} */
+
 
   ngOnInit(): void {
     this.service.readData().subscribe((res)=>{
       this.readData = res;  
     });
+    
      
 }
 
-
+limparFiltro(){
+  location.reload()
+}
   
 printSimplePDF(){
   let pdf = new jsPDF('p','pt','a4',false);
@@ -56,7 +96,6 @@ printSimplePDF(){
 
 
 deleteID(id:any){
-  console.log(id,'deleteid->');
   this.service.deleteData(id).subscribe((res)=>{
        console.log(res); 
        this.service.readData().subscribe((res)=>{
@@ -64,4 +103,5 @@ deleteID(id:any){
     });     
   });
 }
+
 }

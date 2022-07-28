@@ -14,13 +14,30 @@
 
       <div class="container-data">
         <form>
-          <input type="text" class="form-control"  id="data-input" >
+          <select  [(ngModel)]="dataInput" name="dataInput" class="form-select" id="mes">
+            <option disabled>Escolha um mês</option>
+            <option>Janeiro</option>
+            <option>Fevereiro</option>
+            <option>Março</option>
+            <option>Abril</option>
+            <option>Maio</option>
+            <option>Junho</option>
+            <option>Julho</option>
+            <option>Agosto</option>
+            <option>Setembro</option>
+            <option>Outubro</option>
+            <option>Novembro</option>
+            <option>Dezembro</option>
+        </select>  
             <mat-icon id="data">date_range</mat-icon>
           </form>
       </div>
+      
     </div>
 
-   
+     <div class="limpar-filtro" >
+         <button type="button" (click)="limparFiltro()" class="btn btn-dark">Limpar Filtro</button>
+      </div>
    
       
       <div class="page__content shadow p-3 position-relative" id="content" #content>
@@ -32,19 +49,16 @@
             
           <div>
             
-           <h4>PASTORAL DE COROINHAS E ACÓLITOS - ESCALA MÊS</h4>
+           <h4>PASTORAL DE COROINHAS E ACÓLITOS - ESCALA MÊS ({{dataInput}})</h4>
           <br>
-          <div *ngFor="let dados of readData | filtroCoroinha:searchInput">
-         <!--    <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="radios">
-            </div> -->
-            
-            <table class="table table-bordered" class="tabela-1" >
-            
+          
+          <div *ngFor="let dados of readData | filtroCoroinha:searchInput | filterCoroinhaData:dataInput">
              
+          
+            <table class="table table-bordered" class="tabela-1" >
+          
               <thead class="head">
                 <tr>
-                  <th class="id" scope="col">Id</th>
                   <th scope="col">Data</th>
                   <th scope="col">Dia</th>
                   <th scope="col">Hora</th>
@@ -53,10 +67,10 @@
                   <th scope="col">Coroinhas</th>
                 </tr>
               </thead>
-             
+
               <tbody>
+
                   <tr>
-                      <th>{{dados.id}}</th>
                       <td>{{dados.data}}</td>
                       <td>{{dados.dia}}</td>
                       <td>{{dados.hora}}</td>
@@ -64,20 +78,18 @@
                       <td>{{dados.acolito1}}</td>
                       <td>{{dados.coroinha1}}</td>
                   </tr>
-                  
+        
  
                   <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td> {{dados.acolito2}}</td>
+                    <td>{{dados.acolito2}}</td>
                     <td>{{dados.coroinha2}}</td>
                   </tr>
 
-                  <tr>
-                    <td></td>
+                  <tr>              
                     <td></td>
                     <td></td>
                     <td></td>
@@ -92,12 +104,10 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
                     <td>{{dados.coroinha4}}</td>
                   </tr>
 
-                  <tr >
-                    <td></td>
+                  <tr>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -105,18 +115,20 @@
                     <td></td>
                     <td>{{dados.coroinha5}}</td>
                   </tr>
-                 
+           
               </tbody>
               
-            </table>
            
+            </table>
+
+            <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-coroinha',dados.id]">edit</mat-icon>
+            <mat-icon *ngIf="alt" class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
+            
             <div class="divisão-tabela"></div>
-                        
-            <a *ngIf="alt" id="alt" [routerLink]="['/criar-coroinha',dados.id]" class="btn btn-sm btn-primary">Editar</a>
-            <button *ngIf="alt" id="alt" class="btn btn-sm btn-danger" (click)="deleteID(dados.id)">Excluir</button>
-         
-        </div>
-       
+                   
+          
+          </div> 
+      
           
           
           
@@ -126,9 +138,12 @@
       </div>
     </div>
     <button  id="download" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button><mat-icon id="print"> local_printshop</mat-icon>
-    
+
    
+      
+ 
 
   </div><!-- container-fluid page -->    
+
   
   

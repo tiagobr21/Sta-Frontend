@@ -4,7 +4,7 @@
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data position-absolute text-center">
           
-    
+         
             <form [formGroup]="userForm" (ngSubmit)="userSubmit()">
                 <div class="form-group">
                     <label for="missa">Missa/Celebração</label>
@@ -14,12 +14,34 @@
                     </select>                   
                 </div>
                 <br>
-                <div class="form-group">
+            
+              
+            
+                <div class="form-group" id="div-data">
                     <label for="data">Data</label>
                     <input type="text" class="form-control" id="data" formControlName="data" placeholder="Ex: 01/10/2022" />
                    
                 </div>
-                <small id="linha" class="form-text text-muted"><p>_____________________________________________________<p></small>
+
+               
+                <div class="form-group" id="div-mes">
+                        <label for="mes">Mês</label>
+                        <select  formControlName="mes" class="form-select" id="mes">
+                            <option disabled>Escolha um mês</option>
+                            <option>Janeiro</option>
+                            <option>Fevereiro</option>
+                            <option>Março</option>
+                            <option>Abril</option>
+                            <option>Maio</option>
+                            <option>Junho</option>
+                            <option>Julho</option>
+                            <option>Agosto</option>
+                            <option>Setembro</option>
+                            <option>Outubro</option>
+                            <option>Novembro</option>
+                            <option>Dezembro</option>
+                        </select>     
+                </div><br><br>
 
                   <div id="info" class="alert alert-primary d-flex align-items-center" role="alert">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
