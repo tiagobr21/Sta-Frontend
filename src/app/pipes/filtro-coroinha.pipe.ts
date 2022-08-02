@@ -17,7 +17,7 @@ export class FiltroCoroinhaPipe implements PipeTransform {
       let diaSearch:string=value[i].dia;
       let horaSearch:string=value[i].hora;
       let comSearch: string = value[i].comunidade; 
-    
+
      
 
       if( dataSearch.toLowerCase().startsWith(sName)

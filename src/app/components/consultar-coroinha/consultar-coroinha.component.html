@@ -115,15 +115,17 @@
                     <td></td>
                     <td>{{dados.coroinha5}}</td>
                   </tr>
-           
+                 
+             
               </tbody>
               
            
             </table>
-
-            <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-coroinha',dados.id]">edit</mat-icon>
-            <mat-icon *ngIf="alt" class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
             
+   
+              <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-coroinha',dados.id]">edit</mat-icon>
+              <mat-icon *ngIf="alt" class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
+
             <div class="divisão-tabela"></div>
                    
           

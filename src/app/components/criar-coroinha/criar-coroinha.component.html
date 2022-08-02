@@ -5,14 +5,24 @@
         <div class="page__content-data position-absolute text-center">
           
          
-            <form [formGroup]="userForm" (ngSubmit)="userSubmit()">
-                <div class="form-group">
+            <form [formGroup]="userForm">
+            
+                <div *ngIf="!getparamid" class="form-group">
                     <label for="missa">Missa/Celebração</label>
                     <select formControlName="missa" class="form-select" id="missa">
                         <option>Escolha</option>
                         <option *ngFor="let missas of select_missaData">{{missas.nome}}</option>
                     </select>                   
                 </div>
+
+                <div *ngIf="getparamid" class="form-group">
+                    <label for="missa">Missa/Celebração</label>
+                    <select formControlName="missa" class="form-select" id="missa">
+                        <option *ngFor="let resIDs of resID">{{resIDs.missa}}</option>
+                        <option *ngFor="let missas of select_missaData">{{missas.nome}}</option>
+                    </select>                   
+                </div>
+
                 <br>
             
               
@@ -52,31 +62,53 @@
                     </div>
                   </div>
 
-                <div  class="form-group">
+                  <div *ngIf="!getparamid"  class="form-group">
                     <label id="label-data" for="acolito">Acolito</label>
                     <select formControlName="acolito1" class="form-select" id="nomes-acolito1">  
                         <option>Escolha o Acolito 1</option>
                         <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
                     </select>
                 </div>
-                 
-                <div class="form-group">
+   
+                  <div *ngIf="getparamid" class="form-group">
+                    <label id="label-data" for="acolito">Acolito</label>
+                    <select formControlName="acolito1" class="form-select" id="nomes-acolito1">  
+                        <option *ngFor="let resIDs of resID">{{resIDs.acolito1}}</option>
+                        <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                    </select>
+                </div>
+
+                <div *ngIf="!getparamid" class="form-group">
                     <select formControlName="acolito2" class="form-select" id="nomes-acolito2">
                         <option id="option">Escolha o Acolito 2</option>
                         <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
                     </select>
                 </div>
 
+                <div *ngIf="getparamid" class="form-group">
+                    <select formControlName="acolito2" class="form-select" id="nomes-acolito2">  
+                        <option *ngFor="let resIDs of resID">{{resIDs.acolito2}}</option>
+                        <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                    </select>
+                </div>
+
                 
-                <div class="form-group">
+                <div *ngIf="!getparamid" class="form-group">
                     <select formControlName="acolito3" class="form-select" id="nomes-acolito3">
-                        <option>Escolha o Acolito 3</option>
+                        <option id="option">Escolha o Acolito 3</option>
+                        <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                    </select>
+                </div>
+
+                <div *ngIf="getparamid" class="form-group">
+                    <select formControlName="acolito3" class="form-select" id="nomes-acolito3"> 
+                        <option *ngFor="let resIDs of resID">{{resIDs.acolito3}}</option>
                         <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
                     </select>
                 </div>
 
          
-                <div class="form-group">
+                <div *ngIf="!getparamid" class="form-group">
                     <label id="label-data" for="coroinha">Coroinha</label>
                     <select formControlName="coroinha1" class="form-select" id="nomes-coroinha">
                         <option>Escolha o coroinha 1</option>
@@ -84,37 +116,80 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div *ngIf="getparamid" class="form-group">
+                    <label id="label-data" for="coroinha">Coroinha</label>
+                    <select formControlName="coroinha1" class="form-select" id="nomes-coroinha">
+                        <option *ngFor="let resIDs of resID">{{resIDs.coroinha1}}</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
+                    </select>
+                </div>
+
+                <div *ngIf="!getparamid" class="form-group">
                     <select formControlName="coroinha2" class="form-select" id="nomes-coroinha">
                         <option>Escolha o coroinha 2</option>
                         <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div *ngIf="getparamid" class="form-group">
+                    <select formControlName="coroinha2" class="form-select" id="nomes-coroinha">
+                        <option *ngFor="let resIDs of resID">{{resIDs.coroinha2}}</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
+                    </select>
+                </div>
+
+                <div *ngIf="!getparamid" class="form-group">
                     <select formControlName="coroinha3" class="form-select" id="nomes-coroinha">
                         <option>Escolha o coroinha 3</option>
                         <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div *ngIf="getparamid" class="form-group">
+                    <select formControlName="coroinha3" class="form-select" id="nomes-coroinha">
+                        <option *ngFor="let resIDs of resID">{{resIDs.coroinha3}}</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
+                    </select>
+                </div>
+
+                <div *ngIf="!getparamid" class="form-group">
                     <select formControlName="coroinha4" class="form-select" id="nomes-coroinha">
                         <option>Escolha o coroinha 4</option>
                         <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
 
-                <div class="form-group">   
+                <div *ngIf="getparamid" class="form-group">
+                    <select formControlName="coroinha4" class="form-select" id="nomes-coroinha">
+                        <option *ngFor="let resIDs of resID">{{resIDs.coroinha4}}</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
+                    </select>
+                </div>
+                
+
+                <div *ngIf="!getparamid" class="form-group">   
                     <select formControlName="coroinha5" class="form-select" id="nomes-coroinha">
                         <option>Escolha o coroinha 5</option>
                         <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                     </select>
                 </div>
+
+                <div *ngIf="getparamid" class="form-group">
+                    <select formControlName="coroinha5" class="form-select" id="nomes-coroinha">
+                        <option *ngFor="let resIDs of resID">{{resIDs.coroinha5}}</option>
+                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
+                    </select>
+                </div>
                 
+                <div *ngIf="!getparamid" (click)="userSubmit()">
+                    <button class="btn btn-success" id="enviar">Criar</button>
+                </div>
+
+                <div *ngIf="getparamid" (click)="userUpdate()">
+                    <button class="btn btn-success" id="enviar">Atualizar</button>
+                </div>
               
-                <input  *ngIf="!getparamid" type="submit" class="btn btn-success" id="enviar" value="Enviar" >
-                <input *ngIf="getparamid" type="submit" class="btn btn-success" id="enviar" value="Atualizar" >
+                
             </form>
         </div>
     </div>

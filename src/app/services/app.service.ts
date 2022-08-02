@@ -11,10 +11,12 @@ import { FormGroup } from "@angular/forms";
 export class AppService{
 
   formularioRegistro!:FormGroup;
+
   urlCreate = 'http://localhost:8080/escala_coroinha/create';
   urlRead = 'http://localhost:8080/escala_coroinha/read';
   urlDelete = 'http://localhost:8080/escala_coroinha/delete';
   urlUpdate = 'http://localhost:8080/escala_coroinha/update';
+  urlgetSingleData = 'http://localhost:8080/escala_coroinha/getSingleData';
   urlSelect_Coroinha = 'http://localhost:8080/escala_coroinha/select_coroinha';
   urlSelect_Acolito = 'http://localhost:8080/escala_coroinha/select_acolito';
   urlSelect_Comunidades = 'http://localhost:8080/escala_coroinha/select_comunidades';
@@ -46,9 +48,9 @@ export class AppService{
   }
 
    getSingleData(id:any):Observable<any>{
-    let ids =id;
-    return this._http.get(`${this.urlCreate}/${ids}`);
-  } 
+    let ids = id;
+    return this._http.get(`${this.urlgetSingleData}/${ids}`);
+   } 
    
   select_coroinhaData():Observable<any>{
     return this._http.get(`${this.urlSelect_Coroinha}`);

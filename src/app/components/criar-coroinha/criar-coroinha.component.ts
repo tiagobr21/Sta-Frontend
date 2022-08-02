@@ -20,29 +20,31 @@ export class CriarCoroinhaComponent implements OnInit {
    select_coroinhaData:any;
    select_acolitoData:any;
    select_missaData:any;
-   
+   resID:any;
+
   ngOnInit(): void {
-    this.getparamid = this.router.snapshot.paramMap.get('id'),'getid';
-     this.service.getSingleData(this.getparamid).subscribe((res)=>{
-        console.log(res);
-        this.userForm.patchValue({
-          missa:res[0].missa,
-          'data':res[0].data,
+     this.getparamid = this.router.snapshot.paramMap.get('id');
+     if(this.getparamid){
 
-         
-     /*   acolito1:res.data[0].acolito1,
-          acolito2:res.data[0].acolito2,
-          acolito3:res.data[0].acolito3,
-          coroinha1:res.data[0].coroinha1,
-          coroinha2:res.data[0].coroinha2,
-          coroinha3:res.data[0].coroinha3,
-          coroinha4:res.data[0].coroinha4,
-          coroinha5:res.data[0].coroinha5, */
-        });
+        this.service.getSingleData(this.getparamid).subscribe((res)=>{
+            this.resID = res;
+
+          this.userForm.patchValue({
+            missa:res[0].missa,
+            data:res[0].data,
+            mes:res[0].mes,
+            acolito1:res[0].acolito1,
+            acolito2:res[0].acolito2,
+            acolito3:res[0].acolito3,
+            coroinha1:res[0].coroinha1,
+            coroinha2:res[0].coroinha2,
+            coroinha3:res[0].coroinha3,
+            coroinha4:res[0].coroinha4,
+            coroinha5:res[0].coroinha5,
+          });
         
-    
-      });
-
+        });
+    }
         this.service.select_coroinhaData().subscribe((res)=>{
         this.select_coroinhaData = res;  
     }); 
@@ -81,10 +83,18 @@ export class CriarCoroinhaComponent implements OnInit {
     }
   }
 
- 
-
   userUpdate(){
+     console.log(this.userForm.value,'updateform');
 
-  }
+     if(this.userForm.valid){
+        this.service.updateData(this.userForm.value,this.getparamid).subscribe((res)=>{
+          console.log(res,'resupdate');
+          this.userForm.reset();
+        });
+    }else{
+       console.log("algo deu errado");
+     }
+  }  
+
  
 }

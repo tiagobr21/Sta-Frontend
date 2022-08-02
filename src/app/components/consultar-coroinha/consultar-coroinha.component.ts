@@ -28,8 +28,8 @@ export class ConsultarCoroinhaComponent implements OnInit {
   check:any;
   searchInput:string="";
   dataInput:string="Geral";
-  mes:string =""
-
+  mes:string ="";
+  allcoroinhas:any;
 
 
  ocultarBotao(){
@@ -74,6 +74,9 @@ export class ConsultarCoroinhaComponent implements OnInit {
   ngOnInit(): void {
     this.service.readData().subscribe((res)=>{
       this.readData = res;  
+      for(let i=0;i<this.readData.length;i++){
+          this.allcoroinhas =  this.readData[i].coroinha1;  /* + this.readData[i].coroinha2 +this.readData[i].coroinha3 + this.readData[i].coroinha4 + this.readData[i].coroinha5; */
+      }
     });
     
      
