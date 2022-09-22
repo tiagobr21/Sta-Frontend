@@ -33,3 +33,19 @@ a{
     border-radius: 10px;
     border:solid 3px #1e293b;
 }
+
+
+:host{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer{
+    width: 260px;
+    background-color: #0f172a;
+}
+
+mat-drawer-container{
+    height: 100%;
+}

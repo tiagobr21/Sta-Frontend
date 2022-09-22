@@ -19,18 +19,15 @@
     </div>
     
     <div class="login">
-      <form [formGroup]="cadastroForm" (ngSubmit)="ngSubmit()">
-        <h1>Cadastro</h1>
-        <input formControlName="name" type="text" placeholder="Nome">
+      <form [formGroup]="loginForm" (ngSubmit)="ngSubmit()">
+        <h1>Login</h1>
+        <input formControlName="email" type="text" placeholder="Email">
         <br><br>
-        <input formControlName="email" type="email" placeholder="Email">
+        <input formControlName="senha" type="password" placeholder="Senha">
         <br><br>
-        <input formControlName="password" type="password" placeholder="Senha">
-        <br><br>
-
-      <button id="enviar" [disabled]="!cadastroForm.valid" (click)="ngSubmit()" type="submit" >Cadastrar</button>
+        <input id="enviar" (click)="ngSubmit()" type="submit" value="Entrar">
       </form>
-      <div class="cadastrar"><span>Login</span></div>
+      <div class="cadastrar"><span>Cadastrar</span></div>
     </div>
 
     <div class="creditos">

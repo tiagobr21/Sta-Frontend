@@ -9,14 +9,20 @@ import { Observable, retry } from "rxjs";
 
 export class AppService{
   
-  urlSignup = 'http://localhost:8080/user/signup';
+  urlCadastrar = 'http://localhost:8080/user/signup';
+  urlLogin = 'http://localhost:8080/user/login';
 
   constructor(private _http:HttpClient) { }
+   
   
-  signup(data:any){
-    return this._http.post(`${this.urlSignup}`,data,{
+  cadastro(data:any){
+    return this._http.post(`${this.urlCadastrar}`,data,{
       headers:new HttpHeaders().set("Content-Type","application/json")
     });
+  }
+
+  login(dados:any):Observable<any>{
+    return this._http.post(`${this.urlLogin}`,dados);
   }
 
    

@@ -6,7 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categoria-criar-escala.component.css']
 })
 export class CategoriaCriarEscalaComponent implements OnInit {
+ 
+  title = 'app-sta';
+  sideBarOpen = true;
 
+
+  sideBarToggler(){
+    this.sideBarOpen = !this.sideBarOpen;
+  }
   constructor() { }
 
   ngOnInit(): void {

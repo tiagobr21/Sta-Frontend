@@ -15,7 +15,13 @@ import { ThisReceiver } from '@angular/compiler';
 export class ConsultarCoroinhaComponent implements OnInit {
   @ViewChild('content',{static:false})el!:ElementRef;
   
+  title = 'app-sta';
+   sideBarOpen = true;
 
+ 
+   sideBarToggler(){
+     this.sideBarOpen = !this.sideBarOpen;
+   }
 
   formGroupPesquisa!: FormGroup;
 

@@ -1,4 +1,12 @@
 
+
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      
 <div class="container-fluid page">
     <div class="page__box p-3 mt-2">Criar Escala - Coroinha</div>
     <div class="page__content shadow p-3 position-relative">
@@ -15,32 +23,49 @@
                     </select>                   
                 </div>
 
-                <div *ngIf="getparamid" class="form-group">
+                <div *ngIf="getparamid" id="missa_atualizar" class="form-group">
                     <label for="missa">Missa/Celebração</label>
                     <select formControlName="missa" class="form-select" id="missa">
                         <option *ngFor="let resIDs of resID">{{resIDs.missa}}</option>
                         <option *ngFor="let missas of select_missaData">{{missas.nome}}</option>
                     </select>                   
                 </div>
+<br>    
 
-                <br>
-            
-              
-            
-                <div class="form-group" id="div-data">
-                    <label for="data">Data</label>
-                    <input type="text" class="form-control" id="data" formControlName="data" placeholder="Ex: 01/10/2022" />
-                   
+                <div *ngIf="getparamid" class="form-group" id="div-data">
+                    <label for="data">Dia</label>
+                    <input type="text" id="data" class="form-control" formControlName="dia"  />
+ 
                 </div>
 
-               
+                <div *ngIf="getparamid" class="form-group" id="div-data">
+                    <label for="data">Hora</label>
+                    <input type="text" id="data" class="form-control" formControlName="hora" />
+ 
+                </div>
+        
+                <div *ngIf="getparamid" class="form-group" id="div-data">
+                    <label for="data">Comunidade</label>
+                    <input type="text" id="data" class="form-control" formControlName="comunidade" />
+ 
+                </div>
+        
+        
+        
+                <div class="form-group" id="div-data">
+                    <label for="data">Data</label>
+                    <input type="text" id="data" class="form-control" formControlName="data" placeholder="Ex: 01/agosto/2022" />
+ 
+                </div>
+                  
+    
                 <div class="form-group" id="div-mes">
                         <label for="mes">Mês</label>
-                        <select  formControlName="mes" class="form-select" id="mes">
+                        <select formControlName="mes"  class="form-select" id="mes">
                             <option disabled>Escolha um mês</option>
                             <option>Janeiro</option>
-                            <option>Fevereiro</option>
-                            <option>Março</option>
+                            <option> Fevereiro</option>
+                            <option >Março</option>
                             <option>Abril</option>
                             <option>Maio</option>
                             <option>Junho</option>
@@ -195,3 +220,9 @@
     </div>
    
 </div>
+
+
+        
+    </mat-drawer-content>
+</mat-drawer-container>
+

@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  title = 'app-sta';
+  sideBarOpen = true;
+  
+  ngOnInit(){}
 
-  ngOnInit(): void {
+  sideBarToggler(){
+    this.sideBarOpen = !this.sideBarOpen;
   }
-
 }
