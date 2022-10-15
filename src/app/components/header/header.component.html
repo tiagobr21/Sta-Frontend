@@ -10,10 +10,17 @@
                     <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
-                    <mat-icon>exit_to_app</mat-icon>
-                     Logout
+
+                    <button (click)="cadastrarModal()" mat-menu-item>
+                        <mat-icon >create</mat-icon>
+                          <span>Criar Usuário</span> 
                     </button>
+
+                    <button (click)="logout()" mat-menu-item>
+                        <mat-icon>exit_to_app</mat-icon>
+                         Logout
+                    </button>
+
                 </mat-menu>
             </li>
           </ul>

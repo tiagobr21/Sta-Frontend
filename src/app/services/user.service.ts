@@ -11,6 +11,7 @@ export class AppService{
   
   urlCadastrar = 'http://localhost:8080/user/signup';
   urlLogin = 'http://localhost:8080/user/login';
+  urlEsqueceuSenha = 'http://localhost:8080/user/forgotpassword';
 
   constructor(private _http:HttpClient) { }
    
@@ -19,6 +20,12 @@ export class AppService{
     return this._http.post(`${this.urlCadastrar}`,data,{
       headers:new HttpHeaders().set("Content-Type","application/json")
     });
+  }
+
+  esqueceuSenha(data:any){
+    return this._http.post(`${this.urlEsqueceuSenha}`,data,{
+      headers:new HttpHeaders().set("Content-Type","application/json")
+    })
   }
 
   login(dados:any):Observable<any>{

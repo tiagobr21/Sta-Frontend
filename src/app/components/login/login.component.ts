@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { FormGroup,FormControl,Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/user.service';
+import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 
 @Component({
@@ -11,23 +13,36 @@ import { AppService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
   
+  loginForm:any = FormGroup;
 
-  constructor(private service: AppService,private router:Router) { }
+  constructor(private fb:FormBuilder,private service: AppService,private router:Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email:[null,[Validators.required]],
+      password: [null,[Validators.required]]
+    })
   }
   
-  loginForm = new FormGroup({
-    'email':new FormControl('',Validators.required),
-    'senha':new FormControl('',Validators.required)
-  })
-  
+ 
+
+  forgotPassword(){
+   const dialogConfig = new MatDialogConfig()
+   dialogConfig.width = "550px";
+   this.dialog.open(ForgotPasswordComponent,dialogConfig);
+  }
 
   ngSubmit(){
-   if(this.loginForm.valid){
-     this.service.login(this.loginForm.value).subscribe((res)=>{
-         console.log('response =>', res.data);
-     })
+   let formData = this.loginForm.value;
+   let data = {
+    email: formData.email,
+    password: formData.password
    }
+    this.service.login(data).subscribe((res:any)=>{
+      console.log(res);
+      this.router.navigate(['/home'])
+    },(error)=>{
+      alert('Senha Incorreta, tente novamente !!!');
+    })
   }
 }

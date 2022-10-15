@@ -36,6 +36,8 @@ export class CadastroComponent implements OnInit {
        console.log(res);
 
     })
+
+    this.cadastroForm.reset();
   }
  
   

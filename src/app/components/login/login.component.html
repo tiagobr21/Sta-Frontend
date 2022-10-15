@@ -23,11 +23,12 @@
         <h1>Login</h1>
         <input formControlName="email" type="text" placeholder="Email">
         <br><br>
-        <input formControlName="senha" type="password" placeholder="Senha">
+        <input formControlName="password" type="password" placeholder="Senha">
         <br><br>
-        <input id="enviar" (click)="ngSubmit()" type="submit" value="Entrar">
+        <input [disabled]="!loginForm.valid" id="enviar" (click)="ngSubmit()" type="submit" value="Entrar">
       </form>
-      <div class="cadastrar"><span>Cadastrar</span></div>
+      <span routerLink="/cadastro"  class="cadastrar">Cadastrar</span><br>
+      <span (click)="forgotPassword()" class="esqueceu">Esqueci a minha senha </span>
     </div>
 
     <div class="creditos">

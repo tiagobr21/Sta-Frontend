@@ -19,7 +19,8 @@ const routes: Routes = [
   {path:'consultar-coroinha',component:ConsultarCoroinhaComponent},
   {path:'login',component:LoginComponent},
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},
-  {path:'cadastro',component:CadastroComponent}
+  {path:'cadastro',component:CadastroComponent},
+
  
 
 ];
