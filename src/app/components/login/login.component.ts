@@ -40,9 +40,11 @@ export class LoginComponent implements OnInit {
    }
     this.service.login(data).subscribe((res:any)=>{
       console.log(res);
+      localStorage.setItem('token',res.token);
       this.router.navigate(['/home'])
     },(error)=>{
       alert('Senha Incorreta, tente novamente !!!');
+      setTimeout(function(){ location.reload(); }, 5000);
     })
   }
 }

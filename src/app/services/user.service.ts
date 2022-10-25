@@ -12,6 +12,7 @@ export class AppService{
   urlCadastrar = 'http://localhost:8080/user/signup';
   urlLogin = 'http://localhost:8080/user/login';
   urlEsqueceuSenha = 'http://localhost:8080/user/forgotpassword';
+  urlcheckToken ='http://localhost:8080/user/checkToken'
 
   constructor(private _http:HttpClient) { }
    
@@ -30,6 +31,10 @@ export class AppService{
 
   login(dados:any):Observable<any>{
     return this._http.post(`${this.urlLogin}`,dados);
+  }
+
+  checkToken(){
+    return this._http.get(`${this.urlcheckToken}`);
   }
 
    

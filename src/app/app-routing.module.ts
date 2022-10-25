@@ -11,16 +11,17 @@ import { CategoryConsultarEscalaComponent } from './components/category-consulta
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'home', pathMatch:'full'},
+
+  {path:'',redirectTo:'login', pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'categoria-criar-escala',component: CategoriaCriarEscalaComponent},
   {path:'criar-coroinha',component:CriarCoroinhaComponent},
   {path:'criar-coroinha/:id',component:CriarCoroinhaComponent},
   {path:'consultar-coroinha',component:ConsultarCoroinhaComponent},
-  {path:'login',component:LoginComponent},
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},
   {path:'cadastro',component:CadastroComponent},
 
+  {path:'login',component:LoginComponent},
  
 
 ];
