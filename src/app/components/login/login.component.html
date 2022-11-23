@@ -10,12 +10,16 @@
 <body>
    
     <section class="imagem">
-     <img src="../../../assets/santa-teresinha.png">
+     <img class="santa-teresinha" src="../../../assets/santa-teresinha.png">
     </section>
     
     <div class="frase">
       <p class="parag1">"Ó Jesus, meu Amor… minha vocação, enfim,</p>
       <p class="parag2">eu a encontrei, minha vocação é o Amor"</p>
+    </div>
+
+    <div class="logo">
+      <img class="img-logo"  src="../../../assets/logo.png"> 
     </div>
     
     <div class="login">
@@ -27,7 +31,7 @@
         <br><br>
         <input [disabled]="!loginForm.valid" id="enviar" (click)="ngSubmit()" type="submit" value="Entrar">
       </form>
-      <span routerLink="/cadastro"  class="cadastrar">Cadastrar</span><br>
+      <span routerLink="/cadastro"  class="cadastrar">Solicitar Acesso</span><br>
       <span (click)="forgotPassword()" class="esqueceu">Esqueci a minha senha </span>
     </div>
 

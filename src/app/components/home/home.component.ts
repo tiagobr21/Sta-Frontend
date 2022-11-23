@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RouterGuardService } from 'src/app/services/router-guard.service';
 import { AppService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-home',
@@ -23,6 +25,8 @@ export class HomeComponent implements OnInit {
 
         })
     }
+    
+    
   }
 
   sideBarToggler(){

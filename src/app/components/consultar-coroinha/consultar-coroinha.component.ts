@@ -34,9 +34,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
   check:any;
   searchInput:string="";
   dataInput:string="Geral";
+  anoInput:string="Geral";
   mes:string ="";
   allcoroinhas:any;
-
+  anoAtual:any
 
  ocultarBotao(){
    this.alt = !this.alt;  
@@ -79,13 +80,16 @@ export class ConsultarCoroinhaComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.readData().subscribe((res)=>{
-      this.readData = res;  
+      this.readData = res; 
+
       for(let i=0;i<this.readData.length;i++){
-          this.allcoroinhas =  this.readData[i].coroinha1;  /* + this.readData[i].coroinha2 +this.readData[i].coroinha3 + this.readData[i].coroinha4 + this.readData[i].coroinha5; */
+        console.log(this.readData[i].ano);
       }
     });
     
-     
+    let date = new Date();
+    this.anoAtual = date.getFullYear();
+    console.log( this.anoAtual );
 }
 
 limparFiltro(){
@@ -93,14 +97,21 @@ limparFiltro(){
 }
   
 printSimplePDF(){
+
+
+console.log(this.anoInput) 
   let pdf = new jsPDF('p','pt','a4',false);
-  
+
   pdf.html(this.el.nativeElement,{
      callback:(pdf)=>{
-       pdf.save('teste_pdf.pdf');
+      
+       pdf.save('Escala Corinha.pdf');
+   
      } 
      
   }); 
+
+  
 } 
 
 

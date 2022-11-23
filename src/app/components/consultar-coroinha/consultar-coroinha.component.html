@@ -23,49 +23,78 @@
         </form>
     </div>
 
-    <div class="container-data">
-      <form>
-        <select  [(ngModel)]="dataInput" name="dataInput" class="form-select" id="mes">
-          <option disabled>Escolha um mês</option>
-          <option>Janeiro</option>
-          <option>Fevereiro</option>
-          <option>Março</option>
-          <option>Abril</option>
-          <option>Maio</option>
-          <option>Junho</option>
-          <option>Julho</option>
-          <option>Agosto</option>
-          <option>Setembro</option>
-          <option>Outubro</option>
-          <option>Novembro</option>
-          <option>Dezembro</option>
-      </select>  
-          <mat-icon id="data">date_range</mat-icon>
-        </form>
-    </div>
-    
+
+  
+</div>
+
+<div class="limpar-filtro" >
+  <button type="button" (click)="limparFiltro()" class="btn btn-dark">Limpar Filtro</button>
+</div>
+
+
+<section class="flex">
+  
+  <div class="container-data">
+
+    <form >
+      <label class="form-label">Escolha um mês</label>
+      <select  [(ngModel)]="dataInput" name="dataInput" class="form-select" id="mes">
+        <option selected>Geral</option>
+        <option>Janeiro</option>
+        <option>Fevereiro</option>
+        <option>Março</option>
+        <option>Abril</option>
+        <option>Maio</option>
+        <option>Junho</option>
+        <option>Julho</option>
+        <option>Agosto</option>
+        <option>Setembro</option>
+        <option>Outubro</option>
+        <option>Novembro</option>
+        <option>Dezembro</option>
+    </select>  
+        <mat-icon id="data">date_range</mat-icon>
+      </form>
   </div>
 
-   <div class="limpar-filtro" >
-       <button type="button" (click)="limparFiltro()" class="btn btn-dark">Limpar Filtro</button>
-    </div>
- 
-    
+  <div class="container-data">
+    <form>
+      <label class="form-label">Escolha um ano</label>
+      <select  [(ngModel)]="anoInput" name="anoInput" class="form-select" id="mes">
+        <option selected>Geral</option>
+        <option><p>2022</p></option>
+        <option><p>2023</p></option>
+        <option><p>2024</p></option>
+        <option><p>2025</p></option>
+        <option><p>2026</p></option>
+        <option><p>2027</p></option>
+        <option><p>2028</p></option>
+        <option><p>2029</p></option>
+        <option><p>2030</p></option>
+    </select>  
+        <mat-icon id="data">date_range</mat-icon>
+      </form>
+  </div>
+
+</section>
+
+
+
     <div class="page__content shadow p-3 position-relative" id="content" #content>
+ 
       <div>
 
-       
-        
+
         <div class="container mt-5" id="divisao">
-          
+     
+        
         <div>
           
-         <h4>PASTORAL DE COROINHAS E ACÓLITOS - ESCALA MÊS ({{dataInput}})</h4>
-        <br>
-        
-        <div *ngFor="let dados of readData | filtroCoroinha:searchInput | filterCoroinhaData:dataInput">
-           
-        
+         <h4>PASTORAL DE COROINHAS E ACÓLITOS - ESCALA ({{dataInput}})-{{anoInput}} </h4>
+         <div class="conteiner-img"><img class="img-pdf" src="../../../assets/logo.png"></div>
+        <div *ngFor="let dados of readData | filtroCoroinha:searchInput | filterCoroinhaData:dataInput | filterCoroinhaAno:anoInput">
+         
+
           <table class="table table-bordered" class="tabela-1" >
         
             <thead class="head">
@@ -88,6 +117,7 @@
                     <td>{{dados.comunidade}}</td>
                     <td>{{dados.acolito1}}</td>
                     <td>{{dados.coroinha1}}</td>
+      
                 </tr>
       
 
@@ -130,25 +160,26 @@
            
             </tbody>
             
-         
+    
           </table>
           
- 
+
             <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-coroinha',dados.id]">edit</mat-icon>
             <mat-icon *ngIf="alt" class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
 
           <div class="divisão-tabela"></div>
                  
-        
+
         </div> 
     
         
-        
+
         
         </div>
-           
+      
         </div>
     </div>
+
   </div>
   <button  id="download" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button><mat-icon id="print"> local_printshop</mat-icon>
 

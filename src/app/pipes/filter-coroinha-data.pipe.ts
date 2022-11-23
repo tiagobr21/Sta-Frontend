@@ -12,9 +12,9 @@ export class FilterCoroinhaDataPipe implements PipeTransform {
      
      const readMesArray:any[]=[];
      for(let i=0;i<value_mes.length;i++){
-       
+      console.log(value_mes[i])
       let mesSearch:string=value_mes[i].mes;
-      
+      console.log(mesSearch);
       if(mesSearch.startsWith(sName)){
          readMesArray.push(value_mes[i]);
          

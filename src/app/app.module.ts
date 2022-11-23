@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppService } from './services/app.service';
 import { CategoriaCriarEscalaComponent } from './components/categoria-criar-escala/categoria-criar-escala.component';
@@ -21,7 +21,11 @@ import { LoginComponent } from './components/login/login.component';
 import { CategoryConsultarEscalaComponent } from './components/category-consultar-escala/category-consultar-escala.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { MensagensComponent } from './components/mensagens/mensagens.component';
+import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
+import { MsgerrorloginComponent } from './components/mgs-error/msgerrorlogin/msgerrorlogin.component';
+import { MsgSucessComponent } from './components/msg-sucess/msg-sucess.component';
+import { FilterCoroinhaAnoPipe } from './pipes/filter-coroinha-ano.pipe';
+import { AtualizarEscalaComponent } from './components/msg-sucess/atualizar-escala.component';
 
 
 
@@ -42,7 +46,10 @@ import { MensagensComponent } from './components/mensagens/mensagens.component';
     LoginComponent,
     CategoryConsultarEscalaComponent,
     ForgotPasswordComponent,
-    MensagensComponent,
+    MsgerrorloginComponent,
+    MsgSucessComponent,
+    FilterCoroinhaAnoPipe,
+    AtualizarEscalaComponent,
 
 
   
@@ -58,7 +65,7 @@ import { MensagensComponent } from './components/mensagens/mensagens.component';
     FormsModule
     
   ],
-  providers: [AppService],
+  providers: [AppService,HttpClientModule,{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

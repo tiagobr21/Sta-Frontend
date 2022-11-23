@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { MatDialog,MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
+import { MsgSucessComponent } from '../msg-sucess/msg-sucess.component';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
+import { AtualizarEscalaComponent } from '../msg-sucess/atualizar-escala.component';
 
 @Component({
   selector: 'app-criar-coroinha',
@@ -13,7 +15,7 @@ export class CriarCoroinhaComponent implements OnInit {
   @ViewChild('teste') teste:any;
   @ViewChild('mes') mes:any;
    
-  constructor(private service: AppService,private router:ActivatedRoute) { }
+  constructor(private service: AppService,private router:ActivatedRoute,private dialog: MatDialog) { }
  
    getparamid:any;
    select_coroinhaData:any;
@@ -40,6 +42,7 @@ export class CriarCoroinhaComponent implements OnInit {
             missa:res[0].missa,
             data:res[0].data,
             mes:res[0].mes,
+            ano:res[0].ano,
             dia:res[0].dia,
             hora:res[0].hora,
             comunidade:res[0].comunidade,
@@ -75,9 +78,10 @@ export class CriarCoroinhaComponent implements OnInit {
     'missa':new FormControl('',Validators.required),
     'data':new FormControl('',Validators.required),
     'mes':new FormControl('',Validators.required),
-    'dia':new FormControl('',Validators.required),
-    'hora':new FormControl('',Validators.required),
-     'comunidade':new FormControl('',Validators.required),
+    'ano':new FormControl('',Validators.required),
+    'dia':new FormControl('',Validators.prototype),
+    'hora':new FormControl('',Validators.prototype),
+    'comunidade':new FormControl('',Validators.prototype),
     'acolito1':new FormControl('',Validators.required),
     'acolito2':new FormControl('',Validators.prototype),
     'acolito3':new FormControl('',Validators.prototype),
@@ -90,23 +94,37 @@ export class CriarCoroinhaComponent implements OnInit {
   
 
   userSubmit(){
+
+    
     if(this.userForm.valid){
-      console.log(this.userForm.value);
       this.service.createData(this.userForm.value).subscribe((res)=>{
           console.log(res,'res==>');
+
+          const dialogConfig = new MatDialogConfig();
+          dialogConfig.width = "550px";
+          this.dialog.open(MsgSucessComponent,dialogConfig);
+   
           this.userForm.reset();
+
+
       });
     }
   }
 
   userUpdate(){
      console.log(this.userForm.value,'updateform');
+     
+   
 
      if(this.userForm.valid){
         this.service.updateData(this.userForm.value,this.getparamid).subscribe((res)=>{
           console.log(res,'resupdate');
+          const dialogConfig = new MatDialogConfig();
+          dialogConfig.width = "550px";
+          this.dialog.open(AtualizarEscalaComponent,dialogConfig);
           this.userForm.reset();
         });
+   
     }else{
        console.log("algo deu errado");
      }

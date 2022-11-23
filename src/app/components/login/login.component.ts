@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/user.service';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { MsgerrorloginComponent } from '../mgs-error/msgerrorlogin/msgerrorlogin.component';
 
 
 @Component({
@@ -43,8 +44,10 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token',res.token);
       this.router.navigate(['/home'])
     },(error)=>{
-      alert('Senha Incorreta, tente novamente !!!');
-      setTimeout(function(){ location.reload(); }, 5000);
+      const dialogConfig = new MatDialogConfig()
+      dialogConfig.width = "550px";
+      this.dialog.open(MsgerrorloginComponent,dialogConfig);
+      // setTimeout(function(){ location.reload(); }, 5000);
     })
   }
 }

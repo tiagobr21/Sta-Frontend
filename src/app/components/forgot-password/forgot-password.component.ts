@@ -32,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   close(){
-    this.dialogRef.close()
+    this.dialogRef.close();
   }
 
 }

@@ -9,11 +9,30 @@ import { CriarCoroinhaComponent } from './components/criar-coroinha/criar-coroin
 import { LoginComponent } from './components/login/login.component';
 import { CategoryConsultarEscalaComponent } from './components/category-consultar-escala/category-consultar-escala.component';
 import { CadastroComponent } from './components/cadastro/cadastro.component';
+import { RouterGuardService } from './services/router-guard.service';
 
 const routes: Routes = [
 
-  {path:'',redirectTo:'login', pathMatch:'full'},
-  {path:'home',component:HomeComponent},
+  {
+   path:'',
+   redirectTo:'login',
+   pathMatch:'full',
+  },{
+    path:'',
+   loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
+   canActivate:[RouterGuardService],
+   data:{
+    expectedRole:['admin','user']
+   }
+  },
+  
+  {path:'home',component:HomeComponent,
+    loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
+    canActivate:[RouterGuardService],
+    data:{
+    expectedRole:['admin','user']  
+    }
+  },
   {path:'categoria-criar-escala',component: CategoriaCriarEscalaComponent},
   {path:'criar-coroinha',component:CriarCoroinhaComponent},
   {path:'criar-coroinha/:id',component:CriarCoroinhaComponent},

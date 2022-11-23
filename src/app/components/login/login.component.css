@@ -16,7 +16,7 @@ body,html{
     animation:login 3s ;
     max-width: 100%;
 }
-img{
+.santa-teresinha{
     position: absolute;
     left: -15%;
     width: 66.3%;
@@ -34,6 +34,16 @@ img{
     animation: frase 4s;
 }
 
+.logo{
+    position: relative;
+    top: -20px;
+    left: -10px;
+    animation: frase 4s;
+}
+
+.img-logo{
+    width: 20%;
+}
 .parag2{
     margin-top: -10px;
 }
@@ -68,13 +78,15 @@ h1{
 
 .creditos{
   font-family: 'Times New Roman', Times, serif;
-  float: right;
-  margin-right: 10px;
+  position: relative;
+  top: -50px;
+  animation: frase 4s;
+
 
 }
 
 .cadastrar{
-  margin:10px 0 0 80px ;
+  margin:10px 0 0 60px ;
   cursor: pointer;
 }
 
@@ -110,8 +122,6 @@ h1{
         opacity: 1;
     }
 }
-
-
 
 @media screen and (max-width:600px) {
     img,.frase{
