@@ -105,7 +105,7 @@ console.log(this.anoInput)
   pdf.html(this.el.nativeElement,{
      callback:(pdf)=>{
       
-       pdf.save('Escala Corinha.pdf');
+       pdf.save('Escala Coroinha '+this.dataInput+'.pdf');
    
      } 
      

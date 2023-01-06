@@ -21,7 +21,7 @@ export class AppService{
   urlSelect_Acolito = 'http://localhost:8080/escala_coroinha/select_acolito';
   urlSelect_Comunidades = 'http://localhost:8080/escala_coroinha/select_comunidades';
   urlSelect_Missa = 'http://localhost:8080/escala_coroinha/select_missa';
-  
+  urlUpdateCorinha = 'http://localhost:8080/escala_coroinha/update_coroinha'
   
 
   constructor(private _http:HttpClient) { }
@@ -67,6 +67,31 @@ export class AppService{
   select_missaData():Observable<any>{
     return this._http.get(`${this.urlSelect_Missa}`);
   } 
+
+
+  updateCoroinha(data:any,id:any):Observable<any>{
+    let ids = id;
+    return this._http.put(`${this.urlUpdateCorinha}/${ids}`,data)
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

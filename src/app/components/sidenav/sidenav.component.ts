@@ -12,6 +12,7 @@ export class SidenavComponent implements OnInit {
   constructor() { }
 
   show:any=false; 
+  show2:any=false; 
 
   ngOnInit(): void {
   }
@@ -20,4 +21,7 @@ export class SidenavComponent implements OnInit {
     this.show = !this.show;
   }
 
+  showOptions2(){
+    this.show2 = !this.show2;
+  }
 }

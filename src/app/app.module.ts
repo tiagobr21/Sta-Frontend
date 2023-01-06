@@ -26,6 +26,7 @@ import { MsgerrorloginComponent } from './components/mgs-error/msgerrorlogin/msg
 import { MsgSucessComponent } from './components/msg-sucess/msg-sucess.component';
 import { FilterCoroinhaAnoPipe } from './pipes/filter-coroinha-ano.pipe';
 import { AtualizarEscalaComponent } from './components/msg-sucess/atualizar-escala.component';
+import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.component';
 
 
 
@@ -50,6 +51,7 @@ import { AtualizarEscalaComponent } from './components/msg-sucess/atualizar-esca
     MsgSucessComponent,
     FilterCoroinhaAnoPipe,
     AtualizarEscalaComponent,
+    UsuariosComponent,
 
 
   

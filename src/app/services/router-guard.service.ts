@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 import { AuthService } from './auth.service';
-import jwt_decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
