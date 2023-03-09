@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import {AppService } from 'src/app/services/user.service';
 
 
@@ -14,7 +15,10 @@ export class CadastroComponent implements OnInit {
   cadastroForm:any = FormGroup;
   response:any;
 
-  constructor(private service: AppService,private router:Router,private fb:FormBuilder) { }
+  constructor(private service: AppService,
+              private router:Router,
+              private snackbar: SnackbarService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.cadastroForm = this.fb.group({
@@ -34,7 +38,8 @@ export class CadastroComponent implements OnInit {
     }
     this.service.cadastro(data).subscribe((res:any)=>{
        console.log(res);
-
+       this.response = res;
+       this.snackbar.openSnackBar(this.response.message,"");
     })
 
     this.cadastroForm.reset();

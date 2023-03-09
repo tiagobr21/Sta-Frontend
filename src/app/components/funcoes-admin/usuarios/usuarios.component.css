@@ -74,3 +74,21 @@ table{
     cursor:pointer;
    
 }
+#edit{
+    position: absolute;
+    left: 93%;
+    cursor: pointer;
+}
+
+#delete{
+    position: absolute;
+    left: 96%;
+    cursor: pointer;
+}
+
+#refresh{
+     position: relative;
+     top: 10px;
+     right: 10px;
+     float: right;
+}

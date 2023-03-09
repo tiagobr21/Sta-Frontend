@@ -22,14 +22,10 @@ import { CategoryConsultarEscalaComponent } from './components/category-consulta
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
-import { MsgerrorloginComponent } from './components/mgs-error/msgerrorlogin/msgerrorlogin.component';
-import { MsgSucessComponent } from './components/msg-sucess/msg-sucess.component';
 import { FilterCoroinhaAnoPipe } from './pipes/filter-coroinha-ano.pipe';
-import { AtualizarEscalaComponent } from './components/msg-sucess/atualizar-escala.component';
 import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.component';
-
-
-
+import { CriaUsuarioComponent } from './components/funcoes-admin/usuarios/cria-usuario/cria-usuario.component';
+import { AtualizaUsuarioComponent } from './components/funcoes-admin/usuarios/atualiza-usuario/atualiza-usuario.component';
 
 
 @NgModule({
@@ -38,7 +34,6 @@ import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
-    CategoriaCriarEscalaComponent,
     ConsultarCoroinhaComponent,
     CriarCoroinhaComponent,
     CadastroComponent,
@@ -46,16 +41,12 @@ import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.
     FilterCoroinhaDataPipe,
     LoginComponent,
     CategoryConsultarEscalaComponent,
+    CategoriaCriarEscalaComponent,
     ForgotPasswordComponent,
-    MsgerrorloginComponent,
-    MsgSucessComponent,
     FilterCoroinhaAnoPipe,
-    AtualizarEscalaComponent,
     UsuariosComponent,
-
-
-  
- 
+    CriaUsuarioComponent,
+    AtualizaUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -70,4 +61,6 @@ import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.
   providers: [AppService,HttpClientModule,{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

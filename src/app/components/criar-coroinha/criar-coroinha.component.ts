@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog,MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
-import { MsgSucessComponent } from '../msg-sucess/msg-sucess.component';
 import { AppService } from 'src/app/services/app.service';
-import { ActivatedRoute } from '@angular/router';
-import { AtualizarEscalaComponent } from '../msg-sucess/atualizar-escala.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SnackbarService } from 'src/app/services/snackbar.service';
+import { GlobalConstants } from 'src/app/shared/global-constants';
 
 @Component({
   selector: 'app-criar-coroinha',
@@ -15,13 +15,18 @@ export class CriarCoroinhaComponent implements OnInit {
   @ViewChild('teste') teste:any;
   @ViewChild('mes') mes:any;
    
-  constructor(private service: AppService,private router:ActivatedRoute,private dialog: MatDialog) { }
+  constructor(private service: AppService,
+    private route:ActivatedRoute,
+    private router:Router,
+    private dialog: MatDialog,
+    private snackbar: SnackbarService) { }
  
    getparamid:any;
    select_coroinhaData:any;
    select_acolitoData:any;
    select_missaData:any;
    resID:any; 
+   response:any;
 
    title = 'app-sta';
    sideBarOpen = true;
@@ -32,7 +37,7 @@ export class CriarCoroinhaComponent implements OnInit {
    }
 
   ngOnInit(): void {
-     this.getparamid = this.router.snapshot.paramMap.get('id');
+     this.getparamid = this.route.snapshot.paramMap.get('id');
      if(this.getparamid){
 
         this.service.getSingleData(this.getparamid).subscribe((res)=>{
@@ -94,39 +99,41 @@ export class CriarCoroinhaComponent implements OnInit {
   
 
   userSubmit(){
-
-    
     if(this.userForm.valid){
       this.service.createData(this.userForm.value).subscribe((res)=>{
           console.log(res,'res==>');
-
-          const dialogConfig = new MatDialogConfig();
-          dialogConfig.width = "550px";
-          this.dialog.open(MsgSucessComponent,dialogConfig);
-   
+          
+          this.response = res;
+          this.snackbar.openSnackBar(this.response.message,"");
           this.userForm.reset();
 
+      },(error)=>{
+        this.response = GlobalConstants.genericError
 
+        this.snackbar.openSnackBar(this.response,GlobalConstants.error);
       });
-    }
+    }else{
+      this.snackbar.openSnackBar('Algo deu errado',GlobalConstants.error);
+     }
   }
 
   userUpdate(){
      console.log(this.userForm.value,'updateform');
-     
-   
 
      if(this.userForm.valid){
         this.service.updateData(this.userForm.value,this.getparamid).subscribe((res)=>{
           console.log(res,'resupdate');
-          const dialogConfig = new MatDialogConfig();
-          dialogConfig.width = "550px";
-          this.dialog.open(AtualizarEscalaComponent,dialogConfig);
-          this.userForm.reset();
+          this.response = res;      
+          this.snackbar.openSnackBar(this.response.message,"");
+          this.router.navigate(['/consultar-coroinha']);
+        },(error)=>{
+          this.response = GlobalConstants.genericError
+
+          this.snackbar.openSnackBar(this.response,GlobalConstants.error);
         });
    
     }else{
-       console.log("algo deu errado");
+      this.snackbar.openSnackBar('Algo deu errado',GlobalConstants.error);
      }
    }  
 

@@ -33,7 +33,7 @@ export class RouterGuardService {
        }
       
     } 
-    if(tokenPayload.role == 'user' || tokenPayload == 'admin'){
+    if(tokenPayload.role == 'admin' || tokenPayload.role == 'user'){
       if(this.auth.isAuthenticated() && checkRole ){
         return true;
       }

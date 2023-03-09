@@ -36,13 +36,26 @@ const routes: Routes = [
     }
   },
   {path:'categoria-criar-escala',component: CategoriaCriarEscalaComponent},
-  {path:'criar-coroinha',component:CriarCoroinhaComponent},
+  {path:'criar-escala-coroinha',component:CriarCoroinhaComponent,
+    loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
+    canActivate:[RouterGuardService],
+    data:{
+    expectedRole:['admin']  
+  }
+  },
   {path:'criar-coroinha/:id',component:CriarCoroinhaComponent},
-  {path:'consultar-coroinha',component:ConsultarCoroinhaComponent},
+  {path:'consultar-escala-coroinha',component:ConsultarCoroinhaComponent},
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},
   {path:'cadastro',component:CadastroComponent},
   {path:'login',component:LoginComponent},
-  {path:'admin/usuarios',component:UsuariosComponent},
+  {
+    path:'admin/usuarios',component:UsuariosComponent,
+    loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
+    canActivate:[RouterGuardService],
+    data:{
+    expectedRole:['admin']  
+    }
+  },
 
 ];
 

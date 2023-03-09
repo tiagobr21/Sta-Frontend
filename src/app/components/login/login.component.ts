@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/user.service';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
-import { MsgerrorloginComponent } from '../mgs-error/msgerrorlogin/msgerrorlogin.component';
+import { SnackbarService } from 'src/app/services/snackbar.service';
+import { GlobalConstants } from 'src/app/shared/global-constants';
 
 
 @Component({
@@ -15,8 +16,12 @@ import { MsgerrorloginComponent } from '../mgs-error/msgerrorlogin/msgerrorlogin
 export class LoginComponent implements OnInit {
   
   loginForm:any = FormGroup;
+  response:any;
 
-  constructor(private fb:FormBuilder,private service: AppService,private router:Router,private dialog:MatDialog) { }
+  constructor(private fb:FormBuilder,
+    private service: AppService,
+    private snackbar:SnackbarService,
+    private router:Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -24,8 +29,6 @@ export class LoginComponent implements OnInit {
       password: [null,[Validators.required]]
     })
   }
-  
- 
 
   forgotPassword(){
    const dialogConfig = new MatDialogConfig()
@@ -41,13 +44,21 @@ export class LoginComponent implements OnInit {
    }
     this.service.login(data).subscribe((res:any)=>{
       console.log(res);
+      this.response = res;
+
+      this.snackbar.openSnackBar(this.response.message,"");
       localStorage.setItem('token',res.token);
-      this.router.navigate(['/home'])
+      this.router.navigate(['/home']);
+
     },(error)=>{
-      const dialogConfig = new MatDialogConfig()
-      dialogConfig.width = "550px";
-      this.dialog.open(MsgerrorloginComponent,dialogConfig);
-      // setTimeout(function(){ location.reload(); }, 5000);
+       if(error.error?.message){
+         this.response = error.error?.message
+       }else{
+         this.response = GlobalConstants.genericError;
+       } 
+
+       this.snackbar.openSnackBar(this.response,GlobalConstants.error)
+   
     })
   }
 }

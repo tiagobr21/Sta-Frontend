@@ -2,6 +2,7 @@ import { Injectable} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, retry } from "rxjs";
 import { FormGroup } from "@angular/forms";
+import { ContentObserver } from "@angular/cdk/observers";
 
 
 @Injectable({  
@@ -21,11 +22,17 @@ export class AppService{
   urlSelect_Acolito = 'http://localhost:8080/escala_coroinha/select_acolito';
   urlSelect_Comunidades = 'http://localhost:8080/escala_coroinha/select_comunidades';
   urlSelect_Missa = 'http://localhost:8080/escala_coroinha/select_missa';
-  urlUpdateCorinha = 'http://localhost:8080/escala_coroinha/update_coroinha'
-  
+
+  urlUpdateCorinha = 'http://localhost:8080/escala_coroinha/update_coroinha';
+  urlCreateCoroinha ='http://localhost:8080/escala_coroinha/create_coroinha';
+  urlDeleteCoroinha = 'http://localhost:8080/escala_coroinha/delete_coroinha';
+
+  urlUpdateAcolito = 'http://localhost:8080/escala_coroinha/update_acolito';
+  urlCreateAcolito ='http://localhost:8080/escala_coroinha/create_acolito';
+  urlDeleteAcolito = 'http://localhost:8080/escala_coroinha/delete_acolito';
+
 
   constructor(private _http:HttpClient) { }
-
 
   createData(data:any):Observable<any>{
     console.log(data,'createapi=>');
@@ -68,14 +75,39 @@ export class AppService{
     return this._http.get(`${this.urlSelect_Missa}`);
   } 
 
+//coroinhas - criar-atualizar-deletar
 
   updateCoroinha(data:any,id:any):Observable<any>{
     let ids = id;
-    return this._http.put(`${this.urlUpdateCorinha}/${ids}`,data)
+    return this._http.put(`${this.urlUpdateCorinha}/${ids}`,data);
   }
 
+  createCoroinha(data:any):Observable<any>{
+     console.log(data)
+     return this._http.post(`${this.urlCreateCoroinha}`,data);
+  }
+  
+  deleteCoroinha(id:any):Observable<any>{
+    let ids = id;
+    return this._http.delete(`${this.urlDeleteCoroinha}/${ids}`);
+ }
 
+ //acolitos - criar-atualizar-deletar
 
+ updateAcolito(data:any,id:any):Observable<any>{
+  let ids = id;
+  return this._http.put(`${this.urlUpdateAcolito}/${ids}`,data);
+}
+
+createAcolito(data:any):Observable<any>{
+   console.log(data)
+   return this._http.post(`${this.urlCreateAcolito}`,data);
+}
+
+deleteAcolito(id:any):Observable<any>{
+  let ids = id;
+  return this._http.delete(`${this.urlDeleteAcolito}/${ids}`);
+}
 
 
 
