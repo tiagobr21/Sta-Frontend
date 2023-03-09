@@ -1,0 +1,46 @@
+.logo{
+    text-align: center;
+    padding: 2.6rem 2rem;
+    background-color: #f1f5f9;
+    border-radius: 50px;
+    height: 100px;
+
+   
+}
+
+img{
+    margin-top: -40px;
+    width: 110%;
+}
+
+.mat-icon{
+    vertical-align: center;
+    margin: 1rem;
+    
+}
+
+h5{
+    margin-top: 10px;
+}
+
+.mat-divider{
+    margin-top: 10px;
+    border-top-width: 2px;
+    border-color:white;
+}
+
+
+.mat-list-item{
+    color:#94a3b8 !important;
+    font-size: 0.8rem;
+    height: 44px !important;
+    margin-bottom:4px;
+    border-radius: 5px;
+    margin-top: 20px;
+   
+}
+
+#criar-escala,#consultar-escala{
+    margin:10px 0 10px 30px;
+}
+

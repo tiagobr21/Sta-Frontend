@@ -1,0 +1,134 @@
+body,html{
+    
+    background-image: linear-gradient( #f1eccd, #5b5443, #efd094);
+    font-family: Cormorant;
+    
+}
+.login{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%,-50%);
+    padding: 80px;
+    border-radius: 15px;
+    color: #fff;
+    animation:login 3s ;
+    max-width: 100%;
+}
+.santa-teresinha{
+    position: absolute;
+    left: -15%;
+    width: 66.3%;
+    background-repeat:no-repeat;
+    animation: santa-terezinha 3s;
+}
+
+.frase{
+    position:absolute;
+    top: 20%;
+    left:33%;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+    animation: frase 4s;
+}
+
+.logo{
+    position: relative;
+    top: -20px;
+    left: -10px;
+    animation: frase 4s;
+}
+
+.img-logo{
+    width: 20%;
+}
+.parag2{
+    margin-top: -10px;
+}
+
+input{
+    padding: 13px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+}
+#enviar{
+    background-color: dodgerblue;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px; 
+    margin-bottom: 20px;
+}
+
+button:hover{
+    background-color: deepskyblue;
+    cursor: pointer;
+}
+h1{
+    text-align: center;
+    margin: -50px 0 50px 0;
+}
+
+.creditos{
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  top: -50px;
+  animation: frase 4s;
+
+
+}
+
+.cadastrar{
+  margin:10px 0 0 60px ;
+  cursor: pointer;
+}
+
+.esqueceu{
+    margin:10px 0 0 40px ;
+    cursor: pointer;
+  }
+
+
+@keyframes santa-terezinha {
+    0%{
+        position: absolute;
+        left: -50%;
+    }
+
+    100%{
+        left: -15%;
+    }
+}
+
+@keyframes login{
+    0%{
+       margin-top: -20%;
+    }
+}
+
+@keyframes frase {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:600px) {
+    img,.frase{
+        display: none;
+    }
+    .login{
+      margin-left: -28.5%;
+    }
+    
+}

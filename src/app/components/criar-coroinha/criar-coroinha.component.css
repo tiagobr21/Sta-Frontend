@@ -1,0 +1,133 @@
+.page{
+    color: white;
+    padding: 0 1rem;
+    background: #f1f5f9;
+    
+}
+
+.page__box{
+    min-height: 120px;
+    background: #1e293b;
+    margin: 0 -1rem;
+    font-size: 36px;
+ 
+}
+
+.page__content{
+    max-width: 100%;
+    min-height: calc(200vh - 5px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    font-size: 2rem;
+   
+} 
+
+.page__content-data{
+    margin: -32% 0 0 50%;
+    transform: translate(-50%,50%);
+}
+
+:host{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer{
+    width: 260px;
+    background-color: #0f172a;
+}
+
+mat-drawer-container{
+    height: 100%;
+}
+
+
+#missa_atualizar{
+    margin-top: -10%;
+}
+input,select{
+    width: 80%;
+    margin-left: 15%;
+}
+
+#missa,#data,#dia{
+  margin-bottom: -40px;
+}
+#hora,#comunidade,#acolito,#coroinha{
+    margin-bottom: 30px;
+}
+#hora{
+    margin-top:20px ;
+}
+label{
+    font-size: 25px;
+    margin-left: 30px;
+}
+p{
+    opacity: 0;
+}
+
+#enviar{
+    margin-top: 20px;
+    width: 50%;
+    margin-left: 70px;
+}
+
+#nomes-coroinha{
+    margin-bottom: 10px;
+}
+
+.number{
+    display: inline-block;
+    margin-right: 80%;
+}
+
+#icon-info{
+ 
+    margin-top: -10px;
+}
+
+div #div-data{
+    display: inline-block;
+    
+ }
+
+ .alinhar{
+    display: flex;
+    justify-content: space-between;
+}
+ 
+ div #div-mes{
+     display: inline-block;
+ }
+
+#info{
+    width: 70%;
+    height: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 18%;
+
+}
+
+#nomes-acolito1{
+    margin-bottom: 10px;
+}
+
+#nomes-acolito2,#nomes-acolito3:before{
+    margin-bottom: 10px;
+    opacity: .5;
+}
+
+#nomes-acolito2,#nomes-acolito2:after{
+    margin-bottom: 10px;
+    opacity: 1;
+}
+
+
+#data-calender{
+    opacity: 1;
+}

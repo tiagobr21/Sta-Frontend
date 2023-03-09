@@ -1,0 +1,11 @@
+#categoria{
+    position: relative;
+    top:15px;
+    left: 40%; 
+ }
+ 
+ #close{
+    float: right;
+    margin-top: -10px;
+    cursor:pointer;
+ }

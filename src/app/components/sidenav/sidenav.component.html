@@ -1,0 +1,44 @@
+<mat-nav-list>
+        <div class="logo py-4">
+            <img src="../../../assets/logo.png" alt="Company Logo">
+        </div>
+        <mat-divider></mat-divider>
+     
+        <a mat-list-item routerLink="/home" routerLinkActive="list-item-active" >
+            <mat-icon>home</mat-icon> <h5 class="home">Home</h5> 
+        </a>
+       
+        <a id="escala" (click)="showOptions2()" mat-list-item  routerLinkActive="list-item-active" >
+            <mat-icon>build</mat-icon> <h6>Administrador</h6>
+            <mat-icon id="start" *ngIf="show2 == false">keyboard_arrow_right</mat-icon>
+            <mat-icon id="end" *ngIf="show2">keyboard_arrow_down</mat-icon>
+        </a>
+
+        <a id="criar-escala" routerLink="/admin/usuarios" *ngIf="show2" mat-list-item  routerLinkActive="list-item-active" >
+            <mat-icon>people</mat-icon> <h6>Agentes</h6>
+        </a>
+<!-- 
+        <a id="consultar-escala" routerLink="/" *ngIf="show2" mat-list-item  routerLinkActive="list-item-active" >
+            <mat-icon>folder</mat-icon> <h6>Test</h6>
+        </a> -->
+        
+
+        <a id="escala" (click)="showOptions()" mat-list-item  routerLinkActive="list-item-active" >
+            <mat-icon>dashboard</mat-icon> <h5>Escala</h5>
+            <mat-icon id="start" *ngIf="show == false">keyboard_arrow_right</mat-icon>
+            <mat-icon id="end" *ngIf="show">keyboard_arrow_down</mat-icon>
+        </a>
+
+        <a id="criar-escala" routerLink="/categoria-criar-escala" *ngIf="show" mat-list-item  routerLinkActive="list-item-active" >
+            <mat-icon>edit</mat-icon> <h6>Criar Escala</h6>
+        </a>
+
+        <a id="consultar-escala" routerLink="/category-consultar" *ngIf="show" mat-list-item  routerLinkActive="list-item-active" >
+            <mat-icon>folder</mat-icon> <h6>Consultar Escala</h6>
+        </a>
+
+        <a mat-list-item routerLink="/cadastro" routerLinkActive="list-item-active" >
+            <mat-icon>description</mat-icon>  <h5>Cadastro</h5>
+        </a>
+     
+</mat-nav-list>

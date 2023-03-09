@@ -1,0 +1,34 @@
+<mat-icon (click)="close()" id="close">close</mat-icon>
+
+<div *ngIf="!option">
+ <form [formGroup]="selectOption">
+    <label for="exampleInputPassword1" class="form-label">Escolha um categoria </label>
+    <select formControlName="categoria" class="form-select" aria-label="Default select example">
+      <option selected>Open this select menu</option>
+      <option>Coroinhas</option>
+      <option>Acolitos</option>
+    </select>
+
+    <button id="categoria" (click)="selectCategoria()" type="submit" class="btn btn-primary">Escolher</button>
+  </form>
+</div>
+
+<div *ngIf="categoria == 'Coroinhas'">
+  <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button id="categoria" (click)="criarCoroinha()" type="submit" class="btn btn-primary">Criar</button>
+  </form>
+</div>
+
+<div *ngIf="categoria == 'Acolitos'">
+  <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button id="categoria" (click)="criarAcolito()" type="submit" class="btn btn-primary">Criar</button>
+  </form>
+</div>
