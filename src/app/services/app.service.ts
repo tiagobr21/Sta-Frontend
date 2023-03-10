@@ -13,23 +13,23 @@ export class AppService{
 
   formularioRegistro!:FormGroup;
 
-  urlCreate = 'http://localhost:3000/escala_coroinha/create';
-  urlRead = 'http://localhost:3000/escala_coroinha/read';
-  urlDelete = 'http://localhost:3000/escala_coroinha/delete';
-  urlUpdate = 'http://localhost:3000/escala_coroinha/update';
-  urlgetSingleData = 'http://localhost:3000/escala_coroinha/getSingleData';
-  urlSelect_Coroinha = 'http://localhost:3000/escala_coroinha/select_coroinha';
-  urlSelect_Acolito = 'http://localhost:3000/escala_coroinha/select_acolito';
-  urlSelect_Comunidades = 'http://localhost:3000/escala_coroinha/select_comunidades';
-  urlSelect_Missa = 'http://localhost:3000/escala_coroinha/select_missa';
+  urlCreate = 'https://app-sta.herokuapp.com//escala_coroinha/create';
+  urlRead = 'https://app-sta.herokuapp.com//escala_coroinha/read';
+  urlDelete = 'https://app-sta.herokuapp.com//escala_coroinha/delete';
+  urlUpdate = 'https://app-sta.herokuapp.com//escala_coroinha/update';
+  urlgetSingleData = 'https://app-sta.herokuapp.com//escala_coroinha/getSingleData';
+  urlSelect_Coroinha = 'https://app-sta.herokuapp.com//escala_coroinha/select_coroinha';
+  urlSelect_Acolito = 'https://app-sta.herokuapp.com//escala_coroinha/select_acolito';
+  urlSelect_Comunidades = 'https://app-sta.herokuapp.com//escala_coroinha/select_comunidades';
+  urlSelect_Missa = 'https://app-sta.herokuapp.com//escala_coroinha/select_missa';
 
-  urlUpdateCorinha = 'http://localhost:3000/escala_coroinha/update_coroinha';
-  urlCreateCoroinha ='http://localhost:3000/escala_coroinha/create_coroinha';
-  urlDeleteCoroinha = 'http://localhost:3000/escala_coroinha/delete_coroinha';
+  urlUpdateCorinha = 'https://app-sta.herokuapp.com//escala_coroinha/update_coroinha';
+  urlCreateCoroinha ='https://app-sta.herokuapp.com//escala_coroinha/create_coroinha';
+  urlDeleteCoroinha = 'https://app-sta.herokuapp.com//escala_coroinha/delete_coroinha';
 
-  urlUpdateAcolito = 'http://localhost:3000/escala_coroinha/update_acolito';
-  urlCreateAcolito ='http://localhost:3000/escala_coroinha/create_acolito';
-  urlDeleteAcolito = 'http://localhost:3000/escala_coroinha/delete_acolito';
+  urlUpdateAcolito = 'https://app-sta.herokuapp.com//escala_coroinha/update_acolito';
+  urlCreateAcolito ='https://app-sta.herokuapp.com//escala_coroinha/create_acolito';
+  urlDeleteAcolito = 'https://app-sta.herokuapp.com//escala_coroinha/delete_acolito';
 
 
   constructor(private _http:HttpClient) { }

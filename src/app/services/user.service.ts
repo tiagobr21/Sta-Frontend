@@ -9,10 +9,10 @@ import { Observable, retry } from "rxjs";
 
 export class AppService{
   
-  urlCadastrar = 'http://localhost:3000/user/signup';
-  urlLogin = 'http://localhost:3000/user/login';
-  urlEsqueceuSenha = 'http://localhost:3000/user/forgotpassword';
-  urlcheckToken ='http://localhost:3000/user/checkToken'
+  urlCadastrar = 'https://app-sta.herokuapp.com/user/signup';
+  urlLogin = 'https://app-sta.herokuapp.com/user/login';
+  urlEsqueceuSenha = 'https://app-sta.herokuapp.com/user/forgotpassword';
+  urlcheckToken ='https://app-sta.herokuapp.com/user/checkToken'
 
   constructor(private _http:HttpClient) { }
    
