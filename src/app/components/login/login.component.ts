@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   
   loginForm:any = FormGroup;
   response:any;
+  user:any;
 
   constructor(private fb:FormBuilder,
     private service: AppService,
@@ -43,10 +44,11 @@ export class LoginComponent implements OnInit {
     password: formData.password
    }
     this.service.login(data).subscribe((res:any)=>{
-      console.log(res);
       this.response = res;
-
+      console.log(this.response)
+      this.user = this.response.user;
       this.snackbar.openSnackBar(this.response.message,"");
+      localStorage.setItem('user',this.user);
       localStorage.setItem('token',res.token);
       this.router.navigate(['/home']);
 
@@ -61,4 +63,6 @@ export class LoginComponent implements OnInit {
    
     })
   }
+
+  
 }

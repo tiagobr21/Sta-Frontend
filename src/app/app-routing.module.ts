@@ -1,5 +1,3 @@
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,7 +9,7 @@ import { CategoryConsultarEscalaComponent } from './components/category-consulta
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { RouterGuardService } from './services/router-guard.service';
 import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.component';
-
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 
 const routes: Routes = [
 
@@ -48,6 +46,7 @@ const routes: Routes = [
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},
   {path:'cadastro',component:CadastroComponent},
   {path:'login',component:LoginComponent},
+  {path:'mudarsenha',component:ChangepasswordComponent},
   {
     path:'admin/usuarios',component:UsuariosComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),

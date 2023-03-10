@@ -7,4 +7,6 @@ export class GlobalConstants{
 
     //Variable
     public static error: string = "error";
+
+    public static usercurrent:string = '';
 }

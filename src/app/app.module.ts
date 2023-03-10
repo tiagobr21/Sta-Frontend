@@ -26,6 +26,7 @@ import { FilterCoroinhaAnoPipe } from './pipes/filter-coroinha-ano.pipe';
 import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.component';
 import { CriaUsuarioComponent } from './components/funcoes-admin/usuarios/cria-usuario/cria-usuario.component';
 import { AtualizaUsuarioComponent } from './components/funcoes-admin/usuarios/atualiza-usuario/atualiza-usuario.component';
+import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { AtualizaUsuarioComponent } from './components/funcoes-admin/usuarios/at
     FilterCoroinhaAnoPipe,
     UsuariosComponent,
     CriaUsuarioComponent,
-    AtualizaUsuarioComponent
+    AtualizaUsuarioComponent,
+    ChangepasswordComponent
   ],
   imports: [
     BrowserModule,
