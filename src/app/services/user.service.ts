@@ -9,17 +9,12 @@ import { Observable, retry } from "rxjs";
 
 export class AppService{
   
-<<<<<<< HEAD
-  urlCadastrar = 'http://localhost:3000/user/signup';
-  urlLogin = 'http://localhost:3000/user/login';
-  urlEsqueceuSenha = 'http://localhost:3000/user/forgotpassword';
-  urlcheckToken ='http://localhost:3000/user/checkToken'
-=======
+
   urlCadastrar = 'https://back-sta.herokuapp.com/user/signup';
   urlLogin = 'https://back-sta.herokuapp.com/user/login';
   urlEsqueceuSenha = 'https://back-sta.herokuapp.com/user/forgotpassword';
   urlcheckToken ='https://back-sta.herokuapp.com/user/checkToken'
->>>>>>> 634c3627a02da14ff2b990393aa75f878f74b97a
+  urlMudarSenha = 'https://back-sta.herokuapp.com/user/changePassword'
 
   constructor(private _http:HttpClient) { }
    
@@ -38,6 +33,10 @@ export class AppService{
 
   login(dados:any):Observable<any>{
     return this._http.post(`${this.urlLogin}`,dados);
+  }
+
+  mudarSenha(data:any):Observable<any>{
+    return this._http.post(`${this.urlMudarSenha}`,data);
   }
 
   checkToken(){
