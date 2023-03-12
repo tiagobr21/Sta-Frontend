@@ -11,9 +11,13 @@ import { CadastroComponent } from '../cadastro/cadastro.component';
 export class HeaderComponent implements OnInit {
   @Output() toggleSidebarForMe: EventEmitter<any>=new EventEmitter();
 
+  user:any
+
   constructor(private dialog:MatDialog,private router:Router) { }
 
   ngOnInit(): void {
+    this.user = localStorage.getItem("user");
+    
   }
   
  cadastrarModal(){

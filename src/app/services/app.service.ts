@@ -13,23 +13,26 @@ export class AppService{
 
   formularioRegistro!:FormGroup;
 
+  // dev: http://localhost:3000
+  //prod: http://back-sta.herokuapp.com
+
   urlCreate = 'http://back-sta.herokuapp.com/escala_coroinha/create';
-  urlRead = 'https://back-sta.herokuapp.com/escala_coroinha/read';
-  urlDelete = 'https://back-sta.herokuapp.com/escala_coroinha/delete';
-  urlUpdate = 'https://back-sta.herokuapp.com/escala_coroinha/update';
-  urlgetSingleData = 'https://back-sta.herokuapp.com/escala_coroinha/getSingleData';
-  urlSelect_Coroinha = 'https://back-sta.herokuapp.com/escala_coroinha/select_coroinha';
-  urlSelect_Acolito = 'https://back-sta.herokuapp.com/escala_coroinha/select_acolito';
-  urlSelect_Comunidades = 'https://back-sta.herokuapp.com/escala_coroinha/select_comunidades';
-  urlSelect_Missa = 'https://back-sta.herokuapp.com/escala_coroinha/select_missa';
+  urlRead = 'http://back-sta.herokuapp.com/escala_coroinha/read';
+  urlDelete = 'http://back-sta.herokuapp.com/escala_coroinha/delete';
+  urlUpdate = 'http://back-sta.herokuapp.com/escala_coroinha/update';
+  urlgetSingleData = 'http://back-sta.herokuapp.com/escala_coroinha/getSingleData';
+  urlSelect_Coroinha = 'http://back-sta.herokuapp.com/escala_coroinha/select_coroinha';
+  urlSelect_Acolito = 'http://back-sta.herokuapp.com/escala_coroinha/select_acolito';
+  urlSelect_Comunidades = 'http://back-sta.herokuapp.com/escala_coroinha/select_comunidades';
+  urlSelect_Missa = 'http://back-sta.herokuapp.com/escala_coroinha/select_missa';
 
-  urlUpdateCorinha = 'https://back-sta.herokuapp.com/escala_coroinha/update_coroinha';
-  urlCreateCoroinha ='https://back-sta.herokuapp.com/escala_coroinha/create_coroinha';
-  urlDeleteCoroinha = 'https://back-sta.herokuapp.com/escala_coroinha/delete_coroinha';
+  urlUpdateCorinha = 'http://back-sta.herokuapp.com/escala_coroinha/update_coroinha';
+  urlCreateCoroinha ='http://back-sta.herokuapp.com/escala_coroinha/create_coroinha';
+  urlDeleteCoroinha = 'http://back-sta.herokuapp.com/escala_coroinha/delete_coroinha';
 
-  urlUpdateAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/update_acolito';
-  urlCreateAcolito ='https://back-sta.herokuapp.com/escala_coroinha/create_acolito';
-  urlDeleteAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/delete_acolito';
+  urlUpdateAcolito = 'http://back-sta.herokuapp.com/escala_coroinha/update_acolito';
+  urlCreateAcolito ='http://back-sta.herokuapp.com/escala_coroinha/create_acolito';
+  urlDeleteAcolito = 'http://back-sta.herokuapp.com/escala_coroinha/delete_acolito';
 
 
 

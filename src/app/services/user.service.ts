@@ -9,12 +9,17 @@ import { Observable, retry } from "rxjs";
 
 export class AppService{
   
+  // dev: http://localhost:3000
+  // prod: http://back-sta.herokuapp.com
 
-  urlCadastrar = 'https://back-sta.herokuapp.com/user/signup';
-  urlLogin = 'https://back-sta.herokuapp.com/user/login';
-  urlEsqueceuSenha = 'https://back-sta.herokuapp.com/user/forgotpassword';
-  urlcheckToken ='https://back-sta.herokuapp.com/user/checkToken'
-  urlMudarSenha = 'https://back-sta.herokuapp.com/user/changePassword'
+  urlCadastrar = 'http://localhost:3000/user/signup';
+  urlLogin = 'http://localhost:3000/user/login';
+  urlEsqueceuSenha = 'http://localhost:3000/user/forgotpassword';
+  urlcheckToken ='http://localhost:3000/user/checkToken';
+  urlMudarSenha = 'http://localhost:3000/user/changePassword';
+  urlObter = 'http://localhost:3000/user/get';
+  urlUptadeUser = 'http://localhost:3000/user/updateuser';
+  urlObterById = 'http://localhost:3000/user/getbyid'
 
   constructor(private _http:HttpClient) { }
    
@@ -38,6 +43,20 @@ export class AppService{
   mudarSenha(data:any):Observable<any>{
     return this._http.post(`${this.urlMudarSenha}`,data);
   }
+
+  obter():Observable<any>{
+    return this._http.get(`${this.urlObter}`);
+  }
+
+  obterById(id:any):Observable<any>{
+    return this._http.get(`${this.urlObterById}/${id}`);
+  }
+
+  uptade(data:any,id:any):Observable<any>{
+    return this._http.patch(`${this.urlUptadeUser}/${id}`,data);
+  }
+
+
 
   checkToken(){
     return this._http.get(`${this.urlcheckToken}`);

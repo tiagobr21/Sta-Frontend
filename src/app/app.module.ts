@@ -27,6 +27,9 @@ import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.
 import { CriaUsuarioComponent } from './components/funcoes-admin/usuarios/cria-usuario/cria-usuario.component';
 import { AtualizaUsuarioComponent } from './components/funcoes-admin/usuarios/atualiza-usuario/atualiza-usuario.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { PermissoesComponent } from './components/funcoes-admin/usuarios/permissoes/permissoes.component';
+import { UpdateComponent } from './components/funcoes-admin/usuarios/permissoes/update/update.component';
+
 
 
 @NgModule({
@@ -48,7 +51,10 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
     UsuariosComponent,
     CriaUsuarioComponent,
     AtualizaUsuarioComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    PermissoesComponent,
+    UpdateComponent,
+
   ],
   imports: [
     BrowserModule,

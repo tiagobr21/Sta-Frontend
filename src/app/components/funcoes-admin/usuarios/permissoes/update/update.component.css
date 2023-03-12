@@ -1,0 +1,41 @@
+
+#submit{
+    position: relative;
+    top: 30px;
+    left: 35%;
+    width: 30%;
+}
+
+label{
+    font-weight: 500;
+}
+
+#permissoes{
+    display: flex;
+}
+
+#role,#status{
+  width: 40%;
+}
+
+#desc{
+    margin-left: 5px;
+}
+
+#close{
+    margin-left: 95%;
+    cursor: pointer;
+}
+
+.loading{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.40);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0%;
+  
+  }

@@ -10,12 +10,11 @@
     background: #1e293b;
     margin: 0 -1rem;
     font-size: 36px;
- 
 }
 
 .page__content{
     max-width: 100%;
-    min-height: calc(73vh - 5px);
+    min-height: calc(200vh - 5px);
     border-radius: 10px;
     margin-top: -2rem;
     background: white;
@@ -25,7 +24,7 @@
 } 
 
 .page__content-data{
-    margin: -32% 0 0 50%;
+
     transform: translate(-50%,50%);
 }
 
@@ -44,50 +43,39 @@ mat-drawer-container{
     height: 100%;
 }
 
-form{
+*{
+    font-size: 16px;
+}
+
+
+.container{
     position: relative;
-    top: 70px;
-    left: 40%;
-    max-width: 50%;
+    top: 20px;
+}
+
+#space{
+
+    padding-left: 50px;
+}
+
+button{
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+#acoes{
+    height: 35px;
+}
+
+#edit{
+  font-size: 18px;
 
 }
 
-#newpassword{
-    display: flex;
-}
-
-.form-label{
-    align-items: center;
-    
-}
-
-.form-control{
-    width: 50%;
-    display: flex;
-}
-
-#submit{
-  position: relative;
-  top: 30px;
-  left: 6%;
-  width: 40%;   
-}
-
-.viewpassword{
+#refresh{
     position: relative;
-    top: 10px;
-    left: 10px;
+    right: 10px;
+    float: right;
 }
 
-.loading{
-    position: absolute;
-    background: rgba(0, 0, 0, 0.40);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0%;
-    left: 0%;
-  
-  }

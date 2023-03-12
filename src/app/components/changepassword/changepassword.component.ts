@@ -15,7 +15,7 @@ export class ChangepasswordComponent implements OnInit {
     showpassword:boolean = false;
     sideBarOpen = true;
     response:any;
-
+    loading:boolean = false
 
   constructor(private fb:FormBuilder,
     private service:AppService,
@@ -29,7 +29,7 @@ export class ChangepasswordComponent implements OnInit {
   }
 
   ngSubmit(){
-    console.log(this.changepassordForm.value);
+    this.loading = true
     let Formdata = this.changepassordForm.value
     let data = {
       oldPassword: Formdata.oldPassword,
@@ -39,6 +39,7 @@ export class ChangepasswordComponent implements OnInit {
     this.service.mudarSenha(data).subscribe((res:any)=>{
        console.log(res);
        this.response = res;
+       this.loading = false
        this.snackbar.openSnackBar(this.response.message,"")
     },(error)=>{
       if(error.error?.message){

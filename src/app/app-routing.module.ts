@@ -10,6 +10,7 @@ import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { RouterGuardService } from './services/router-guard.service';
 import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { PermissoesComponent } from './components/funcoes-admin/usuarios/permissoes/permissoes.component';
 
 const routes: Routes = [
 
@@ -55,6 +56,14 @@ const routes: Routes = [
     expectedRole:['admin']  
     }
   },
+  {
+    path:'admin/permissoes',component:PermissoesComponent,
+    loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
+    canActivate:[RouterGuardService],
+    data:{
+    expectedRole:['admin']  
+    }
+  }
 
 ];
 

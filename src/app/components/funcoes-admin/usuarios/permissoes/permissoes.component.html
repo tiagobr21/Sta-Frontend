@@ -1,0 +1,58 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+          
+        <div class="container-fluid page">
+            <div class="page__box p-3 mt-2">Permissões</div>
+                <div class="page__content shadow p-3 position-relative">
+                    <div class="page__content-data position-absolute text-center">
+                </div>
+
+                <button type="button" id="refresh" (click)="refresh()" class="btn btn-success">Atualizar</button>      
+
+                <div class="container" *ngFor="let user of users">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th  class="colunm1">id</th>
+                                <th id="space" class="col2">name</th>
+                                <th id="space" class="col2">email</th>
+                                <th id="space" class="col2">status</th>
+                                <th id="space" class="col2">role</th>
+                                <th id="space" class="col3">ações</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="item : ${items}">
+                                <td> {{user.id}} </td>
+                                <td id="space"> {{user.name}} </td>
+                                <td id="space"> {{user.email}} </td>
+                                <td id="space"> {{user.status}} </td>
+                                <td id="space"> {{user.role}} </td>
+                                
+                                <th id="space">
+                                    
+                                        <button id="acoes" (click)="openUpdate(user.id)" class="btn btn-primary">
+                                            <mat-icon id="edit">edit</mat-icon>     
+                                        </button>
+                                
+                                  
+                           
+                                        <button id="acoes" class="btn btn-danger">
+                                            <mat-icon id="edit">delete</mat-icon> 
+                                        </button>
+                                
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+                
+    </mat-drawer-content>
+</mat-drawer-container>
