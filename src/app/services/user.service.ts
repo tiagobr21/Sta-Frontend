@@ -9,17 +9,17 @@ import { Observable, retry } from "rxjs";
 
 export class AppService{
   
-  // dev: http://localhost:3000
+  // desenvolvimento: http://localhost:3000
   // prod: http://back-sta.herokuapp.com
 
-  urlCadastrar = 'http://localhost:3000/user/signup';
-  urlLogin = 'http://localhost:3000/user/login';
-  urlEsqueceuSenha = 'http://localhost:3000/user/forgotpassword';
-  urlcheckToken ='http://localhost:3000/user/checkToken';
-  urlMudarSenha = 'http://localhost:3000/user/changePassword';
-  urlObter = 'http://localhost:3000/user/get';
-  urlUptadeUser = 'http://localhost:3000/user/updateuser';
-  urlObterById = 'http://localhost:3000/user/getbyid'
+  urlCadastrar = 'http://back-sta.herokuapp.com/user/signup';
+  urlLogin = 'http://back-sta.herokuapp.com/user/login';
+  urlEsqueceuSenha = 'http://back-sta.herokuapp.com/user/forgotpassword';
+  urlcheckToken ='http://back-sta.herokuapp.com/user/checkToken';
+  urlMudarSenha = 'http://back-sta.herokuapp.com/user/changePassword';
+  urlObter = 'http://back-sta.herokuapp.com/user/get';
+  urlUptadeUser = 'http://back-sta.herokuapp.com/user/updateuser';
+  urlObterById = 'http://back-sta.herokuapp.com/user/getbyid'
 
   constructor(private _http:HttpClient) { }
    
