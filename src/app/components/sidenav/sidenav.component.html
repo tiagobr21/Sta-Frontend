@@ -8,7 +8,7 @@
             <mat-icon>home</mat-icon> <h5 class="home">Home</h5> 
         </a>
        
-        <a id="escala" (click)="showOptions2()" mat-list-item  routerLinkActive="list-item-active" >
+        <a *ngIf="role == 'admin'" id="escala" (click)="showOptions2()" mat-list-item  routerLinkActive="list-item-active" >
             <mat-icon>build</mat-icon> <h6>Administrador</h6>
             <mat-icon id="start" *ngIf="show2 == false">keyboard_arrow_right</mat-icon>
             <mat-icon id="end" *ngIf="show2">keyboard_arrow_down</mat-icon>
@@ -29,10 +29,12 @@
             <mat-icon id="start" *ngIf="show == false">keyboard_arrow_right</mat-icon>
             <mat-icon id="end" *ngIf="show">keyboard_arrow_down</mat-icon>
         </a>
-
-        <a id="criar-escala" routerLink="/categoria-criar-escala" *ngIf="show" mat-list-item  routerLinkActive="list-item-active" >
-            <mat-icon>edit</mat-icon> <h6>Criar Escala</h6>
-        </a>
+      
+        <div  *ngIf="role == 'admin'">
+            <a  id="criar-escala" routerLink="/categoria-criar-escala" *ngIf="show" mat-list-item  routerLinkActive="list-item-active" >
+                <mat-icon>edit</mat-icon> <h6>Criar Escala</h6>
+            </a>
+       </div>
 
         <a id="consultar-escala" routerLink="/category-consultar" *ngIf="show" mat-list-item  routerLinkActive="list-item-active" >
             <mat-icon>folder</mat-icon> <h6>Consultar Escala</h6>

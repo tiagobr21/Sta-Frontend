@@ -12,6 +12,7 @@ export class PermissoesComponent implements OnInit {
   
   sideBarOpen = true;
   users:any
+  response:any
 
 
   constructor(private service: AppService,private dialog: MatDialog) { }
@@ -38,6 +39,17 @@ export class PermissoesComponent implements OnInit {
   
   sideBarToggler(){
     this.sideBarOpen = !this.sideBarOpen;
+  }
+
+  delete(id:any){
+    this.service.delete(id).subscribe((res)=>{
+      this.response = res
+      console.log(this.response);
+      this.service.obter().subscribe((res:any)=>{
+        this.users = res;
+      })
+    
+    })
   }
 
 }

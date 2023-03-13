@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   loginForm:any = FormGroup;
   response:any;
   user:any;
+  role:any;
+  token:any
 
   constructor(private fb:FormBuilder,
     private service: AppService,
@@ -46,10 +48,13 @@ export class LoginComponent implements OnInit {
     this.service.login(data).subscribe((res:any)=>{
       this.response = res;
       console.log(this.response)
+      this.role = this.response.role;
       this.user = this.response.user;
+      this.token = this.response.token;
       this.snackbar.openSnackBar(this.response.message,"");
+      localStorage.setItem('role',this.role)
       localStorage.setItem('user',this.user);
-      localStorage.setItem('token',res.token);
+      localStorage.setItem('token',this.token);
       this.router.navigate(['/home']);
 
     },(error)=>{

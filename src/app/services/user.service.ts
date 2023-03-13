@@ -19,7 +19,8 @@ export class AppService{
   urlMudarSenha = 'https://back-sta.herokuapp.com/user/changePassword';
   urlObter = 'https://back-sta.herokuapp.com/user/get';
   urlUptadeUser = 'https://back-sta.herokuapp.com/user/updateuser';
-  urlObterById = 'https://back-sta.herokuapp.com/user/getbyid'
+  urlObterById = 'https://back-sta.herokuapp.com/user/getbyid';
+  urlDelete = 'https://back-sta.herokuapp.com/user/delete'
 
   constructor(private _http:HttpClient) { }
    
@@ -55,7 +56,10 @@ export class AppService{
   uptade(data:any,id:any):Observable<any>{
     return this._http.patch(`${this.urlUptadeUser}/${id}`,data);
   }
-
+  
+  delete(id:any):Observable<any>{
+     return this._http.delete(`${this.urlDelete}/${id}`)
+  }
 
 
   checkToken(){

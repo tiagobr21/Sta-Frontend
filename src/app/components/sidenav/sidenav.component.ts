@@ -13,8 +13,12 @@ export class SidenavComponent implements OnInit {
 
   show:any=false; 
   show2:any=false; 
+  role:any
+
 
   ngOnInit(): void {
+    this.role = localStorage.getItem("role");
+    console.log(this.role)
   }
 
   showOptions(){
