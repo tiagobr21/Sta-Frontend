@@ -20,6 +20,7 @@ export class PermissoesComponent implements OnInit {
   ngOnInit(): void {
     this.service.obter().subscribe((res:any)=>{
       this.users = res;
+      console.log(this.users)
     })
   }
 

@@ -12,6 +12,11 @@ label{
 
 #permissoes{
     display: flex;
+
+}
+
+#password{
+    margin-left: 15%;
 }
 
 #role,#status{

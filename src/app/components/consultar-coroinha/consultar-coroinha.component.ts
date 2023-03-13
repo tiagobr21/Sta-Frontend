@@ -1,9 +1,10 @@
 import { AppService } from '../../services/app.service';
 import {jsPDF} from 'jspdf';
-import { Inject,ElementRef,AfterViewInit,Component, OnInit,  ViewChild, ɵɵqueryRefresh} from '@angular/core';
+import { ElementRef,Component, OnInit,  ViewChild} from '@angular/core';
 import { __values } from 'tslib';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ThisReceiver } from '@angular/compiler';
+import { SnackbarService } from 'src/app/services/snackbar.service';
+
 
 
 
@@ -17,7 +18,8 @@ export class ConsultarCoroinhaComponent implements OnInit {
   
   title = 'app-sta';
    sideBarOpen = true;
-
+   loading:boolean = false;
+   deleteData:any
  
    sideBarToggler(){
      this.sideBarOpen = !this.sideBarOpen;
@@ -25,7 +27,9 @@ export class ConsultarCoroinhaComponent implements OnInit {
 
   formGroupPesquisa!: FormGroup;
 
-  constructor(private service:AppService,private formBuilder:FormBuilder) { }
+  constructor(private service:AppService,
+    private formBuilder:FormBuilder,
+    private snackbar:SnackbarService) { }
   
 
   readData:any;
@@ -116,11 +120,16 @@ console.log(this.anoInput)
 
 
 deleteID(id:any){
+  this.loading = true
   this.service.deleteData(id).subscribe((res)=>{
-       console.log(res); 
-       this.service.readData().subscribe((res)=>{
+       
+      this.deleteData = res;
+      this.snackbar.openSnackBar(this.deleteData.message,"") 
+      this.loading = true;
+
+      this.service.readData().subscribe((res)=>{
         this.readData = res;
-    });     
+      });     
   });
 }
 

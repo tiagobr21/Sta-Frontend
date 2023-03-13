@@ -27,6 +27,7 @@ export class CriarCoroinhaComponent implements OnInit {
    select_missaData:any;
    resID:any; 
    response:any;
+   loading:boolean = false
 
    title = 'app-sta';
    sideBarOpen = true;
@@ -99,10 +100,62 @@ export class CriarCoroinhaComponent implements OnInit {
   
 
   userSubmit(){
-    if(this.userForm.valid){
-      this.service.createData(this.userForm.value).subscribe((res)=>{
-          console.log(res,'res==>');
-          
+    
+    this.loading = true
+
+    let data = this.userForm.value.data;
+
+    let ano = data?.substring(0,4);
+    let mes = data?.substring(5,7); 
+   
+    if(mes == '01'){
+      mes = 'Janeiro';
+    }else if(mes == '02'){
+      mes = 'Fevereiro';
+    }else if(mes == '03'){
+      mes = 'Março';
+    }else if(mes == '04'){
+      mes = 'Abril';
+    }else if(mes == '05'){
+      mes = 'Maio';
+    }else if(mes == '06'){
+      mes = 'Junho';
+    }else if(mes == '07'){
+      mes = 'Julho';
+    }else if(mes == '08'){
+      mes = 'Agosto';
+    }else if(mes == '09'){
+      mes = 'Setembro';
+    }else if(mes == '10'){
+      mes = 'Outubro';
+    }else if(mes == '11'){
+      mes = 'Novembro';
+    }else if(mes == '12'){
+      mes = 'Dezembro';
+    }
+
+     let formData = {
+      missa: this.userForm.value.missa,
+      mes: mes,
+      hora:'',
+      dia:'',
+      ano: ano,
+      data: this.userForm.value.data,
+      comunidade:'',
+      coroinha1: this.userForm.value.coroinha1,
+      coroinha2: this.userForm.value.coroinha2,
+      coroinha3: this.userForm.value.coroinha3,
+      coroinha4: this.userForm.value.coroinha4,
+      coroinha5: this.userForm.value.coroinha5,
+      acolito1: this.userForm.value.acolito1,
+      acolito2: this.userForm.value.acolito2,
+      acolito3: this.userForm.value.acolito3,
+    } 
+    
+   
+      this.service.createData(formData).subscribe((res)=>{
+          console.log(res);
+          this.loading = false
           this.response = res;
           this.snackbar.openSnackBar(this.response.message,"");
           this.userForm.reset();
@@ -112,9 +165,7 @@ export class CriarCoroinhaComponent implements OnInit {
 
         this.snackbar.openSnackBar(this.response,GlobalConstants.error);
       });
-    }else{
-      this.snackbar.openSnackBar('Algo deu errado',GlobalConstants.error);
-     }
+    
   }
 
   userUpdate(){

@@ -30,12 +30,13 @@ export class UpdateComponent implements OnInit {
    
     this.service.obterById(this.id).subscribe((res:any)=>{
       this.user = res;
-      
+  
     })
 
      this.formUpdate = this.fb.group({
         name: [null,[Validators.required]],
         email: [null,[Validators.required]],
+        password: [null,[Validators.required]],
         status: [null,[Validators.required]],
         role: [null,[Validators.required]]
      })
@@ -53,6 +54,7 @@ export class UpdateComponent implements OnInit {
     let data = {
       name: Formdata.name,
       email: Formdata.email,
+      password: Formdata.password,
       status: Formdata.status,
       role: Formdata.role
     }

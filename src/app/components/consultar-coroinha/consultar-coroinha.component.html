@@ -7,11 +7,11 @@
   <mat-drawer-content>
       <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
        
-      
-
+   
 <div class="container-fluid page">
   <div class="page__box p-3 mt-2">Consultar Escala - Coroinha</div>
   <button id="ocultar" type="button" class="btn btn-dark" (click)="ocultarBotao()">Exibir/Ocultar Edição</button>
+
 
   <div class="alinhar">
 
@@ -30,6 +30,9 @@
 <div class="limpar-filtro" >
   <button type="button" (click)="limparFiltro()" class="btn btn-dark">Limpar Filtro</button>
 </div>
+
+ 
+
 
 
 <section class="flex">
@@ -80,10 +83,17 @@
 
 
 
+
+
     <div class="page__content shadow p-3 position-relative" id="content" #content>
  
       <div>
 
+         <div *ngIf="loading == true">
+              <div class="loading" *ngIf="deleteData ==null">
+                <mat-spinner *ngIf="deleteData ==null "></mat-spinner>
+              </div> 
+         </div> 
 
         <div class="container mt-5" id="divisao">
      

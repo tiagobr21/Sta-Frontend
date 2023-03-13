@@ -45,6 +45,7 @@ mat-drawer-container{
 }
 
 
+
 #missa_atualizar{
     margin-top: -10%;
 }
@@ -53,9 +54,15 @@ input,select{
     margin-left: 15%;
 }
 
-#missa,#data,#dia{
-  margin-bottom: -40px;
+#date{
+ width: 50%;
+ margin-left: 30%;
 }
+
+#missa,#data,#dia{
+  margin-bottom: -20px;
+}
+
 #hora,#comunidade,#acolito,#coroinha{
     margin-bottom: 30px;
 }
@@ -110,6 +117,7 @@ div #div-data{
     font-size: 13px;
     font-weight: bold;
     margin-left: 18%;
+    margin-top: -50px;
 
 }
 
@@ -131,3 +139,16 @@ div #div-data{
 #data-calender{
     opacity: 1;
 }
+
+.loading{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.40);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0%;
+  
+  }
