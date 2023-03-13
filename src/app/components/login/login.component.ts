@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
   response:any;
   user:any;
   role:any;
-  token:any
+  image:any
+  iduser:any
+  token:any;
 
   constructor(private fb:FormBuilder,
     private service: AppService,
@@ -49,11 +51,15 @@ export class LoginComponent implements OnInit {
       this.response = res;
       console.log(this.response)
       this.role = this.response.role;
+      this.image = this.response.image;
       this.user = this.response.user;
       this.token = this.response.token;
+      this.iduser = this.response.id;
       this.snackbar.openSnackBar(this.response.message,"");
+      localStorage.setItem('image',this.image)
       localStorage.setItem('role',this.role)
       localStorage.setItem('user',this.user);
+      localStorage.setItem('iduser',this.iduser);
       localStorage.setItem('token',this.token);
       this.router.navigate(['/home']);
 

@@ -57,7 +57,6 @@ export class UpdateComponent implements OnInit {
       role: Formdata.role
     }
        this.service.uptade(data,id).subscribe((res)=>{
-          console.log(res);
           this.response = res;
           this.loading = false;
           this.snackbar.openSnackBar(this.response.message,"");

@@ -7,6 +7,8 @@ export class GlobalConstants{
 
     //Variable
     public static error: string = "error";
+   
+    //Error Upload
+    public static uploadError:string = "Arquivo não compatível com as extensões .png .jpg ou .gif "
 
-    public static usercurrent:string = '';
 }

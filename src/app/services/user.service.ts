@@ -20,7 +20,10 @@ export class AppService{
   urlObter = 'https://back-sta.herokuapp.com/user/get';
   urlUptadeUser = 'https://back-sta.herokuapp.com/user/updateuser';
   urlObterById = 'https://back-sta.herokuapp.com/user/getbyid';
-  urlDelete = 'https://back-sta.herokuapp.com/user/delete'
+  urlDelete = 'https://back-sta.herokuapp.com/user/delete';
+  urlUpload = 'https://back-sta.herokuapp.com/user/uploadimage';
+  urlGetImage = 'https://back-sta.herokuapp.com/user/getimage'
+  urlDeleteImage = 'https://back-sta.herokuapp.com/user/deleteimage'
 
   constructor(private _http:HttpClient) { }
    
@@ -60,7 +63,19 @@ export class AppService{
   delete(id:any):Observable<any>{
      return this._http.delete(`${this.urlDelete}/${id}`)
   }
+  
+  upload(data:any,id:any):Observable<any>{
+ 
+    return this._http.patch(`${this.urlUpload}/${id}`,data);
+  }
 
+  getImage(id:any):Observable<any>{
+    return this._http.get(`${this.urlGetImage}/${id}`);
+  }
+
+  deleteImage(id:any):Observable<any>{
+    return this._http.delete(`${this.urlDeleteImage}/${id}`);
+  }
 
   checkToken(){
     return this._http.get(`${this.urlcheckToken}`);

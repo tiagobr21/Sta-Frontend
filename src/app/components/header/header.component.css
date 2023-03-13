@@ -34,3 +34,14 @@ button{
 .mat-menu-content{
     width: 160px;
 }
+
+.loading{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content:end;
+    align-items:baseline;
+    right: 90px;
+  
+  }

@@ -13,21 +13,21 @@ export class SnackbarService {
       this.snackbar.open(message,'',{
         horizontalPosition:'center',
         verticalPosition:'top',
-        duration:2000,
+        duration:3000,
         panelClass:['red-snackbar']
       });
      }else if(action == 'Você não está altorizado para fazer isso'){
       this.snackbar.open(message,'',{
         horizontalPosition:'center',
         verticalPosition:'top',
-        duration:2000,
+        duration:3000,
         panelClass:['red-snackbar']
       });
     }else{
        this.snackbar.open(message,'',{
           horizontalPosition:'center',
           verticalPosition:'top',
-          duration:2000,
+          duration:3000,
           panelClass:['green-snackbar']
        })
      }

@@ -29,6 +29,7 @@ import { AtualizaUsuarioComponent } from './components/funcoes-admin/usuarios/at
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { PermissoesComponent } from './components/funcoes-admin/usuarios/permissoes/permissoes.component';
 import { UpdateComponent } from './components/funcoes-admin/usuarios/permissoes/update/update.component';
+import { UploadImageComponent } from './components/header/upload-image/upload-image.component';
 
 
 
@@ -54,6 +55,7 @@ import { UpdateComponent } from './components/funcoes-admin/usuarios/permissoes/
     ChangepasswordComponent,
     PermissoesComponent,
     UpdateComponent,
+    UploadImageComponent,
 
   ],
   imports: [
