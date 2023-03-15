@@ -29,6 +29,7 @@ export class AppService{
   urlUpdateCorinha = 'https://back-sta.herokuapp.com/escala_coroinha/update_coroinha';
   urlCreateCoroinha ='https://back-sta.herokuapp.com/escala_coroinha/create_coroinha';
   urlDeleteCoroinha = 'https://back-sta.herokuapp.com/escala_coroinha/delete_coroinha';
+  urlGerarPdf = 'https://back-sta.herokuapp.com/escala_coroinha/gerarpdf'
 
   urlUpdateAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/update_acolito';
   urlCreateAcolito ='https://back-sta.herokuapp.com/escala_coroinha/create_acolito';
@@ -37,6 +38,10 @@ export class AppService{
 
 
   constructor(private _http:HttpClient) { }
+
+  gerarPdf(data:any):Observable<any>{
+     return this._http.post(`${this.urlGerarPdf}`,data);
+  }
 
   createData(data:any):Observable<any>{
     console.log(data,'createapi=>');

@@ -2,7 +2,7 @@ import { AppService } from '../../services/app.service';
 import {jsPDF} from 'jspdf';
 import { ElementRef,Component, OnInit,  ViewChild} from '@angular/core';
 import { __values } from 'tslib';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 
 
@@ -16,121 +16,160 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 export class ConsultarCoroinhaComponent implements OnInit {
   @ViewChild('content',{static:false})el!:ElementRef;
   
-  title = 'app-sta';
+   formCheck: FormGroup;
+
+   title = 'app-sta';
    sideBarOpen = true;
    loading:boolean = false;
    deleteData:any
+   readData:any;
+   alt:any=false; 
+   checked:any=[''];
+   check:any;
+   searchInput:string="";
+   dataInput:string="Geral";
+   anoInput:string="Geral";
+   mes:string ="";
+   allcoroinhas:any;
+   anoAtual:any;
+   checks:boolean = false
+   allCheckes:any
+   returnCheck:any = [];
+   escalas:any[] = [];
+   pagina1:any =[];
  
-   sideBarToggler(){
-     this.sideBarOpen = !this.sideBarOpen;
-   }
-
-  formGroupPesquisa!: FormGroup;
 
   constructor(private service:AppService,
-    private formBuilder:FormBuilder,
-    private snackbar:SnackbarService) { }
+    private fb:FormBuilder,
+    private snackbar:SnackbarService) { 
+
+      this.formCheck = this.fb.group({
+        checkArray: this.fb.array([],[Validators.required])
+      });
+
+    }
   
 
-  readData:any;
-  alt:any=false; 
-  checked:any=[''];
-  check:any;
-  searchInput:string="";
-  dataInput:string="Geral";
-  anoInput:string="Geral";
-  mes:string ="";
-  allcoroinhas:any;
-  anoAtual:any
 
- ocultarBotao(){
-   this.alt = !this.alt;  
- }
-
-/* checkButton(){
-   let checkBoxs = document.querySelectorAll('input[type=checkbox]');
-   
-   for(let i=0;i<this.readData.length;i++){
-     this.checked[i] = checkBoxs[i];
-   }
-
-   this.checked.forEach(function(value:any,key:any) {
-    console.log(key);
-     }); 
-  
-   
-      for(let j=0;j<this.readData.length;j++){
-
+      ngOnInit(): void {
+        
+          this.service.readData().subscribe((res)=>{
+            this.readData = res; 
             
-        if(j==0){
-          checkBoxs =  this.readData[0].id
-          console.log(checkBoxs);
-        }
+            this.readData.map( (diplomado:any) => {
+              diplomado.checked = false;
+            });
 
-        if(j==1){
-          checkBoxs =  this.readData[1].id
-          console.log(checkBoxs);
-        }
 
-        if(j==2){
-          checkBoxs =  this.readData[2].id
-          console.log(checkBoxs);
-        }
-       
-    }  
+            for(let i=0;i<this.readData.length;i++){
+        
+            }
+          
+          });
+
+         
+          
+
+          let date = new Date();
+          this.anoAtual = date.getFullYear();
      
-} */
 
+    }
 
-  ngOnInit(): void {
-    this.service.readData().subscribe((res)=>{
-      this.readData = res; 
-
-      for(let i=0;i<this.readData.length;i++){
-        console.log(this.readData[i].ano);
-      }
-    });
+    onCheckboxChange(e:any){
+      const checkArray: FormArray = this.formCheck.get('checkArray') as FormArray
+      const id = e.target.value;
+      const isChecked = e.target.checked;
     
-    let date = new Date();
-    this.anoAtual = date.getFullYear();
-    console.log( this.anoAtual );
-}
+       this.readData = this.readData.map((i:any)=>{
 
-limparFiltro(){
-  location.reload()
-}
-  
-printSimplePDF(){
-
-
-console.log(this.anoInput) 
-  let pdf = new jsPDF('p','pt','a4',false);
-
-  pdf.html(this.el.nativeElement,{
-     callback:(pdf)=>{
+         if(i.id == id){
       
-       pdf.save('Escala Coroinha '+this.dataInput+'.pdf');
-   
-     } 
-     
-  }); 
+            if(i.checked == false){
+               i.checked = isChecked
+               console.log(i.checked)
+               this.allCheckes = false;
+               checkArray.push(new FormControl(i.id))
+            }else{
+              let contador = 0;
+
+              checkArray.controls.forEach((item:any)=>{
+                 if(item.value = e.target.value){
+                    checkArray.removeAt(contador);
+                    return;
+                 }
+                 contador++;
+              })
+            }
+             this.returnCheck = checkArray.value
+            return i;
+        } 
+
+        if(id == -1){
+          i.Checked = this.allCheckes;
+          checkArray.push(new FormControl(i.id)) ;
+          this.checks = true;
+          this.returnCheck =  checkArray.value
+          // console.log(checkArray.value);
+          return i;
+        }
+  
+        return i;
+      });
+       
+    }
+
+    sideBarToggler(){
+      this.sideBarOpen = !this.sideBarOpen;
+    }
+
+    ocultarBotao(){
+      this.alt = !this.alt;  
+    }
+
+    limparFiltro(){
+      location.reload()
+    }
+      
+    printSimplePDF(){
 
   
-} 
+      this.returnCheck.forEach((element:any,i:any) => {
+  
+          if(this.readData[i].id == element){
+              this.escalas.push(this.readData[i]);
+          }
+      });
+
+      if(this.escalas.length <= 8){
+        this.pagina1 = this.escalas
+      }
+      
+      let formData = [{
+         "tipo":"Coroinha",
+         "pagina1":"[{\"data\":\"2023-03-19\", \"dia\":\"Domingo\",\"hora\":\"7h\",\"comunidade\":\"Santa Terezinha\", \"acolito1\":\"Bryan\",\"coroinha1\":\"Esther\",\"coroinha2\":\"Gustavo\"}]"
+      }]
+
+      console.log(formData)
+
+      this.service.gerarPdf(formData).subscribe((res)=>{
+        console.log(res)
+      })
+    } 
 
 
-deleteID(id:any){
-  this.loading = true
-  this.service.deleteData(id).subscribe((res)=>{
-       
-      this.deleteData = res;
-      this.snackbar.openSnackBar(this.deleteData.message,"") 
-      this.loading = true;
+    deleteID(id:any){
+      this.loading = true
+      this.service.deleteData(id).subscribe((res)=>{
+          
+          this.deleteData = res;
+          this.snackbar.openSnackBar(this.deleteData.message,"") 
+          this.loading = true;
 
-      this.service.readData().subscribe((res)=>{
-        this.readData = res;
-      });     
-  });
-}
+          this.service.readData().subscribe((res)=>{
+            this.readData = res;
+          });     
+      });
+    }
 
 }

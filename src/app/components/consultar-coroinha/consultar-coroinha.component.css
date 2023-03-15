@@ -156,19 +156,36 @@ div.container-data{
 
 }
 
+#check-all{
+  position: relative;
+  right: 20px;
+
+}
+
+#check{
+  position: relative;
+  right: 10px;
+  top: 10px;
+  border-radius: 15px;
+}
+
+#check-label{
+   position: relative;
+   right: 15px;
+   color: #0f172a;
+   font-size: 12px;
+}
 
 table{
     margin-top: -30px;
     margin-left: -30px;
-    color: black;
-    
-   
+    color: black;   
 }
 
 .tabela-1{
    width: 106%;
    color:black;
-   margin: 20px 0 20px -10px;
+   margin: 20px 0 20px 20px;
    font-size: 14px;
    
 }
