@@ -132,11 +132,13 @@ export class ConsultarCoroinhaComponent implements OnInit {
     }
       
     printSimplePDF(){
-
+   
   
       this.returnCheck.forEach((element:any,i:any) => {
-  
+          console.log('geral:'+this.readData[i].id)
+          console.log('selecionados:'+element)
           if(this.readData[i].id == element){
+              console.log(this.readData[i])
               this.escalas.push(this.readData[i]);
           }
       });
@@ -144,17 +146,21 @@ export class ConsultarCoroinhaComponent implements OnInit {
       if(this.escalas.length <= 8){
         this.pagina1 = this.escalas
       }
-      
+
+    
+
+      const json = JSON.stringify( this.pagina1)
+
+      console.log(json)
+
       let formData = [{
          "tipo":"Coroinha",
-         "pagina1":"[{\"data\":\"2023-03-19\", \"dia\":\"Domingo\",\"hora\":\"7h\",\"comunidade\":\"Santa Terezinha\", \"acolito1\":\"Bryan\",\"coroinha1\":\"Esther\",\"coroinha2\":\"Gustavo\"}]"
+         "pagina1": json
       }]
 
-      console.log(formData)
-
-      this.service.gerarPdf(formData).subscribe((res)=>{
-        console.log(res)
-      })
+       this.service.gerarPdf(formData).subscribe((res)=>{
+        console.log(res.message)
+      }) 
     } 
 
 
