@@ -192,11 +192,11 @@
                 </div>
                 
                 <div *ngIf="!getparamid" (click)="userSubmit()">
-                    <button class="btn btn-success" id="enviar">Criar</button>
+                    <button [disabled]="!userForm.valid" class="btn btn-success" id="enviar">Criar</button>
                 </div>
 
                 <div *ngIf="getparamid" (click)="userUpdate()">
-                    <button class="btn btn-success" id="enviar">Atualizar</button>
+                    <button [disabled]="!userForm.valid" class="btn btn-success" id="enviar">Atualizar</button>
                 </div>
               
                 

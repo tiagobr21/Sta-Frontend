@@ -79,11 +79,13 @@
       </form>
   </div>
 
+  <div *ngIf="loading == true">
+    <div class="loading" *ngIf="response ==null">
+      <mat-spinner *ngIf="response ==null"></mat-spinner>
+    </div> 
+  </div>
+
 </section>
-
-
-
-
 
     <div class="page__content shadow p-3 position-relative" id="content" #content>
  
@@ -204,7 +206,7 @@
     </div>
 
   </div>
-  <button  id="download" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button><mat-icon id="print"> local_printshop</mat-icon>
+  <button  id="download" [disabled]="!formCheck.valid" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button><mat-icon id="print"> local_printshop</mat-icon>
 
  
     

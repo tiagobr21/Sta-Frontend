@@ -4,6 +4,8 @@ import { ElementRef,Component, OnInit,  ViewChild} from '@angular/core';
 import { __values } from 'tslib';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { elementAt } from 'rxjs';
+import { GlobalConstants } from 'src/app/shared/global-constants';
 
 
 
@@ -37,6 +39,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
    returnCheck:any = [];
    escalas:any[] = [];
    pagina1:any =[];
+   pagina2:any =[];
+   pagina3:any =[];
+   response:any;
+ 
  
 
   constructor(private service:AppService,
@@ -102,6 +108,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
               })
             }
              this.returnCheck = checkArray.value
+            //  console.log(checkArray.value);
             return i;
         } 
 
@@ -131,37 +138,107 @@ export class ConsultarCoroinhaComponent implements OnInit {
       location.reload()
     }
       
-    printSimplePDF(){
-   
-  
-      this.returnCheck.forEach((element:any,i:any) => {
-          console.log('geral:'+this.readData[i].id)
-          console.log('selecionados:'+element)
-          if(this.readData[i].id == element){
-              console.log(this.readData[i])
-              this.escalas.push(this.readData[i]);
-          }
+    printSimplePDF():any{
+    
+     
+      this.readData.forEach((escala:any,i:any) => {
+          this.returnCheck.forEach((check:any,i:any) => {
+                  if(escala.id == check){
+                     this.escalas.push(escala)
+                  }
+          }); 
+
       });
 
-      if(this.escalas.length <= 8){
+
+       if(this.escalas.length <= 8){
         this.pagina1 = this.escalas
+        this.loading = true
+      }else if (this.escalas.length > 8 && this.escalas.length <= 16 ){
+         let novaescalas = [];
+         let corte = 8;
+
+         for (var i = 0; i < this.escalas.length; i = i + corte) {
+          novaescalas.push(this.escalas.slice(i, i + corte));
+        }
+           
+        this.pagina1 = novaescalas[0]
+        this.pagina2 =  novaescalas[1]
+        this.loading = true
+
+      }else{
+        this.snackbar.openSnackBar(GlobalConstants.limit,GlobalConstants.error);
+        return false;
       }
+
+
+
+
+      if(this.pagina2[0] == null){
+          const pagina1 = JSON.stringify( this.pagina1)
+        
+          console.log(pagina1)
+      
+          let formData = [{
+            "tipo":"Coroinha",
+            "pagina1": pagina1
+        }]
+        
+
+        
+         this.service.gerarPdf(formData).subscribe((res)=>{
+          this.response = res
+          this.loading = false
+          this.snackbar.openSnackBar(this.response.message,"");
+          
+        },(error)=>{
+          if(error.error?.message){
+            this.response = error.error?.message;
+          }else{
+            this.response = GlobalConstants.genericError
+          }
+ 
+           this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+        })
+
+      }else{
+        
+        const pagina1 = JSON.stringify( this.pagina1)
+        const pagina2 = JSON.stringify( this.pagina2)
+
+          let formData = [
+            {
+              "tipo":"Coroinha",
+              "pagina1": pagina1
+            },
+            {
+              "tipo":"Coroinha",
+              "pagina2": pagina2
+            }
+          ]
+
+         
+         this.service.gerarPdf(formData).subscribe((res)=>{
+          this.response = res
+          this.loading = false
+          this.snackbar.openSnackBar(this.response.message,"");
+      },(error)=>{
+        if(error.error?.message){
+          this.response = error.error?.message;
+        }else{
+          this.response = GlobalConstants.genericError
+        }
+
+         this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+      })  
+    
+    }
+    
 
     
 
-      const json = JSON.stringify( this.pagina1)
-
-      console.log(json)
-
-      let formData = [{
-         "tipo":"Coroinha",
-         "pagina1": json
-      }]
-
-       this.service.gerarPdf(formData).subscribe((res)=>{
-        console.log(res.message)
-      }) 
-    } 
+    
+    }
 
 
     deleteID(id:any){
