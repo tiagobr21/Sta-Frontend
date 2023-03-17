@@ -41,6 +41,13 @@ export class ConsultarCoroinhaComponent implements OnInit {
    pagina1:any =[];
    pagina2:any =[];
    pagina3:any =[];
+   pagina4:any =[];
+   pagina5:any =[];
+   pagina6:any =[];
+   pagina7:any =[];
+   pagina8:any =[];
+   pagina9:any =[];
+   pagina10:any =[];
    response:any;
  
  
@@ -151,28 +158,104 @@ export class ConsultarCoroinhaComponent implements OnInit {
       });
 
 
-       if(this.escalas.length <= 8){
-        this.pagina1 = this.escalas
-        this.loading = true
-      }else if (this.escalas.length > 8 && this.escalas.length <= 16 ){
+    
          let novaescalas = [];
-         let corte = 8;
+         let corte = 10;
 
          for (var i = 0; i < this.escalas.length; i = i + corte) {
           novaescalas.push(this.escalas.slice(i, i + corte));
         }
+
+        console.log(novaescalas)
+
+        if(novaescalas.length <=10){
+
+
+          if(novaescalas.length == 1){
+            this.pagina1 = novaescalas[0]
+          }
+
+          if(novaescalas.length == 2){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+          }
+          
+          if(novaescalas.length == 3){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+            this.pagina3 =  novaescalas[2]
+          }
+          if(novaescalas.length == 4){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+            this.pagina3 =  novaescalas[2]
+            this.pagina4 =  novaescalas[3]
+          }
+          if(novaescalas.length == 5){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+            this.pagina3 =  novaescalas[2]
+            this.pagina4 =  novaescalas[3]
+            this.pagina5 =  novaescalas[4]
+          }
+          if(novaescalas.length == 6){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+            this.pagina3 =  novaescalas[2]
+            this.pagina4 =  novaescalas[3]
+            this.pagina5 =  novaescalas[4]
+            this.pagina6 =  novaescalas[5]
+          }
+          if(novaescalas.length == 7){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+            this.pagina3 =  novaescalas[2]
+            this.pagina4 =  novaescalas[3]
+            this.pagina5 =  novaescalas[4]
+            this.pagina6 =  novaescalas[5]
+            this.pagina7 =  novaescalas[6]
+          }
+          if(novaescalas.length == 8){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+            this.pagina3 =  novaescalas[2]
+            this.pagina4 =  novaescalas[3]
+            this.pagina5 =  novaescalas[4]
+            this.pagina6 =  novaescalas[5]
+            this.pagina7 =  novaescalas[6]
+            this.pagina8 =  novaescalas[7]
+          }
+          if(novaescalas.length == 9){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+            this.pagina3 =  novaescalas[2]
+            this.pagina4 =  novaescalas[3]
+            this.pagina5 =  novaescalas[4]
+            this.pagina6 =  novaescalas[5]
+            this.pagina7 =  novaescalas[6]
+            this.pagina8 =  novaescalas[7]
+            this.pagina9 =  novaescalas[8]
+          }
+          if(novaescalas.length == 10){
+            this.pagina1 = novaescalas[0]
+            this.pagina2 =  novaescalas[1]
+            this.pagina3 =  novaescalas[2]
+            this.pagina4 =  novaescalas[3]
+            this.pagina5 =  novaescalas[4]
+            this.pagina6 =  novaescalas[5]
+            this.pagina7 =  novaescalas[6]
+            this.pagina8 =  novaescalas[7]
+            this.pagina9 =  novaescalas[8]
+            this.pagina10 =  novaescalas[9]
+          }
+         
+          this.loading = true
+  
+        }else{
+          this.snackbar.openSnackBar(GlobalConstants.limit,GlobalConstants.error);
+          return false;
+        }
            
-        this.pagina1 = novaescalas[0]
-        this.pagina2 =  novaescalas[1]
-        this.loading = true
-
-      }else{
-        this.snackbar.openSnackBar(GlobalConstants.limit,GlobalConstants.error);
-        return false;
-      }
-
-
-
 
       if(this.pagina2[0] == null){
           const pagina1 = JSON.stringify( this.pagina1)
@@ -201,7 +284,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
            this.snackbar.openSnackBar(this.response,GlobalConstants.error);
         })
 
-      }else{
+      }else if(this.pagina3[0] == null){
         
         const pagina1 = JSON.stringify( this.pagina1)
         const pagina2 = JSON.stringify( this.pagina2)
@@ -232,7 +315,433 @@ export class ConsultarCoroinhaComponent implements OnInit {
          this.snackbar.openSnackBar(this.response,GlobalConstants.error);
       })  
     
+    }else if(this.pagina4[0] == null){
+        
+      const pagina1 = JSON.stringify( this.pagina1)
+      const pagina2 = JSON.stringify( this.pagina2)
+      const pagina3 = JSON.stringify( this.pagina3)
+
+        let formData = [
+          {
+            "tipo":"Coroinha",
+            "pagina1": pagina1
+          },
+          {
+            "tipo":"Coroinha",
+            "pagina2": pagina2
+          },
+          {
+            "tipo":"Coroinha",
+            "pagina3": pagina3
+          }
+        ]
+
+       
+       this.service.gerarPdf(formData).subscribe((res)=>{
+        this.response = res
+        this.loading = false
+        this.snackbar.openSnackBar(this.response.message,"");
+    },(error)=>{
+      if(error.error?.message){
+        this.response = error.error?.message;
+      }else{
+        this.response = GlobalConstants.genericError
+      }
+
+       this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+    })  
+  
+  }else if(this.pagina5[0] == null){
+        
+    const pagina1 = JSON.stringify( this.pagina1)
+    const pagina2 = JSON.stringify( this.pagina2)
+    const pagina3 = JSON.stringify( this.pagina3)
+    const pagina4 = JSON.stringify( this.pagina4)
+
+      let formData = [
+        {
+          "tipo":"Coroinha",
+          "pagina1": pagina1
+        },
+        {
+          "tipo":"Coroinha",
+          "pagina2": pagina2
+        },
+        {
+          "tipo":"Coroinha",
+          "pagina3": pagina3
+        },
+        {
+          "tipo":"Coroinha",
+          "pagina4": pagina4
+        }
+      ]
+
+     
+     this.service.gerarPdf(formData).subscribe((res)=>{
+      this.response = res
+      this.loading = false
+      this.snackbar.openSnackBar(this.response.message,"");
+  },(error)=>{
+    if(error.error?.message){
+      this.response = error.error?.message;
+    }else{
+      this.response = GlobalConstants.genericError
     }
+
+     this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+  })  
+
+}else if(this.pagina6[0] == null){
+        
+  const pagina1 = JSON.stringify( this.pagina1)
+  const pagina2 = JSON.stringify( this.pagina2)
+  const pagina3 = JSON.stringify( this.pagina3)
+  const pagina4 = JSON.stringify( this.pagina4)
+  const pagina5 = JSON.stringify( this.pagina5)
+
+    let formData = [
+      {
+        "tipo":"Coroinha",
+        "pagina1": pagina1
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina2": pagina2
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina3": pagina3
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina4": pagina4
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina5": pagina5
+      }
+    ]
+
+   
+   this.service.gerarPdf(formData).subscribe((res)=>{
+    this.response = res
+    this.loading = false
+    this.snackbar.openSnackBar(this.response.message,"");
+},(error)=>{
+  if(error.error?.message){
+    this.response = error.error?.message;
+  }else{
+    this.response = GlobalConstants.genericError
+  }
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+})  
+
+}else if(this.pagina7[0] == null){
+        
+  const pagina1 = JSON.stringify( this.pagina1)
+  const pagina2 = JSON.stringify( this.pagina2)
+  const pagina3 = JSON.stringify( this.pagina3)
+  const pagina4 = JSON.stringify( this.pagina4)
+  const pagina5 = JSON.stringify( this.pagina5)
+  const pagina6 = JSON.stringify( this.pagina6)
+
+    let formData = [
+      {
+        "tipo":"Coroinha",
+        "pagina1": pagina1
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina2": pagina2
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina3": pagina3
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina4": pagina4
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina5": pagina5
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina6": pagina6
+      }
+    ]
+
+   
+   this.service.gerarPdf(formData).subscribe((res)=>{
+    this.response = res
+    this.loading = false
+    this.snackbar.openSnackBar(this.response.message,"");
+},(error)=>{
+  if(error.error?.message){
+    this.response = error.error?.message;
+  }else{
+    this.response = GlobalConstants.genericError
+  }
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+})  
+
+}else if(this.pagina8[0] == null){
+        
+  const pagina1 = JSON.stringify( this.pagina1)
+  const pagina2 = JSON.stringify( this.pagina2)
+  const pagina3 = JSON.stringify( this.pagina3)
+  const pagina4 = JSON.stringify( this.pagina4)
+  const pagina5 = JSON.stringify( this.pagina5)
+  const pagina6 = JSON.stringify( this.pagina6)
+  const pagina7 = JSON.stringify( this.pagina7)
+
+    let formData = [
+      {
+        "tipo":"Coroinha",
+        "pagina1": pagina1
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina2": pagina2
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina3": pagina3
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina4": pagina4
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina5": pagina5
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina6": pagina6
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina7": pagina7
+      }
+    ]
+
+   
+   this.service.gerarPdf(formData).subscribe((res)=>{
+    this.response = res
+    this.loading = false
+    this.snackbar.openSnackBar(this.response.message,"");
+},(error)=>{
+  if(error.error?.message){
+    this.response = error.error?.message;
+  }else{
+    this.response = GlobalConstants.genericError
+  }
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+})  
+
+}else if(this.pagina9[0] == null){
+        
+  const pagina1 = JSON.stringify( this.pagina1)
+  const pagina2 = JSON.stringify( this.pagina2)
+  const pagina3 = JSON.stringify( this.pagina3)
+  const pagina4 = JSON.stringify( this.pagina4)
+  const pagina5 = JSON.stringify( this.pagina5)
+  const pagina6 = JSON.stringify( this.pagina6)
+  const pagina7 = JSON.stringify( this.pagina7)
+  const pagina8 = JSON.stringify( this.pagina8)
+
+    let formData = [
+      {
+        "tipo":"Coroinha",
+        "pagina1": pagina1
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina2": pagina2
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina3": pagina3
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina4": pagina4
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina5": pagina5
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina6": pagina6
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina7": pagina7
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina8": pagina8
+      }
+    ]
+
+   
+   this.service.gerarPdf(formData).subscribe((res)=>{
+    this.response = res
+    this.loading = false
+    this.snackbar.openSnackBar(this.response.message,"");
+},(error)=>{
+  if(error.error?.message){
+    this.response = error.error?.message;
+  }else{
+    this.response = GlobalConstants.genericError
+  }
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+})  
+
+}else if(this.pagina10[0] == null){
+        
+  const pagina1 = JSON.stringify( this.pagina1)
+  const pagina2 = JSON.stringify( this.pagina2)
+  const pagina3 = JSON.stringify( this.pagina3)
+  const pagina4 = JSON.stringify( this.pagina4)
+  const pagina5 = JSON.stringify( this.pagina5)
+  const pagina6 = JSON.stringify( this.pagina6)
+  const pagina7 = JSON.stringify( this.pagina7)
+  const pagina8 = JSON.stringify( this.pagina8)
+  const pagina9 = JSON.stringify( this.pagina9)
+
+    let formData = [
+      {
+        "tipo":"Coroinha",
+        "pagina1": pagina1
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina2": pagina2
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina3": pagina3
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina4": pagina4
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina5": pagina5
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina6": pagina6
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina7": pagina7
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina8": pagina8
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina9": pagina9
+      }
+    ]
+
+   
+   this.service.gerarPdf(formData).subscribe((res)=>{
+    this.response = res
+    this.loading = false
+    this.snackbar.openSnackBar(this.response.message,"");
+},(error)=>{
+  if(error.error?.message){
+    this.response = error.error?.message;
+  }else{
+    this.response = GlobalConstants.genericError
+  }
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+})  
+
+}else{
+  const pagina1 = JSON.stringify( this.pagina1)
+  const pagina2 = JSON.stringify( this.pagina2)
+  const pagina3 = JSON.stringify( this.pagina3)
+  const pagina4 = JSON.stringify( this.pagina4)
+  const pagina5 = JSON.stringify( this.pagina5)
+  const pagina6 = JSON.stringify( this.pagina6)
+  const pagina7 = JSON.stringify( this.pagina7)
+  const pagina8 = JSON.stringify( this.pagina8)
+  const pagina9 = JSON.stringify( this.pagina9)
+  const pagina10 = JSON.stringify( this.pagina10)
+
+    let formData = [
+      {
+        "tipo":"Coroinha",
+        "pagina1": pagina1
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina2": pagina2
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina3": pagina3
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina4": pagina4
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina5": pagina5
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina6": pagina6
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina7": pagina7
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina8": pagina8
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina9": pagina9
+      },
+      {
+        "tipo":"Coroinha",
+        "pagina10": pagina10
+      }
+    ]
+
+   
+   this.service.gerarPdf(formData).subscribe((res)=>{
+    this.response = res
+    this.loading = false
+    this.snackbar.openSnackBar(this.response.message,"");
+},(error)=>{
+  if(error.error?.message){
+    this.response = error.error?.message;
+  }else{
+    this.response = GlobalConstants.genericError
+  }
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+})
+}
     
 
     
