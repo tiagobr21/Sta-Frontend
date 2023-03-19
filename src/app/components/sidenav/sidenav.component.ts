@@ -13,6 +13,7 @@ export class SidenavComponent implements OnInit {
 
   show:any=false; 
   show2:any=false; 
+  show3:any=false; 
   role:any
 
 
@@ -27,5 +28,9 @@ export class SidenavComponent implements OnInit {
 
   showOptions2(){
     this.show2 = !this.show2;
+  }
+
+  showOptions3(){
+    this.show3 = !this.show3;
   }
 }

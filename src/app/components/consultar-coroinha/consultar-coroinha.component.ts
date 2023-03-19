@@ -154,10 +154,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
                      this.escalas.push(escala)
                   }
           }); 
-
       });
-
-
     
          let novaescalas = [];
          let corte = 10;
@@ -740,14 +737,11 @@ export class ConsultarCoroinhaComponent implements OnInit {
   }
 
    this.snackbar.openSnackBar(this.response,GlobalConstants.error);
-})
+  })
+  }
+
 }
-    
 
-    
-
-    
-    }
 
 
     deleteID(id:any){

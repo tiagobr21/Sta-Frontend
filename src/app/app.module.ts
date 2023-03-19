@@ -30,6 +30,7 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
 import { PermissoesComponent } from './components/funcoes-admin/usuarios/permissoes/permissoes.component';
 import { UpdateComponent } from './components/funcoes-admin/usuarios/permissoes/update/update.component';
 import { UploadImageComponent } from './components/header/upload-image/upload-image.component';
+import { EscalaCoroinhaPdfComponent } from './components/arquivos-pdf/escala-coroinha-pdf/escala-coroinha-pdf.component';
 
 
 
@@ -56,6 +57,7 @@ import { UploadImageComponent } from './components/header/upload-image/upload-im
     PermissoesComponent,
     UpdateComponent,
     UploadImageComponent,
+    EscalaCoroinhaPdfComponent,
 
   ],
   imports: [

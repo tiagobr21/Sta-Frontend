@@ -11,6 +11,7 @@ import { RouterGuardService } from './services/router-guard.service';
 import { UsuariosComponent } from './components/funcoes-admin/usuarios/usuarios.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { PermissoesComponent } from './components/funcoes-admin/usuarios/permissoes/permissoes.component';
+import { EscalaCoroinhaPdfComponent } from './components/arquivos-pdf/escala-coroinha-pdf/escala-coroinha-pdf.component';
 
 const routes: Routes = [
 
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path:'cadastro',component:CadastroComponent},
   {path:'login',component:LoginComponent},
   {path:'mudarsenha',component:ChangepasswordComponent},
+  {path:'escala-coroinha-pdf',component:EscalaCoroinhaPdfComponent},
   {
     path:'admin/usuarios',component:UsuariosComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),

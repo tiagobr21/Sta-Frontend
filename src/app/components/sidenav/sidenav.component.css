@@ -40,7 +40,12 @@ h5{
    
 }
 
-#criar-escala,#consultar-escala{
+#criar-escala,#consultar-escala,#pdf{
     margin:10px 0 10px 30px;
 }
+
+#consultar-escala-pdf{
+    margin:5px 0 10px 40px;
+}
+
 

@@ -30,6 +30,8 @@ export class AppService{
   urlCreateCoroinha ='http://localhost:3000/escala_coroinha/create_coroinha';
   urlDeleteCoroinha = 'http://localhost:3000/escala_coroinha/delete_coroinha';
   urlGerarPdf = 'http://localhost:3000/escala_coroinha/gerarpdf';
+  urlGetPdf = 'http://localhost:3000/escala_coroinha/getpdf';
+  urlDeletePdf = 'http://localhost:3000/escala_coroinha/deletepdf';
 
   urlUpdateAcolito = 'http://localhost:3000/escala_coroinha/update_acolito';
   urlCreateAcolito ='http://localhost:3000/escala_coroinha/create_acolito';
@@ -38,6 +40,14 @@ export class AppService{
 
 
   constructor(private _http:HttpClient) { }
+
+  deletePdf(id:any):Observable<any>{
+    return this._http.delete(`${this.urlDeletePdf}/${id}`);
+  }
+
+  getPdf():Observable<any>{
+    return this._http.get(`${this.urlGetPdf}`);
+  }
 
   gerarPdf(data:any):Observable<any>{
      return this._http.post(`${this.urlGerarPdf}`,data);

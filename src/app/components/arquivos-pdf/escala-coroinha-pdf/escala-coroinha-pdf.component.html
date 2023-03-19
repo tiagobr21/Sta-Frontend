@@ -1,0 +1,45 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+          
+        <div class="container-fluid page">
+            <div class="page__box p-3 mt-2">Escala Coroinha - Arquivos PDF</div>
+                <div class="page__content shadow p-3 position-relative">
+
+                    <table *ngFor="let pdfs of response" class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Nome Arquivos</th>
+                            <th scope="col">Links</th>
+                            <th scope="col">Deletar</th>
+               
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td id="arquivo">{{pdfs.escala_coroinha}}</td>
+                            <th scope="row"><a class="btn btn-primary"  role="button" [href]="this.baselink+pdfs.escala_coroinha"  target="_blank"> Abrir</a></th>
+                            <th id="space">
+                                <button (click)="delete(pdfs.id)" id="delete" class="btn btn-danger">
+                                    <mat-icon id="icon-delete">delete</mat-icon> 
+                                </button>
+                            </th>        
+              
+                          </tr>
+              
+                        </tbody>
+                      </table>
+                    <div class="page__content-data position-absolute text-center">
+        
+            
+                      
+                       </div>
+                </div>
+            </div>
+  
+                
+    </mat-drawer-content>
+</mat-drawer-container>
