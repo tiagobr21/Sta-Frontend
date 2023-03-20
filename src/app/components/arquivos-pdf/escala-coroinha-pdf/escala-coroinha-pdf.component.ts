@@ -11,7 +11,7 @@ import { GlobalConstants } from 'src/app/shared/global-constants';
 export class EscalaCoroinhaPdfComponent implements OnInit {
 
   sideBarOpen = true;
-  baselink:string = 'https://back-sta.herokuapp.com/pdfs/';
+  baselink:string = 'http://localhost:3000/pdfs/';
   link:string = ''
   response:any;
   loading:boolean = false

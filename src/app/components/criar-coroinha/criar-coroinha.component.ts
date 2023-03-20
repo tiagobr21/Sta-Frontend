@@ -27,7 +27,8 @@ export class CriarCoroinhaComponent implements OnInit {
    select_missaData:any;
    resID:any; 
    response:any;
-   loading:boolean = false
+   loading:boolean = false;
+   contador:number = 0;
 
    title = 'app-sta';
    sideBarOpen = true;
@@ -52,14 +53,9 @@ export class CriarCoroinhaComponent implements OnInit {
             dia:res[0].dia,
             hora:res[0].hora,
             comunidade:res[0].comunidade,
-            acolito1:res[0].acolito1,
-            acolito2:res[0].acolito2,
-            acolito3:res[0].acolito3,
-            coroinha1:res[0].coroinha1,
-            coroinha2:res[0].coroinha2,
-            coroinha3:res[0].coroinha3,
-            coroinha4:res[0].coroinha4,
-            coroinha5:res[0].coroinha5,
+            acolito:res[0].acolito,
+            coroinha:res[0].coroinha,
+
           });
         
         });
@@ -88,19 +84,23 @@ export class CriarCoroinhaComponent implements OnInit {
     'dia':new FormControl('',Validators.prototype),
     'hora':new FormControl('',Validators.prototype),
     'comunidade':new FormControl('',Validators.prototype),
-    'acolito1':new FormControl('',Validators.required),
-    'acolito2':new FormControl('',Validators.prototype),
-    'acolito3':new FormControl('',Validators.prototype),
-    'coroinha1':new FormControl('',Validators.required),
-    'coroinha2':new FormControl('',Validators.prototype),
-    'coroinha3':new FormControl('',Validators.prototype),
-    'coroinha4':new FormControl('',Validators.prototype),
-    'coroinha5':new FormControl('',Validators.prototype)
-  });
+    'acolito':new FormControl('',Validators.required),
+    'coroinha':new FormControl('',Validators.required),
   
+  });
 
+  addAcolito(){
+    this.contador = this.contador + 1;
+    console.log(this.contador)
+  }
+  
   userSubmit(){
     
+
+    console.log(this.userForm.value);
+
+    return;
+
     this.loading = true
 
     let data = this.userForm.value.data;
@@ -142,14 +142,8 @@ export class CriarCoroinhaComponent implements OnInit {
       ano: ano,
       data: this.userForm.value.data,
       comunidade:'',
-      coroinha1: this.userForm.value.coroinha1,
-      coroinha2: this.userForm.value.coroinha2,
-      coroinha3: this.userForm.value.coroinha3,
-      coroinha4: this.userForm.value.coroinha4,
-      coroinha5: this.userForm.value.coroinha5,
-      acolito1: this.userForm.value.acolito1,
-      acolito2: this.userForm.value.acolito2,
-      acolito3: this.userForm.value.acolito3,
+      coroinha: this.userForm.value.coroinha,
+      acolito: this.userForm.value.acolito,
     } 
     
    

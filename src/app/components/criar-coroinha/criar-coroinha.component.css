@@ -45,100 +45,51 @@ mat-drawer-container{
 }
 
 
-
-#missa_atualizar{
-    margin-top: -10%;
-}
-input,select{
-    width: 80%;
-    margin-left: 15%;
+#flex{
+    display: flex;
 }
 
-#date{
- width: 50%;
- margin-left: 30%;
-}
-
-#missa,#data,#dia{
-  margin-bottom: -20px;
-}
-
-#hora,#comunidade,#acolito,#coroinha{
-    margin-bottom: 30px;
-}
-#hora{
-    margin-top:20px ;
-}
 label{
-    font-size: 25px;
-    margin-left: 30px;
+    font-size: 18px;
+    
 }
-p{
-    opacity: 0;
+
+#missa-celebracao{
+   margin-left: 60px;
+}
+
+#missa,#data{
+    margin: 0 auto;
+    justify-content: center;
+}
+
+
+#acolito,#coroinha{
+    width: 30%;
+    margin: 0 auto;
+}
+
+#label-acolito,#label-coroinha{
+   position: relative;
+
+   text-align: center;
+}
+
+
+#submit{
+    margin-top: 5%;
+    position: relative;
+    left: 38%;
 }
 
 #enviar{
-    margin-top: 20px;
-    width: 50%;
-    margin-left: 70px;
-}
-
-#nomes-coroinha{
-    margin-bottom: 10px;
-}
-
-.number{
-    display: inline-block;
-    margin-right: 80%;
-}
-
-#icon-info{
- 
-    margin-top: -10px;
-}
-
-div #div-data{
-    display: inline-block;
-    
- }
-
- .alinhar{
-    display: flex;
-    justify-content: space-between;
-}
- 
- div #div-mes{
-     display: inline-block;
- }
-
-#info{
-    width: 70%;
-    height: 50px;
-    font-size: 13px;
-    font-weight: bold;
-    margin-left: 18%;
-    margin-top: -50px;
-
-}
-
-#nomes-acolito1{
-    margin-bottom: 10px;
-}
-
-#nomes-acolito2,#nomes-acolito3:before{
-    margin-bottom: 10px;
-    opacity: .5;
-}
-
-#nomes-acolito2,#nomes-acolito2:after{
-    margin-bottom: 10px;
-    opacity: 1;
+    width: 25%;
 }
 
 
-#data-calender{
-    opacity: 1;
-}
+
+
+
 
 .loading{
     position: absolute;
