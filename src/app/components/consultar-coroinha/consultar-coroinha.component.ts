@@ -248,9 +248,6 @@ export class ConsultarCoroinhaComponent implements OnInit {
          
           this.loading = true
   
-        }else{
-          this.snackbar.openSnackBar(GlobalConstants.limit,GlobalConstants.error);
-          return false;
         }
            
 
@@ -271,14 +268,6 @@ export class ConsultarCoroinhaComponent implements OnInit {
           this.loading = false
           this.snackbar.openSnackBar(this.response.message,"");
           
-        },(error)=>{
-          if(error.error?.message){
-            this.response = error.error?.message;
-          }else{
-            this.response = GlobalConstants.genericError
-          }
- 
-           this.snackbar.openSnackBar(this.response,GlobalConstants.error);
         })
 
       }else if(this.pagina3[0] == null){
