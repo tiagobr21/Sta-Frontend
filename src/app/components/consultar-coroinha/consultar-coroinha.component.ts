@@ -304,6 +304,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
           this.loading = false
           this.snackbar.openSnackBar(this.response.message,"");
       },(error)=>{
+        this.loading = false
         if(error.error?.message){
           this.response = error.error?.message;
         }else{
