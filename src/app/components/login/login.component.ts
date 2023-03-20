@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   response:any;
   user:any;
   role:any;
-  image:any
+  filename:any
   iduser:any
   token:any;
 
@@ -51,12 +51,12 @@ export class LoginComponent implements OnInit {
       this.response = res;
       console.log(this.response)
       this.role = this.response.role;
-      this.image = this.response.image;
+      this.filename = this.response.filename;
       this.user = this.response.user;
       this.token = this.response.token;
       this.iduser = this.response.id;
       this.snackbar.openSnackBar(this.response.message,"");
-      localStorage.setItem('image',this.image)
+      localStorage.setItem('filename',this.filename)
       localStorage.setItem('role',this.role)
       localStorage.setItem('user',this.user);
       localStorage.setItem('iduser',this.iduser);

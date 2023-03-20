@@ -13,17 +13,17 @@ export class AppService{
   // prod: https://back-sta.herokuapp.com
 
   urlCadastrar = 'https://back-sta.herokuapp.com/user/signup';
-  urlLogin = 'https://back-sta.herokuapp.com/user/login';
-  urlEsqueceuSenha = 'https://back-sta.herokuapp.com/user/forgotpassword';
-  urlcheckToken ='https://back-sta.herokuapp.com/user/checkToken';
-  urlMudarSenha = 'https://back-sta.herokuapp.com/user/changePassword';
-  urlObter = 'https://back-sta.herokuapp.com/user/get';
-  urlUptadeUser = 'https://back-sta.herokuapp.com/user/updateuser';
-  urlObterById = 'https://back-sta.herokuapp.com/user/getbyid';
-  urlDelete = 'https://back-sta.herokuapp.com/user/delete';
-  urlUpload = 'https://back-sta.herokuapp.com/user/uploadimage';
-  urlGetImage = 'https://back-sta.herokuapp.com/user/getimage';
-  urlDeleteImage = 'https://back-sta.herokuapp.com/user/deleteimage';
+  urlLogin = ' https://back-sta.herokuapp.com/user/login';
+  urlEsqueceuSenha = ' https://back-sta.herokuapp.com/user/forgotpassword';
+  urlcheckToken =' https://back-sta.herokuapp.com/user/checkToken';
+  urlMudarSenha = ' https://back-sta.herokuapp.com/user/changePassword';
+  urlObter = ' https://back-sta.herokuapp.com/user/get';
+  urlUptadeUser = ' https://back-sta.herokuapp.com/user/updateuser';
+  urlObterById = ' https://back-sta.herokuapp.com/user/getbyid';
+  urlDelete = ' https://back-sta.herokuapp.com/user/delete';
+  urlUpload = ' https://back-sta.herokuapp.com/user/uploadimage';
+  urlGetImage = ' https://back-sta.herokuapp.com/user/getimage';
+  urlDeleteImage = ' https://back-sta.herokuapp.com/user/deleteimage';
 
   constructor(private _http:HttpClient) { }
    

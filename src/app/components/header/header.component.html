@@ -16,14 +16,14 @@
                     </div> 
                 </div>
 
-                <button *ngIf="imageuser == null" mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
+                <button *ngIf="link == null" mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
                     <img src="../../../assets/user.png" alt="" class="user-image mr-1 p-2">
                     {{user}}
                     <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
               </button>
 
-                <button *ngIf="imageuser != null" mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
-                    <img [src]="imageuser" alt="" class="user-image mr-1 p-2">
+                <button *ngIf="link != null" mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
+                    <img [src]="link" alt="" class="user-image mr-1 p-2">
                      {{user}}
                     <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
                 </button>
@@ -37,17 +37,17 @@
                           <span>Criar Usuário</span> 
                     </button>
 
-                    <button *ngIf="imageuser == null" (click)="uploadImage()" mat-menu-item>
+                    <button *ngIf="link == null" (click)="uploadImage()" mat-menu-item>
                         <mat-icon >folder_shared</mat-icon>
                           <span>Adicionar Foto de Perfil</span> 
                     </button>
 
-                    <button *ngIf="imageuser != null" (click)="uploadImage()" mat-menu-item>
+                    <button *ngIf="link != null" (click)="uploadImage()" mat-menu-item>
                         <mat-icon >folder_shared</mat-icon>
                           <span>Atualizar Foto de Perfil</span> 
                     </button>
 
-                    <button *ngIf="imageuser != null" (click)="deleteImage()" mat-menu-item>
+                    <button *ngIf="link != null" (click)="deleteImage()" mat-menu-item>
                         <mat-icon >delete</mat-icon>
                           <span>Deletar Foto de Perfil</span> 
                     </button>

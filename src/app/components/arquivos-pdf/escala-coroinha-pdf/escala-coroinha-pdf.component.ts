@@ -24,11 +24,6 @@ export class EscalaCoroinhaPdfComponent implements OnInit {
       this.response = res;
       console.log(this.response)
 
-      this.response.forEach((element:any) => {
-      this.link = this.baselink + element.escala_coroinha
-      
-
-      });
 
 
     })

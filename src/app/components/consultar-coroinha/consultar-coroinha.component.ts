@@ -262,9 +262,9 @@ export class ConsultarCoroinhaComponent implements OnInit {
           let formData = [{
             "tipo":"Coroinha",
             "pagina1": pagina1
-        }]
-        
-
+          }]
+         
+         console.log(formData)
         
          this.service.gerarPdf(formData).subscribe((res)=>{
           this.response = res
@@ -296,7 +296,8 @@ export class ConsultarCoroinhaComponent implements OnInit {
               "pagina2": pagina2
             }
           ]
-
+   
+          console.log(formData)
          
          this.service.gerarPdf(formData).subscribe((res)=>{
           this.response = res
