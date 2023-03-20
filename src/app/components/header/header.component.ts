@@ -34,13 +34,15 @@ export class HeaderComponent implements OnInit {
     this.filename = localStorage.getItem("filename");
     this.iduser = localStorage.getItem("iduser");
     this.link = this.baseurl + this.filename
+    console.log(this.link);
 
-
-      this.service.getImage(this.iduser).subscribe((res)=>{
+/*       this.service.getImage(this.iduser).subscribe((res)=>{
         this.response = res;
-        this.filename = this.response[0].image;
         
-     })
+        this.filename = this.response[0].filename;
+        this.link = this.baseurl + this.filename
+        
+     }) */
   }
 
   deleteImage(){
