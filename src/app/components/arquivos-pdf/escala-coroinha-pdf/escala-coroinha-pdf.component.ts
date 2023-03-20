@@ -23,9 +23,6 @@ export class EscalaCoroinhaPdfComponent implements OnInit {
     this.service.getPdf().subscribe((res)=>{
       this.response = res;
       console.log(this.response)
-
-
-
     })
   }
 
@@ -44,7 +41,6 @@ export class EscalaCoroinhaPdfComponent implements OnInit {
       }else{
         this.response = GlobalConstants.genericError
       }
-
        this.snackbar.openSnackBar(this.response,GlobalConstants.error);
     })
   }

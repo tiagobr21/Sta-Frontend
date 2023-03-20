@@ -100,7 +100,6 @@ export class ConsultarCoroinhaComponent implements OnInit {
       
             if(i.checked == false){
                i.checked = isChecked
-               console.log(i.checked)
                this.allCheckes = false;
                checkArray.push(new FormControl(i.id))
             }else{
@@ -163,10 +162,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
           novaescalas.push(this.escalas.slice(i, i + corte));
         }
 
-        console.log(novaescalas)
-
         if(novaescalas.length <=10){
-
 
           if(novaescalas.length == 1){
             this.pagina1 = novaescalas[0]
@@ -248,27 +244,35 @@ export class ConsultarCoroinhaComponent implements OnInit {
          
           this.loading = true
   
+        }else{
+          this.snackbar.openSnackBar(GlobalConstants.limit,"");
         }
            
 
       if(this.pagina2[0] == null){
           const pagina1 = JSON.stringify( this.pagina1)
-        
-          console.log(pagina1)
       
           let formData = [{
             "tipo":"Coroinha",
             "pagina1": pagina1
           }]
          
-         console.log(formData)
         
          this.service.gerarPdf(formData).subscribe((res)=>{
           this.response = res
           this.loading = false
           this.snackbar.openSnackBar(this.response.message,"");
           
-        })
+        },(error)=>{
+          this.loading = false
+          if(error.error?.message){
+            this.response = error.error?.message;
+          }else{
+            this.response = GlobalConstants.genericError
+          }
+  
+           this.snackbar.openSnackBar(this.response,GlobalConstants.error);
+        })  
 
       }else if(this.pagina3[0] == null){
         
@@ -286,7 +290,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
             }
           ]
    
-          console.log(formData)
+  
          
          this.service.gerarPdf(formData).subscribe((res)=>{
           this.response = res
