@@ -33,7 +33,12 @@ export class HeaderComponent implements OnInit {
     this.user = localStorage.getItem("user");
     this.filename = localStorage.getItem("filename");
     this.iduser = localStorage.getItem("iduser");
-    this.link = this.baseurl + this.filename
+    console.log(this.filename);
+    if( this.filename != null){
+      this.link = this.baseurl + this.filename;
+    }
+ 
+   
     console.log(this.link);
 
 /*       this.service.getImage(this.iduser).subscribe((res)=>{
