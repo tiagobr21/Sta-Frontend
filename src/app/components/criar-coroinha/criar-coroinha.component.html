@@ -71,17 +71,23 @@
                 </div>
               </div> -->
                    
-                <div *ngFor="let nomes_acolito of select_acolitoData; let i = index">
-
-                    <div id="acolito" *ngIf="!getparamid && 1 == contador"  class="form-group">
-                        <label id="label-acolito" for="acolito">Acolito</label>
-                        <select formControlName="acolito" class="form-select" >  
-                            <option>Escolha o Acolito</option>
-                            <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
-                        </select>
+            
+             
+                    <div id="acolito" *ngIf="!getparamid"  class="form-group">
+                           <div formArrayName="acolitos" *ngFor="let acolito of getAcolitoControls(); let i = index">
+                               <div [formGroupName]="i">
+                                    <label id="label-acolito" for="acolito">Acolito</label>
+                                        <select formControlName="nomeacolito" class="form-select" >  
+                                                <option>Escolha o Acolito</option>
+                                                <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                                        </select>
+                                </div>
+                            </div>
                     </div>
+     
 
-                </div>
+                <button id="addAcolito" type="button" class="btn btn-success" (click)="addAcolito()">Adicionar Acolito<mat-icon id="add">add</mat-icon></button>
+
 
                     <div id="acolito" *ngIf="getparamid" class="form-group">
                         <label id="label-acolito" for="acolito">Acolito</label>
@@ -91,17 +97,25 @@
                         </select>
                     </div>
 
-                    <button (click)="addAcolito()">+</button>
+                  
 
                     <br>
-            
-                    <div id="coroinha" *ngIf="!getparamid" class="form-group">
-                        <label id="label-coroinha" for="coroinha">Coroinha</label>
-                        <select formControlName="coroinha" class="form-select" >
-                            <option>Escolha o Coroinha</option>
-                            <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
-                        </select>
-                    </div>
+                   
+                
+                        <div id="coroinha" *ngIf="!getparamid" class="form-group">
+                            <div formArrayName="coroinhas" *ngFor="let coroinha of getCoroinhaControls(); let i = index">
+                                <div [formGroupName]="i">
+                                    <label id="label-coroinha" for="coroinha">Coroinha</label>
+                                    <select formControlName="nomecoroinha" class="form-select" >
+                                        <option>Escolha o Coroinha</option>
+                                        <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+           
+
+                    <button id="addAcolito" type="button" class="btn btn-success" (click)="addCorinha()">Adicionar Coroinha<mat-icon id="add">add</mat-icon></button>
 
                     <div id="coroinha" *ngIf="getparamid" class="form-group">
                         <label id="label-coroinha" for="coroinha">Coroinha</label>

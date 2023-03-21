@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog,MatDialogRef, MatDialogConfig } from '@angular/material/dialog';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,13 +14,7 @@ import { GlobalConstants } from 'src/app/shared/global-constants';
 export class CriarCoroinhaComponent implements OnInit {
   @ViewChild('teste') teste:any;
   @ViewChild('mes') mes:any;
-   
-  constructor(private service: AppService,
-    private route:ActivatedRoute,
-    private router:Router,
-    private dialog: MatDialog,
-    private snackbar: SnackbarService) { }
- 
+   userForm: FormGroup;
    getparamid:any;
    select_coroinhaData:any;
    select_acolitoData:any;
@@ -28,15 +22,63 @@ export class CriarCoroinhaComponent implements OnInit {
    resID:any; 
    response:any;
    loading:boolean = false;
-   contador:number = 0;
-
+   contadoracolitos:number = 1;
+   numeroacolitos:any = ['1'];
+   contadorcoroinhas:number = 1;
+   numerocoroinhas:any = ['1'];
    title = 'app-sta';
    sideBarOpen = true;
 
+   constructor(private service: AppService,
+    private route:ActivatedRoute,
+    private router:Router,
+    private dialog: MatDialog,
+    private snackbar: SnackbarService,
+    private fb:FormBuilder) { 
+      this.userForm = this.fb.group({
+        missa: ['',Validators.required],
+        data: ['',Validators.required],
+        acolitos: this.fb.array([this.carregarAcolitos()]),
+        coroinhas: this.fb.array([this.carregarCoroinhas()])
+      })
+    }
+
+    carregarAcolitos():FormGroup{
+      return this.fb.group({
+        nomeacolito:['',Validators.required]
+      })
+    }
+
+    carregarCoroinhas():FormGroup{
+      return this.fb.group({
+        nomecoroinha:['',Validators.required]
+      })
+    }
+
+    getAcolitoControls() {
+      return (this.userForm.get('acolitos') as FormArray).controls;
+    }
+
+    getCoroinhaControls() {
+      return (this.userForm.get('coroinhas') as FormArray).controls;
+    }
+   
+
+   addAcolito(){
+   const acolitos: FormArray = this.userForm.get('acolitos') as FormArray
+   acolitos.push(this.carregarAcolitos())
+ 
+  }
+
+  addCorinha(){
+    const acolitos: FormArray = this.userForm.get('coroinhas') as FormArray
+    acolitos.push(this.carregarCoroinhas())
+  }
  
    sideBarToggler(){
      this.sideBarOpen = !this.sideBarOpen;
    }
+
 
   ngOnInit(): void {
      this.getparamid = this.route.snapshot.paramMap.get('id');
@@ -72,31 +114,12 @@ export class CriarCoroinhaComponent implements OnInit {
         this.select_missaData = res;
        });
 
-
-
   }
   
-  userForm = new FormGroup({
-    'missa':new FormControl('',Validators.required),
-    'data':new FormControl('',Validators.required),
-    'mes':new FormControl('',Validators.required),
-    'ano':new FormControl('',Validators.required),
-    'dia':new FormControl('',Validators.prototype),
-    'hora':new FormControl('',Validators.prototype),
-    'comunidade':new FormControl('',Validators.prototype),
-    'acolito':new FormControl('',Validators.required),
-    'coroinha':new FormControl('',Validators.required),
-  
-  });
-
-  addAcolito(){
-    this.contador = this.contador + 1;
-    console.log(this.contador)
-  }
+ 
   
   userSubmit(){
-    
-
+   
     console.log(this.userForm.value);
 
     return;

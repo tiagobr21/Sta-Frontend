@@ -77,19 +77,26 @@ label{
 
 
 #submit{
-    margin-top: 5%;
+    margin: 5% 0 0 38%;
     position: relative;
-    left: 38%;
+
 }
 
 #enviar{
-    width: 25%;
+    width: 40%;
 }
 
+#addAcolito{
+    margin: 20px 10px;
+    position: relative;
+    left: 41%;
+}
 
-
-
-
+#add{
+    position: relative;
+    left: 5px;
+    top:5px
+}
 
 .loading{
     position: absolute;
