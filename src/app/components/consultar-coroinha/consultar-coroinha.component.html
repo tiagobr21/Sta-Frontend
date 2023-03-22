@@ -111,7 +111,7 @@
           </label>
        </div>
          
-        <div *ngFor="let dados of readData | filtroCoroinha:searchInput | filterCoroinhaData:dataInput | filterCoroinhaAno:anoInput">
+        <div *ngFor="let dados of readData | filtroCoroinha:searchInput | filterCoroinhaData:dataInput | filterCoroinhaAno:anoInput; let i = index">
         
       
 
@@ -121,7 +121,7 @@
               <input id="check" [checked]="checks" [value]="dados.id" (change)="onCheckboxChange($event)" type="checkbox" class="form-check-input">
            </div>
            
-              <table class="table table-bordered" class="tabela-1" >
+              <table  class="table table-bordered" class="tabela-1" >
             
                 <thead class="head">
                   <tr>
@@ -129,60 +129,24 @@
                     <th scope="col">Dia</th>
                     <th scope="col">Hora</th>
                     <th scope="col">Comunidade</th>
-                    <th scope="col">Acolitos</th>
                     <th scope="col">Coroinhas</th>
+                    <th scope="col">Acolitos</th>
                   </tr>
                 </thead>
 
-                <tbody>
+                <tbody >
 
                     <tr>
                         <td>{{dados.data}}</td>
                         <td>{{dados.dia}}</td>
                         <td>{{dados.hora}}</td>
                         <td>{{dados.comunidade}}</td>
-                        <td>{{dados.acolito1}}</td>
-                        <td>{{dados.coroinha1}}</td>
-          
-                    </tr>
-          
-
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>{{dados.acolito2}}</td>
-                      <td>{{dados.coroinha2}}</td>
-                    </tr>
-
-                    <tr>              
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>{{dados.acolito3}}</td>
-                      <td>{{dados.coroinha3}}</td>
-                    </tr>
-
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>{{dados.coroinha4}}</td>
-                    </tr>
-
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>{{dados.coroinha5}}</td>
-                    </tr>
-                  
+                        <div *ngFor="let coroinha of coroinhas">
+                          <td>{{coroinha.nome}}</td>
+                          <td *ngFor="let acolito of acolitos">{{acolito.nome}}</td>
+                        </div> 
+                    </tr>  
+                       
               
                 </tbody>
                 

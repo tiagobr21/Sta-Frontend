@@ -4,7 +4,7 @@ import { ElementRef,Component, OnInit,  ViewChild} from '@angular/core';
 import { __values } from 'tslib';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { elementAt } from 'rxjs';
+import { elementAt, EmptyError } from 'rxjs';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 
 
@@ -49,6 +49,11 @@ export class ConsultarCoroinhaComponent implements OnInit {
    pagina9:any =[];
    pagina10:any =[];
    response:any;
+   newReadData:any = []
+   acolitos:any = [];
+   coroinhas:any = [];
+   qtdcoroinhas:number = 0;
+   qtdacolitos:number = 0;
  
  
 
@@ -69,6 +74,38 @@ export class ConsultarCoroinhaComponent implements OnInit {
           this.service.readData().subscribe((res)=>{
             this.readData = res; 
             
+            console.log(this.readData)
+
+             
+            this.readData.forEach((element:any) => {
+
+              this.coroinhas = JSON.parse(element.coroinha)
+              this.acolitos = JSON.parse(element.acolito)
+            
+              // let escala = {
+
+              //   missa: element.missa,
+              //   data: element.data,
+              //   dia: element.dia,
+              //   hora: element.hora,
+              //   mes: element.mes,
+              //   ano:element.ano,
+              //   comunidade: element.comunidade,
+              //   checked: element.checked,
+              //   coroinhas: JSON.parse(element.acolito),
+              //   acolitos: JSON.parse(element.coroinha),
+              //   id: element.id
+
+              // }
+
+              // this.newReadData.push(escala) 
+          
+            });
+
+            this.qtdacolitos = this.acolitos.length
+            this.qtdcoroinhas = this.coroinhas.length
+
+
             this.readData.map( (diplomado:any) => {
               diplomado.checked = false;
             });

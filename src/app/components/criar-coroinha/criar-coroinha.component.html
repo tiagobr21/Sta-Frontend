@@ -77,7 +77,7 @@
                            <div formArrayName="acolitos" *ngFor="let acolito of getAcolitoControls(); let i = index">
                                <div [formGroupName]="i">
                                     <label id="label-acolito" for="acolito">Acolito</label>
-                                        <select formControlName="nomeacolito" class="form-select" >  
+                                        <select formControlName="nome" class="form-select" >  
                                                 <option>Escolha o Acolito</option>
                                                 <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
                                         </select>
@@ -106,7 +106,7 @@
                             <div formArrayName="coroinhas" *ngFor="let coroinha of getCoroinhaControls(); let i = index">
                                 <div [formGroupName]="i">
                                     <label id="label-coroinha" for="coroinha">Coroinha</label>
-                                    <select formControlName="nomecoroinha" class="form-select" >
+                                    <select formControlName="nome" class="form-select" >
                                         <option>Escolha o Coroinha</option>
                                         <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                                     </select>

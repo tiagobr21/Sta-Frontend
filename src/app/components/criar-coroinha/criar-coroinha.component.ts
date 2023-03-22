@@ -45,13 +45,13 @@ export class CriarCoroinhaComponent implements OnInit {
 
     carregarAcolitos():FormGroup{
       return this.fb.group({
-        nomeacolito:['',Validators.required]
+        nome:['',Validators.required]
       })
     }
 
     carregarCoroinhas():FormGroup{
       return this.fb.group({
-        nomecoroinha:['',Validators.required]
+        nome:['',Validators.required]
       })
     }
 
@@ -120,10 +120,8 @@ export class CriarCoroinhaComponent implements OnInit {
   
   userSubmit(){
    
-    console.log(this.userForm.value);
-
-    return;
-
+   
+    
     this.loading = true
 
     let data = this.userForm.value.data;
@@ -157,6 +155,10 @@ export class CriarCoroinhaComponent implements OnInit {
       mes = 'Dezembro';
     }
 
+    const acolitos = JSON.stringify( this.userForm.value.acolitos)
+    const coroinhas = JSON.stringify( this.userForm.value.coroinhas) 
+  
+
      let formData = {
       missa: this.userForm.value.missa,
       mes: mes,
@@ -165,12 +167,12 @@ export class CriarCoroinhaComponent implements OnInit {
       ano: ano,
       data: this.userForm.value.data,
       comunidade:'',
-      coroinha: this.userForm.value.coroinha,
-      acolito: this.userForm.value.acolito,
+      coroinha: coroinhas,
+      acolito: acolitos,
     } 
-    
-   
-      this.service.createData(formData).subscribe((res)=>{
+
+
+       this.service.createData(formData).subscribe((res)=>{
           console.log(res);
           this.loading = false
           this.response = res;
@@ -182,7 +184,7 @@ export class CriarCoroinhaComponent implements OnInit {
 
         this.snackbar.openSnackBar(this.response,GlobalConstants.error);
       });
-    
+     
   }
 
   userUpdate(){
