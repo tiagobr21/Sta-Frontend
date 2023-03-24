@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   response:any;
   deleteFoto:any;
   loading:any;
-  baseurl:string = 'http://localhost:3000/files/';
+  baseurl:string = 'https://back-sta.herokuapp.com/files/';
   link:string = '';
 
   constructor(private dialog:MatDialog,

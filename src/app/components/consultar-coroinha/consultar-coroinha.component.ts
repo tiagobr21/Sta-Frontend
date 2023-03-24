@@ -78,32 +78,27 @@ export class ConsultarCoroinhaComponent implements OnInit {
 
              
             this.readData.forEach((element:any) => {
-
-              this.coroinhas = JSON.parse(element.coroinha)
-              this.acolitos = JSON.parse(element.acolito)
             
-              // let escala = {
+              let escala = {
 
-              //   missa: element.missa,
-              //   data: element.data,
-              //   dia: element.dia,
-              //   hora: element.hora,
-              //   mes: element.mes,
-              //   ano:element.ano,
-              //   comunidade: element.comunidade,
-              //   checked: element.checked,
-              //   coroinhas: JSON.parse(element.acolito),
-              //   acolitos: JSON.parse(element.coroinha),
-              //   id: element.id
+                missa: element.missa,
+                data: element.data,
+                dia: element.dia,
+                hora: element.hora,
+                mes: element.mes,
+                ano:element.ano,
+                comunidade: element.comunidade,
+                coroinhas: JSON.parse(element.acolito),
+                acolitos: JSON.parse(element.coroinha),
+                id: element.id
 
-              // }
+              }
 
-              // this.newReadData.push(escala) 
+              this.newReadData.push(escala) 
           
             });
 
-            this.qtdacolitos = this.acolitos.length
-            this.qtdcoroinhas = this.coroinhas.length
+           console.log(this.newReadData)
 
 
             this.readData.map( (diplomado:any) => {
@@ -151,7 +146,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
               })
             }
              this.returnCheck = checkArray.value
-            //  console.log(checkArray.value);
+             console.log(checkArray.value);
             return i;
         } 
 
@@ -285,8 +280,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
           this.snackbar.openSnackBar(GlobalConstants.limit,"");
         }
            
+        
 
       if(this.pagina2[0] == null){
+ 
           const pagina1 = JSON.stringify( this.pagina1)
       
           let formData = [{
@@ -294,7 +291,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
             "pagina1": pagina1
           }]
          
-        
+         
          this.service.gerarPdf(formData).subscribe((res)=>{
           this.response = res
           this.loading = false
@@ -309,7 +306,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
           }
   
            this.snackbar.openSnackBar(this.response,GlobalConstants.error);
-        })  
+        })   
 
       }else if(this.pagina3[0] == null){
         
@@ -756,7 +753,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
       }
     ]
 
-   
+/*    
    this.service.gerarPdf(formData).subscribe((res)=>{
     this.response = res
     this.loading = false
@@ -769,7 +766,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
   }
 
    this.snackbar.openSnackBar(this.response,GlobalConstants.error);
-  })
+  }) */
   }
 
 }

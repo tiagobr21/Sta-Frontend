@@ -111,7 +111,7 @@
           </label>
        </div>
          
-        <div *ngFor="let dados of readData | filtroCoroinha:searchInput | filterCoroinhaData:dataInput | filterCoroinhaAno:anoInput; let i = index">
+        <div *ngFor="let dados of newReadData | filtroCoroinha:searchInput | filterCoroinhaData:dataInput | filterCoroinhaAno:anoInput; let i = index">
         
       
 
@@ -141,12 +141,22 @@
                         <td>{{dados.dia}}</td>
                         <td>{{dados.hora}}</td>
                         <td>{{dados.comunidade}}</td>
-                        <div *ngFor="let coroinha of coroinhas">
-                          <td>{{coroinha.nome}}</td>
-                          <td *ngFor="let acolito of acolitos">{{acolito.nome}}</td>
-                        </div> 
+                        <td> 
+                          <div *ngFor="let coroinha of dados.coroinhas">
+                              {{coroinha.nome}}
+                          </div>
+                        </td>
+                        <td> 
+                          <div *ngFor="let acolito of dados.acolitos">
+                              {{acolito.nome}}
+                          </div>
+                        </td>
+                
                     </tr>  
                        
+                
+                     
+
               
                 </tbody>
                 
