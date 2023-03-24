@@ -6,6 +6,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { elementAt, EmptyError } from 'rxjs';
 import { GlobalConstants } from 'src/app/shared/global-constants';
+import { coerceStringArray } from '@angular/cdk/coercion';
 
 
 
@@ -151,11 +152,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
         } 
 
         if(id == -1){
-          i.Checked = this.allCheckes;
-          checkArray.push(new FormControl(i.id)) ;
+          i.checked = this.allCheckes;
+          checkArray.push(new FormControl(i.id));
           this.checks = true;
           this.returnCheck =  checkArray.value
-          // console.log(checkArray.value);
           return i;
         }
   
@@ -280,7 +280,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
           this.snackbar.openSnackBar(GlobalConstants.limit,"");
         }
            
-        
+
 
       if(this.pagina2[0] == null){
  
@@ -290,13 +290,16 @@ export class ConsultarCoroinhaComponent implements OnInit {
             "tipo":"Coroinha",
             "pagina1": pagina1
           }]
-         
-         
+
          this.service.gerarPdf(formData).subscribe((res)=>{
           this.response = res
           this.loading = false
           this.snackbar.openSnackBar(this.response.message,"");
-          
+        
+          setTimeout(function() {
+            window.location.reload();
+          }, 3000); 
+
         },(error)=>{
           this.loading = false
           if(error.error?.message){
@@ -323,13 +326,16 @@ export class ConsultarCoroinhaComponent implements OnInit {
               "pagina2": pagina2
             }
           ]
-   
-  
          
          this.service.gerarPdf(formData).subscribe((res)=>{
           this.response = res
           this.loading = false
           this.snackbar.openSnackBar(this.response.message,"");
+
+          setTimeout(function() {
+            window.location.reload();
+          }, 3000); 
+
       },(error)=>{
         this.loading = false
         if(error.error?.message){
@@ -367,6 +373,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
         this.response = res
         this.loading = false
         this.snackbar.openSnackBar(this.response.message,"");
+        
+        setTimeout(function() {
+          window.location.reload();
+        }, 3000); 
     },(error)=>{
       if(error.error?.message){
         this.response = error.error?.message;
@@ -408,6 +418,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
       this.response = res
       this.loading = false
       this.snackbar.openSnackBar(this.response.message,"");
+      
+      setTimeout(function() {
+        window.location.reload();
+      }, 3000); 
   },(error)=>{
     if(error.error?.message){
       this.response = error.error?.message;
@@ -454,6 +468,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
     this.response = res
     this.loading = false
     this.snackbar.openSnackBar(this.response.message,"");
+    
+    setTimeout(function() {
+      window.location.reload();
+    }, 3000); 
 },(error)=>{
   if(error.error?.message){
     this.response = error.error?.message;
@@ -505,6 +523,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
     this.response = res
     this.loading = false
     this.snackbar.openSnackBar(this.response.message,"");
+    
+    setTimeout(function() {
+      window.location.reload();
+    }, 3000); 
 },(error)=>{
   if(error.error?.message){
     this.response = error.error?.message;
@@ -561,6 +583,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
     this.response = res
     this.loading = false
     this.snackbar.openSnackBar(this.response.message,"");
+    
+    setTimeout(function() {
+      window.location.reload();
+    }, 3000); 
 },(error)=>{
   if(error.error?.message){
     this.response = error.error?.message;
@@ -622,6 +648,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
     this.response = res
     this.loading = false
     this.snackbar.openSnackBar(this.response.message,"");
+    
+    setTimeout(function() {
+      window.location.reload();
+    }, 3000); 
 },(error)=>{
   if(error.error?.message){
     this.response = error.error?.message;
@@ -688,6 +718,10 @@ export class ConsultarCoroinhaComponent implements OnInit {
     this.response = res
     this.loading = false
     this.snackbar.openSnackBar(this.response.message,"");
+    
+    setTimeout(function() {
+      window.location.reload();
+    }, 3000); 
 },(error)=>{
   if(error.error?.message){
     this.response = error.error?.message;
@@ -753,11 +787,15 @@ export class ConsultarCoroinhaComponent implements OnInit {
       }
     ]
 
-/*    
+   
    this.service.gerarPdf(formData).subscribe((res)=>{
     this.response = res
     this.loading = false
     this.snackbar.openSnackBar(this.response.message,"");
+    
+    setTimeout(function() {
+      window.location.reload();
+    }, 3000); 
 },(error)=>{
   if(error.error?.message){
     this.response = error.error?.message;
@@ -766,7 +804,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
   }
 
    this.snackbar.openSnackBar(this.response,GlobalConstants.error);
-  }) */
+  })
   }
 
 }

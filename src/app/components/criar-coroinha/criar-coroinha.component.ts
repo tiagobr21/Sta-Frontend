@@ -28,6 +28,9 @@ export class CriarCoroinhaComponent implements OnInit {
    numerocoroinhas:any = ['1'];
    title = 'app-sta';
    sideBarOpen = true;
+   acolitos:any = [];
+   coroinhas:any = [];
+   test:any
 
    constructor(private service: AppService,
     private route:ActivatedRoute,
@@ -42,6 +45,43 @@ export class CriarCoroinhaComponent implements OnInit {
         coroinhas: this.fb.array([this.carregarCoroinhas()])
       })
     }
+
+    ngOnInit() {
+
+      this.getparamid = this.route.snapshot.paramMap.get('id');
+      if(this.getparamid){
+ 
+         this.service.getSingleData(this.getparamid).subscribe((res)=>{
+             this.resID = res;
+         
+     
+
+             this.coroinhas = JSON.parse(this.resID[0].coroinha)
+             this.acolitos = JSON.parse(this.resID[0].acolito)
+             
+           this.userForm.patchValue({
+             missa:res[0].missa,
+             data:res[0].data,
+        
+           });
+         
+         });
+     }
+         this.service.select_coroinhaData().subscribe((res)=>{
+         this.select_coroinhaData = res;  
+     }); 
+ 
+         this.service.select_acolitoData().subscribe((res)=>{
+         this.select_acolitoData = res;
+     });
+         
+         this.service.select_missaData().subscribe((res)=>{
+         this.select_missaData = res;
+        });
+ 
+   }
+
+ 
 
     carregarAcolitos():FormGroup{
       return this.fb.group({
@@ -67,12 +107,13 @@ export class CriarCoroinhaComponent implements OnInit {
    addAcolito(){
    const acolitos: FormArray = this.userForm.get('acolitos') as FormArray
    acolitos.push(this.carregarAcolitos())
+
  
   }
 
   addCorinha(){
-    const acolitos: FormArray = this.userForm.get('coroinhas') as FormArray
-    acolitos.push(this.carregarCoroinhas())
+    const coroinhas: FormArray = this.userForm.get('coroinhas') as FormArray
+    coroinhas.push(this.carregarCoroinhas())
   }
  
    sideBarToggler(){
@@ -80,48 +121,12 @@ export class CriarCoroinhaComponent implements OnInit {
    }
 
 
-  ngOnInit(): void {
-     this.getparamid = this.route.snapshot.paramMap.get('id');
-     if(this.getparamid){
 
-        this.service.getSingleData(this.getparamid).subscribe((res)=>{
-            this.resID = res;
-
-          this.userForm.patchValue({
-            missa:res[0].missa,
-            data:res[0].data,
-            mes:res[0].mes,
-            ano:res[0].ano,
-            dia:res[0].dia,
-            hora:res[0].hora,
-            comunidade:res[0].comunidade,
-            acolito:res[0].acolito,
-            coroinha:res[0].coroinha,
-
-          });
-        
-        });
-    }
-        this.service.select_coroinhaData().subscribe((res)=>{
-        this.select_coroinhaData = res;  
-    }); 
-
-        this.service.select_acolitoData().subscribe((res)=>{
-        this.select_acolitoData = res;
-    });
-        
-        this.service.select_missaData().subscribe((res)=>{
-        this.select_missaData = res;
-       });
-
-  }
   
  
   
   userSubmit(){
    
-   
-    
     this.loading = true
 
     let data = this.userForm.value.data;
@@ -188,7 +193,10 @@ export class CriarCoroinhaComponent implements OnInit {
   }
 
   userUpdate(){
+
+  
      console.log(this.userForm.value,'updateform');
+     return
 
      if(this.userForm.valid){
         this.service.updateData(this.userForm.value,this.getparamid).subscribe((res)=>{

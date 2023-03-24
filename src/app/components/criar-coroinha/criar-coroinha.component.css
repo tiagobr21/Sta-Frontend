@@ -63,6 +63,10 @@ label{
     justify-content: center;
 }
 
+#select-update{
+    margin-bottom: 20px;
+}
+
 
 #acolito,#coroinha{
     width: 30%;
