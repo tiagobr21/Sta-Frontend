@@ -162,7 +162,7 @@ export class CriarCoroinhaComponent implements OnInit {
 
     console.log(this.userForm.value.acolitos.length)
 
-    if(this.userForm.value.acolitos.length>6 || this.userForm.value.coroinhas.length>6){
+    if(this.userForm.value.acolitos.length>5 || this.userForm.value.coroinhas.length>5){
       this.snackbar.openSnackBar(GlobalConstants.limitagente,GlobalConstants.error)
       this.loading = false
     }else{
