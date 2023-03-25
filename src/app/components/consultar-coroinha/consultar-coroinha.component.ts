@@ -277,7 +277,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
           this.loading = true
   
         }else{
-          this.snackbar.openSnackBar(GlobalConstants.limit,"");
+          this.snackbar.openSnackBar(GlobalConstants.limitescala,"");
         }
            
 

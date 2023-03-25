@@ -160,9 +160,17 @@ export class CriarCoroinhaComponent implements OnInit {
       mes = 'Dezembro';
     }
 
+    console.log(this.userForm.value.acolitos.length)
+
+    if(this.userForm.value.acolitos.length>5 || this.userForm.value.coroinhas.length>5){
+      this.snackbar.openSnackBar(GlobalConstants.limitagente,GlobalConstants.error)
+      this.loading = false
+    }else{
+
+
     const acolitos = JSON.stringify( this.userForm.value.acolitos)
     const coroinhas = JSON.stringify( this.userForm.value.coroinhas) 
-  
+
 
      let formData = {
       missa: this.userForm.value.missa,
@@ -189,7 +197,7 @@ export class CriarCoroinhaComponent implements OnInit {
 
         this.snackbar.openSnackBar(this.response,GlobalConstants.error);
       });
-     
+    }
   }
 
   userUpdate(){

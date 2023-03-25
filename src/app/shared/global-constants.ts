@@ -12,6 +12,8 @@ export class GlobalConstants{
     public static uploadError:string = "Arquivo não compatível com as extensões .png .jpg ou .gif "
 
     //Message Limit
-    public static limit:string = "Quantidade de escalas acima do limite "
+    public static limitescala:string = "Quantidade de escalas acima do limite "
+
+    public static limitagente:string = "Quantidade de agentes acima do limite"
 
 }
