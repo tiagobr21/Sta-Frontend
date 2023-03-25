@@ -281,7 +281,6 @@ export class ConsultarCoroinhaComponent implements OnInit {
         }
            
 
-
       if(this.pagina2[0] == null){
  
           const pagina1 = JSON.stringify( this.pagina1)
