@@ -7,11 +7,11 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 
 @Component({
-  selector: 'app-criar-coroinha',
-  templateUrl: './criar-coroinha.component.html',
-  styleUrls: ['./criar-coroinha.component.css']
+  selector: 'app-criar-ministro',
+  templateUrl: './criar-ministro.component.html',
+  styleUrls: ['./criar-ministro.component.css']
 })
-export class CriarCoroinhaComponent implements OnInit {
+export class CriarMinistroComponent implements OnInit {
   @ViewChild('teste') teste:any;
   @ViewChild('mes') mes:any;
    userForm: FormGroup;
@@ -116,14 +116,11 @@ export class CriarCoroinhaComponent implements OnInit {
     coroinhas.push(this.carregarCoroinhas())
   }
  
-   sideBarToggler(){
-     this.sideBarOpen = !this.sideBarOpen;
-   }
+  sideBarToggler(){
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 
 
-
-  
- 
   
   userSubmit(){
    
@@ -222,6 +219,6 @@ export class CriarCoroinhaComponent implements OnInit {
       this.snackbar.openSnackBar('Algo deu errado',GlobalConstants.error);
      }
    }  
-
   
+
 }

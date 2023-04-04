@@ -13,8 +13,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppService } from './services/app.service';
 import { CategoriaCriarEscalaComponent } from './components/categoria-criar-escala/categoria-criar-escala.component';
-import { ConsultarCoroinhaComponent } from './components/consultar-coroinha/consultar-coroinha.component';
-import { CriarCoroinhaComponent } from './components/criar-coroinha/criar-coroinha.component';
+import { ConsultarCoroinhaComponent } from './components/consultar-escala/coroinha/consultar-coroinha/consultar-coroinha.component';
+import { CriarCoroinhaComponent } from './components/criar-escala/coroinha/criar-coroinha/criar-coroinha.component';
 import { FiltroCoroinhaPipe } from './pipes/filtro-coroinha.pipe';
 import { FilterCoroinhaDataPipe } from './pipes/filter-coroinha-data.pipe';
 import { LoginComponent } from './components/login/login.component';
@@ -31,6 +31,8 @@ import { PermissoesComponent } from './components/funcoes-admin/usuarios/permiss
 import { UpdateComponent } from './components/funcoes-admin/usuarios/permissoes/update/update.component';
 import { UploadImageComponent } from './components/header/upload-image/upload-image.component';
 import { EscalaCoroinhaPdfComponent } from './components/arquivos-pdf/escala-coroinha-pdf/escala-coroinha-pdf.component';
+import { CriarMinistroComponent } from './components/criar-escala/ministro/criar-ministro/criar-ministro.component';
+
 
 
 
@@ -58,6 +60,7 @@ import { EscalaCoroinhaPdfComponent } from './components/arquivos-pdf/escala-cor
     UpdateComponent,
     UploadImageComponent,
     EscalaCoroinhaPdfComponent,
+    CriarMinistroComponent
 
   ],
   imports: [
