@@ -56,7 +56,7 @@
             
              
                     <div id="acolito" *ngIf="!getparamid"  class="form-group">
-                           <div formArrayName="acolitos" *ngFor="let acolito of getAcolitoControls(); let i = index">
+                           <div formArrayName="acolito" *ngFor="let acolito of getAcolitoControls(); let i = index">
                                <div [formGroupName]="i">
                                     <label id="label-acolito" for="acolito">Acolito</label>
                                         <select formControlName="nome" class="form-select" >  
@@ -88,7 +88,7 @@
                    
                 
                         <div id="coroinha" *ngIf="!getparamid" class="form-group">
-                            <div formArrayName="coroinhas" *ngFor="let coroinha of getCoroinhaControls(); let i = index">
+                            <div formArrayName="coroinha" *ngFor="let coroinha of getCoroinhaControls(); let i = index">
                                 <div [formGroupName]="i">
                                     <label id="label-coroinha" for="coroinha">Coroinha</label>
                                     <select formControlName="nome" class="form-select" >

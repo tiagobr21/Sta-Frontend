@@ -163,16 +163,16 @@ export class CriarCoroinhaComponent implements OnInit {
       mes = 'Dezembro';
     }
 
-    console.log(this.userForm.value.acolitos.length)
+   
 
-    if(this.userForm.value.acolitos.length>5 || this.userForm.value.coroinhas.length>5){
+    if(this.userForm.value.acolito.length>5 || this.userForm.value.coroinha.length>5){
       this.snackbar.openSnackBar(GlobalConstants.limitagente,GlobalConstants.error)
       this.loading = false
     }else{
 
 
-    const acolitos = JSON.stringify( this.userForm.value.acolitos)
-    const coroinhas = JSON.stringify( this.userForm.value.coroinhas) 
+    const acolitos = JSON.stringify( this.userForm.value.acolito)
+    const coroinhas = JSON.stringify( this.userForm.value.coroinha) 
 
 
      let formData = {
@@ -187,6 +187,7 @@ export class CriarCoroinhaComponent implements OnInit {
       acolito: acolitos,
     } 
 
+    console.log(formData)
 
        this.service.createData(formData).subscribe((res)=>{
           console.log(res);
