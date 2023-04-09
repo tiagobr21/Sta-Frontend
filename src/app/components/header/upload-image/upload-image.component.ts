@@ -32,8 +32,7 @@ export class UploadImageComponent implements OnInit {
       this.file = <File>event.target.files[0];
       const formData = new FormData();
       formData.append('file',this.file)
-      
-      console.log(formData)
+    
       
     this.service.upload(formData,this.iduser).subscribe((res)=>{
         this.response = res;

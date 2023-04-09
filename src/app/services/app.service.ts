@@ -14,28 +14,28 @@ export class AppService{
   formularioRegistro!:FormGroup;
 
   // dev: http://localhost:3000
-  //prod: http://localhost:3000
+  //prod: https://back-sta.herokuapp.com
 
-  urlCreate = 'http://localhost:3000/escala_coroinha/create';
-  urlRead = 'http://localhost:3000/escala_coroinha/read';
-  urlDelete = 'http://localhost:3000/escala_coroinha/delete';
-  urlUpdate = 'http://localhost:3000/escala_coroinha/update';
-  urlgetSingleData = 'http://localhost:3000/escala_coroinha/getSingleData';
-  urlSelect_Coroinha = 'http://localhost:3000/escala_coroinha/select_coroinha';
-  urlSelect_Acolito = 'http://localhost:3000/escala_coroinha/select_acolito';
-  urlSelect_Comunidades = 'http://localhost:3000/escala_coroinha/select_comunidades';
-  urlSelect_Missa = 'http://localhost:3000/escala_coroinha/select_missa';
+  urlCreate = 'https://back-sta.herokuapp.com/escala_coroinha/create';
+  urlRead = 'https://back-sta.herokuapp.com/escala_coroinha/read';
+  urlDelete = 'https://back-sta.herokuapp.com/escala_coroinha/delete';
+  urlUpdate = 'https://back-sta.herokuapp.com/escala_coroinha/update';
+  urlgetSingleData = 'https://back-sta.herokuapp.com/escala_coroinha/getSingleData';
+  urlSelect_Coroinha = 'https://back-sta.herokuapp.com/escala_coroinha/select_coroinha';
+  urlSelect_Acolito = 'https://back-sta.herokuapp.com/escala_coroinha/select_acolito';
+  urlSelect_Comunidades = 'https://back-sta.herokuapp.com/escala_coroinha/select_comunidades';
+  urlSelect_Missa = 'https://back-sta.herokuapp.com/escala_coroinha/select_missa';
 
-  urlUpdateCorinha = 'http://localhost:3000/escala_coroinha/update_coroinha';
-  urlCreateCoroinha ='http://localhost:3000/escala_coroinha/create_coroinha';
-  urlDeleteCoroinha = 'http://localhost:3000/escala_coroinha/delete_coroinha';
-  urlGerarPdf = 'http://localhost:3000/escala_coroinha/gerarpdf';
-  urlGetPdf = 'http://localhost:3000/escala_coroinha/getpdf';
-  urlDeletePdf = 'http://localhost:3000/escala_coroinha/deletepdf';
+  urlUpdateCorinha = 'https://back-sta.herokuapp.com/escala_coroinha/update_coroinha';
+  urlCreateCoroinha ='https://back-sta.herokuapp.com/escala_coroinha/create_coroinha';
+  urlDeleteCoroinha = 'https://back-sta.herokuapp.com/escala_coroinha/delete_coroinha';
+  urlGerarPdf = 'https://back-sta.herokuapp.com/escala_coroinha/gerarpdf';
+  urlGetPdf = 'https://back-sta.herokuapp.com/escala_coroinha/getpdf';
+  urlDeletePdf = 'https://back-sta.herokuapp.com/escala_coroinha/deletepdf';
 
-  urlUpdateAcolito = 'http://localhost:3000/escala_coroinha/update_acolito';
-  urlCreateAcolito ='http://localhost:3000/escala_coroinha/create_acolito';
-  urlDeleteAcolito = 'http://localhost:3000/escala_coroinha/delete_acolito';
+  urlUpdateAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/update_acolito';
+  urlCreateAcolito ='https://back-sta.herokuapp.com/escala_coroinha/create_acolito';
+  urlDeleteAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/delete_acolito';
 
 
 
