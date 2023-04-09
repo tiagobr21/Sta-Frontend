@@ -41,8 +41,8 @@ export class CriarCoroinhaComponent implements OnInit {
       this.userForm = this.fb.group({
         missa: ['',Validators.required],
         data: ['',Validators.required],
-        acolitos: this.fb.array([this.carregarAcolitos()]),
-        coroinhas: this.fb.array([this.carregarCoroinhas()])
+        acolito: this.fb.array([this.carregarAcolitos()]),
+        coroinha: this.fb.array([this.carregarCoroinhas()])
       })
     }
 
@@ -53,11 +53,16 @@ export class CriarCoroinhaComponent implements OnInit {
  
          this.service.getSingleData(this.getparamid).subscribe((res)=>{
              this.resID = res;
-         
+
+       
      
 
              this.coroinhas = JSON.parse(this.resID[0].coroinha)
              this.acolitos = JSON.parse(this.resID[0].acolito)
+
+     
+             
+
              
            this.userForm.patchValue({
              missa:res[0].missa,
@@ -78,6 +83,8 @@ export class CriarCoroinhaComponent implements OnInit {
          this.service.select_missaData().subscribe((res)=>{
          this.select_missaData = res;
         });
+
+       
  
    }
 
@@ -96,23 +103,23 @@ export class CriarCoroinhaComponent implements OnInit {
     }
 
     getAcolitoControls() {
-      return (this.userForm.get('acolitos') as FormArray).controls;
+      return (this.userForm.get('acolito') as FormArray).controls;
     }
 
     getCoroinhaControls() {
-      return (this.userForm.get('coroinhas') as FormArray).controls;
+      return (this.userForm.get('coroinha') as FormArray).controls;
     }
    
 
    addAcolito(){
-   const acolitos: FormArray = this.userForm.get('acolitos') as FormArray
+   const acolitos: FormArray = this.userForm.get('acolito') as FormArray
    acolitos.push(this.carregarAcolitos())
 
  
   }
 
   addCorinha(){
-    const coroinhas: FormArray = this.userForm.get('coroinhas') as FormArray
+    const coroinhas: FormArray = this.userForm.get('coroinha') as FormArray
     coroinhas.push(this.carregarCoroinhas())
   }
  
@@ -198,14 +205,37 @@ export class CriarCoroinhaComponent implements OnInit {
 
   userUpdate(){
 
-  
-     console.log(this.userForm.value,'updateform');
-     return
+         
+    this.coroinhas.forEach((coroinha:any) => {
+      this.userForm.value.coroinha.push(coroinha)
+     });
 
-     if(this.userForm.valid){
-        this.service.updateData(this.userForm.value,this.getparamid).subscribe((res)=>{
-          console.log(res,'resupdate');
+     this.acolitos.forEach((acolito:any) => {
+      this.userForm.value.acolito.push(acolito)
+     });
+
+
+     this.userForm.value.acolito.shift()
+     this.userForm.value.coroinha.shift()
+
+    const acolitos = JSON.stringify( this.userForm.value.acolito)
+    const coroinhas = JSON.stringify( this.userForm.value.coroinha) 
+
+    
+
+     let formData = {
+      missa: this.userForm.value.missa,
+      data: this.userForm.value.data,
+      coroinha: coroinhas,
+      acolito: acolitos,
+    } 
+
+    console.log(formData)
+
+
+        this.service.updateData(formData,this.getparamid).subscribe((res)=>{
           this.response = res;      
+          console.log(this.response)
           this.snackbar.openSnackBar(this.response.message,"");
           this.router.navigate(['/consultar-coroinha']);
         },(error)=>{
@@ -214,10 +244,8 @@ export class CriarCoroinhaComponent implements OnInit {
           this.snackbar.openSnackBar(this.response,GlobalConstants.error);
         });
    
-    }else{
-      this.snackbar.openSnackBar('Algo deu errado',GlobalConstants.error);
-     }
+    }
    }  
 
   
-}
+

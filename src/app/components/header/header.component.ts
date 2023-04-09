@@ -12,6 +12,10 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
+// http://localhost:3000
+// https://back-sta.herokuapp.com
+
 export class HeaderComponent implements OnInit {
   @Output() toggleSidebarForMe: EventEmitter<any>=new EventEmitter();
 
@@ -21,7 +25,7 @@ export class HeaderComponent implements OnInit {
   response:any;
   deleteFoto:any;
   loading:any;
-  baseurl:string = 'https://back-sta.herokuapp.com/files/';
+  baseurl:string = 'http://localhost:3000/files/';
   link:string = '';
 
   constructor(private dialog:MatDialog,
@@ -50,6 +54,7 @@ export class HeaderComponent implements OnInit {
 
   deleteImage(){
    this.loading = true
+   console.log(this.iduser)
    this.service.deleteImage(this.iduser).subscribe((res)=>{
       this.deleteFoto =  res;
       this.loading = false;
