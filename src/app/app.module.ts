@@ -32,6 +32,8 @@ import { UpdateComponent } from './components/funcoes-admin/usuarios/permissoes/
 import { UploadImageComponent } from './components/header/upload-image/upload-image.component';
 import { EscalaCoroinhaPdfComponent } from './components/arquivos-pdf/escala-coroinha-pdf/escala-coroinha-pdf.component';
 import { CriarMinistroComponent } from './components/criar-escala/ministro/criar-ministro/criar-ministro.component';
+import { ConsultarMinistroComponent } from './components/consultar-escala/ministro/consultar-ministro/consultar-ministro.component';
+import { EscalaMinistroPdfComponent } from './components/arquivos-pdf/escala-ministro-pdf/escala-ministro-pdf.component';
 
 
 
@@ -60,7 +62,9 @@ import { CriarMinistroComponent } from './components/criar-escala/ministro/criar
     UpdateComponent,
     UploadImageComponent,
     EscalaCoroinhaPdfComponent,
-    CriarMinistroComponent
+    CriarMinistroComponent,
+    ConsultarMinistroComponent,
+    EscalaMinistroPdfComponent
 
   ],
   imports: [

@@ -4,12 +4,13 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 
 @Component({
-  selector: 'app-escala-coroinha-pdf',
-  templateUrl: './escala-coroinha-pdf.component.html',
-  styleUrls: ['./escala-coroinha-pdf.component.css']
+  selector: 'app-escala-ministro-pdf',
+  templateUrl: './escala-ministro-pdf.component.html',
+  styleUrls: ['./escala-ministro-pdf.component.css']
 })
-export class EscalaCoroinhaPdfComponent implements OnInit {
+export class EscalaMinistroPdfComponent implements OnInit {
 
+  
   // desenvolvimento: http://localhost:3000
   // prod: https://back-sta.herokuapp.com
 
@@ -23,7 +24,7 @@ export class EscalaCoroinhaPdfComponent implements OnInit {
   constructor(private service:AppService,private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
-    this.service.getPdf().subscribe((res)=>{
+    this.service.getPdfMinistro().subscribe((res)=>{
       this.response = res;
       console.log(this.response)
     })
@@ -31,7 +32,7 @@ export class EscalaCoroinhaPdfComponent implements OnInit {
 
   delete(id:any){
     this.loading =true
-    this.service.deletePdf(id).subscribe((res)=>{
+    this.service.deletePdfMinistro(id).subscribe((res)=>{
       this.responseDelete = res
       this.snackbar.openSnackBar(this.responseDelete.message,"")
       this.loading = false

@@ -16,8 +16,7 @@ export class CriarMinistroComponent implements OnInit {
   @ViewChild('mes') mes:any;
    userForm: FormGroup;
    getparamid:any;
-   select_coroinhaData:any;
-   select_acolitoData:any;
+   select_ministroData:any;
    select_missaData:any;
    resID:any; 
    response:any;
@@ -28,8 +27,7 @@ export class CriarMinistroComponent implements OnInit {
    numerocoroinhas:any = ['1'];
    title = 'app-sta';
    sideBarOpen = true;
-   acolitos:any = [];
-   coroinhas:any = [];
+   ministros:any = [];
    test:any
 
    constructor(private service: AppService,
@@ -41,8 +39,8 @@ export class CriarMinistroComponent implements OnInit {
       this.userForm = this.fb.group({
         missa: ['',Validators.required],
         data: ['',Validators.required],
-        acolitos: this.fb.array([this.carregarAcolitos()]),
-        coroinhas: this.fb.array([this.carregarCoroinhas()])
+        ministros: this.fb.array([this.carregarMinistros()]),
+
       })
     }
 
@@ -54,10 +52,8 @@ export class CriarMinistroComponent implements OnInit {
          this.service.getSingleData(this.getparamid).subscribe((res)=>{
              this.resID = res;
          
-     
-
-             this.coroinhas = JSON.parse(this.resID[0].coroinha)
-             this.acolitos = JSON.parse(this.resID[0].acolito)
+  
+             this.ministros = JSON.parse(this.resID[0].ministro)
              
            this.userForm.patchValue({
              missa:res[0].missa,
@@ -67,12 +63,9 @@ export class CriarMinistroComponent implements OnInit {
          
          });
      }
-         this.service.select_coroinhaData().subscribe((res)=>{
-         this.select_coroinhaData = res;  
-     }); 
  
-         this.service.select_acolitoData().subscribe((res)=>{
-         this.select_acolitoData = res;
+         this.service.select_ministroData().subscribe((res)=>{
+         this.select_ministroData = res;
      });
          
          this.service.select_missaData().subscribe((res)=>{
@@ -80,41 +73,24 @@ export class CriarMinistroComponent implements OnInit {
         });
  
    }
-
  
 
-    carregarAcolitos():FormGroup{
+    carregarMinistros():FormGroup{
       return this.fb.group({
         nome:['',Validators.required]
       })
     }
 
-    carregarCoroinhas():FormGroup{
-      return this.fb.group({
-        nome:['',Validators.required]
-      })
+    getMinistrosControls() {
+      return (this.userForm.get('ministros') as FormArray).controls;
     }
 
-    getAcolitoControls() {
-      return (this.userForm.get('acolitos') as FormArray).controls;
-    }
-
-    getCoroinhaControls() {
-      return (this.userForm.get('coroinhas') as FormArray).controls;
-    }
-   
 
    addAcolito(){
-   const acolitos: FormArray = this.userForm.get('acolitos') as FormArray
-   acolitos.push(this.carregarAcolitos())
-
- 
+   const ministros: FormArray = this.userForm.get('ministros') as FormArray
+   ministros.push(this.carregarMinistros())
   }
 
-  addCorinha(){
-    const coroinhas: FormArray = this.userForm.get('coroinhas') as FormArray
-    coroinhas.push(this.carregarCoroinhas())
-  }
  
   sideBarToggler(){
     this.sideBarOpen = !this.sideBarOpen;
@@ -157,16 +133,16 @@ export class CriarMinistroComponent implements OnInit {
       mes = 'Dezembro';
     }
 
-    console.log(this.userForm.value.acolitos.length)
+    // console.log(this.userForm.value.ministros.length)
 
-    if(this.userForm.value.acolitos.length>5 || this.userForm.value.coroinhas.length>5){
+    if(this.userForm.value.ministros.length>5 || this.userForm.value.ministros.length>5){
       this.snackbar.openSnackBar(GlobalConstants.limitagente,GlobalConstants.error)
       this.loading = false
     }else{
 
 
-    const acolitos = JSON.stringify( this.userForm.value.acolitos)
-    const coroinhas = JSON.stringify( this.userForm.value.coroinhas) 
+    const ministros = JSON.stringify( this.userForm.value.ministros)
+
 
 
      let formData = {
@@ -177,13 +153,13 @@ export class CriarMinistroComponent implements OnInit {
       ano: ano,
       data: this.userForm.value.data,
       comunidade:'',
-      coroinha: coroinhas,
-      acolito: acolitos,
+      ministro: ministros,
     } 
 
+    console.log(formData)
 
-       this.service.createData(formData).subscribe((res)=>{
-          console.log(res);
+       this.service.createDataMin(formData).subscribe((res)=>{
+          console.log('response=> '+res);
           this.loading = false
           this.response = res;
           this.snackbar.openSnackBar(this.response.message,"");

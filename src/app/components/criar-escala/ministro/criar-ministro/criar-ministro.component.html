@@ -56,12 +56,12 @@
             
              
                     <div id="acolito" *ngIf="!getparamid"  class="form-group">
-                           <div formArrayName="acolitos" *ngFor="let acolito of getAcolitoControls(); let i = index">
+                           <div formArrayName="ministros" *ngFor="let ministro of getMinistrosControls(); let i = index">
                                <div [formGroupName]="i">
                                     <label id="label-acolito" for="acolito">Ministro</label>
                                         <select formControlName="nome" class="form-select" >  
-                                                <option>Escolha o Acolito</option>
-                                                <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                                                <option>Escolha o Ministro</option>
+                                                <option *ngFor="let nomes_ministro of select_ministroData">{{nomes_ministro.nome}}</option>
                                         </select>
                                 </div>
                             </div>
@@ -69,11 +69,11 @@
 
                     <div id="acolito" *ngIf="getparamid" class="form-group">
                         <label id="label-acolito" for="acolito">Ministro</label>
-                        <div formArrayName="acolitos" *ngFor="let acolito of getAcolitoControls(); let i = index">
+                        <div formArrayName="ministros" *ngFor="let ministro of getMinistrosControls(); let i = index">
                             <div [formGroupName]="i">
-                                    <select *ngFor="let acolito of acolitos" id="select-update" formControlName="nome" class="form-select" > 
-                                        <option >Selecionado {{acolito.nome}}</option>
-                                        <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
+                                    <select *ngFor="let ministro of ministros" id="select-update" formControlName="nome" class="form-select" > 
+                                        <option >Selecionado {{ministro.nome}}</option>
+                                        <option *ngFor="let nomes_ministro of select_ministroData">{{nomes_ministro.nome}}</option>
                                     </select>
     
                             </div>

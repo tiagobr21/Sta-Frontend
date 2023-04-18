@@ -13,6 +13,8 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
 import { PermissoesComponent } from './components/funcoes-admin/usuarios/permissoes/permissoes.component';
 import { EscalaCoroinhaPdfComponent } from './components/arquivos-pdf/escala-coroinha-pdf/escala-coroinha-pdf.component';
 import { CriarMinistroComponent } from './components/criar-escala/ministro/criar-ministro/criar-ministro.component';
+import { ConsultarMinistroComponent } from './components/consultar-escala/ministro/consultar-ministro/consultar-ministro.component';
+import { EscalaMinistroPdfComponent } from './components/arquivos-pdf/escala-ministro-pdf/escala-ministro-pdf.component';
 
 const routes: Routes = [
 
@@ -53,11 +55,13 @@ const routes: Routes = [
 },
   {path:'criar-coroinha/:id',component:CriarCoroinhaComponent},
   {path:'consultar-escala-coroinha',component:ConsultarCoroinhaComponent},
+  {path:'consultar-escala-ministro',component:ConsultarMinistroComponent},
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},
   {path:'cadastro',component:CadastroComponent},
   {path:'login',component:LoginComponent},
   {path:'mudarsenha',component:ChangepasswordComponent},
   {path:'escala-coroinha-pdf',component:EscalaCoroinhaPdfComponent},
+  {path:'escala-ministro-pdf',component:EscalaMinistroPdfComponent},
   {
     path:'admin/usuarios',component:UsuariosComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
