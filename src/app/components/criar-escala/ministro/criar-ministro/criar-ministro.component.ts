@@ -49,11 +49,14 @@ export class CriarMinistroComponent implements OnInit {
       this.getparamid = this.route.snapshot.paramMap.get('id');
       if(this.getparamid){
  
-         this.service.getSingleData(this.getparamid).subscribe((res)=>{
+         this.service.getSingleDataMinistro(this.getparamid).subscribe((res)=>{
              this.resID = res;
-         
-  
-             this.ministros = JSON.parse(this.resID[0].ministro)
+
+             console.log(this.resID)
+
+             this.ministros = JSON.parse(this.resID[0].ministros)
+
+
              
            this.userForm.patchValue({
              missa:res[0].missa,
@@ -86,7 +89,7 @@ export class CriarMinistroComponent implements OnInit {
     }
 
 
-   addAcolito(){
+   addMinistro(){
    const ministros: FormArray = this.userForm.get('ministros') as FormArray
    ministros.push(this.carregarMinistros())
   }
@@ -175,26 +178,32 @@ export class CriarMinistroComponent implements OnInit {
 
   userUpdate(){
 
-  
-     console.log(this.userForm.value,'updateform');
-     return
 
-     if(this.userForm.valid){
-        this.service.updateData(this.userForm.value,this.getparamid).subscribe((res)=>{
+     const ministros = JSON.stringify( this.userForm.value.ministros)
+
+     
+
+     let formData = {
+      missa: this.userForm.value.missa,
+      data: this.userForm.value.data,
+      ministros: ministros,
+   
+    } 
+
+    console.log(formData)
+
+        this.service.updateDataMinistro(formData,this.getparamid).subscribe((res)=>{
           console.log(res,'resupdate');
           this.response = res;      
           this.snackbar.openSnackBar(this.response.message,"");
           this.router.navigate(['/consultar-coroinha']);
         },(error)=>{
           this.response = GlobalConstants.genericError
-
           this.snackbar.openSnackBar(this.response,GlobalConstants.error);
         });
    
-    }else{
-      this.snackbar.openSnackBar('Algo deu errado',GlobalConstants.error);
-     }
-   }  
+    }
+    
   
 
 }

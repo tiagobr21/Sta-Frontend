@@ -10,7 +10,7 @@
      
   <div class="container-fluid page">
     <div class="page__box p-3 mt-2">Consultar Escala - Ministro</div>
-    <button id="ocultar" type="button" class="btn btn-dark" (click)="ocultarBotao()">Exibir/Ocultar Edição</button>
+    <!-- <button id="ocultar" type="button" class="btn btn-dark" (click)="ocultarBotao()">Exibir/Ocultar Edição</button> -->
   
   
     <div class="alinhar">
@@ -122,6 +122,9 @@
                 <input id="check" [checked]="checks" [value]="dados.id" (change)="onCheckboxChange($event)" type="checkbox" class="form-check-input">
              </div>
              
+
+             <mat-icon  class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
+
                 <table  class="table table-bordered" class="tabela-1" >
               
                   <thead class="head">
@@ -156,8 +159,8 @@
                 </table>
               </form>     
   
-              <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-ministro',dados.id]">edit</mat-icon>
-              <mat-icon *ngIf="alt" class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
+              <!-- <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-ministro',dados.id]">edit</mat-icon> -->
+              
   
             <div class="divisão-tabela"></div>
                    

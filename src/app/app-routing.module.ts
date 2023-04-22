@@ -54,6 +54,7 @@ const routes: Routes = [
 }
 },
   {path:'criar-coroinha/:id',component:CriarCoroinhaComponent},
+  {path:'criar-ministro/:id',component:CriarMinistroComponent},
   {path:'consultar-escala-coroinha',component:ConsultarCoroinhaComponent},
   {path:'consultar-escala-ministro',component:ConsultarMinistroComponent},
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},

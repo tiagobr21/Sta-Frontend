@@ -20,8 +20,8 @@
                         </thead>
                         <tbody>
                           <tr>
-                            <td id="arquivo">{{pdfs.escala_coroinha}}</td>
-                            <th scope="row"><a class="btn btn-primary"  role="button" [href]="this.baselink+pdfs.escala_coroinha"  target="_blank"> Abrir</a></th>
+                            <td id="arquivo">{{pdfs.filename}}</td>
+                            <th scope="row"><a class="btn btn-primary"  role="button" [href]="this.baselink+pdfs.filename"  target="_blank"> Abrir</a></th>
                             <th id="space">
                                 <button (click)="delete(pdfs.id)" id="delete" class="btn btn-danger">
                                     <mat-icon id="icon-delete">delete</mat-icon> 

@@ -60,8 +60,6 @@ export class CriarCoroinhaComponent implements OnInit {
              this.coroinhas = JSON.parse(this.resID[0].coroinha)
              this.acolitos = JSON.parse(this.resID[0].acolito)
 
-     
-             
 
              
            this.userForm.patchValue({
@@ -206,24 +204,13 @@ export class CriarCoroinhaComponent implements OnInit {
 
   userUpdate(){
 
-         
-    this.coroinhas.forEach((coroinha:any) => {
-      this.userForm.value.coroinha.push(coroinha)
-     });
 
-     this.acolitos.forEach((acolito:any) => {
-      this.userForm.value.acolito.push(acolito)
-     });
-
-
-     this.userForm.value.acolito.shift()
-     this.userForm.value.coroinha.shift()
 
     const acolitos = JSON.stringify( this.userForm.value.acolito)
     const coroinhas = JSON.stringify( this.userForm.value.coroinha) 
 
-    
-
+      
+  
      let formData = {
       missa: this.userForm.value.missa,
       data: this.userForm.value.data,

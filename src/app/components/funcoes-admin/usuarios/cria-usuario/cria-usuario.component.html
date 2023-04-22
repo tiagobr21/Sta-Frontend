@@ -33,3 +33,14 @@
       <button id="categoria" (click)="criarAcolito()" type="submit" class="btn btn-primary">Criar</button>
   </form>
 </div>
+
+
+<div *ngIf="categoria == 'Ministros'">
+  <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button id="categoria" (click)="criarMinistro()" type="submit" class="btn btn-primary">Criar</button>
+  </form>
+</div>

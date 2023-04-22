@@ -24,8 +24,10 @@ export class UsuariosComponent implements OnInit {
    sideBarOpen = true;
    listaCoroinhas:any
    listaAcolitos:any
+   listaMinistros:any
    coroinhasVisib:boolean = false;
    acolitosVisib:boolean = false;
+   ministrosVisib:boolean = false;
    response:any;
 
    sideBarToggler(){
@@ -42,6 +44,11 @@ export class UsuariosComponent implements OnInit {
         this.listaAcolitos = res;
         console.log(this.listaAcolitos);
       }); 
+      
+      this.service.select_ministroData().subscribe((res)=>{
+        this.listaMinistros = res;
+        console.log(this.listaMinistros);
+      });
    }
 
    deleteCoroinha(id:any){
@@ -61,6 +68,18 @@ export class UsuariosComponent implements OnInit {
        this.snackbar.openSnackBar(this.response.message,""); 
        this.service.select_acolitoData().subscribe((res)=>{
         this.listaAcolitos = res;
+     });   
+    }) 
+  }
+
+  deleteMinistro(id:any){
+  
+    this.service.deleteMinistro(id).subscribe((res)=>{
+       console.log(res);
+       this.response = res;
+       this.snackbar.openSnackBar(this.response.message,""); 
+       this.service.select_ministroData().subscribe((res)=>{
+        this.listaMinistros = res;
      });   
     }) 
   }
@@ -88,6 +107,10 @@ export class UsuariosComponent implements OnInit {
 
    onoffAcolitos(){
     this.acolitosVisib = !this.acolitosVisib;
+  }
+
+  onoffMinistros(){
+    this.ministrosVisib = !this.ministrosVisib;
   }
 
   refresh(){

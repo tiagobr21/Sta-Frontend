@@ -185,7 +185,7 @@ table{
 .tabela-1{
    width: 106%;
    color:black;
-   margin: 20px 0 20px 20px;
+   margin: 10px 0 20px 20px;
    font-size: 14px;
    
 }
@@ -230,8 +230,8 @@ td{
 
 .deletar{
     color: black;   
-    float: right;
-    margin:-10% -3% 20% 0;
+   margin-left: 730px;
+    margin-top: -30px;
     cursor: pointer;
 }
 

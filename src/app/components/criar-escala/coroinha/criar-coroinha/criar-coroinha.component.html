@@ -72,7 +72,7 @@
                         <div formArrayName="acolito" *ngFor="let acolito of getAcolitoControls(); let i = index">
                             <div [formGroupName]="i">
                                     <select *ngFor="let acolito of acolitos" id="select-update" formControlName="nome" class="form-select" > 
-                                        <option >{{acolito.nome}}</option>
+                                        <option > Selecionado {{acolito.nome}}</option>
                                         <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
                                     </select>
     
@@ -104,14 +104,14 @@
                                 <div formArrayName="coroinha" *ngFor="let coroinha of getCoroinhaControls(); let i = index">
                                         <div [formGroupName]="i">
                                             <select *ngFor="let coroinha of coroinhas" id="select-update" formControlName="nome" class="form-select" >
-                                                <option>{{coroinha.nome}}</option>
+                                                <option>Selecionado {{coroinha.nome}}</option>
                                                 <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                                             </select>
                                     </div>
                                 </div>
                         </div> 
 
-                    <button id="addAcolito" type="button" class="btn btn-success" (click)="addCorinha()">Adicionar Coroinha<mat-icon id="add">add</mat-icon></button>
+                    <!-- <button id="addAcolito" type="button" class="btn btn-success" (click)="addCorinha()">Adicionar Coroinha<mat-icon id="add">add</mat-icon></button> -->
 
               
              

@@ -72,7 +72,7 @@
                         <div formArrayName="ministros" *ngFor="let ministro of getMinistrosControls(); let i = index">
                             <div [formGroupName]="i">
                                     <select *ngFor="let ministro of ministros" id="select-update" formControlName="nome" class="form-select" > 
-                                        <option >Selecionado {{ministro.nome}}</option>
+                                        <option>Selecionado {{ministro.nome}}</option>
                                         <option *ngFor="let nomes_ministro of select_ministroData">{{nomes_ministro.nome}}</option>
                                     </select>
     
@@ -81,7 +81,7 @@
                     </div>
      
 
-                <button id="addAcolito" type="button" class="btn btn-success" (click)="addAcolito()">Adicionar Acolito<mat-icon id="add">add</mat-icon></button>
+                <!-- <button id="addAcolito" type="button" class="btn btn-success" (click)="addMinistro()">Adicionar Ministro<mat-icon id="add">add</mat-icon></button> -->
 
 
                 <div *ngIf="!getparamid" id="submit" (click)="userSubmit()">

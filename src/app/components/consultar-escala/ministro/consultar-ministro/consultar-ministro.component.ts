@@ -810,11 +810,11 @@ export class ConsultarMinistroComponent implements OnInit {
 
    deleteID(id:any){
      this.loading = true
-     this.service.deleteData(id).subscribe((res)=>{
+     this.service.deleteDataMinistro(id).subscribe((res)=>{
          
          this.deleteData = res;
          this.snackbar.openSnackBar(this.deleteData.message,"") 
-         this.loading = true;
+         this.loading = false;
 
          this.service.readData().subscribe((res)=>{
            this.readData = res;

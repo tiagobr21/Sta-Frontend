@@ -816,7 +816,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
           
           this.deleteData = res;
           this.snackbar.openSnackBar(this.deleteData.message,"") 
-          this.loading = true;
+          this.loading = false;
 
           this.service.readData().subscribe((res)=>{
             this.readData = res;

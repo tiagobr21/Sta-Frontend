@@ -56,6 +56,15 @@ export class CriaUsuarioComponent implements OnInit {
  })  
 }
 
+criarMinistro(){
+  this.service.createMinistro(this.userForm.value).subscribe((res:any)=>{
+     console.log(res);
+     this.response = res;
+     this.snackbar.openSnackBar(this.response.message,"");
+    
+})  
+}
+
   
 
   close(){
