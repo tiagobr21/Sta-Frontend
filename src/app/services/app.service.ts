@@ -17,69 +17,69 @@ export class AppService{
   //prod: https://back-sta.herokuapp.com
 
   // Escala Coroinha
-    urlCreate = 'http://localhost:3000/escala_coroinha/create';
-    urlRead = 'http://localhost:3000/escala_coroinha/read';
-    urlDelete = 'http://localhost:3000/escala_coroinha/delete';
-    urlUpdate = 'http://localhost:3000/escala_coroinha/update';
-    urlgetSingleData = 'http://localhost:3000/escala_coroinha/getSingleData';
+    urlCreate = 'https://back-sta.herokuapp.com/escala_coroinha/create';
+    urlRead = 'https://back-sta.herokuapp.com/escala_coroinha/read';
+    urlDelete = 'https://back-sta.herokuapp.com/escala_coroinha/delete';
+    urlUpdate = 'https://back-sta.herokuapp.com/escala_coroinha/update';
+    urlgetSingleData = 'https://back-sta.herokuapp.com/escala_coroinha/getSingleData';
 
   //Coroinhas
-    urlUpdateCorinha = 'http://localhost:3000/escala_coroinha/update_coroinha';
-    urlCreateCoroinha ='http://localhost:3000/escala_coroinha/create_coroinha';
-    urlDeleteCoroinha = 'http://localhost:3000/escala_coroinha/delete_coroinha';
-    urlUpdateAcolito = 'http://localhost:3000/escala_coroinha/update_acolito';
-    urlCreateAcolito ='http://localhost:3000/escala_coroinha/create_acolito';
-    urlDeleteAcolito = 'http://localhost:3000/escala_coroinha/delete_acolito';
+    urlUpdateCorinha = 'https://back-sta.herokuapp.com/escala_coroinha/update_coroinha';
+    urlCreateCoroinha ='https://back-sta.herokuapp.com/escala_coroinha/create_coroinha';
+    urlDeleteCoroinha = 'https://back-sta.herokuapp.com/escala_coroinha/delete_coroinha';
+    urlUpdateAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/update_acolito';
+    urlCreateAcolito ='https://back-sta.herokuapp.com/escala_coroinha/create_acolito';
+    urlDeleteAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/delete_acolito';
 
     //Ministros
-    urlUpdateMinistroAgente = 'http://localhost:3000/escala_ministro/update_ministro';
-    urlCreateMinistroAgente ='http://localhost:3000/escala_ministro/create_ministro';
-    urlDeleteMinistroAgente = 'http://localhost:3000/escala_ministro/delete_ministro';
+    urlUpdateMinistroAgente = 'https://back-sta.herokuapp.com/escala_ministro/update_ministro';
+    urlCreateMinistroAgente ='https://back-sta.herokuapp.com/escala_ministro/create_ministro';
+    urlDeleteMinistroAgente = 'https://back-sta.herokuapp.com/escala_ministro/delete_ministro';
 
 
   //PDF Coroinhha
-    urlGerarPdf = 'http://localhost:3000/escala_coroinha/gerarpdf';
-    urlGetPdf = 'http://localhost:3000/escala_coroinha/getpdf';
-    urlDeletePdf = 'http://localhost:3000/escala_coroinha/deletepdf';
+    urlGerarPdf = 'https://back-sta.herokuapp.com/escala_coroinha/gerarpdf';
+    urlGetPdf = 'https://back-sta.herokuapp.com/escala_coroinha/getpdf';
+    urlDeletePdf = 'https://back-sta.herokuapp.com/escala_coroinha/deletepdf';
 
 
   // Escala Ministro
-    urlCreateMinistro = 'http://localhost:3000/escala_ministro/create';
-    urlReadMinistro = 'http://localhost:3000/escala_ministro/read';
-    urlDeleteMinistro = 'http://localhost:3000/escala_ministro/delete';
-    urlUpdateMinistro = 'http://localhost:3000/escala_ministro/update';
-    urlgetSingleDataMinistro = 'http://localhost:3000/escala_ministro/getSingleData';
+    urlCreateMinistro = 'https://back-sta.herokuapp.com/escala_ministro/create';
+    urlReadMinistro = 'https://back-sta.herokuapp.com/escala_ministro/read';
+    urlDeleteMinistro = 'https://back-sta.herokuapp.com/escala_ministro/delete';
+    urlUpdateMinistro = 'https://back-sta.herokuapp.com/escala_ministro/update';
+    urlgetSingleDataMinistro = 'https://back-sta.herokuapp.com/escala_ministro/getSingleData';
 
   // PDF Ministro
-    urlGerarPdfMinistro = 'http://localhost:3000/escala_ministro/gerarpdf';
-    urlGetPdfMinistro = 'http://localhost:3000/escala_ministro/getpdf';
-    urlDeletePdfMinistro = 'http://localhost:3000/escala_ministro/deletepdf';
+    urlGerarPdfMinistro = 'https://back-sta.herokuapp.com/escala_ministro/gerarpdf';
+    urlGetPdfMinistro = 'https://back-sta.herokuapp.com/escala_ministro/getpdf';
+    urlDeletePdfMinistro = 'https://back-sta.herokuapp.com/escala_ministro/deletepdf';
     
  
     //Selects
-    urlSelect_Coroinha = 'http://localhost:3000/escala_coroinha/select_coroinha';
-    urlSelect_Acolito = 'http://localhost:3000/escala_coroinha/select_acolito';
-    urlSelect_Comunidades = 'http://localhost:3000/escala_coroinha/select_comunidades';
-    urlSelect_Missa = 'http://localhost:3000/escala_coroinha/select_missa';
-    urlSelectMinistros = 'http://localhost:3000/escala_ministro/select_ministro';
-    urlSelectCelebrante = 'http://localhost:3000/escala_celebrante/select_celebrante';
+    urlSelect_Coroinha = 'https://back-sta.herokuapp.com/escala_coroinha/select_coroinha';
+    urlSelect_Acolito = 'https://back-sta.herokuapp.com/escala_coroinha/select_acolito';
+    urlSelect_Comunidades = 'https://back-sta.herokuapp.com/escala_coroinha/select_comunidades';
+    urlSelect_Missa = 'https://back-sta.herokuapp.com/escala_coroinha/select_missa';
+    urlSelectMinistros = 'https://back-sta.herokuapp.com/escala_ministro/select_ministro';
+    urlSelectCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/select_celebrante';
 
     // Escala Celebrante
-    urlCreateCelebrante = 'http://localhost:3000/escala_celebrante/create';
-    urlReadCelebrante = 'http://localhost:3000/escala_celebrante/read';
-    urlDeleteCelebrante = 'http://localhost:3000/escala_celebrante/delete';
-    urlUpdateCelebrante = 'http://localhost:3000/escala_celebrante/update';
-    urlgetSingleDataCelebrante = 'http://localhost:3000/escala_celebrante/getSingleData';
+    urlCreateCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/create';
+    urlReadCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/read';
+    urlDeleteCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/delete';
+    urlUpdateCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/update';
+    urlgetSingleDataCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/getSingleData';
       
     //Celebrante
-    urlUpdateCelebranteAgente = 'http://localhost:3000/escala_celebrante/update_celebrante';
-    urlCreateCelebranteAgente ='http://localhost:3000/escala_celebrante/create_celebrante';
-    urlDeleteCelebranteAgente = 'http://localhost:3000/escala_celebrante/delete_celebrante';
+    urlUpdateCelebranteAgente = 'https://back-sta.herokuapp.com/escala_celebrante/update_celebrante';
+    urlCreateCelebranteAgente ='https://back-sta.herokuapp.com/escala_celebrante/create_celebrante';
+    urlDeleteCelebranteAgente = 'https://back-sta.herokuapp.com/escala_celebrante/delete_celebrante';
    
     //PDF Celebrantes
-    urlGerarPdfCelebrante = 'http://localhost:3000/escala_celebrante/gerarpdf';
-    urlGetPdfCelebrante = 'http://localhost:3000/escala_celebrante/getpdf';
-    urlDeletePdfCelebrante = 'http://localhost:3000/escala_celebrante/deletepdf';
+    urlGerarPdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/gerarpdf';
+    urlGetPdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/getpdf';
+    urlDeletePdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/deletepdf';
   
 
   constructor(private _http:HttpClient) { }
