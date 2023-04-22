@@ -93,6 +93,24 @@ atualizarMinistro(){
    this.snackbar.openSnackBar(this.response,GlobalConstants.unauthroized)})    
 }
 
+atualizarCelebrante(){
+  console.log(this.userForm.value)
+  this.service.updateCelebrante(this.userForm.value,this.data.id).subscribe((res:any)=>{
+      console.log(res);
+      this.response = res;
+      this.snackbar.openSnackBar(this.response.message,"");
+  
+},(error)=>{
+
+  if(error.error?.message){
+    this.response = error.error?.message
+  }else{
+    this.response = GlobalConstants.unauthroized;
+  } 
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.unauthroized)})    
+}
+
   close(){
     this.dialogRef.close();
   }

@@ -10,8 +10,8 @@
 
   
 <div class="container-fluid page">
-    <div *ngIf="!getparamid" class="page__box p-3 mt-2">Criar Escala - Ministro da Eucaristia</div>
-    <div *ngIf="getparamid" class="page__box p-3 mt-2">Atualizar Escala - Ministro da Eucaristia</div>
+    <div *ngIf="!getparamid" class="page__box p-3 mt-2">Criar Escala - Celebrante da Eucaristia</div>
+    <div *ngIf="getparamid" class="page__box p-3 mt-2">Atualizar Escala - Celebrante da Eucaristia</div>
     <div class="page__content shadow p-3 position-relative">
        
         <form [formGroup]="userForm">
@@ -53,27 +53,25 @@
                 </div>
               </div> -->
                    
-            
-             
                     <div id="acolito" *ngIf="!getparamid"  class="form-group">
-                           <div formArrayName="ministros" *ngFor="let ministro of getMinistrosControls(); let i = index">
+                           <div formArrayName="celebrantes" *ngFor="let celebrante of getcelebrantesControls(); let i = index">
                                <div [formGroupName]="i">
-                                    <label id="label-acolito" for="acolito">Ministro</label>
+                                    <label id="label-acolito" for="acolito">celebrante</label>
                                         <select formControlName="nome" class="form-select" >  
-                                                <option>Escolha o Ministro</option>
-                                                <option *ngFor="let nomes_ministro of select_ministroData">{{nomes_ministro.nome}}</option>
+                                                <option>Escolha o celebrante</option>
+                                                <option *ngFor="let nomes_celebrante of select_celebranteData">{{nomes_celebrante.nome}}</option>
                                         </select>
                                 </div>
                             </div>
                     </div>
 
                     <div id="acolito" *ngIf="getparamid" class="form-group">
-                        <label id="label-acolito" for="acolito">Ministro</label>
-                        <div formArrayName="ministros" *ngFor="let ministro of getMinistrosControls(); let i = index">
+                        <label id="label-acolito" for="acolito">celebrante</label>
+                        <div formArrayName="celebrantes" *ngFor="let celebrante of getcelebrantesControls(); let i = index">
                             <div [formGroupName]="i">
-                                    <select *ngFor="let ministro of ministros" id="select-update" formControlName="nome" class="form-select" > 
-                                        <option>Selecionado {{ministro.nome}}</option>
-                                        <option *ngFor="let nomes_ministro of select_ministroData">{{nomes_ministro.nome}}</option>
+                                    <select *ngFor="let celebrante of celebrantes" id="select-update" formControlName="nome" class="form-select" > 
+                                        <option>Selecionado {{celebrante.nome}}</option>
+                                        <option *ngFor="let nomes_celebrante of select_celebranteData">{{nomes_celebrante.nome}}</option>
                                     </select>
     
                             </div>
@@ -81,7 +79,7 @@
                     </div>
      
 
-                <button *ngIf="!getparamid" id="addAcolito" type="button" class="btn btn-success" (click)="addMinistro()">Adicionar Ministro<mat-icon id="add">add</mat-icon></button>
+                <!-- <button id="addAcolito" type="button" class="btn btn-success" (click)="addMinistro()">Adicionar Ministro<mat-icon id="add">add</mat-icon></button> -->
 
 
                 <div *ngIf="!getparamid" id="submit" (click)="userSubmit()">
@@ -95,8 +93,6 @@
     
         <div class="page__content-data position-absolute text-center">
                 
-          
-         
             
         </div>
 

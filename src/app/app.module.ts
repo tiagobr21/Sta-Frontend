@@ -34,8 +34,15 @@ import { EscalaCoroinhaPdfComponent } from './components/arquivos-pdf/escala-cor
 import { CriarMinistroComponent } from './components/criar-escala/ministro/criar-ministro/criar-ministro.component';
 import { ConsultarMinistroComponent } from './components/consultar-escala/ministro/consultar-ministro/consultar-ministro.component';
 import { EscalaMinistroPdfComponent } from './components/arquivos-pdf/escala-ministro-pdf/escala-ministro-pdf.component';
-
-
+import { CriarCelebranteComponent } from './components/criar-escala/celebrante/criar-celebrante/criar-celebrante.component';
+import { ConsultaCelebranteComponent } from './components/consultar-escala/celebrante/consulta-celebrante/consulta-celebrante.component';
+import { EscalaCelebrantePdfComponent } from './components/arquivos-pdf/escala-celebrante-pdf/escala-celebrante-pdf.component';
+import { FilterMinistroPipe } from './pipes/filter-ministro.pipe';
+import { FilterMinistroDataPipe } from './pipes/filter-ministro-data.pipe';
+import { FilterMinistroAnoPipe } from './pipes/filter-ministro-ano.pipe';
+import { FilterCelebrantePipe } from './pipes/filter-celebrante.pipe';
+import { FilterCelebranteDataPipe } from './pipes/filter-celebrante-data.pipe';
+import { FilterCelebranteAnoPipe } from './pipes/filter-celebrante-ano.pipe';
 
 
 @NgModule({
@@ -64,7 +71,16 @@ import { EscalaMinistroPdfComponent } from './components/arquivos-pdf/escala-min
     EscalaCoroinhaPdfComponent,
     CriarMinistroComponent,
     ConsultarMinistroComponent,
-    EscalaMinistroPdfComponent
+    EscalaMinistroPdfComponent,
+    CriarCelebranteComponent,
+    ConsultaCelebranteComponent,
+    EscalaCelebrantePdfComponent,
+    FilterMinistroPipe,
+    FilterMinistroDataPipe,
+    FilterMinistroAnoPipe,
+    FilterCelebrantePipe,
+    FilterCelebranteDataPipe,
+    FilterCelebranteAnoPipe
 
   ],
   imports: [

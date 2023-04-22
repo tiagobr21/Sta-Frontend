@@ -25,9 +25,11 @@ export class UsuariosComponent implements OnInit {
    listaCoroinhas:any
    listaAcolitos:any
    listaMinistros:any
+   listaCelebrantes:any
    coroinhasVisib:boolean = false;
    acolitosVisib:boolean = false;
    ministrosVisib:boolean = false;
+   celebrantesVisib:boolean = false;
    response:any;
 
    sideBarToggler(){
@@ -37,17 +39,22 @@ export class UsuariosComponent implements OnInit {
    ngOnInit(): void {
       this.service.select_coroinhaData().subscribe((res)=>{
         this.listaCoroinhas = res
-        console.log(this.listaCoroinhas);
+
       });
 
       this.service.select_acolitoData().subscribe((res)=>{
         this.listaAcolitos = res;
-        console.log(this.listaAcolitos);
+  
       }); 
       
       this.service.select_ministroData().subscribe((res)=>{
         this.listaMinistros = res;
-        console.log(this.listaMinistros);
+  
+      });
+
+      this.service.select_celebranteData().subscribe((res)=>{
+        this.listaCelebrantes = res;
+        console.log(this.listaCelebrantes);
       });
    }
 
@@ -84,14 +91,26 @@ export class UsuariosComponent implements OnInit {
     }) 
   }
 
+  deleteCelebrante(id:any){
+  
+    this.service.deleteCelebrante(id).subscribe((res)=>{
+       console.log(res);
+       this.response = res;
+       this.snackbar.openSnackBar(this.response.message,""); 
+       this.service.select_celebranteData().subscribe((res)=>{
+        this.listaCelebrantes = res;
+     });   
+    }) 
+
+  }
+
    opencriarUsuario(){
     const dialogConfig = this.dialog.open(CriaUsuarioComponent,{
       width:'550px',
-      height:'30%'
+      height:'35%'
     })
    }
 
-   
    openatualizarUsuario(id:any){
      const dialogConfig = this.dialog.open(AtualizaUsuarioComponent,{
       width:'550px',
@@ -111,6 +130,10 @@ export class UsuariosComponent implements OnInit {
 
   onoffMinistros(){
     this.ministrosVisib = !this.ministrosVisib;
+  }
+
+  onoffCelebrantes(){
+    this.celebrantesVisib = !this.celebrantesVisib;
   }
 
   refresh(){

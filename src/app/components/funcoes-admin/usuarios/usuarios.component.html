@@ -86,6 +86,28 @@
             </div>
             </div>
 
+            <!-- Celebrantes -->
+
+              <div (click)="onoffCelebrantes()"   class="alert alert-light" role="alert">
+                  Celebrantes
+                    <mat-icon *ngIf="celebrantesVisib">visibility</mat-icon>
+                    <mat-icon *ngIf="!celebrantesVisib">visibility_off</mat-icon>
+                  </div>
+          
+                  <div *ngIf="celebrantesVisib">
+                          <table *ngFor="let dados of listaCelebrantes , let i = index" class="table">
+          
+                          <tbody>
+                              <tr>
+                                <td>{{dados.nome}} <mat-icon (click)="openatualizarUsuario(dados.id)" id="edit">edit</mat-icon> <mat-icon (click)="deleteCelebrante(dados.id)"  id="delete">delete</mat-icon></td> 
+                              </tr>
+                            </tbody>
+                          </table>
+                  <div>
+          
+              </div>
+              </div>
+
     </div>
 
   </div>

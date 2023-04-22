@@ -8,6 +8,7 @@
       <option>Coroinhas</option>
       <option>Acolitos</option>
       <option>Ministros</option>
+      <option>Celebrantes</option>
     </select>
 
     <button id="categoria" (click)="selectCategoria()" type="submit" class="btn btn-primary">Escolher</button>
@@ -42,5 +43,15 @@
         <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
       </div>
       <button id="categoria" (click)="criarMinistro()" type="submit" class="btn btn-primary">Criar</button>
+  </form>
+</div>
+
+<div *ngIf="categoria == 'Celebrantes'">
+  <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button id="categoria" (click)="criarCelebrante()" type="submit" class="btn btn-primary">Criar</button>
   </form>
 </div>

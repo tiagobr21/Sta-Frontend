@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { single } from 'rxjs';
+
 
 @Pipe({
   name: 'filtroCoroinha'

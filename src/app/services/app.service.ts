@@ -55,17 +55,32 @@ export class AppService{
     urlGetPdfMinistro = 'http://localhost:3000/escala_ministro/getpdf';
     urlDeletePdfMinistro = 'http://localhost:3000/escala_ministro/deletepdf';
     
-
-    
+ 
     //Selects
     urlSelect_Coroinha = 'http://localhost:3000/escala_coroinha/select_coroinha';
     urlSelect_Acolito = 'http://localhost:3000/escala_coroinha/select_acolito';
     urlSelect_Comunidades = 'http://localhost:3000/escala_coroinha/select_comunidades';
     urlSelect_Missa = 'http://localhost:3000/escala_coroinha/select_missa';
     urlSelectMinistros = 'http://localhost:3000/escala_ministro/select_ministro';
+    urlSelectCelebrante = 'http://localhost:3000/escala_celebrante/select_celebrante';
 
-
-
+    // Escala Celebrante
+    urlCreateCelebrante = 'http://localhost:3000/escala_celebrante/create';
+    urlReadCelebrante = 'http://localhost:3000/escala_celebrante/read';
+    urlDeleteCelebrante = 'http://localhost:3000/escala_celebrante/delete';
+    urlUpdateCelebrante = 'http://localhost:3000/escala_celebrante/update';
+    urlgetSingleDataCelebrante = 'http://localhost:3000/escala_celebrante/getSingleData';
+      
+    //Celebrante
+    urlUpdateCelebranteAgente = 'http://localhost:3000/escala_celebrante/update_celebrante';
+    urlCreateCelebranteAgente ='http://localhost:3000/escala_celebrante/create_celebrante';
+    urlDeleteCelebranteAgente = 'http://localhost:3000/escala_celebrante/delete_celebrante';
+   
+    //PDF Celebrantes
+    urlGerarPdfCelebrante = 'http://localhost:3000/escala_celebrante/gerarpdf';
+    urlGetPdfCelebrante = 'http://localhost:3000/escala_celebrante/getpdf';
+    urlDeletePdfCelebrante = 'http://localhost:3000/escala_celebrante/deletepdf';
+  
 
   constructor(private _http:HttpClient) { }
 
@@ -77,6 +92,10 @@ export class AppService{
     return this._http.delete(`${this.urlDeletePdfMinistro}/${id}`);
   }
 
+  deletePdfCelebrante(id:any):Observable<any>{
+    return this._http.delete(`${this.urlDeletePdfCelebrante}/${id}`);
+  }
+
   getPdf():Observable<any>{
     return this._http.get(`${this.urlGetPdf}`);
   }
@@ -85,12 +104,20 @@ export class AppService{
     return this._http.get(`${this.urlGetPdfMinistro}`);
   }
 
+  getPdfCelebrante():Observable<any>{
+    return this._http.get(`${this.urlGetPdfCelebrante}`);
+  }
+
   gerarPdf(data:any):Observable<any>{
      return this._http.post(`${this.urlGerarPdf}`,data);
   }
 
   gerarPdfMinistro(data:any):Observable<any>{
     return this._http.post(`${this.urlGerarPdfMinistro}`,data);
+ }
+
+ gerarPdfCelebrante(data:any):Observable<any>{
+    return this._http.post(`${this.urlGerarPdfCelebrante}`,data);
  }
 
   createData(data:any):Observable<any>{
@@ -102,6 +129,9 @@ export class AppService{
      return this._http.post(`${this.urlCreateMinistro}`,data);
   }
 
+  createDataCel(data:any):Observable<any>{
+    return this._http.post(`${this.urlCreateCelebrante}`,data);
+ }
 
   readData():Observable<any>{
      return this._http.get(`${this.urlRead}`);
@@ -110,6 +140,10 @@ export class AppService{
   readDataMinistro():Observable<any>{
     return this._http.get(`${this.urlReadMinistro}`);
  }
+
+ readDataCelebrate():Observable<any>{
+  return this._http.get(`${this.urlReadCelebrante}`);
+}
 
 
   deleteData(id:any):Observable<any>{
@@ -122,6 +156,10 @@ export class AppService{
     return this._http.delete(`${this.urlDeleteMinistro}/${ids}`);
   }
   
+  deleteDataCelebrante(id:any):Observable<any>{
+    let ids = id;
+    return this._http.delete(`${this.urlDeleteCelebrante}/${ids}`);
+  }
 
   updateData(data:any,id:any):Observable<any>{
     let ids = id;
@@ -133,6 +171,11 @@ export class AppService{
     return this._http.put(`${this.urlUpdateMinistro}/${ids}`,data);
   }
 
+  updateDataCelebrante(data:any,id:any):Observable<any>{
+    let ids = id;
+    return this._http.put(`${this.urlUpdateCelebrante}/${ids}`,data);
+  }
+
    getSingleData(id:any):Observable<any>{
     let ids = id;
     return this._http.get(`${this.urlgetSingleData}/${ids}`);
@@ -141,6 +184,11 @@ export class AppService{
    getSingleDataMinistro(id:any):Observable<any>{
     let ids = id;
     return this._http.get(`${this.urlgetSingleDataMinistro}/${ids}`);
+   } 
+
+   getSingleDataCelebrante(id:any):Observable<any>{
+    let ids = id;
+    return this._http.get(`${this.urlgetSingleDataCelebrante}/${ids}`);
    } 
    
   select_coroinhaData():Observable<any>{
@@ -151,9 +199,12 @@ export class AppService{
     return this._http.get(`${this.urlSelect_Acolito}`);
   } 
 
-
   select_ministroData():Observable<any>{
     return this._http.get(`${this.urlSelectMinistros}`);
+  } 
+
+  select_celebranteData():Observable<any>{
+    return this._http.get(`${this.urlSelectCelebrante}`);
   } 
   
   select_comunidadeData():Observable<any>{
@@ -211,12 +262,26 @@ createMinistro(data:any):Observable<any>{
   return this._http.post(`${this.urlCreateMinistroAgente}`,data);
 }
 
-
 deleteMinistro(id:any):Observable<any>{
   let ids = id;
   return this._http.delete(`${this.urlDeleteMinistroAgente}/${ids}`);
 }
 
+ //celebrante - criar-atualizar-deletar
+
+ updateCelebrante(data:any,id:any):Observable<any>{
+  let ids = id;
+  return this._http.put(`${this.urlUpdateCelebranteAgente}/${ids}`,data);
+}
+
+createCelebrante(data:any):Observable<any>{
+  return this._http.post(`${this.urlCreateCelebranteAgente}`,data);
+}
+
+deleteCelebrante(id:any):Observable<any>{
+  let ids = id;
+  return this._http.delete(`${this.urlDeleteCelebranteAgente}/${ids}`);
+}
 
 
 

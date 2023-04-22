@@ -63,8 +63,17 @@ criarMinistro(){
      this.snackbar.openSnackBar(this.response.message,"");
     
 })  
+
 }
 
+criarCelebrante(){
+  this.service.createCelebrante(this.userForm.value).subscribe((res:any)=>{
+     console.log(res);
+     this.response = res;
+     this.snackbar.openSnackBar(this.response.message,"");
+    
+  })  
+}
   
 
   close(){

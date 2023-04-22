@@ -5,29 +5,25 @@ import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
-
 @Component({
-  selector: 'app-criar-ministro',
-  templateUrl: './criar-ministro.component.html',
-  styleUrls: ['./criar-ministro.component.css']
+  selector: 'app-criar-celebrante',
+  templateUrl: './criar-celebrante.component.html',
+  styleUrls: ['./criar-celebrante.component.css']
 })
-export class CriarMinistroComponent implements OnInit {
+export class CriarCelebranteComponent implements OnInit {
+
   @ViewChild('teste') teste:any;
   @ViewChild('mes') mes:any;
    userForm: FormGroup;
    getparamid:any;
-   select_ministroData:any;
+   select_celebranteData:any;
    select_missaData:any;
    resID:any; 
    response:any;
    loading:boolean = false;
-   contadoracolitos:number = 1;
-   numeroacolitos:any = ['1'];
-   contadorcoroinhas:number = 1;
-   numerocoroinhas:any = ['1'];
    title = 'app-sta';
    sideBarOpen = true;
-   ministros:any = [];
+   celebrantes:any = [];
    test:any
 
    constructor(private service: AppService,
@@ -39,7 +35,7 @@ export class CriarMinistroComponent implements OnInit {
       this.userForm = this.fb.group({
         missa: ['',Validators.required],
         data: ['',Validators.required],
-        ministros: this.fb.array([this.carregarMinistros()]),
+        celebrantes: this.fb.array([this.carregarcelebrantes()]),
 
       })
     }
@@ -49,12 +45,12 @@ export class CriarMinistroComponent implements OnInit {
       this.getparamid = this.route.snapshot.paramMap.get('id');
       if(this.getparamid){
  
-         this.service.getSingleDataMinistro(this.getparamid).subscribe((res)=>{
+         this.service.getSingleDataCelebrante(this.getparamid).subscribe((res)=>{
              this.resID = res;
 
              console.log(this.resID)
 
-             this.ministros = JSON.parse(this.resID[0].ministros)
+             this.celebrantes = JSON.parse(this.resID[0].celebrantes)
 
 
              
@@ -67,8 +63,9 @@ export class CriarMinistroComponent implements OnInit {
          });
      }
  
-         this.service.select_ministroData().subscribe((res)=>{
-         this.select_ministroData = res;
+         this.service.select_celebranteData().subscribe((res)=>{
+         this.select_celebranteData = res;
+         console.log(res)
      });
          
          this.service.select_missaData().subscribe((res)=>{
@@ -77,21 +74,20 @@ export class CriarMinistroComponent implements OnInit {
  
    }
  
-
-    carregarMinistros():FormGroup{
+    carregarcelebrantes():FormGroup{
       return this.fb.group({
         nome:['',Validators.required]
       })
     }
 
-    getMinistrosControls() {
-      return (this.userForm.get('ministros') as FormArray).controls;
+    getcelebrantesControls() {
+      return (this.userForm.get('celebrantes') as FormArray).controls;
     }
 
 
-   addMinistro(){
-   const ministros: FormArray = this.userForm.get('ministros') as FormArray
-   ministros.push(this.carregarMinistros())
+   addCelebrante(){
+   const celebrantes: FormArray = this.userForm.get('celebrantes') as FormArray
+   celebrantes.push(this.carregarcelebrantes())
   }
 
  
@@ -136,15 +132,15 @@ export class CriarMinistroComponent implements OnInit {
       mes = 'Dezembro';
     }
 
-    // console.log(this.userForm.value.ministros.length)
+    // console.log(this.userForm.value.celebrantes.length)
 
-    if(this.userForm.value.ministros.length>5 || this.userForm.value.ministros.length>5){
+    if(this.userForm.value.celebrantes.length>5 || this.userForm.value.celebrantes.length>5){
       this.snackbar.openSnackBar(GlobalConstants.limitagente,GlobalConstants.error)
       this.loading = false
     }else{
 
 
-    const ministros = JSON.stringify( this.userForm.value.ministros)
+    const celebrantes = JSON.stringify( this.userForm.value.celebrantes)
 
 
 
@@ -156,12 +152,12 @@ export class CriarMinistroComponent implements OnInit {
       ano: ano,
       data: this.userForm.value.data,
       comunidade:'',
-      ministro: ministros,
+      celebrante: celebrantes,
     } 
 
     console.log(formData)
 
-       this.service.createDataMin(formData).subscribe((res)=>{
+       this.service.createDataCel(formData).subscribe((res)=>{
           console.log('response=> '+res);
           this.loading = false
           this.response = res;
@@ -179,20 +175,20 @@ export class CriarMinistroComponent implements OnInit {
   userUpdate(){
 
 
-     const ministros = JSON.stringify( this.userForm.value.ministros)
+     const celebrantes = JSON.stringify( this.userForm.value.celebrantes)
 
      
 
      let formData = {
       missa: this.userForm.value.missa,
       data: this.userForm.value.data,
-      ministros: ministros,
+      celebrante: celebrantes,
    
     } 
 
-   
+    console.log(formData)
 
-        this.service.updateDataMinistro(formData,this.getparamid).subscribe((res)=>{
+        this.service.updateDataCelebrante(formData,this.getparamid).subscribe((res)=>{
           console.log(res,'resupdate');
           this.response = res;      
           this.snackbar.openSnackBar(this.response.message,"");
@@ -204,6 +200,4 @@ export class CriarMinistroComponent implements OnInit {
    
     }
     
-  
-
 }

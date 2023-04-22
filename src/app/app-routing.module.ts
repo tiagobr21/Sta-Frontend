@@ -15,6 +15,9 @@ import { EscalaCoroinhaPdfComponent } from './components/arquivos-pdf/escala-cor
 import { CriarMinistroComponent } from './components/criar-escala/ministro/criar-ministro/criar-ministro.component';
 import { ConsultarMinistroComponent } from './components/consultar-escala/ministro/consultar-ministro/consultar-ministro.component';
 import { EscalaMinistroPdfComponent } from './components/arquivos-pdf/escala-ministro-pdf/escala-ministro-pdf.component';
+import { CriarCelebranteComponent } from './components/criar-escala/celebrante/criar-celebrante/criar-celebrante.component';
+import { ConsultaCelebranteComponent } from './components/consultar-escala/celebrante/consulta-celebrante/consulta-celebrante.component';
+import { EscalaCelebrantePdfComponent } from './components/arquivos-pdf/escala-celebrante-pdf/escala-celebrante-pdf.component';
 
 const routes: Routes = [
 
@@ -53,16 +56,26 @@ const routes: Routes = [
   expectedRole:['admin']  
 }
 },
+{path:'criar-escala-celebrante',component:CriarCelebranteComponent,
+  loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
+  canActivate:[RouterGuardService],
+  data:{
+  expectedRole:['admin']  
+}
+},
   {path:'criar-coroinha/:id',component:CriarCoroinhaComponent},
   {path:'criar-ministro/:id',component:CriarMinistroComponent},
+  {path:'criar-celebrante/:id',component:CriarCelebranteComponent},
   {path:'consultar-escala-coroinha',component:ConsultarCoroinhaComponent},
   {path:'consultar-escala-ministro',component:ConsultarMinistroComponent},
+  {path:'consultar-escala-celebrante',component:ConsultaCelebranteComponent},
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},
   {path:'cadastro',component:CadastroComponent},
   {path:'login',component:LoginComponent},
   {path:'mudarsenha',component:ChangepasswordComponent},
   {path:'escala-coroinha-pdf',component:EscalaCoroinhaPdfComponent},
   {path:'escala-ministro-pdf',component:EscalaMinistroPdfComponent},
+  {path:'escala-celebrante-pdf',component:EscalaCelebrantePdfComponent},
   {
     path:'admin/usuarios',component:UsuariosComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),

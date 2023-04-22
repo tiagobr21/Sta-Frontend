@@ -1,0 +1,273 @@
+
+.page{
+    color: white;
+    padding: 0 1rem;
+    background: #f1f5f9;
+    
+}
+
+.page__box{
+    min-height: 120px;
+    background: #1e293b;
+    margin: 0 -1rem;
+    font-size: 36px;
+    margin-top: 1px;
+    
+}
+
+:host{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer{
+    width: 260px;
+    background-color: #0f172a;
+}
+
+mat-drawer-container{
+    height: 100%;
+}
+
+
+h4{
+    letter-spacing: 2px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin:-30px 0 50px -10px;
+    padding: 3px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#ocultar{
+    margin-top: 10px;
+}
+
+.container-search{
+    color:black;
+    margin-bottom: 2rem;
+    width: 100%;    
+    display: inline-block; 
+}
+
+.container-search form{
+  width: 30%;  
+  position: relative;
+
+}
+
+.container-search #search{
+  top: 6px;
+  left: 8px;
+  position: absolute;
+
+}
+
+.container-search input{
+  padding: 0.3em;
+  width: 10cm;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 20px;  
+}
+
+/* ///////////////// */
+
+.alinhar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.disable{
+    margin-left: -22px;
+    font-size: 11px;
+    color: black;
+    cursor: pointer;
+
+}
+
+div.container-data{
+    color:black;
+    margin-bottom: 2rem;
+    width: 100%;    
+    display: inline-block;
+   
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto 0;
+}
+
+.flex > .container-data{
+    flex: 0.2 1 100px;
+}
+
+.container-data{
+    width: 10%;  
+    margin: 20px 0 0 100px;
+    position: relative;
+    
+  
+  }
+
+
+  
+  .container-data #data{
+    top: 40px;
+    right: 30px;
+    position: absolute;
+    
+  }
+  
+
+
+.limpar-filtro{
+    margin:-68px 0 0 37%;
+   
+}
+  
+
+#radios{
+    margin-left: -50px;
+}
+
+#content{
+    width: 75%;
+
+
+}
+
+.conteiner-img{
+    margin: -70px 0 30px 24%;
+    width: 50%;
+    height: 5%;
+    padding: 10px;
+
+
+}
+
+.img-pdf{
+    width: 100%;
+
+}
+
+#check-all{
+  position: relative;
+  right: 20px;
+
+}
+
+#check{
+  position: relative;
+  right: 10px;
+  top: 10px;
+  border-radius: 15px;
+}
+
+#check-label{
+   position: relative;
+   right: 15px;
+   color: #0f172a;
+   font-size: 12px;
+}
+
+table{
+    margin-top: -30px;
+    margin-left: -30px;
+    color: black;   
+}
+
+.tabela-1{
+   width: 106%;
+   color:black;
+   margin: 20px 0 20px 20px;
+   font-size: 14px;
+   
+}
+
+.divisão-tabela{
+  margin-left: -27px;
+  width: 20.8cm;
+  height: 1px;
+  padding: 1px;
+  background-color:#1e293b;
+
+}
+
+
+.nome{
+    max-width: 100%;
+    text-align: center;
+}
+
+
+td{
+    margin-left: -100px;
+    font-size: 13px;
+}
+
+.coro{
+    margin-right: 20px;
+}
+
+.pessoas{
+    width: 25%;
+}
+
+
+.editar{
+    color: black;   
+    float: right;
+    margin:-5% -3% 20% 0;
+    cursor: pointer;
+
+}
+
+
+.deletar{
+    color: black;   
+   margin-left: 730px;
+    margin-top: -30px;
+    cursor: pointer;
+}
+
+
+#download{
+    margin: 20px 0 30px 0;
+}
+
+.dados_acolito{
+    margin-top: -30px;
+}
+
+
+#print{
+  color: black;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.footer{
+    position: absolute;
+    top:98%;
+    left:30%;
+    color: black;
+}
+
+.loading{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.40);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0%;
+  
+  }

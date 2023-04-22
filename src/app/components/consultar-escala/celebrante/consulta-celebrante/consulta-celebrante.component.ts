@@ -7,11 +7,11 @@ import { GlobalConstants } from 'src/app/shared/global-constants';
 
 
 @Component({
-  selector: 'app-consultar-ministro',
-  templateUrl: './consultar-ministro.component.html',
-  styleUrls: ['./consultar-ministro.component.css']
+  selector: 'app-consulta-celebrante',
+  templateUrl: './consulta-celebrante.component.html',
+  styleUrls: ['./consulta-celebrante.component.css']
 })
-export class ConsultarMinistroComponent implements OnInit {
+export class ConsultaCelebranteComponent implements OnInit {
 
   @ViewChild('content',{static:false})el!:ElementRef;
   
@@ -29,10 +29,10 @@ export class ConsultarMinistroComponent implements OnInit {
   dataInput:string="Geral";
   anoInput:string="Geral";
   mes:string ="";
-  allministros:any;
+  allcoroinhas:any;
   anoAtual:any;
-  checks:boolean = false;
-  allCheckes:any;
+  checks:boolean = false
+  allCheckes:any
   returnCheck:any = [];
   escalas:any[] = [];
   pagina1:any =[];
@@ -46,7 +46,9 @@ export class ConsultarMinistroComponent implements OnInit {
   pagina9:any =[];
   pagina10:any =[];
   response:any;
-  newReadData:any = [];
+  newReadData:any = []
+  acolitos:any = [];
+  qtdacolitos:number = 0;
 
 
 
@@ -64,16 +66,11 @@ export class ConsultarMinistroComponent implements OnInit {
 
      ngOnInit(): void {
        
-         this.service.readDataMinistro().subscribe((res)=>{
+         this.service.readDataCelebrate().subscribe((res)=>{
            this.readData = res; 
-            
+          
            this.readData.forEach((element:any) => {
-
-
-            console.log(element.ministros)
            
-            console.log(JSON.parse(element.ministros))
-
              let escala = {
 
                missa: element.missa,
@@ -83,16 +80,13 @@ export class ConsultarMinistroComponent implements OnInit {
                mes: element.mes,
                ano:element.ano,
                comunidade: element.comunidade,
-               ministros: JSON.parse(element.ministros),
+               celebrante: JSON.parse(element.celebrante),
                id: element.id
 
              }
 
-           
-
 
              this.newReadData.push(escala)
-
 
          
            });
@@ -285,13 +279,13 @@ export class ConsultarMinistroComponent implements OnInit {
 
      
          let formData = [{
-           "tipo":"Ministros Extraodinários da Eucaristia",
+           "tipo":"Celebrantes",
            "pagina1": pagina1
          }]
 
          console.log(formData)
 
-        this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+        this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
          this.response = res
          this.loading = false
          this.snackbar.openSnackBar(this.response.message,"");
@@ -318,16 +312,16 @@ export class ConsultarMinistroComponent implements OnInit {
 
          let formData = [
            {
-             "tipo":"Ministros Extraodinários da Eucaristia",
+             "tipo":"Celebrantes",
              "pagina1": pagina1
            },
            {
-             "tipo":"Ministros Extraodinários da Eucaristia",
+             "tipo":"Celebrantes",
              "pagina2": pagina2
            }
          ]
         
-        this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+        this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
          this.response = res
          this.loading = false
          this.snackbar.openSnackBar(this.response.message,"");
@@ -355,21 +349,21 @@ export class ConsultarMinistroComponent implements OnInit {
 
        let formData = [
          {
-           "tipo":"Ministros Extraodinários da Eucaristia",
+           "tipo":"Celebrantes",
            "pagina1": pagina1
          },
          {
-           "tipo":"Ministros Extraodinários da Eucaristia",
+           "tipo":"Celebrantes",
            "pagina2": pagina2
          },
          {
-           "tipo":"Ministros Extraodinários da Eucaristia",
+           "tipo":"Celebrantes",
            "pagina3": pagina3
          }
        ]
 
       
-      this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+      this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
        this.response = res
        this.loading = false
        this.snackbar.openSnackBar(this.response.message,"");
@@ -396,25 +390,25 @@ export class ConsultarMinistroComponent implements OnInit {
 
      let formData = [
        {
-         "tipo":"Ministros Extraodinários da Eucaristia",
+         "tipo":"Celebrantes",
          "pagina1": pagina1
        },
        {
-         "tipo":"Ministros Extraodinários da Eucaristia",
+         "tipo":"Celebrantes",
          "pagina2": pagina2
        },
        {
-         "tipo":"Ministros Extraodinários da Eucaristia",
+         "tipo":"Celebrantes",
          "pagina3": pagina3
        },
        {
-         "tipo":"Ministros Extraodinários da Eucaristia",
+         "tipo":"Celebrantes",
          "pagina4": pagina4
        }
      ]
 
     
-    this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+    this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
      this.response = res
      this.loading = false
      this.snackbar.openSnackBar(this.response.message,"");
@@ -442,29 +436,29 @@ export class ConsultarMinistroComponent implements OnInit {
 
    let formData = [
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina1": pagina1
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina2": pagina2
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina3": pagina3
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina4": pagina4
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina5": pagina5
      }
    ]
 
   
-  this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+  this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
    this.response = res
    this.loading = false
    this.snackbar.openSnackBar(this.response.message,"");
@@ -493,33 +487,33 @@ export class ConsultarMinistroComponent implements OnInit {
 
    let formData = [
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina1": pagina1
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina2": pagina2
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina3": pagina3
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina4": pagina4
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina5": pagina5
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina6": pagina6
      }
    ]
 
   
-  this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+  this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
    this.response = res
    this.loading = false
    this.snackbar.openSnackBar(this.response.message,"");
@@ -549,37 +543,37 @@ export class ConsultarMinistroComponent implements OnInit {
 
    let formData = [
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina1": pagina1
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina2": pagina2
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina3": pagina3
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina4": pagina4
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina5": pagina5
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina6": pagina6
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina7": pagina7
      }
    ]
 
   
-  this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+  this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
    this.response = res
    this.loading = false
    this.snackbar.openSnackBar(this.response.message,"");
@@ -610,41 +604,41 @@ export class ConsultarMinistroComponent implements OnInit {
 
    let formData = [
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina1": pagina1
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina2": pagina2
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina3": pagina3
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina4": pagina4
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina5": pagina5
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina6": pagina6
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina7": pagina7
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina8": pagina8
      }
    ]
 
   
-  this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+  this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
    this.response = res
    this.loading = false
    this.snackbar.openSnackBar(this.response.message,"");
@@ -676,45 +670,45 @@ export class ConsultarMinistroComponent implements OnInit {
 
    let formData = [
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina1": pagina1
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina2": pagina2
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina3": pagina3
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina4": pagina4
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina5": pagina5
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina6": pagina6
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina7": pagina7
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina8": pagina8
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina9": pagina9
      }
    ]
 
   
-  this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+  this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
    this.response = res
    this.loading = false
    this.snackbar.openSnackBar(this.response.message,"");
@@ -746,49 +740,49 @@ export class ConsultarMinistroComponent implements OnInit {
 
    let formData = [
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina1": pagina1
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina2": pagina2
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina3": pagina3
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina4": pagina4
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina5": pagina5
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina6": pagina6
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina7": pagina7
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina8": pagina8
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina9": pagina9
      },
      {
-       "tipo":"Ministros Extraodinários da Eucaristia",
+       "tipo":"Celebrantes",
        "pagina10": pagina10
      }
    ]
 
   
-  this.service.gerarPdfMinistro(formData).subscribe((res)=>{
+  this.service.gerarPdfCelebrante(formData).subscribe((res)=>{
    this.response = res
    this.loading = false
    this.snackbar.openSnackBar(this.response.message,"");
@@ -809,11 +803,9 @@ export class ConsultarMinistroComponent implements OnInit {
 
 }
 
-
-
    deleteID(id:any){
      this.loading = true
-     this.service.deleteDataMinistro(id).subscribe((res)=>{
+     this.service.deleteDataCelebrante(id).subscribe((res)=>{
          
          this.deleteData = res;
          this.snackbar.openSnackBar(this.deleteData.message,"") 
@@ -824,6 +816,5 @@ export class ConsultarMinistroComponent implements OnInit {
          });     
      });
    }
-
 
 }
