@@ -63,6 +63,9 @@ export class AppService{
     urlSelect_Missa = 'https://back-sta.herokuapp.com/escala_coroinha/select_missa';
     urlSelectMinistros = 'https://back-sta.herokuapp.com/escala_ministro/select_ministro';
     urlSelectCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/select_celebrante';
+    urlSelectComentaristas = 'https://back-sta.herokuapp.com/escala_liturgia/select_comentaristas';
+    urlSelectLeitores = 'https://back-sta.herokuapp.com/escala_liturgia/select_leitores';
+    urlSelectMusicos = 'https://back-sta.herokuapp.com/escala_liturgia/select_musicos';
 
     // Escala Celebrante
     urlCreateCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/create';
@@ -80,9 +83,28 @@ export class AppService{
     urlGerarPdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/gerarpdf';
     urlGetPdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/getpdf';
     urlDeletePdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/deletepdf';
+
+    // Escala Liturgia
+    urlCreateLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/create';
+    urlReadLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/read';
+    urlDeleteLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/delete';
+    urlUpdateLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/update';
+    urlgetSingleDataLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/getSingleData';
+
+    //Liturgia
+    urlUpdateLiturgiaAgente = 'https://back-sta.herokuapp.com/escala_liturgia/update_celebrante';
+    urlCreateLiturgiaAgente ='https://back-sta.herokuapp.com/escala_liturgia/create_celebrante';
+    urlDeleteLiturgiaAgente = 'https://back-sta.herokuapp.com/escala_liturgia/delete_celebrante';
+
+    //PDF Liturgia
+    urlGerarPdfLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/gerarpdf';
+    urlGetPdfLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/getpdf';
+    urlDeletePdfLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/deletepdf';
   
 
   constructor(private _http:HttpClient) { }
+
+  //Delete PDF
 
   deletePdf(id:any):Observable<any>{
     return this._http.delete(`${this.urlDeletePdf}/${id}`);
@@ -96,6 +118,12 @@ export class AppService{
     return this._http.delete(`${this.urlDeletePdfCelebrante}/${id}`);
   }
 
+  deletePdfLiturgia(id:any):Observable<any>{
+    return this._http.delete(`${this.urlDeletePdfLiturgia}/${id}`);
+  }
+
+  //Get PDF
+
   getPdf():Observable<any>{
     return this._http.get(`${this.urlGetPdf}`);
   }
@@ -107,6 +135,12 @@ export class AppService{
   getPdfCelebrante():Observable<any>{
     return this._http.get(`${this.urlGetPdfCelebrante}`);
   }
+  
+  getPdfLiturgia():Observable<any>{
+    return this._http.get(`${this.urlGetPdfLiturgia}`);
+  }
+
+  //Gerar PDF
 
   gerarPdf(data:any):Observable<any>{
      return this._http.post(`${this.urlGerarPdf}`,data);
@@ -119,6 +153,12 @@ export class AppService{
  gerarPdfCelebrante(data:any):Observable<any>{
     return this._http.post(`${this.urlGerarPdfCelebrante}`,data);
  }
+
+ gerarPdfLiturgia(data:any):Observable<any>{
+  return this._http.post(`${this.urlGerarPdfLiturgia}`,data);
+}
+
+ // Create Escala
 
   createData(data:any):Observable<any>{
     console.log(data,'createapi=>');
@@ -133,6 +173,12 @@ export class AppService{
     return this._http.post(`${this.urlCreateCelebrante}`,data);
  }
 
+ createDataLit(data:any):Observable<any>{
+  return this._http.post(`${this.urlCreateLiturgia}`,data);
+}
+
+// Get Escala
+
   readData():Observable<any>{
      return this._http.get(`${this.urlRead}`);
   }
@@ -145,6 +191,12 @@ export class AppService{
   return this._http.get(`${this.urlReadCelebrante}`);
 }
 
+ readDataLiturgia():Observable<any>{
+  return this._http.get(`${this.urlReadLiturgia}`);
+}
+
+
+//Delete Escala
 
   deleteData(id:any):Observable<any>{
     let ids = id;
@@ -155,11 +207,18 @@ export class AppService{
     let ids = id;
     return this._http.delete(`${this.urlDeleteMinistro}/${ids}`);
   }
-  
+    
   deleteDataCelebrante(id:any):Observable<any>{
     let ids = id;
     return this._http.delete(`${this.urlDeleteCelebrante}/${ids}`);
   }
+
+  deleteDataLiturgia(id:any):Observable<any>{
+    let ids = id;
+    return this._http.delete(`${this.urlDeleteLiturgia}/${ids}`);
+  }
+
+// Update Escala
 
   updateData(data:any,id:any):Observable<any>{
     let ids = id;
@@ -176,20 +235,34 @@ export class AppService{
     return this._http.put(`${this.urlUpdateCelebrante}/${ids}`,data);
   }
 
-   getSingleData(id:any):Observable<any>{
+  updateDataLiturgia(data:any,id:any):Observable<any>{
+    let ids = id;
+    return this._http.put(`${this.urlUpdateLiturgia}/${ids}`,data);
+  }
+
+  //getSingle Escala
+ 
+  getSingleData(id:any):Observable<any>{
     let ids = id;
     return this._http.get(`${this.urlgetSingleData}/${ids}`);
-   } 
+  } 
 
-   getSingleDataMinistro(id:any):Observable<any>{
+  getSingleDataMinistro(id:any):Observable<any>{
     let ids = id;
     return this._http.get(`${this.urlgetSingleDataMinistro}/${ids}`);
-   } 
+  } 
 
-   getSingleDataCelebrante(id:any):Observable<any>{
+  getSingleDataCelebrante(id:any):Observable<any>{
     let ids = id;
     return this._http.get(`${this.urlgetSingleDataCelebrante}/${ids}`);
-   } 
+  } 
+
+  getSingleDataLiturgia(id:any):Observable<any>{
+    let ids = id;
+    return this._http.get(`${this.urlgetSingleDataLiturgia}/${ids}`);
+  } 
+
+  //Selects
    
   select_coroinhaData():Observable<any>{
     return this._http.get(`${this.urlSelect_Coroinha}`);
@@ -206,6 +279,18 @@ export class AppService{
   select_celebranteData():Observable<any>{
     return this._http.get(`${this.urlSelectCelebrante}`);
   } 
+
+  select_comentaristasData():Observable<any>{
+    return this._http.get(`${this.urlSelectComentaristas}`);
+  } 
+
+  select_leitoresData():Observable<any>{
+    return this._http.get(`${this.urlSelectLeitores}`);
+  } 
+
+  select_musicosData():Observable<any>{
+    return this._http.get(`${this.urlSelectMusicos}`);
+  }
   
   select_comunidadeData():Observable<any>{
     return this._http.get(`${this.urlSelect_Comunidades}`);
@@ -281,6 +366,22 @@ createCelebrante(data:any):Observable<any>{
 deleteCelebrante(id:any):Observable<any>{
   let ids = id;
   return this._http.delete(`${this.urlDeleteCelebranteAgente}/${ids}`);
+}
+
+ //liturgia - criar-atualizar-deletar
+
+ updateLiturgia(data:any,id:any):Observable<any>{
+  let ids = id;
+  return this._http.put(`${this.urlUpdateLiturgiaAgente}/${ids}`,data);
+}
+
+createLiturgia(data:any):Observable<any>{
+  return this._http.post(`${this.urlCreateLiturgiaAgente}`,data);
+}
+
+deleteLiturgia(id:any):Observable<any>{
+  let ids = id;
+  return this._http.delete(`${this.urlDeleteLiturgiaAgente}/${ids}`);
 }
 
 

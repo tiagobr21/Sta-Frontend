@@ -1,14 +1,9 @@
 import { AppService } from '../../../../services/app.service';
-import {jsPDF} from 'jspdf';
 import { ElementRef,Component, OnInit,  ViewChild} from '@angular/core';
 import { __values } from 'tslib';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { elementAt, EmptyError } from 'rxjs';
 import { GlobalConstants } from 'src/app/shared/global-constants';
-import { coerceStringArray } from '@angular/cdk/coercion';
-
-
 
 
 @Component({

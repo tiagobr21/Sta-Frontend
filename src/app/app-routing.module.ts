@@ -18,6 +18,9 @@ import { EscalaMinistroPdfComponent } from './components/arquivos-pdf/escala-min
 import { CriarCelebranteComponent } from './components/criar-escala/celebrante/criar-celebrante/criar-celebrante.component';
 import { ConsultaCelebranteComponent } from './components/consultar-escala/celebrante/consulta-celebrante/consulta-celebrante.component';
 import { EscalaCelebrantePdfComponent } from './components/arquivos-pdf/escala-celebrante-pdf/escala-celebrante-pdf.component';
+import { CriarLiturgiaComponent } from './components/criar-escala/liturgia/criar-liturgia/criar-liturgia.component';
+import { ConsultarLiturgiaComponent } from './components/consultar-escala/liturgia/consultar-liturgia/consultar-liturgia.component';
+import { EscalaLiturgiaPdfComponent } from './components/arquivos-pdf/escala-liturgia-pdf/escala-liturgia-pdf.component';
 
 const routes: Routes = [
 
@@ -63,12 +66,21 @@ const routes: Routes = [
   expectedRole:['admin']  
 }
 },
+{path:'criar-escala-liturgia',component:CriarLiturgiaComponent,
+  loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
+  canActivate:[RouterGuardService],
+  data:{
+  expectedRole:['admin']  
+}
+},
   {path:'criar-coroinha/:id',component:CriarCoroinhaComponent},
   {path:'criar-ministro/:id',component:CriarMinistroComponent},
   {path:'criar-celebrante/:id',component:CriarCelebranteComponent},
+  {path:'criar-liturgia/:id',component:CriarLiturgiaComponent},
   {path:'consultar-escala-coroinha',component:ConsultarCoroinhaComponent},
   {path:'consultar-escala-ministro',component:ConsultarMinistroComponent},
   {path:'consultar-escala-celebrante',component:ConsultaCelebranteComponent},
+  {path:'consultar-escala-liturgia',component:ConsultarLiturgiaComponent},
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},
   {path:'cadastro',component:CadastroComponent},
   {path:'login',component:LoginComponent},
@@ -76,6 +88,7 @@ const routes: Routes = [
   {path:'escala-coroinha-pdf',component:EscalaCoroinhaPdfComponent},
   {path:'escala-ministro-pdf',component:EscalaMinistroPdfComponent},
   {path:'escala-celebrante-pdf',component:EscalaCelebrantePdfComponent},
+  {path:'escala-liturgia-pdf',component:EscalaLiturgiaPdfComponent},
   {
     path:'admin/usuarios',component:UsuariosComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
