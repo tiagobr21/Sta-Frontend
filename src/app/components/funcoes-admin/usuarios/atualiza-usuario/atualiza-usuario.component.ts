@@ -111,6 +111,60 @@ atualizarCelebrante(){
    this.snackbar.openSnackBar(this.response,GlobalConstants.unauthroized)})    
 }
 
+atualizarComentarista(){
+  console.log(this.userForm.value)
+  this.service.updateComentarista(this.userForm.value,this.data.id).subscribe((res:any)=>{
+      console.log(res);
+      this.response = res;
+      this.snackbar.openSnackBar(this.response.message,"");
+  
+},(error)=>{
+
+  if(error.error?.message){
+    this.response = error.error?.message
+  }else{
+    this.response = GlobalConstants.unauthroized;
+  } 
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.unauthroized)})    
+}
+
+atualizarLeitores(){
+  console.log(this.userForm.value)
+  this.service.updateLeitores(this.userForm.value,this.data.id).subscribe((res:any)=>{
+      console.log(res);
+      this.response = res;
+      this.snackbar.openSnackBar(this.response.message,"");
+  
+},(error)=>{
+
+  if(error.error?.message){
+    this.response = error.error?.message
+  }else{
+    this.response = GlobalConstants.unauthroized;
+  } 
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.unauthroized)})    
+}
+
+atualizarMusicos(){
+  console.log(this.userForm.value)
+  this.service.updateLeitores(this.userForm.value,this.data.id).subscribe((res:any)=>{
+      console.log(res);
+      this.response = res;
+      this.snackbar.openSnackBar(this.response.message,"");
+  
+},(error)=>{
+
+  if(error.error?.message){
+    this.response = error.error?.message
+  }else{
+    this.response = GlobalConstants.unauthroized;
+  } 
+
+   this.snackbar.openSnackBar(this.response,GlobalConstants.unauthroized)})    
+}
+
   close(){
     this.dialogRef.close();
   }

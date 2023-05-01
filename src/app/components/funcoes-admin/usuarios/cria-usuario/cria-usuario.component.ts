@@ -74,7 +74,32 @@ criarCelebrante(){
     
   })  
 }
+
+criarComentarista(){
+  this.service.createComentarista(this.userForm.value).subscribe((res:any)=>{
+     console.log(res);
+     this.response = res;
+     this.snackbar.openSnackBar(this.response.message,"");
+    
+  })  
+}
+
+criarLeitores(){
+  this.service.createLeitores(this.userForm.value).subscribe((res:any)=>{
+     console.log(res);
+     this.response = res;
+     this.snackbar.openSnackBar(this.response.message,"");
+  })  
+}
   
+criarMusicos(){
+  this.service.createMusicos(this.userForm.value).subscribe((res:any)=>{
+     console.log(res);
+     this.response = res;
+     this.snackbar.openSnackBar(this.response.message,"");
+  })  
+}
+
 
   close(){
     this.dialogRef.close();

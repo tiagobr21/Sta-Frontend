@@ -17,89 +17,99 @@ export class AppService{
   //prod: https://back-sta.herokuapp.com
 
   // Escala Coroinha
-    urlCreate = 'https://back-sta.herokuapp.com/escala_coroinha/create';
-    urlRead = 'https://back-sta.herokuapp.com/escala_coroinha/read';
-    urlDelete = 'https://back-sta.herokuapp.com/escala_coroinha/delete';
-    urlUpdate = 'https://back-sta.herokuapp.com/escala_coroinha/update';
-    urlgetSingleData = 'https://back-sta.herokuapp.com/escala_coroinha/getSingleData';
+    urlCreate = 'http://localhost:3000/escala_coroinha/create';
+    urlRead = 'http://localhost:3000/escala_coroinha/read';
+    urlDelete = 'http://localhost:3000/escala_coroinha/delete';
+    urlUpdate = 'http://localhost:3000/escala_coroinha/update';
+    urlgetSingleData = 'http://localhost:3000/escala_coroinha/getSingleData';
 
   //Coroinhas
-    urlUpdateCorinha = 'https://back-sta.herokuapp.com/escala_coroinha/update_coroinha';
-    urlCreateCoroinha ='https://back-sta.herokuapp.com/escala_coroinha/create_coroinha';
-    urlDeleteCoroinha = 'https://back-sta.herokuapp.com/escala_coroinha/delete_coroinha';
-    urlUpdateAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/update_acolito';
-    urlCreateAcolito ='https://back-sta.herokuapp.com/escala_coroinha/create_acolito';
-    urlDeleteAcolito = 'https://back-sta.herokuapp.com/escala_coroinha/delete_acolito';
+    urlUpdateCorinha = 'http://localhost:3000/escala_coroinha/update_coroinha';
+    urlCreateCoroinha ='http://localhost:3000/escala_coroinha/create_coroinha';
+    urlDeleteCoroinha = 'http://localhost:3000/escala_coroinha/delete_coroinha';
+    urlUpdateAcolito = 'http://localhost:3000/escala_coroinha/update_acolito';
+    urlCreateAcolito ='http://localhost:3000/escala_coroinha/create_acolito';
+    urlDeleteAcolito = 'http://localhost:3000/escala_coroinha/delete_acolito';
 
     //Ministros
-    urlUpdateMinistroAgente = 'https://back-sta.herokuapp.com/escala_ministro/update_ministro';
-    urlCreateMinistroAgente ='https://back-sta.herokuapp.com/escala_ministro/create_ministro';
-    urlDeleteMinistroAgente = 'https://back-sta.herokuapp.com/escala_ministro/delete_ministro';
+    urlUpdateMinistroAgente = 'http://localhost:3000/escala_ministro/update_ministro';
+    urlCreateMinistroAgente ='http://localhost:3000/escala_ministro/create_ministro';
+    urlDeleteMinistroAgente = 'http://localhost:3000/escala_ministro/delete_ministro';
 
 
   //PDF Coroinhha
-    urlGerarPdf = 'https://back-sta.herokuapp.com/escala_coroinha/gerarpdf';
-    urlGetPdf = 'https://back-sta.herokuapp.com/escala_coroinha/getpdf';
-    urlDeletePdf = 'https://back-sta.herokuapp.com/escala_coroinha/deletepdf';
+    urlGerarPdf = 'http://localhost:3000/escala_coroinha/gerarpdf';
+    urlGetPdf = 'http://localhost:3000/escala_coroinha/getpdf';
+    urlDeletePdf = 'http://localhost:3000/escala_coroinha/deletepdf';
 
 
   // Escala Ministro
-    urlCreateMinistro = 'https://back-sta.herokuapp.com/escala_ministro/create';
-    urlReadMinistro = 'https://back-sta.herokuapp.com/escala_ministro/read';
-    urlDeleteMinistro = 'https://back-sta.herokuapp.com/escala_ministro/delete';
-    urlUpdateMinistro = 'https://back-sta.herokuapp.com/escala_ministro/update';
-    urlgetSingleDataMinistro = 'https://back-sta.herokuapp.com/escala_ministro/getSingleData';
+    urlCreateMinistro = 'http://localhost:3000/escala_ministro/create';
+    urlReadMinistro = 'http://localhost:3000/escala_ministro/read';
+    urlDeleteMinistro = 'http://localhost:3000/escala_ministro/delete';
+    urlUpdateMinistro = 'http://localhost:3000/escala_ministro/update';
+    urlgetSingleDataMinistro = 'http://localhost:3000/escala_ministro/getSingleData';
 
   // PDF Ministro
-    urlGerarPdfMinistro = 'https://back-sta.herokuapp.com/escala_ministro/gerarpdf';
-    urlGetPdfMinistro = 'https://back-sta.herokuapp.com/escala_ministro/getpdf';
-    urlDeletePdfMinistro = 'https://back-sta.herokuapp.com/escala_ministro/deletepdf';
+    urlGerarPdfMinistro = 'http://localhost:3000/escala_ministro/gerarpdf';
+    urlGetPdfMinistro = 'http://localhost:3000/escala_ministro/getpdf';
+    urlDeletePdfMinistro = 'http://localhost:3000/escala_ministro/deletepdf';
     
  
     //Selects
-    urlSelect_Coroinha = 'https://back-sta.herokuapp.com/escala_coroinha/select_coroinha';
-    urlSelect_Acolito = 'https://back-sta.herokuapp.com/escala_coroinha/select_acolito';
-    urlSelect_Comunidades = 'https://back-sta.herokuapp.com/escala_coroinha/select_comunidades';
-    urlSelect_Missa = 'https://back-sta.herokuapp.com/escala_coroinha/select_missa';
-    urlSelectMinistros = 'https://back-sta.herokuapp.com/escala_ministro/select_ministro';
-    urlSelectCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/select_celebrante';
-    urlSelectComentaristas = 'https://back-sta.herokuapp.com/escala_liturgia/select_comentaristas';
-    urlSelectLeitores = 'https://back-sta.herokuapp.com/escala_liturgia/select_leitores';
-    urlSelectMusicos = 'https://back-sta.herokuapp.com/escala_liturgia/select_musicos';
+    urlSelect_Coroinha = 'http://localhost:3000/escala_coroinha/select_coroinha';
+    urlSelect_Acolito = 'http://localhost:3000/escala_coroinha/select_acolito';
+    urlSelect_Comunidades = 'http://localhost:3000/escala_coroinha/select_comunidades';
+    urlSelect_Missa = 'http://localhost:3000/escala_coroinha/select_missa';
+    urlSelectMinistros = 'http://localhost:3000/escala_ministro/select_ministro';
+    urlSelectCelebrante = 'http://localhost:3000/escala_celebrante/select_celebrante';
+    urlSelectComentaristas = 'http://localhost:3000/escala_liturgia/select_comentaristas';
+    urlSelectLeitores = 'http://localhost:3000/escala_liturgia/select_leitores';
+    urlSelectMusicos = 'http://localhost:3000/escala_liturgia/select_musicos';
 
     // Escala Celebrante
-    urlCreateCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/create';
-    urlReadCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/read';
-    urlDeleteCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/delete';
-    urlUpdateCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/update';
-    urlgetSingleDataCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/getSingleData';
+    urlCreateCelebrante = 'http://localhost:3000/escala_celebrante/create';
+    urlReadCelebrante = 'http://localhost:3000/escala_celebrante/read';
+    urlDeleteCelebrante = 'http://localhost:3000/escala_celebrante/delete';
+    urlUpdateCelebrante = 'http://localhost:3000/escala_celebrante/update';
+    urlgetSingleDataCelebrante = 'http://localhost:3000/escala_celebrante/getSingleData';
       
     //Celebrante
-    urlUpdateCelebranteAgente = 'https://back-sta.herokuapp.com/escala_celebrante/update_celebrante';
-    urlCreateCelebranteAgente ='https://back-sta.herokuapp.com/escala_celebrante/create_celebrante';
-    urlDeleteCelebranteAgente = 'https://back-sta.herokuapp.com/escala_celebrante/delete_celebrante';
+    urlUpdateCelebranteAgente = 'http://localhost:3000/escala_celebrante/update_celebrante';
+    urlCreateCelebranteAgente ='http://localhost:3000/escala_celebrante/create_celebrante';
+    urlDeleteCelebranteAgente = 'http://localhost:3000/escala_celebrante/delete_celebrante';
    
     //PDF Celebrantes
-    urlGerarPdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/gerarpdf';
-    urlGetPdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/getpdf';
-    urlDeletePdfCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/deletepdf';
+    urlGerarPdfCelebrante = 'http://localhost:3000/escala_celebrante/gerarpdf';
+    urlGetPdfCelebrante = 'http://localhost:3000/escala_celebrante/getpdf';
+    urlDeletePdfCelebrante = 'http://localhost:3000/escala_celebrante/deletepdf';
 
     // Escala Liturgia
-    urlCreateLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/create';
-    urlReadLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/read';
-    urlDeleteLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/delete';
-    urlUpdateLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/update';
-    urlgetSingleDataLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/getSingleData';
+    urlCreateLiturgia = 'http://localhost:3000/escala_liturgia/create';
+    urlReadLiturgia = 'http://localhost:3000/escala_liturgia/read';
+    urlDeleteLiturgia = 'http://localhost:3000/escala_liturgia/delete';
+    urlUpdateLiturgia = 'http://localhost:3000/escala_liturgia/update';
+    urlgetSingleDataLiturgia = 'http://localhost:3000/escala_liturgia/getSingleData';
 
-    //Liturgia
-    urlUpdateLiturgiaAgente = 'https://back-sta.herokuapp.com/escala_liturgia/update_celebrante';
-    urlCreateLiturgiaAgente ='https://back-sta.herokuapp.com/escala_liturgia/create_celebrante';
-    urlDeleteLiturgiaAgente = 'https://back-sta.herokuapp.com/escala_liturgia/delete_celebrante';
+    //Comentarista
+    urlUpdateComentarista = 'http://localhost:3000/escala_liturgia/update_comentarista';
+    urlCreateComentarista ='http://localhost:3000/escala_liturgia/create_comentarista';
+    urlDeleteComentarista = 'http://localhost:3000/escala_liturgia/delete_comentarista';
+
+    //Leitores
+    urlUpdateLeitores = 'http://localhost:3000/escala_liturgia/update_leitores';
+    urlCreateLeitores ='http://localhost:3000/escala_liturgia/create_leitores';
+    urlDeleteLeitores = 'http://localhost:3000/escala_liturgia/delete_leitores';
+
+    //Musicos
+    urlUpdateMusicos = 'http://localhost:3000/escala_liturgia/update_musicos';
+    urlCreateMusicos ='http://localhost:3000/escala_liturgia/create_musicos';
+    urlDeleteMusicos = 'http://localhost:3000/escala_liturgia/delete_musicos';
 
     //PDF Liturgia
-    urlGerarPdfLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/gerarpdf';
-    urlGetPdfLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/getpdf';
-    urlDeletePdfLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/deletepdf';
+    urlGerarPdfLiturgia = 'http://localhost:3000/escala_liturgia/gerarpdf';
+    urlGetPdfLiturgia = 'http://localhost:3000/escala_liturgia/getpdf';
+    urlDeletePdfLiturgia = 'http://localhost:3000/escala_liturgia/deletepdf';
   
 
   constructor(private _http:HttpClient) { }
@@ -368,21 +378,54 @@ deleteCelebrante(id:any):Observable<any>{
   return this._http.delete(`${this.urlDeleteCelebranteAgente}/${ids}`);
 }
 
- //liturgia - criar-atualizar-deletar
+ //Comentarista - criar-atualizar-deletar
 
- updateLiturgia(data:any,id:any):Observable<any>{
+ updateComentarista(data:any,id:any):Observable<any>{
   let ids = id;
-  return this._http.put(`${this.urlUpdateLiturgiaAgente}/${ids}`,data);
+  return this._http.put(`${this.urlUpdateComentarista}/${ids}`,data);
 }
 
-createLiturgia(data:any):Observable<any>{
-  return this._http.post(`${this.urlCreateLiturgiaAgente}`,data);
+createComentarista(data:any):Observable<any>{
+  return this._http.post(`${this.urlCreateComentarista}`,data);
 }
 
-deleteLiturgia(id:any):Observable<any>{
+deleteComentarista(id:any):Observable<any>{
   let ids = id;
-  return this._http.delete(`${this.urlDeleteLiturgiaAgente}/${ids}`);
+  return this._http.delete(`${this.urlDeleteComentarista}/${ids}`);
 }
+
+ //Leitores - criar-atualizar-deletar
+
+ updateLeitores(data:any,id:any):Observable<any>{
+  let ids = id;
+  return this._http.put(`${this.urlUpdateLeitores}/${ids}`,data);
+}
+
+createLeitores(data:any):Observable<any>{
+  return this._http.post(`${this.urlCreateLeitores}`,data);
+}
+
+deleteLeitores(id:any):Observable<any>{
+  let ids = id;
+  return this._http.delete(`${this.urlDeleteLeitores}/${ids}`);
+}
+
+ //Musicos - criar-atualizar-deletar
+
+ updateMusicos(data:any,id:any):Observable<any>{
+  let ids = id;
+  return this._http.put(`${this.urlUpdateMusicos}/${ids}`,data);
+}
+
+createMusicos(data:any):Observable<any>{
+  return this._http.post(`${this.urlCreateMusicos}`,data);
+}
+
+deleteMusicos(id:any):Observable<any>{
+  let ids = id;
+  return this._http.delete(`${this.urlDeleteMusicos}/${ids}`);
+}
+
 
 
 

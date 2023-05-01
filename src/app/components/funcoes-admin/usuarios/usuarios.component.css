@@ -64,6 +64,14 @@ table{
     font-size: 15px;
 }
 
+p{
+    cursor: pointer; 
+}
+
+#eye{
+    cursor: pointer;
+}
+
 #coroinhas{
     margin-top: 200px;
     cursor:pointer;

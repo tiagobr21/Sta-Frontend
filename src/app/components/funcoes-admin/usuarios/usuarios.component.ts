@@ -26,10 +26,16 @@ export class UsuariosComponent implements OnInit {
    listaAcolitos:any
    listaMinistros:any
    listaCelebrantes:any
+   listaComentaristas:any
+   listaLeitores:any
+   listaMusicos:any
    coroinhasVisib:boolean = false;
    acolitosVisib:boolean = false;
    ministrosVisib:boolean = false;
    celebrantesVisib:boolean = false;
+   comentaristasVisib:boolean = false;
+   leitoresVisib:boolean = false;
+   musicosVisib:boolean = false;
    response:any;
 
    sideBarToggler(){
@@ -54,7 +60,18 @@ export class UsuariosComponent implements OnInit {
 
       this.service.select_celebranteData().subscribe((res)=>{
         this.listaCelebrantes = res;
-        console.log(this.listaCelebrantes);
+      });
+
+      this.service.select_comentaristasData().subscribe((res)=>{
+        this.listaComentaristas = res;
+      });
+
+      this.service.select_leitoresData().subscribe((res)=>{
+        this.listaLeitores = res;
+      });
+
+      this.service.select_musicosData().subscribe((res)=>{
+        this.listaMusicos = res;
       });
    }
 
@@ -104,6 +121,47 @@ export class UsuariosComponent implements OnInit {
 
   }
 
+  deleteComentarista(id:any){
+  
+    this.service.deleteComentarista(id).subscribe((res)=>{
+       console.log(res);
+       this.response = res;
+       this.snackbar.openSnackBar(this.response.message,""); 
+       this.service.select_celebranteData().subscribe((res)=>{
+        this.listaCelebrantes = res;
+     });   
+    }) 
+
+  }
+
+  
+  deleteLeitores(id:any){
+  
+    this.service.deleteLeitores(id).subscribe((res)=>{
+       console.log(res);
+       this.response = res;
+       this.snackbar.openSnackBar(this.response.message,""); 
+       this.service.select_celebranteData().subscribe((res)=>{
+        this.listaCelebrantes = res;
+     });   
+    }) 
+
+  }
+
+    
+  deleteMusicos(id:any){
+  
+    this.service.deleteMusicos(id).subscribe((res)=>{
+       console.log(res);
+       this.response = res;
+       this.snackbar.openSnackBar(this.response.message,""); 
+       this.service.select_celebranteData().subscribe((res)=>{
+        this.listaCelebrantes = res;
+     });   
+    }) 
+
+  }
+
    opencriarUsuario(){
     const dialogConfig = this.dialog.open(CriaUsuarioComponent,{
       width:'550px',
@@ -134,6 +192,18 @@ export class UsuariosComponent implements OnInit {
 
   onoffCelebrantes(){
     this.celebrantesVisib = !this.celebrantesVisib;
+  }
+
+  onoffComentaristas(){
+    this.comentaristasVisib = !this.comentaristasVisib;
+  }
+
+  onoffLeitores(){
+    this.leitoresVisib = !this.leitoresVisib;
+  }
+
+  onoffMusicos(){
+    this.musicosVisib = !this.musicosVisib;
   }
 
   refresh(){

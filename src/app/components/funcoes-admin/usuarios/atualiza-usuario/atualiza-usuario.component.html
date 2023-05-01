@@ -9,6 +9,9 @@
       <option>Acolitos</option>
       <option>Ministros</option>
       <option>Celebrantes</option>
+      <option>Comentaristas</option>
+      <option>Leitores</option>
+      <option>Musicos</option>
     </select>
 
     <button id="categoria" (click)="selectCategoria()" type="submit" class="btn btn-primary">Escolher</button>
@@ -52,5 +55,35 @@
         <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
       </div>
       <button id="categoria" (click)="atualizarCelebrante()" type="submit" class="btn btn-primary">Atualizar</button>
+  </form>
+</div>
+
+<div *ngIf="categoria == 'Comentaristas'">
+  <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button id="categoria" (click)="atualizarComentarista()" type="submit" class="btn btn-primary">Atualizar</button>
+  </form>
+</div>
+
+<div *ngIf="categoria == 'Leitores'">
+  <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button id="categoria" (click)="atualizarLeitores()" type="submit" class="btn btn-primary">Atualizar</button>
+  </form>
+</div>
+
+<div *ngIf="categoria == 'Musicos'">
+  <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button id="categoria" (click)="atualizarMusicos()" type="submit" class="btn btn-primary">Atualizar</button>
   </form>
 </div>

@@ -8,7 +8,7 @@
         <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
       
 <div class="container-fluid page">
-    <div class="page__box p-3 mt-2">Funções do Administrador - Usuários</div>
+    <div class="page__box p-3 mt-2">Funções do Administrador - Agentes</div>
     <div class="page__content shadow p-3 position-relative">
         <div class="page__content-data position-absolute text-center">
  
@@ -27,8 +27,8 @@
 
             <div (click)="onoffCoroinhas()" id="coroinhas"  class="alert alert-light" role="alert">
               Coroinhas
-              <mat-icon *ngIf="coroinhasVisib">visibility</mat-icon>
-              <mat-icon *ngIf="!coroinhasVisib">visibility_off</mat-icon>
+              <mat-icon id="eye" *ngIf="coroinhasVisib">visibility</mat-icon>
+              <mat-icon id="eye" *ngIf="!coroinhasVisib">visibility_off</mat-icon>
             </div>
 
             <div *ngIf="coroinhasVisib">
@@ -46,8 +46,8 @@
 
             <div (click)="onoffAcolitos()" id="acolitos"  class="alert alert-light" role="alert">
               Acolitos
-              <mat-icon *ngIf="acolitosVisib">visibility</mat-icon>
-              <mat-icon *ngIf="!acolitosVisib">visibility_off</mat-icon>
+              <mat-icon id="eye" *ngIf="acolitosVisib">visibility</mat-icon>
+              <mat-icon id="eye" *ngIf="!acolitosVisib">visibility_off</mat-icon>
             </div>
 
             <div *ngIf="acolitosVisib">
@@ -68,8 +68,8 @@
 
             <div (click)="onoffMinistros()"   class="alert alert-light" role="alert">
               Ministros
-              <mat-icon *ngIf="ministrosVisib">visibility</mat-icon>
-              <mat-icon *ngIf="!ministrosVisib">visibility_off</mat-icon>
+              <mat-icon id="eye" *ngIf="ministrosVisib">visibility</mat-icon>
+              <mat-icon id="eye" *ngIf="!ministrosVisib">visibility_off</mat-icon>
             </div>
 
             <div *ngIf="ministrosVisib">
@@ -89,9 +89,9 @@
             <!-- Celebrantes -->
 
               <div (click)="onoffCelebrantes()"   class="alert alert-light" role="alert">
-                  Celebrantes
-                    <mat-icon *ngIf="celebrantesVisib">visibility</mat-icon>
-                    <mat-icon *ngIf="!celebrantesVisib">visibility_off</mat-icon>
+                Celebrantes
+                    <mat-icon id="eye" *ngIf="celebrantesVisib">visibility</mat-icon>
+                    <mat-icon id="eye" *ngIf="!celebrantesVisib">visibility_off</mat-icon>
                   </div>
           
                   <div *ngIf="celebrantesVisib">
@@ -107,6 +107,70 @@
           
               </div>
               </div>
+
+                 <!-- Comentaristas -->
+
+                 <div (click)="onoffComentaristas()"   class="alert alert-light" role="alert">
+                  Comentaristas
+                    <mat-icon id="eye" *ngIf="comentaristasVisib">visibility</mat-icon>
+                    <mat-icon id="eye" *ngIf="!comentaristasVisib">visibility_off</mat-icon>
+                  </div>
+          
+                  <div *ngIf="comentaristasVisib">
+                          <table *ngFor="let dados of listaComentaristas , let i = index" class="table">
+          
+                          <tbody>
+                              <tr>
+                                <td>{{dados.nome}} <mat-icon (click)="openatualizarUsuario(dados.id)" id="edit">edit</mat-icon> <mat-icon (click)="deleteComentarista(dados.id)"  id="delete">delete</mat-icon></td> 
+                              </tr>
+                            </tbody>
+                          </table>
+                  <div>
+          
+              </div>
+              </div>
+
+                <!-- Leitores -->
+
+                  <div (click)="onoffLeitores()"   class="alert alert-light" role="alert">
+                    Leitores
+                        <mat-icon id="eye" *ngIf="leitoresVisib">visibility</mat-icon>
+                        <mat-icon id="eye" *ngIf="!leitoresVisib">visibility_off</mat-icon>
+                    </div>
+                
+                    <div *ngIf="leitoresVisib">
+                          <table *ngFor="let dados of listaLeitores , let i = index" class="table">
+                                <tbody>
+                                    <tr>
+                                      <td>{{dados.nome}} <mat-icon (click)="openatualizarUsuario(dados.id)" id="edit">edit</mat-icon> <mat-icon (click)="deleteLeitores(dados.id)"  id="delete">delete</mat-icon></td> 
+                                    </tr>
+                                  </tbody>
+                                </table>
+                    <div>
+                
+                    </div>
+                    </div>
+
+                  <!-- Musicos -->
+
+                  <div (click)="onoffMusicos()"   class="alert alert-light" role="alert">
+                    Musicos
+                      <mat-icon id="eye" *ngIf="musicosVisib">visibility</mat-icon>
+                      <mat-icon id="eye" *ngIf="!musicosVisib">visibility_off</mat-icon>
+                  </div>
+              
+                  <div *ngIf="musicosVisib">
+                        <table *ngFor="let dados of listaMusicos , let i = index" class="table">
+                              <tbody>
+                                  <tr>
+                                    <td>{{dados.nome}} <mat-icon (click)="openatualizarUsuario(dados.id)" id="edit">edit</mat-icon> <mat-icon (click)="deleteMusicos(dados.id)"  id="delete">delete</mat-icon></td> 
+                                  </tr>
+                                </tbody>
+                              </table>
+                  <div>
+              
+                  </div>
+                  </div>
 
     </div>
 
