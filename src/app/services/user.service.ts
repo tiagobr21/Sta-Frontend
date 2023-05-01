@@ -12,18 +12,18 @@ export class AppService{
   // desenvolvimento: http://localhost:3000
   // prod: https://back-sta.herokuapp.com
 
-  urlCadastrar = 'http://localhost:3000/user/signup';
-  urlLogin = ' http://localhost:3000/user/login';
-  urlEsqueceuSenha = ' http://localhost:3000/user/forgotpassword';
-  urlcheckToken =' http://localhost:3000/user/checkToken';
-  urlMudarSenha = ' http://localhost:3000/user/changePassword';
-  urlObter = ' http://localhost:3000/user/get';
-  urlUptadeUser = ' http://localhost:3000/user/updateuser';
-  urlObterById = ' http://localhost:3000/user/getbyid';
-  urlDelete = ' http://localhost:3000/user/delete';
-  urlUpload = ' http://localhost:3000/user/uploadimage';
-  urlGetImage = ' http://localhost:3000/user/getimage';
-  urlDeleteImage = ' http://localhost:3000/user/deleteimage';
+  urlCadastrar = 'https://back-sta.herokuapp.com/user/signup';
+  urlLogin = 'https://back-sta.herokuapp.com/user/login';
+  urlEsqueceuSenha = 'https://back-sta.herokuapp.com/user/forgotpassword';
+  urlcheckToken ='https://back-sta.herokuapp.com/user/checkToken';
+  urlMudarSenha = 'https://back-sta.herokuapp.com/user/changePassword';
+  urlObter = 'https://back-sta.herokuapp.com/user/get';
+  urlUptadeUser = 'https://back-sta.herokuapp.com/user/updateuser';
+  urlObterById = 'https://back-sta.herokuapp.com/user/getbyid';
+  urlDelete = 'https://back-sta.herokuapp.com/user/delete';
+  urlUpload = 'https://back-sta.herokuapp.com/user/uploadimage';
+  urlGetImage = 'https://back-sta.herokuapp.com/user/getimage';
+  urlDeleteImage = 'https://back-sta.herokuapp.com/user/deleteimage';
 
   constructor(private _http:HttpClient) { }
    
