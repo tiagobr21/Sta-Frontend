@@ -116,6 +116,7 @@ div.container-data{
   }
 
 
+  
   .container-data #data{
     top: 40px;
     right: 30px;
@@ -136,7 +137,7 @@ div.container-data{
 }
 
 #content{
-    width: 75%;
+    width: 100%;
 
 
 }
@@ -182,22 +183,22 @@ table{
 }
 
 .tabela-1{
-   width: 106%;
+   width: 107%;
    color:black;
-   margin: 10px 0 20px -5px;
+   margin: 20px 0 20px -10px;
    font-size: 14px;
    
 }
 
-
 #content .divisão-tabela{
 
-    width: 100%;
-    height: 1px;
-    padding: 1px;
-    background-color:#1e293b;
-  
-  }
+  width: 100%;
+  height: 1px;
+  padding: 1px;
+  background-color:#1e293b;
+
+}
+
 
 .nome{
     max-width: 100%;
@@ -226,6 +227,7 @@ td{
     cursor: pointer;
 
 }
+
 
 .deletar{
     color: black;   

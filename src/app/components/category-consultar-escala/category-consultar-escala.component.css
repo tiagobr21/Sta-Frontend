@@ -56,4 +56,15 @@ mat-drawer-container{
     display: flex;
 }
   
-  
+
+
+.flex-geral{
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 33%;
+}
+ 
+.flex-geral a{
+    width: 30%;
+}

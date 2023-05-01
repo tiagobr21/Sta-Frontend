@@ -99,6 +99,7 @@
                                 <label id="label-musicos" for="musicos">Musicos</label>
                                 <select formControlName="nome" class="form-select" >
                                     <option>Escolha o Musico</option>
+                                    <option>Nenhum</option>
                                     <option *ngFor="let nomes_musico of select_musicosData">{{nomes_musico.nome}}</option>
                                 </select>
                             </div>

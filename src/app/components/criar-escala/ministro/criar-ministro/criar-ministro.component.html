@@ -61,6 +61,7 @@
                                     <label id="label-acolito" for="acolito">Ministro</label>
                                         <select formControlName="nome" class="form-select" >  
                                                 <option>Escolha o Ministro</option>
+                                                <option>Nenhum</option>
                                                 <option *ngFor="let nomes_ministro of select_ministroData">{{nomes_ministro.nome}}</option>
                                         </select>
                                 </div>

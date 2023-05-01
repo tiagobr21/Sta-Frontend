@@ -61,6 +61,7 @@
                                     <label id="label-acolito" for="acolito">Acolito</label>
                                         <select formControlName="nome" class="form-select" >  
                                                 <option>Escolha o Acolito</option>
+                                                <option>Nenhum</option>
                                                 <option *ngFor="let nomes_acolito of select_acolitoData">{{nomes_acolito.nome}}</option>
                                         </select>
                                 </div>
@@ -93,6 +94,7 @@
                                     <label id="label-coroinha" for="coroinha">Coroinha</label>
                                     <select formControlName="nome" class="form-select" >
                                         <option>Escolha o Coroinha</option>
+                                        <option>Nenhum</option>
                                         <option *ngFor="let nomes_coroinha of select_coroinhaData">{{nomes_coroinha.nome}}</option>
                                     </select>
                                 </div>

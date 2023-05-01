@@ -16,6 +16,10 @@ export class AppService{
   // dev: http://localhost:3000
   //prod: https://back-sta.herokuapp.com
 
+  //Escala Geral
+
+  urlReadGeral = 'http://localhost:3000/escala_geral/read';
+
   // Escala Coroinha
     urlCreate = 'http://localhost:3000/escala_coroinha/create';
     urlRead = 'http://localhost:3000/escala_coroinha/read';
@@ -113,6 +117,13 @@ export class AppService{
   
 
   constructor(private _http:HttpClient) { }
+
+
+  //Read Geral
+
+  readDataGeral():Observable<any>{
+    return this._http.get(`${this.urlReadGeral}`);
+  }
 
   //Delete PDF
 

@@ -21,6 +21,8 @@ import { EscalaCelebrantePdfComponent } from './components/arquivos-pdf/escala-c
 import { CriarLiturgiaComponent } from './components/criar-escala/liturgia/criar-liturgia/criar-liturgia.component';
 import { ConsultarLiturgiaComponent } from './components/consultar-escala/liturgia/consultar-liturgia/consultar-liturgia.component';
 import { EscalaLiturgiaPdfComponent } from './components/arquivos-pdf/escala-liturgia-pdf/escala-liturgia-pdf.component';
+import { EscalaGeralComponent } from './components/consultar-escala/geral/escala-geral/escala-geral.component';
+
 
 const routes: Routes = [
 
@@ -81,6 +83,7 @@ const routes: Routes = [
   {path:'consultar-escala-ministro',component:ConsultarMinistroComponent},
   {path:'consultar-escala-celebrante',component:ConsultaCelebranteComponent},
   {path:'consultar-escala-liturgia',component:ConsultarLiturgiaComponent},
+  {path:'consultar-escala-geral',component:EscalaGeralComponent},
   {path:'category-consultar',component:CategoryConsultarEscalaComponent},
   {path:'cadastro',component:CadastroComponent},
   {path:'login',component:LoginComponent},

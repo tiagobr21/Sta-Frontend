@@ -190,14 +190,15 @@ table{
    
 }
 
-.divisão-tabela{
-  margin-left: -27px;
-  width: 20.8cm;
-  height: 1px;
-  padding: 1px;
-  background-color:#1e293b;
 
-}
+#content .divisão-tabela{
+
+    width: 100%;
+    height: 1px;
+    padding: 1px;
+    background-color:#1e293b;
+  
+  }
 
 
 .nome{

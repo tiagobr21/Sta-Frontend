@@ -9,7 +9,7 @@
          
      
   <div class="container-fluid page">
-    <div class="page__box p-3 mt-2">Consultar Escala - Liturgia</div>
+    <div class="page__box p-3 mt-2">Consultar Escala - Geral</div>
     <!-- <button id="ocultar" type="button" class="btn btn-dark" (click)="ocultarBotao()">Exibir/Ocultar Edição</button> -->
   
   
@@ -102,7 +102,7 @@
           
           <div>
             <div class="conteiner-img"><img class="img-pdf" src="../../../assets/logo.png"></div>
-           <h4>PASTORAL DA LITURGIA - ESCALA ({{dataInput}})-{{anoInput}} </h4>
+           <h4>ESCALA GERAL PARÓQUIA SANTA TERESINHA - ESCALA ({{dataInput}})-{{anoInput}} </h4>
          
           <div class="form-check">
             <input [(ngModel)]="allCheckes" [checked]="checks"  [value]="-1" (change)="onCheckboxChange($event)" class="form-check-input" id="check-all" type="checkbox" value="">
@@ -110,31 +110,33 @@
                Selecionar Tudo    
             </label>
          </div>
+
+         <!-- | filtroMinistro:searchInput | filterMinistroData:dataInput | filterMinistroAno:anoInput; -->
            
-          <div *ngFor="let dados of newReadData | filterLiturgia:searchInput | filterLiturgiaData:dataInput | filterLiturgiaAno:anoInput; let i = index">
+          <div *ngFor="let dados of newReadData | filterGeral:searchInput | filterGeralData:dataInput | filterGeralData:anoInput let i = index">
           
         
-  
             <form [formGroup]="formCheck" > 
   
               <div class="form-check"> 
                 <input id="check" [checked]="checks" [value]="dados.id" (change)="onCheckboxChange($event)" type="checkbox" class="form-check-input">
              </div>
-  
-             <mat-icon  class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
              
+
                 <table  class="table table-bordered" class="tabela-1" >
               
                   <thead class="head">
                     <tr>
                       <th scope="col">Data</th>
-                      <th scope="col">Dia</th>
                       <th scope="col">Hora</th>
                       <th scope="col">Comunidade</th>
+                      <th scope="col">Celebrante</th>
+                      <th scope="col">Ministros</th>
                       <th scope="col">Comentarista</th>
                       <th scope="col">Leitores</th>
                       <th scope="col">Musicos</th>
-  
+                      <th scope="col">Acolitos</th>
+                      <th scope="col">Coroinhas</th>
                     </tr>
                   </thead>
   
@@ -142,22 +144,47 @@
   
                       <tr>
                           <td>{{dados.data}}</td>
-                          <td>{{dados.dia}}</td>
                           <td>{{dados.hora}}</td>
                           <td>{{dados.comunidade}}</td>
+                          <td> 
+                            <div *ngFor="let celebrante of dados.celebrante">
+                                {{celebrante.nome}}
+                            </div>
+                          </td>
+                          <td> 
+                            <div *ngFor="let ministro of dados.ministros">
+                                {{ministro.nome}}
+                            </div>
+                          </td>
+
                           <td> 
                             <div *ngFor="let comentarista of dados.comentarista">
                                 {{comentarista.nome}}
                             </div>
                           </td>
+
+                          
                           <td> 
                             <div *ngFor="let leitor of dados.leitores">
                                 {{leitor.nome}}
                             </div>
                           </td>
+
                           <td> 
                             <div *ngFor="let musico of dados.musicos">
                                 {{musico.nome}}
+                            </div>
+                          </td>
+
+                          <td> 
+                            <div *ngFor="let acolito of dados.acolito">
+                                {{acolito.nome}}
+                            </div>
+                          </td>
+
+                          <td> 
+                            <div *ngFor="let coroinha of dados.coroinha">
+                                {{coroinha.nome}}
                             </div>
                           </td>
                   
@@ -169,8 +196,8 @@
                 </table>
               </form>     
   
-              <!-- <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-coroinha',dados.id]">edit</mat-icon> -->
-             
+              <!-- <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-ministro',dados.id]">edit</mat-icon> -->
+              
   
             <div class="divisão-tabela"></div>
                    

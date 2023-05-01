@@ -46,6 +46,13 @@ import { FilterCelebranteAnoPipe } from './pipes/filter-celebrante-ano.pipe';
 import { CriarLiturgiaComponent } from './components/criar-escala/liturgia/criar-liturgia/criar-liturgia.component';
 import { ConsultarLiturgiaComponent } from './components/consultar-escala/liturgia/consultar-liturgia/consultar-liturgia.component';
 import { EscalaLiturgiaPdfComponent } from './components/arquivos-pdf/escala-liturgia-pdf/escala-liturgia-pdf.component';
+import { EscalaGeralComponent } from './components/consultar-escala/geral/escala-geral/escala-geral.component';
+import { FilterLiturgiaPipe } from './pipes/filter-liturgia.pipe';
+import { FilterLiturgiaAnoPipe } from './pipes/filter-liturgia-ano.pipe';
+import { FilterLiturgiaDataPipe } from './pipes/filter-liturgia-data.pipe';
+import { FilterGeralPipe } from './pipes/filter-geral.pipe';
+import { FilterGeralAnoPipe } from './pipes/filter-geral-ano.pipe';
+import { FilterGeralDataPipe } from './pipes/filter-geral-data.pipe';
 
 
 @NgModule({
@@ -86,7 +93,14 @@ import { EscalaLiturgiaPdfComponent } from './components/arquivos-pdf/escala-lit
     FilterCelebranteAnoPipe,
     CriarLiturgiaComponent,
     ConsultarLiturgiaComponent,
-    EscalaLiturgiaPdfComponent
+    EscalaLiturgiaPdfComponent,
+    EscalaGeralComponent,
+    FilterLiturgiaPipe,
+    FilterLiturgiaAnoPipe,
+    FilterLiturgiaDataPipe,
+    FilterGeralPipe,
+    FilterGeralAnoPipe,
+    FilterGeralDataPipe
 
   ],
   imports: [
