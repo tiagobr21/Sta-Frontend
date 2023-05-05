@@ -43,6 +43,9 @@ export class UsuariosComponent implements OnInit {
    }
 
    ngOnInit(): void {
+     
+    this.sideBarOpen = false;
+
       this.service.select_coroinhaData().subscribe((res)=>{
         this.listaCoroinhas = res
 

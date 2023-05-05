@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
         })
     }
     
+    this.sideBarOpen = false
     this.user = localStorage.getItem("user");
     console.log(this.user);
   }
@@ -36,4 +37,5 @@ export class HomeComponent implements OnInit {
   sideBarToggler(){
     this.sideBarOpen = !this.sideBarOpen;
   }
+
 }
