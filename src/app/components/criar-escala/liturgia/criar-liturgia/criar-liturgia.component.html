@@ -1,0 +1,146 @@
+<mat-drawer-container>
+    
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+
+  
+<div class="container-fluid page">
+    <div *ngIf="!getparamid" class="page__box p-3 mt-2">Criar Escala - Coroinha</div>
+    <div *ngIf="getparamid" class="page__box p-3 mt-2">Atualizar Escala - Coroinha</div>
+    <div class="page__content shadow p-3 position-relative">
+       
+        <form [formGroup]="userForm">
+                
+            <div id="flex"> 
+                    <div *ngIf="!getparamid" id="missa-celebracao" class="form-group">
+                        <label for="missa">Missa/Celebração</label>
+                        <select formControlName="missa" class="form-select" id="missa">
+                            <option>Escolha</option>
+                            <option *ngFor="let missas of select_missaData">{{missas.nome}}</option>
+                        </select>                   
+                    </div>
+
+                    <div *ngIf="getparamid" id="missa-celebracao" id="missa_atualizar" class="form-group">
+                        <label for="missa">Missa/Celebração</label>
+                        <select formControlName="missa" class="form-select" id="missa">
+                            <option *ngFor="let resIDs of resID">{{resIDs.missa}}</option>
+                            <option *ngFor="let missas of select_missaData">{{missas.nome}}</option>
+                        </select>                   
+                    </div>
+
+                    <br>     
+            
+            
+                    <div class="form-group" id="data">
+                        <label for="data">Data</label>
+                        <input type="date" id="date" class="form-control" formControlName="data" />
+                    </div>
+            
+            </div>
+
+            <br>
+            <!--   <div id="info" class="alert alert-primary d-flex align-items-center" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                <div>
+                    Escolha pelo menos um Acolito e um Coroinha
+                </div>
+              </div> -->
+                   
+            
+             
+                    <div id="comentarista" *ngIf="!getparamid"  class="form-group">
+                           <div formArrayName="comentarista" *ngFor="let comentaristas of getComentaristasControls(); let i = index">
+                               <div [formGroupName]="i">
+                                    <label id="label-comentaristas" for="comentaristas">Comentarista</label>
+                                        <select formControlName="nome" class="form-select" >  
+                                                <option>Escolha o Comentarista</option>
+                                                <option *ngFor="let nomes_comentaristas of select_comentaristasData">{{nomes_comentaristas.nome}}</option>
+                                        </select>
+                                </div>
+                            </div>
+                    </div>
+     
+
+                <!-- <button id="addComentarista" type="button" class="btn btn-success" (click)="addComentaristas()">Adicionar Comentarista<mat-icon id="add">add</mat-icon></button> -->
+
+            
+                    <br>
+                   
+                
+                        <div id="leitor" *ngIf="!getparamid" class="form-group">
+                            <div formArrayName="leitor" *ngFor="let leitor of getLeitoresControls(); let i = index">
+                                <div [formGroupName]="i">
+                                    <label id="label-leitor" for="leitor">Leitores</label>
+                                    <select formControlName="nome" class="form-select" >
+                                        <option>Escolha o Leitor</option>
+                                        <option *ngFor="let nomes_leitor of select_leitoresData">{{nomes_leitor.nome}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <button id="addAgente" type="button" class="btn btn-success" (click)="addLeitores()">Adicionar Leitor <mat-icon id="add">add</mat-icon></button>
+
+
+                    <br>
+                   
+                
+                    <div id="musico" *ngIf="!getparamid" class="form-group">
+                        <div formArrayName="musico" *ngFor="let musico of getMusicosControls(); let i = index">
+                            <div [formGroupName]="i">
+                                <label id="label-musicos" for="musicos">Musicos</label>
+                                <select formControlName="nome" class="form-select" >
+                                    <option>Escolha o Musico</option>
+                                    <option>Nenhum</option>
+                                    <option *ngFor="let nomes_musico of select_musicosData">{{nomes_musico.nome}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <button id="addAgente" type="button" class="btn btn-success" (click)="addMusicos()">Adicionar Musico <mat-icon id="add">add</mat-icon></button>
+
+              
+             
+
+                <div *ngIf="!getparamid" id="submit" (click)="userSubmit()">
+                    <button class="btn btn-success" id="enviar" >Criar</button>
+                </div>
+
+                <div *ngIf="getparamid" id="submit"  (click)="userUpdate()">
+                    <button  class="btn btn-success" id="enviar">Atualizar</button>
+                </div>
+        </form>
+    
+        <div class="page__content-data position-absolute text-center">
+                
+          
+         
+            
+        </div>
+
+               <div *ngIf="loading == true">
+                <div class="loading" *ngIf="response ==null">
+                    <mat-spinner *ngIf="response ==null "></mat-spinner>
+                  </div> 
+              </div>  
+                
+    </div>
+   
+</div>
+
+
+    </mat-drawer-content>
+    
+</mat-drawer-container>
+
+

@@ -1,0 +1,179 @@
+.page{
+    color: white;
+    padding: 0 1rem;
+    background: #f1f5f9;
+    
+}
+
+.page__box{
+    min-height: 120px;
+    background: #1e293b;
+    margin: 0 -1rem;
+    font-size: 36px;
+ 
+}
+
+.page__content{
+    max-width: 100%;
+    min-height: calc(200vh - 5px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    font-size: 2rem;
+   
+} 
+
+.page__content-data{
+    margin: -32% 0 0 50%;
+    transform: translate(-50%,50%);
+}
+
+:host{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer{
+    width: 260px;
+    background-color: #0f172a;
+}
+
+mat-drawer-container{
+    height: 100%;
+}
+
+
+#flex{
+    display: flex;
+}
+
+label{
+    font-size: 18px;
+    
+}
+
+#missa-celebracao{
+   margin-left: 60px;
+}
+
+#missa,#data{
+    margin: 0 auto;
+    justify-content: center;
+}
+
+#select-update{
+    margin-bottom: 20px;
+}
+
+
+#celebrante{
+    width: 30%;
+    margin: 0 auto;
+}
+
+#label-acolito,#label-coroinha{
+   position: relative;
+
+   text-align: center;
+}
+
+
+#submit{
+    margin: 5% 0 0 38%;
+    position: relative;
+
+}
+
+#enviar{
+    margin: 0 auto;
+    width: 40%;
+}
+
+#addAcolito{
+    margin: 20px 10px;
+    position: relative;
+    left: 41%;
+}
+
+#add{
+    position: relative;
+    left: 5px;
+    top:5px
+}
+
+.loading{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.40);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0%;
+  
+  }
+
+  /* media query for smaller screens */
+@media (max-width: 768px) {
+    
+    .page__content{
+      font-size: 1.5rem;
+    }
+    
+    .page__content-data{
+      font-size: 30px;
+    }
+
+    #celebrante{
+        width: 100%;
+    
+    }
+
+    #enviar{
+        margin-top: 40px;
+        margin-left: -30%;
+        width: 100%;
+    }
+
+    #missa-celebracao{
+        margin-top: 20px;
+        margin-left: 0px;
+     }
+
+    #flex{
+        display: block;
+        margin-top: -20px;
+    }
+
+    a{
+        margin-bottom: 20px;
+    }
+    
+    mat-drawer{
+      width: 100%;
+     
+    }
+  
+    
+    .page__box{
+      font-size: 20px;
+    }
+  }
+  
+  /* media query for even smaller screens, such as mobile phones */
+  @media (max-width: 375px) {
+    .page__content{
+      font-size: 1rem;
+    }
+    
+    .page__content-data{
+      font-size: 20px;
+    }
+    
+    .page__box{
+      font-size: 16px;
+    }
+  }

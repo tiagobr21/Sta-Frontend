@@ -1,0 +1,194 @@
+
+
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+       
+   
+<div class="container-fluid page">
+  <div class="page__box p-3 mt-2">Consultar Escala - Coroinha</div>
+  <!-- <button id="ocultar" type="button" class="btn btn-dark" (click)="ocultarBotao()">Exibir/Ocultar Edição</button> -->
+
+
+  <div class="alinhar">
+
+      <div class="container-search">
+        <form>
+            <input type="text" [(ngModel)]="searchInput" name="searchInput" class="form-control"  id="search-input" placeholder="Pesquisar Escala...">
+            <mat-icon id="search">search</mat-icon>
+            
+        </form>
+    </div>
+
+
+  
+</div>
+
+<div class="limpar-filtro" >
+  <button type="button" (click)="limparFiltro()" class="btn btn-dark">Limpar Filtro</button>
+</div>
+
+ 
+
+
+
+<section class="flex">
+  
+  <div class="container-data">
+
+    <form >
+      <label class="form-label">Escolha um mês</label>
+      <select  [(ngModel)]="dataInput" name="dataInput" class="form-select" id="mes">
+        <option selected>Geral</option>
+        <option>Janeiro</option>
+        <option>Fevereiro</option>
+        <option>Março</option>
+        <option>Abril</option>
+        <option>Maio</option>
+        <option>Junho</option>
+        <option>Julho</option>
+        <option>Agosto</option>
+        <option>Setembro</option>
+        <option>Outubro</option>
+        <option>Novembro</option>
+        <option>Dezembro</option>
+    </select>  
+        <mat-icon id="data">date_range</mat-icon>
+      </form>
+  </div>
+
+  <div class="container-data">
+    <form>
+      <label class="form-label">Escolha um ano</label>
+      <select  [(ngModel)]="anoInput" name="anoInput" class="form-select" id="mes">
+        <option selected>Geral</option>
+        <option><p>2022</p></option>
+        <option><p>2023</p></option>
+        <option><p>2024</p></option>
+        <option><p>2025</p></option>
+        <option><p>2026</p></option>
+        <option><p>2027</p></option>
+        <option><p>2028</p></option>
+        <option><p>2029</p></option>
+        <option><p>2030</p></option>
+    </select>  
+        <mat-icon id="data">date_range</mat-icon>
+      </form>
+  </div>
+
+  <div *ngIf="loading == true">
+    <div class="loading" *ngIf="response ==null">
+      <mat-spinner *ngIf="response ==null"></mat-spinner>
+    </div> 
+  </div>
+
+</section>
+
+    <div class="page__content shadow p-3 position-relative" id="content" #content>
+ 
+      <div>
+
+         <div *ngIf="loading == true">
+              <div class="loading" *ngIf="deleteData ==null">
+                <mat-spinner *ngIf="deleteData ==null "></mat-spinner>
+              </div> 
+         </div> 
+
+        <div class="container mt-5" id="divisao">
+     
+        
+        <div>
+          <div class="conteiner-img"><img class="img-pdf" src="../../../assets/logo.png"></div>
+         <h4>PASTORAL DE COROINHAS E ACÓLITOS - ESCALA ({{dataInput}})-{{anoInput}} </h4>
+       
+        <div class="form-check">
+          <input [(ngModel)]="allCheckes" [checked]="checks"  [value]="-1" (change)="onCheckboxChange($event)" class="form-check-input" id="check-all" type="checkbox" value="">
+          <label class="form-check-label" for="flexCheckDefault" id="check-label" >
+             Selecionar Tudo    
+          </label>
+       </div>
+         
+        <div *ngFor="let dados of newReadData | filtroCoroinha:searchInput | filterCoroinhaData:dataInput | filterCoroinhaAno:anoInput; let i = index">
+        
+      
+
+          <form [formGroup]="formCheck" > 
+
+            <div class="form-check"> 
+              <input id="check" [checked]="checks" [value]="dados.id" (change)="onCheckboxChange($event)" type="checkbox" class="form-check-input">
+           </div>
+
+           <mat-icon  class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
+           
+              <table  class="table table-bordered" class="tabela-1" >
+            
+                <thead class="head">
+                  <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Dia</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Comunidade</th>
+                    <th scope="col">Acolitos</th>
+                    <th scope="col">Coroinhas</th>
+
+                  </tr>
+                </thead>
+
+                <tbody >
+
+                    <tr>
+                        <td>{{dados.data}}</td>
+                        <td>{{dados.dia}}</td>
+                        <td>{{dados.hora}}</td>
+                        <td>{{dados.comunidade}}</td>
+                        <td> 
+                          <div *ngFor="let coroinha of dados.coroinhas">
+                              {{coroinha.nome}}
+                          </div>
+                        </td>
+                        <td> 
+                          <div *ngFor="let acolito of dados.acolitos">
+                              {{acolito.nome}}
+                          </div>
+                        </td>
+                
+                    </tr>  
+              
+                </tbody>
+                
+        
+              </table>
+            </form>     
+
+            <!-- <mat-icon *ngIf="alt" class="editar" [routerLink]="['/criar-coroinha',dados.id]">edit</mat-icon> -->
+           
+
+          <div class="divisão-tabela"></div>
+                 
+
+        </div> 
+
+      
+
+        </div>
+      
+        </div>
+    </div>
+
+  </div>
+  <button  id="download" [disabled]="!formCheck.valid" class="btn btn-sm btn-success" (click)="printSimplePDF()">Download</button><mat-icon id="print"> local_printshop</mat-icon>
+
+ 
+    
+
+
+</div><!-- container-fluid page -->    
+
+
+
+  </mat-drawer-content>
+</mat-drawer-container>
+

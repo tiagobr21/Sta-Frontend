@@ -1,0 +1,46 @@
+<div *ngIf="loading == true">
+    <div class="loading" *ngIf="response ==null">
+      <mat-spinner *ngIf="response ==null"></mat-spinner>
+    </div> 
+  </div>
+  
+  <div  id="close"(click)="close()">
+    <mat-icon  >close</mat-icon>
+  </div>
+
+<form [formGroup]="formUpdate">
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">nome</label>
+        <input formControlName="name" ngModel="{{user[0].name}}" type="text" class="form-control" id="exampleInputEmail1" >
+      </div>
+     
+      
+      <div id="permissoes">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">email</label>
+          <input formControlName="email" ngModel="{{user[0].email}}" type="email" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div id="password"class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">password</label>
+          <input formControlName="password" ngModel="{{user[0].password}}" type="email" class="form-control" id="exampleInputPassword1">
+        </div>
+      </div>
+      
+      <div id="permissoes">
+        <div class="mb-3">
+            <label for="status" class="form-label">status</label>
+            <input formControlName="status" ngModel="{{user[0].status}}" type="text" class="form-control" id="status">
+            <div id="desc" class="form-text">ativo/desativo</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="role" class="form-label">role</label>
+            <input formControlName="role" ngModel="{{user[0].role}}" type="text" class="form-control" id="role">
+            <div id="desc" class="form-text">admin/user</div>
+        </div>
+    </div>
+
+    <button id="submit" (click)="uptadeUser()" class="btn btn-primary">Atualizar</button>
+</form>

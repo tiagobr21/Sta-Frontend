@@ -1,0 +1,23 @@
+#close{
+    margin-left: 95%;
+    cursor: pointer;
+}
+
+#iconupload{
+position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
+.loading{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.40);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0%;
+  
+  }

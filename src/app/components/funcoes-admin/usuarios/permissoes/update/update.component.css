@@ -1,0 +1,60 @@
+
+#submit{
+    position: relative;
+    top: 10px;
+    left: 35%;
+    width: 40%;
+}
+
+label{
+    font-weight: 500;
+}
+
+#permissoes{
+    display: flex;
+
+}
+
+#password{
+    margin-left: 15%;
+}
+
+#role,#status{
+  width: 60%;
+}
+
+#desc{
+    margin-left: 5px;
+}
+
+#close{
+    margin-left: 95%;
+    cursor: pointer;
+}
+
+.loading{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.40);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    left: 0%;
+  
+  }
+
+  @media (max-width:768px) {
+    #permissoes{
+        display: inline-block;
+    }
+
+    #password{
+        margin-left: 0%;
+    }
+
+    #submit{
+      left: 33.3%;
+    }
+  }
