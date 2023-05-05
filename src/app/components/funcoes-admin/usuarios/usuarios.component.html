@@ -163,7 +163,11 @@
                         <table *ngFor="let dados of listaMusicos , let i = index" class="table">
                               <tbody>
                                   <tr>
+<<<<<<< HEAD
                                     <td>{{dados.nome}} <mat-icon (click)="openatualizarUsuario(dados.id)" id="edit">edit</mat-icon> <mat-icon (click)="deleteMusicos(dados.id)"  id="delete">delete</mat-icon></td> 
+=======
+                                    <td>{{dados.nome}} <mat-icon (click)="deleteMusicos(dados.id)"  id="delete">delete</mat-icon> <mat-icon (click)="openatualizarUsuario(dados.id)" id="edit">edit</mat-icon></td> 
+>>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
                                   </tr>
                                 </tbody>
                               </table>

@@ -68,7 +68,11 @@ label{
 }
 
 
+<<<<<<< HEAD
 #acolito,#coroinha{
+=======
+#celebrante{
+>>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
     width: 30%;
     margin: 0 auto;
 }
@@ -87,6 +91,10 @@ label{
 }
 
 #enviar{
+<<<<<<< HEAD
+=======
+    margin: 0 auto;
+>>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
     width: 40%;
 }
 
@@ -113,4 +121,74 @@ label{
     top: 0%;
     left: 0%;
   
+<<<<<<< HEAD
   }
+=======
+  }
+
+  /* media query for smaller screens */
+@media (max-width: 768px) {
+    
+    .page__content{
+      font-size: 1.5rem;
+    }
+    
+    .page__content-data{
+      font-size: 30px;
+    }
+
+    #celebrante{
+        width: 100%;
+    }
+
+    #enviar{
+        margin-top: 40px;
+        margin-left: -30%;
+        width: 100%;
+    }
+
+    #missa-celebracao{
+        margin-top: 20px;
+        margin-left: 0px;
+     }
+
+    #flex{
+        display: block;
+        margin-top: -20px;
+    }
+
+    a{
+        margin-bottom: 20px;
+    }
+    
+    mat-drawer{
+      width: 100%;
+     
+    }
+
+    #addAcolito{
+        left: 20%;
+    }
+    
+  
+    
+    .page__box{
+      font-size: 20px;
+    }
+  }
+  
+  /* media query for even smaller screens, such as mobile phones */
+  @media (max-width: 375px) {
+    .page__content{
+      font-size: 1rem;
+    }
+    
+    .page__content-data{
+      font-size: 20px;
+    }
+    
+    .page__box{
+      font-size: 16px;
+    }
+  }
+>>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666

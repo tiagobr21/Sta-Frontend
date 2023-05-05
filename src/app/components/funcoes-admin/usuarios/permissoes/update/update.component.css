@@ -1,9 +1,15 @@
 
 #submit{
     position: relative;
+<<<<<<< HEAD
     top: 30px;
     left: 35%;
     width: 30%;
+=======
+    top: 10px;
+    left: 35%;
+    width: 40%;
+>>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
 }
 
 label{
@@ -20,7 +26,11 @@ label{
 }
 
 #role,#status{
+<<<<<<< HEAD
   width: 40%;
+=======
+  width: 60%;
+>>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
 }
 
 #desc{
@@ -43,4 +53,21 @@ label{
     top: 0%;
     left: 0%;
   
+<<<<<<< HEAD
+=======
+  }
+
+  @media (max-width:768px) {
+    #permissoes{
+        display: inline-block;
+    }
+
+    #password{
+        margin-left: 0%;
+    }
+
+    #submit{
+      left: 33.3%;
+    }
+>>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
   }
