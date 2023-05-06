@@ -270,8 +270,6 @@ td{
     top: 0%;
     left: 0%;
   
-<<<<<<< HEAD
-=======
   }
 
   /* media query for smaller screens */
@@ -308,5 +306,4 @@ td{
     .page__box{
       font-size: 16px;
     }
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
   }

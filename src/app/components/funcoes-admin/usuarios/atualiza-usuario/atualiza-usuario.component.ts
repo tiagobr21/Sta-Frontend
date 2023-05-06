@@ -149,11 +149,7 @@ atualizarLeitores(){
 
 atualizarMusicos(){
   console.log(this.userForm.value)
-<<<<<<< HEAD
-  this.service.updateLeitores(this.userForm.value,this.data.id).subscribe((res:any)=>{
-=======
   this.service.updateMusicos(this.userForm.value,this.data.id).subscribe((res:any)=>{
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
       console.log(res);
       this.response = res;
       this.snackbar.openSnackBar(this.response.message,"");

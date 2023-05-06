@@ -83,20 +83,6 @@ p{
    
 }
 
-<<<<<<< HEAD
-#edit{
-    position: absolute;
-    left: 93%;
-    cursor: pointer;
-}
-
-#delete{
-    position: absolute;
-    left: 96%;
-    cursor: pointer;
-}
-
-=======
 
 #edit{
   float: right;
@@ -112,7 +98,6 @@ p{
 
 
 
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
 #refresh{
      position: relative;
      top: 10px;
@@ -127,22 +112,14 @@ p{
     }
     
     .page__content-data{
-<<<<<<< HEAD
-      font-size: 30px;
-=======
       max-width: 100%;
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
     }
     
     mat-drawer{
       width: 100%;
      
     }
-<<<<<<< HEAD
-  
-=======
      
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
     
     .page__box{
       font-size: 20px;

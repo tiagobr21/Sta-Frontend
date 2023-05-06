@@ -30,8 +30,6 @@ export class UpdateComponent implements OnInit {
    
     this.service.obterById(this.id).subscribe((res:any)=>{
       this.user = res;
-<<<<<<< HEAD
-=======
     
       if(this.user[0].status == "true"){
         this.user[0].status = 'ativo'
@@ -40,7 +38,6 @@ export class UpdateComponent implements OnInit {
       if(this.user[0].status == "false"){
         this.user[0].status = 'desativo'
       }
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
   
     })
 
@@ -59,11 +56,6 @@ export class UpdateComponent implements OnInit {
 
   uptadeUser(){
     this.loading = true;
-<<<<<<< HEAD
-    console.log(this.formUpdate.value)    
-    let id = this.id
-    let Formdata = this.formUpdate.value
-=======
 
     
   
@@ -78,7 +70,6 @@ export class UpdateComponent implements OnInit {
       Formdata.status = "true";
     }
 
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
     let data = {
       name: Formdata.name,
       email: Formdata.email,

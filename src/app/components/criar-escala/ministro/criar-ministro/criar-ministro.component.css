@@ -68,11 +68,7 @@ label{
 }
 
 
-<<<<<<< HEAD
-#acolito,#coroinha{
-=======
 #celebrante{
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
     width: 30%;
     margin: 0 auto;
 }
@@ -91,10 +87,7 @@ label{
 }
 
 #enviar{
-<<<<<<< HEAD
-=======
     margin: 0 auto;
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
     width: 40%;
 }
 
@@ -121,9 +114,6 @@ label{
     top: 0%;
     left: 0%;
   
-<<<<<<< HEAD
-  }
-=======
   }
 
   /* media query for smaller screens */
@@ -192,4 +182,3 @@ label{
       font-size: 16px;
     }
   }
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666

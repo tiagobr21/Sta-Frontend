@@ -65,11 +65,8 @@ export class ConsultaCelebranteComponent implements OnInit {
 
 
      ngOnInit(): void {
-<<<<<<< HEAD
-=======
 
       this.sideBarOpen = false;
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
        
          this.service.readDataCelebrate().subscribe((res)=>{
            this.readData = res; 

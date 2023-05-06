@@ -51,25 +51,6 @@ mat-drawer-container{
     height: 100%;
 }
 
-<<<<<<< HEAD
-
-.flex{
-    display: flex;
-}
-  
-
-
-.flex-geral{
-    display: flex;
-    position: relative;
-    top: 0;
-    left: 33%;
-}
- 
-.flex-geral a{
-    width: 30%;
-}
-=======
 .flex{
   display: flex;
   
@@ -126,4 +107,3 @@ mat-drawer-container{
       font-size: 16px;
     }
   }
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666

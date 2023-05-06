@@ -53,21 +53,12 @@
                 </div>
               </div> -->
                    
-<<<<<<< HEAD
-                    <div id="acolito" *ngIf="!getparamid"  class="form-group">
-                           <div formArrayName="celebrantes" *ngFor="let celebrante of getcelebrantesControls(); let i = index">
-                               <div [formGroupName]="i">
-                                    <label id="label-acolito" for="acolito">celebrante</label>
-                                        <select formControlName="nome" class="form-select" >  
-                                                <option>Escolha o celebrante</option>
-=======
                     <div id="celebrante" *ngIf="!getparamid"  class="form-group">
                            <div formArrayName="celebrantes" *ngFor="let celebrante of getcelebrantesControls(); let i = index">
                                <div [formGroupName]="i">
                                     <label id="label-acolito" for="acolito">Celebrante</label>
                                         <select formControlName="nome" class="form-select" >  
                                                 <option>Escolha o Celebrante</option>
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
                                                 <option *ngFor="let nomes_celebrante of select_celebranteData">{{nomes_celebrante.nome}}</option>
                                         </select>
                                 </div>
@@ -75,11 +66,7 @@
                     </div>
 
                     <div id="acolito" *ngIf="getparamid" class="form-group">
-<<<<<<< HEAD
-                        <label id="label-acolito" for="acolito">celebrante</label>
-=======
                         <label id="label-acolito" for="acolito">Celebrante</label>
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
                         <div formArrayName="celebrantes" *ngFor="let celebrante of getcelebrantesControls(); let i = index">
                             <div [formGroupName]="i">
                                     <select *ngFor="let celebrante of celebrantes" id="select-update" formControlName="nome" class="form-select" > 

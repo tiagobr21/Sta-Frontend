@@ -56,8 +56,6 @@ mat-drawer-container{
   
 }
 
-<<<<<<< HEAD
-=======
 
 /* media query for smaller screens */
 @media (max-width: 768px) {
@@ -103,4 +101,3 @@ mat-drawer-container{
       font-size: 16px;
     }
   }
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666

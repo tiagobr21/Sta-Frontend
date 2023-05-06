@@ -20,15 +20,10 @@ export class PermissoesComponent implements OnInit {
   ngOnInit(): void {
     this.service.obter().subscribe((res:any)=>{
       this.users = res;
-<<<<<<< HEAD
-      console.log(this.users)
-    })
-=======
       
     })
 
     this.sideBarOpen = false;
->>>>>>> 9837d96b3a8dbc641958f83d0522e1144d2ac666
   }
 
   openUpdate(id:any){
