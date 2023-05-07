@@ -16,6 +16,12 @@ export class AppService{
   // dev: http://localhost:3000
   //prod: https://back-sta.herokuapp.com
 
+  //Pdf Geral
+
+  urlGerarPdfGeral = 'https://back-sta.herokuapp.com/escala_geral/gerarpdf';
+  urlGetPdfGeral = 'https://back-sta.herokuapp.com/escala_geral/getpdf';
+  urlDeletePdfGeral = 'https://back-sta.herokuapp.com/escala_geral/deletepdf';
+
   //Escala Geral
 
   urlReadGeral = 'https://back-sta.herokuapp.com/escala_geral/read';
@@ -143,6 +149,10 @@ export class AppService{
     return this._http.delete(`${this.urlDeletePdfLiturgia}/${id}`);
   }
 
+  deletePdfGeral(id:any):Observable<any>{
+    return this._http.delete(`${this.urlDeletePdfGeral}/${id}`);
+  }
+
   //Get PDF
 
   getPdf():Observable<any>{
@@ -159,6 +169,10 @@ export class AppService{
   
   getPdfLiturgia():Observable<any>{
     return this._http.get(`${this.urlGetPdfLiturgia}`);
+  }
+
+  getPdfGeral():Observable<any>{
+    return this._http.get(`${this.urlGetPdfGeral}`);
   }
 
   //Gerar PDF
@@ -178,6 +192,11 @@ export class AppService{
  gerarPdfLiturgia(data:any):Observable<any>{
   return this._http.post(`${this.urlGerarPdfLiturgia}`,data);
 }
+
+gerarPdfGeral(data:any):Observable<any>{
+  return this._http.post(`${this.urlGerarPdfGeral}`,data);
+}
+
 
  // Create Escala
 

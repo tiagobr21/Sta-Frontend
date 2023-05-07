@@ -53,6 +53,7 @@ import { FilterLiturgiaDataPipe } from './pipes/filter-liturgia-data.pipe';
 import { FilterGeralPipe } from './pipes/filter-geral.pipe';
 import { FilterGeralAnoPipe } from './pipes/filter-geral-ano.pipe';
 import { FilterGeralDataPipe } from './pipes/filter-geral-data.pipe';
+import { EscalaGeralPdfComponent } from './components/arquivos-pdf/escala-geral-pdf/escala-geral-pdf.component';
 
 
 @NgModule({
@@ -100,7 +101,8 @@ import { FilterGeralDataPipe } from './pipes/filter-geral-data.pipe';
     FilterLiturgiaDataPipe,
     FilterGeralPipe,
     FilterGeralAnoPipe,
-    FilterGeralDataPipe
+    FilterGeralDataPipe,
+    EscalaGeralPdfComponent
 
   ],
   imports: [

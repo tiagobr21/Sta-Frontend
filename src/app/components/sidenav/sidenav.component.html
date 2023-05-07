@@ -48,6 +48,10 @@
             <mat-icon id="start" *ngIf="!show3">keyboard_arrow_right</mat-icon>
             <mat-icon id="end" *ngIf="show3">keyboard_arrow_down</mat-icon>
         </a>
+
+        <a id="consultar-escala-pdf" routerLink="/escala-geral-pdf" *ngIf="show3" mat-list-item  routerLinkActive="list-item-active" >
+            <mat-icon>folder</mat-icon> <h6>Geral</h6>
+        </a>
         
         <a id="consultar-escala-pdf" routerLink="/escala-celebrante-pdf" *ngIf="show3" mat-list-item  routerLinkActive="list-item-active" >
             <mat-icon>folder</mat-icon> <h6>Celebrantes</h6>
@@ -61,6 +65,10 @@
         <a id="consultar-escala-pdf" routerLink="/escala-liturgia-pdf" *ngIf="show3" mat-list-item  routerLinkActive="list-item-active" >
             <mat-icon>folder</mat-icon> <h6>Liturgia</h6>
         </a>
+
+     
+
+        
       
 
          <!--HEADER-->
