@@ -63,3 +63,41 @@ th{
     height: 37px;
     cursor: pointer;
 }
+
+
+/* media query for smaller screens */
+@media (max-width: 768px) {
+    .page__content{
+      font-size: 1.5rem;
+    }
+    
+    .page__content-data{
+      font-size: 30px;
+    }
+    
+    mat-drawer{
+      width: 100%;
+     
+    }
+  
+    
+    .page__box{
+      font-size: 20px;
+    }
+  }
+  
+  /* media query for even smaller screens, such as mobile phones */
+  @media (max-width: 375px) {
+    .page__content{
+      font-size: 1rem;
+    }
+    
+    .page__content-data{
+      font-size: 20px;
+    }
+    
+    .page__box{
+      font-size: 16px;
+    }
+  }
+  

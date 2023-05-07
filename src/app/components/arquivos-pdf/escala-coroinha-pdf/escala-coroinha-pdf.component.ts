@@ -23,6 +23,9 @@ export class EscalaCoroinhaPdfComponent implements OnInit {
   constructor(private service:AppService,private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
+
+    this.sideBarOpen = false;
+
     this.service.getPdf().subscribe((res)=>{
       this.response = res;
       console.log(this.response)

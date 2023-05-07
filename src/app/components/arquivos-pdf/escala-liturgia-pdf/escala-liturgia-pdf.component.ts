@@ -24,6 +24,9 @@ export class EscalaLiturgiaPdfComponent implements OnInit {
   constructor(private service:AppService,private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
+
+    this.sideBarOpen = false;
+    
     this.service.getPdfLiturgia().subscribe((res)=>{
       this.response = res;
       console.log(this.response)

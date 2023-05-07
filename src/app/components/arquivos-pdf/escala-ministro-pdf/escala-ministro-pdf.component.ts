@@ -24,6 +24,9 @@ export class EscalaMinistroPdfComponent implements OnInit {
   constructor(private service:AppService,private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
+
+    this.sideBarOpen = false;
+
     this.service.getPdfMinistro().subscribe((res)=>{
       this.response = res;
       console.log(this.response)

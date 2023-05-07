@@ -23,13 +23,13 @@
         </form>
     </div>
 
-
+    <div class="limpar-filtro" >
+      <button type="button" (click)="limparFiltro()" class="btn btn-dark">Limpar Filtro</button>
+    </div>
   
 </div>
 
-<div class="limpar-filtro" >
-  <button type="button" (click)="limparFiltro()" class="btn btn-dark">Limpar Filtro</button>
-</div>
+
 
  
 
@@ -128,7 +128,7 @@
                 <thead class="head">
                   <tr>
                     <th scope="col">Data</th>
-                    <th scope="col">Dia</th>
+                    <th class="dia" scope="col">Dia</th>
                     <th scope="col">Hora</th>
                     <th scope="col">Comunidade</th>
                     <th scope="col">Acolitos</th>
@@ -141,7 +141,7 @@
 
                     <tr>
                         <td>{{dados.data}}</td>
-                        <td>{{dados.dia}}</td>
+                        <td class="dia">{{dados.dia}}</td>
                         <td>{{dados.hora}}</td>
                         <td>{{dados.comunidade}}</td>
                         <td> 

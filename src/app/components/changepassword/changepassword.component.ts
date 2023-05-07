@@ -22,6 +22,9 @@ export class ChangepasswordComponent implements OnInit {
     private snackbar:SnackbarService ) { }
 
   ngOnInit(): void {
+
+    this.sideBarOpen = false;
+
     this.changepassordForm = this.fb.group({
       oldPassword:[null,[Validators.required]],
       newPassword:[null,[Validators.required]]
