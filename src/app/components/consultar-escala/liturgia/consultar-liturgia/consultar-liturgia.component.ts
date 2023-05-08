@@ -50,6 +50,7 @@ export class ConsultarLiturgiaComponent implements OnInit {
   coroinhas:any = [];
   qtdcoroinhas:number = 0;
   qtdacolitos:number = 0;
+  role:any
 
 
 
@@ -66,6 +67,8 @@ export class ConsultarLiturgiaComponent implements OnInit {
 
 
      ngOnInit(): void {
+
+      this.role = localStorage.getItem("role");
 
       this.sideBarOpen = false;
        

@@ -47,7 +47,7 @@ export class ConsultarMinistroComponent implements OnInit {
   pagina10:any =[];
   response:any;
   newReadData:any = [];
-
+  role:any
 
 
  constructor(private service:AppService,
@@ -63,6 +63,8 @@ export class ConsultarMinistroComponent implements OnInit {
 
 
      ngOnInit(): void {
+
+      this.role = localStorage.getItem("role");
 
       this.sideBarOpen = false;
        

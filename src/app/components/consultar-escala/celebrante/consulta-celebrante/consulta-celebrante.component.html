@@ -123,7 +123,7 @@
              </div>
              
 
-             <mat-icon  class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
+             <mat-icon *ngIf="role == 'admin'" class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
 
                 <table  class="table table-bordered" class="tabela-1" >
               

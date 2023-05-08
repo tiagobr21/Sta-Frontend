@@ -49,6 +49,7 @@ export class ConsultaCelebranteComponent implements OnInit {
   newReadData:any = []
   acolitos:any = [];
   qtdacolitos:number = 0;
+  role:any
 
 
 
@@ -65,6 +66,9 @@ export class ConsultaCelebranteComponent implements OnInit {
 
 
      ngOnInit(): void {
+
+      this.role = localStorage.getItem("role");
+
 
       this.sideBarOpen = false;
        

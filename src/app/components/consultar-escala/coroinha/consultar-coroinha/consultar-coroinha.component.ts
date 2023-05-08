@@ -50,7 +50,7 @@ export class ConsultarCoroinhaComponent implements OnInit {
    coroinhas:any = [];
    qtdcoroinhas:number = 0;
    qtdacolitos:number = 0;
- 
+   role:any
  
 
   constructor(private service:AppService,
@@ -66,6 +66,8 @@ export class ConsultarCoroinhaComponent implements OnInit {
 
 
       ngOnInit(): void {
+
+        this.role = localStorage.getItem("role");
 
         this.sideBarOpen = false;
         

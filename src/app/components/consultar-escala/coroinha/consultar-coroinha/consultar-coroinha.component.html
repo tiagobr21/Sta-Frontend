@@ -121,7 +121,7 @@
               <input id="check" [checked]="checks" [value]="dados.id" (change)="onCheckboxChange($event)" type="checkbox" class="form-check-input">
            </div>
 
-           <mat-icon  class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
+           <mat-icon *ngIf="role == 'admin'" class="deletar" (click)="deleteID(dados.id)">delete</mat-icon>
            
               <table  class="table table-bordered" class="tabela-1" >
             
