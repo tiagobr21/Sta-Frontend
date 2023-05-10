@@ -24,9 +24,10 @@
 } 
 
 .page__content-data{
-    top:25%;
+    top:20%;
     font-size: 45px;
     left: 50%;
+    max-width: 100%;
     white-space: nowrap;
     transform: translate(-50%,50%);
 }

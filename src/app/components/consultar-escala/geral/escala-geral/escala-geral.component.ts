@@ -94,6 +94,8 @@ export class EscalaGeralComponent implements OnInit {
    
              this.newReadData.push(escala)
 
+             console.log(this.newReadData)
+
 
          
            });

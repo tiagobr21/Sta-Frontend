@@ -94,7 +94,7 @@ const routes: Routes = [
   {path:'escala-liturgia-pdf',component:EscalaLiturgiaPdfComponent},
   {path:'escala-geral-pdf',component:EscalaGeralPdfComponent},
   {
-    path:'admin/usuarios',component:UsuariosComponent,
+    path:'admin/agentes',component:UsuariosComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
     canActivate:[RouterGuardService],
     data:{
@@ -102,7 +102,7 @@ const routes: Routes = [
     }
   },
   {
-    path:'admin/permissoes',component:PermissoesComponent,
+    path:'admin/usuarios',component:PermissoesComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
     canActivate:[RouterGuardService],
     data:{
