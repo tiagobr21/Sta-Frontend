@@ -70,11 +70,11 @@ export class ConsultarMinistroComponent implements OnInit {
        
          this.service.readDataMinistro().subscribe((res)=>{
            this.readData = res; 
+
+           console.log(this.readData)
             
            this.readData.forEach((element:any) => {
 
-
-            console.log(element.ministros)
            
             console.log(JSON.parse(element.ministros))
 
@@ -93,9 +93,9 @@ export class ConsultarMinistroComponent implements OnInit {
              }
 
            
-
-
              this.newReadData.push(escala)
+
+           
 
 
          
