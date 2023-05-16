@@ -23,12 +23,13 @@ import { ConsultarLiturgiaComponent } from './components/consultar-escala/liturg
 import { EscalaLiturgiaPdfComponent } from './components/arquivos-pdf/escala-liturgia-pdf/escala-liturgia-pdf.component';
 import { EscalaGeralPdfComponent } from './components/arquivos-pdf/escala-geral-pdf/escala-geral-pdf.component';
 import { EscalaGeralComponent } from './components/consultar-escala/geral/escala-geral/escala-geral.component';
+import { HomeInicialComponent } from './components/pagina-inicial/home-inicial/home-inicial.component';
 
 const routes: Routes = [
-
+  
   {
    path:'',
-   redirectTo:'login',
+   redirectTo:'home-page',
    pathMatch:'full',
   },{
     path:'',
@@ -93,6 +94,7 @@ const routes: Routes = [
   {path:'escala-celebrante-pdf',component:EscalaCelebrantePdfComponent},
   {path:'escala-liturgia-pdf',component:EscalaLiturgiaPdfComponent},
   {path:'escala-geral-pdf',component:EscalaGeralPdfComponent},
+  {path:'home-page',component:HomeInicialComponent},
   {
     path:'admin/agentes',component:UsuariosComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),

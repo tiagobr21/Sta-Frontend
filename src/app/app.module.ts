@@ -54,6 +54,9 @@ import { FilterGeralPipe } from './pipes/filter-geral.pipe';
 import { FilterGeralAnoPipe } from './pipes/filter-geral-ano.pipe';
 import { FilterGeralDataPipe } from './pipes/filter-geral-data.pipe';
 import { EscalaGeralPdfComponent } from './components/arquivos-pdf/escala-geral-pdf/escala-geral-pdf.component';
+import { HomeInicialComponent } from './components/pagina-inicial/home-inicial/home-inicial.component';
+import { MissasCelebracoesComponent } from './components/missas-celebracoes/missas-celebracoes.component';
+
 
 
 @NgModule({
@@ -102,7 +105,10 @@ import { EscalaGeralPdfComponent } from './components/arquivos-pdf/escala-geral-
     FilterGeralPipe,
     FilterGeralAnoPipe,
     FilterGeralDataPipe,
-    EscalaGeralPdfComponent
+    EscalaGeralPdfComponent,
+    HomeInicialComponent,
+    MissasCelebracoesComponent,
+ 
 
   ],
   imports: [

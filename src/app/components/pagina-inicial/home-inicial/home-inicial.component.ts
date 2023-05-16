@@ -4,19 +4,16 @@ import { Route, Router } from '@angular/router';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { AppService } from 'src/app/services/user.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
-import { CadastroComponent } from '../cadastro/cadastro.component';
-import { UploadImageComponent } from './upload-image/upload-image.component';
+import { CadastroComponent } from '../../cadastro/cadastro.component';
+
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-home-inicial',
+  templateUrl: './home-inicial.component.html',
+  styleUrls: ['./home-inicial.component.css']
 })
+export class HomeInicialComponent implements OnInit {
 
-// http://localhost:3000
-// https://back-sta.herokuapp.com
-
-export class HeaderComponent implements OnInit {
   @Output() toggleSidebarForMe: EventEmitter<any>=new EventEmitter();
 
   user:any
@@ -70,12 +67,6 @@ export class HeaderComponent implements OnInit {
 
  }
 
- uploadImage(){
-  this.dialog.open(UploadImageComponent,{
-    width:'600px',
-    height:'130px'
-  })
- }
 
  logout(){
   this.router.navigate(['/']);
