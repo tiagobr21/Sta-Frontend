@@ -1,13 +1,67 @@
-  <div class="header">
-    <div class="logo">
+   <div class="header">
 
-    </div>
+    <img  class="img-logo" src="../../../../assets/logo.png">
+
     <div class="buttons" >
       <nav>
         <button>Login</button>
         <button>Solicitar Acesso</button>
        </nav>
     </div>
-  </div>
+  </div> 
+
+  
+<mat-drawer-container>
+
+  <mat-drawer-content>
+ 
+      <div class="container-fluid page">
+          <div class="page__content shadow p-3 position-relative">
+              <div class="page__content-data position-absolute text-center">
+                
+                 <div class="contaneiner1 shadow p-3 position-relative">
+
+                        <div class="slide">
+                          <img [ngStyle]="{'display':display1, 'animation-duration':animationduration1 ,'animation-name':animationname1 }"  class="alert1" src="../../../../assets/aviso.png">
+                          <img [ngStyle]="{'display':display2}" class="alert12" src="../../../../assets/favicon.png">
+                          <img [ngStyle]="{'display':display3}" class="alert13" src="../../../../assets/logo.png">
+                        </div> 
+                        
+                      <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
+                     </div>
+   
+
+                      <div class="manuel-navigation">
+                        <label (click)="changeAlert1()" for="radio1" class="manual-btn"></label>
+                        <label (click)="changeAlert12()"  for="radio2" class="manual-btn"></label>
+                        <label (click)="changeAlert13()" for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                     </div>
+                         
+                  </div>
+
+           
+           
+                  <div>
+                      <div class="contaneiner2 shadow p-3 position-relative">
+                          <img class="alert2" src="../../../../assets/aviso.png">
+                        </div>
+                        <div class="contaneiner3 shadow p-3 position-relative">
+                          <img class="alert3" src="../../../../assets/aviso.png">
+                        </div>
+                  </div>
+
+
+
+              </div>
+          </div>
+      </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
        
 

@@ -5,6 +5,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { AppService } from 'src/app/services/user.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 import { CadastroComponent } from '../../cadastro/cadastro.component';
+import { window } from 'rxjs';
 
 
 @Component({
@@ -13,68 +14,79 @@ import { CadastroComponent } from '../../cadastro/cadastro.component';
   styleUrls: ['./home-inicial.component.css']
 })
 export class HomeInicialComponent implements OnInit {
+  
+  display1:string = '';
+  animationduration1:string ='0s';
+  animationname1:string = ''
+  display2:string = 'none';
+  display3:string = 'none';
 
-  @Output() toggleSidebarForMe: EventEmitter<any>=new EventEmitter();
+  enable:boolean = false
 
-  user:any
-  filename:any;
-  iduser:any;
-  response:any;
-  deleteFoto:any;
-  loading:any;
-  baseurl:string = 'https://back-sta.herokuapp.com/files/';
-  link:string = '';
-
-  constructor(private dialog:MatDialog,
-    private router:Router,
-    private service: AppService,
-    private snackbar:SnackbarService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.user = localStorage.getItem("user");
-    this.filename = localStorage.getItem("filename");
-    this.iduser = localStorage.getItem("iduser");
+  
+   /* 
+   
+    setTimeout(()=>{
+      this.display2 = ''
 
-    if( this.filename != null){
-      this.link = this.baseurl + this.filename;
-    }
+      //alert1 
+  
+      this.animationduration1 = '3s';
+      this.animationname1= 'go1'
+      this.display1 = 'none'
+
+      setTimeout(()=>{
+        this.animationduration1 = '3s'
+        this.animationname1 = 'back1'
+        this.display2 = 'none'
+        this.display1 =''
+     
+        setTimeout(()=>{
+          location.reload()
+        },3000)
+
+      },5000)
+
+    },5000)
+
+   */
+
+
+  }
+
+  changeAlert1(){
+
+      this.animationduration1 = '3s'
+      this.animationname1 = 'back1'
+      this.display2 = 'none'
+      this.display1 =''
+      this.display3 = 'none'
+
+  }
+
+  changeAlert12(){
+    this.animationduration1 = '3s';
+    this.animationname1= 'go2'
+    this.display2 = ''
+    this.display1 = 'none'
+    this.display3 = 'none'
  
 
   }
 
-  deleteImage(){
-   this.loading = true
-   console.log(this.iduser)
-   this.service.deleteImage(this.iduser).subscribe((res)=>{
-      this.deleteFoto =  res;
-      this.loading = false;
-      this.snackbar.openSnackBar(this.deleteFoto.message,"");
-   },(error)=>{
-    if(error.error?.message){
-      this.deleteFoto = error.error?.message;
-    }else{
-      this.deleteFoto = GlobalConstants.genericError;
-    }
-    this.snackbar.openSnackBar(this.deleteFoto,GlobalConstants.error);
-   })
+  changeAlert13(){
+ 
+    this.animationduration1 = '3s';
+    this.animationname1 = 'go1'
+    this.display3 = ''
+    this.display1 = 'none'
+    this.display2 = 'none'
+ 
+
   }
-  
- cadastrarModal(){
-   const dialogConfig = new MatDialogConfig();
-   dialogConfig.width = "100%";
-   dialogConfig.height = "100%";
-   this.dialog.open(CadastroComponent,dialogConfig);
-
- }
 
 
- logout(){
-  this.router.navigate(['/']);
-  localStorage.clear();
-
-}
-
-  toggleSidebar(){
-    this.toggleSidebarForMe.emit();
-  }
 }
