@@ -56,6 +56,8 @@ import { FilterGeralDataPipe } from './pipes/filter-geral-data.pipe';
 import { EscalaGeralPdfComponent } from './components/arquivos-pdf/escala-geral-pdf/escala-geral-pdf.component';
 import { HomeInicialComponent } from './components/pagina-inicial/home-inicial/home-inicial.component';
 import { MissasCelebracoesComponent } from './components/missas-celebracoes/missas-celebracoes.component';
+import { ConfigHomePageComponent } from './components/funcoes-admin/home-page/config-home-page/config-home-page.component';
+import { UploadAvisoComponent } from './components/funcoes-admin/home-page/upload-aviso/upload-aviso.component';
 
 
 
@@ -108,6 +110,8 @@ import { MissasCelebracoesComponent } from './components/missas-celebracoes/miss
     EscalaGeralPdfComponent,
     HomeInicialComponent,
     MissasCelebracoesComponent,
+    ConfigHomePageComponent,
+    UploadAvisoComponent,
  
 
   ],

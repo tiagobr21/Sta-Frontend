@@ -1,0 +1,46 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+          
+        <div class="container-fluid page">
+            <div class="page__box p-3 mt-2">Configuração Home Page</div>
+                <div class="page__content shadow p-3 position-relative">
+                  
+                    <table *ngFor="let avisos of readAvisos"  class="table">
+                        <thead>
+                          
+                          <tr>
+                            <th scope="col">Imagem</th>
+                            <th scope="col">Aviso</th>
+                            <th scope="col">Atualizar</th>
+                          </tr>
+
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td id="arquivo"><img id="avisos" [src]="baseurl+avisos.filename"></td>
+                            <th scope="row"> 
+                               {{avisos.aviso}}
+                            </th>
+                            <th id="space">
+                                <button (click)="uploadImage(avisos.id)"  id="edit" class="btn btn-primary">
+                                    <mat-icon id="icon-edit">edit</mat-icon> 
+                                 </button> 
+                            </th>        
+              
+                          </tr>
+              
+                        </tbody>
+                      </table>
+                  
+                    <div class="page__content-data position-absolute text-center">
+                       
+                    </div>
+            </div>
+        </div>
+                
+    </mat-drawer-content>
+</mat-drawer-container>

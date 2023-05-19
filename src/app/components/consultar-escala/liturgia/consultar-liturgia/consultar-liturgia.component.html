@@ -134,6 +134,7 @@
                       <th scope="col">Comentarista</th>
                       <th scope="col">Leitores</th>
                       <th scope="col">Músicos</th>
+                      <th scope="col">Salmista</th>
   
                     </tr>
                   </thead>
@@ -158,6 +159,12 @@
                           <td> 
                             <div *ngFor="let musico of dados.musicos">
                                 {{musico.nome}}
+                            </div>
+                          </td>
+
+                          <td> 
+                            <div *ngFor="let salmista of dados.salmista">
+                                {{salmista.nome}}
                             </div>
                           </td>
                   

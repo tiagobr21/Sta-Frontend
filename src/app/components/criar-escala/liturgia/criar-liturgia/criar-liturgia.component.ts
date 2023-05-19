@@ -20,6 +20,7 @@ export class CriarLiturgiaComponent implements OnInit {
    select_comentaristasData:any;
    select_leitoresData:any;
    select_musicosData:any;
+   select_salmistasData:any;
    select_missaData:any;
    resID:any; 
    response:any;
@@ -45,7 +46,8 @@ export class CriarLiturgiaComponent implements OnInit {
         data: ['',Validators.required],
         comentarista: this.fb.array([this.carregarComentaristas()]),
         leitor: this.fb.array([this.carregarLeitores()]),
-        musico: this.fb.array([this.carregarMusicos()])
+        musico: this.fb.array([this.carregarMusicos()]),
+        salmista: this.fb.array([this.carregarSalmistas()])
       })
     }
 
@@ -87,11 +89,13 @@ export class CriarLiturgiaComponent implements OnInit {
         this.select_musicosData = res;
      });
          
-         this.service.select_missaData().subscribe((res)=>{
-         this.select_missaData = res;
-        });
+      this.service.select_salmistasData().subscribe((res)=>{
+         this.select_salmistasData = res;
+      });
 
-       
+      this.service.select_missaData().subscribe((res)=>{
+        this.select_missaData = res;
+     });
  
    }
 
@@ -115,6 +119,14 @@ export class CriarLiturgiaComponent implements OnInit {
       })
     }
 
+    
+    carregarSalmistas():FormGroup{
+      return this.fb.group({
+        nome:['',Validators.required]
+      })
+    }
+
+
     getComentaristasControls() {
       return (this.userForm.get('comentarista') as FormArray).controls;
     }
@@ -127,6 +139,9 @@ export class CriarLiturgiaComponent implements OnInit {
       return (this.userForm.get('musico') as FormArray).controls;
     }
    
+    getSalmistasControls() {
+      return (this.userForm.get('salmista') as FormArray).controls;
+    }
 
    addComentaristas(){
    const comentaristas: FormArray = this.userForm.get('comentarista') as FormArray
@@ -142,6 +157,11 @@ export class CriarLiturgiaComponent implements OnInit {
   addMusicos(){
     const musicos: FormArray = this.userForm.get('musico') as FormArray
     musicos.push(this.carregarMusicos())
+  }
+
+  addsalmistas(){
+    const salmistas: FormArray = this.userForm.get('salmista') as FormArray
+    salmistas.push(this.carregarMusicos())
   }
  
    sideBarToggler(){
@@ -195,6 +215,7 @@ export class CriarLiturgiaComponent implements OnInit {
     const comentaristas = JSON.stringify( this.userForm.value.comentarista)
     const leitores = JSON.stringify( this.userForm.value.leitor) 
     const musicos = JSON.stringify( this.userForm.value.musico) 
+    const salmistas = JSON.stringify( this.userForm.value.salmista) 
 
 
      let formData = {
@@ -207,10 +228,13 @@ export class CriarLiturgiaComponent implements OnInit {
       comunidade:'',
       comentarista: comentaristas,
       leitores: leitores,
-      musicos: musicos
+      musicos: musicos,
+      salmista: salmistas
     } 
   
- 
+    console.log(formData);
+
+
 
        this.service.createDataLit(formData).subscribe((res)=>{
           console.log(res);

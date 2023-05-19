@@ -1,0 +1,12 @@
+<div *ngIf="loading == true">
+    <div class="loading" *ngIf="response ==null">
+      <mat-spinner *ngIf="response ==null"></mat-spinner>
+    </div> 
+  </div>
+
+<div  id="close"(click)="close()">
+    <mat-icon>close</mat-icon>
+  </div>
+
+  <mat-icon id="iconupload">cloud_upload</mat-icon>
+  <input  type="file" (change)="inputFileChange($event)"/>

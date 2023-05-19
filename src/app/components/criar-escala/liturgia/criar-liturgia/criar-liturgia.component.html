@@ -92,7 +92,6 @@
 
                     <br>
                    
-                
                     <div id="musico" *ngIf="!getparamid" class="form-group">
                         <div formArrayName="musico" *ngFor="let musico of getMusicosControls(); let i = index">
                             <div [formGroupName]="i">
@@ -105,12 +104,23 @@
                             </div>
                         </div>
                     </div>
-
+                
 
                 <button id="addAgente" type="button" class="btn btn-success" (click)="addMusicos()">Adicionar Musico <mat-icon id="add">add</mat-icon></button>
-
               
-             
+                
+                <div id="salmista" *ngIf="!getparamid" class="form-group">
+                    <div formArrayName="salmista" *ngFor="let salmista of getSalmistasControls(); let i = index">
+                        <div [formGroupName]="i">
+                            <label id="label-salmistas" for="salmistas">Salmista</label>
+                            <select formControlName="nome" class="form-select" >
+                                <option>Escolha o salmista</option>
+                                <option>Nenhum</option>
+                                <option *ngFor="let nomes_salmista of select_salmistasData">{{nomes_salmista.nome}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
                 <div *ngIf="!getparamid" id="submit" (click)="userSubmit()">
                     <button class="btn btn-success" id="enviar" >Criar</button>

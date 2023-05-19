@@ -41,6 +41,11 @@
     text-align: center;
     border: 1px solid black;
   }
+
+  #content{
+    width: 80%;
+
+  }
   
   #ocultar{
     margin-top: 10px;
@@ -140,11 +145,7 @@
     margin-left: -50px;
   }
   
-  #content{
-    width: 75%;
-  
-  
-  }
+ 
   
   .conteiner-img{
     margin: -70px 0 30px 24%;
@@ -189,7 +190,7 @@
   .tabela-1{
    width: 106%;
    color:black;
-   margin: 20px 0 20px 20px;
+   margin: 20px 0 20px 0px;
    font-size: 14px;
    
   }
@@ -197,7 +198,7 @@
   
   #content .divisão-tabela{
   
-    width: 100%;
+    width: 102%;
     height: 1px;
     padding: 1px;
     background-color:#1e293b;
@@ -234,10 +235,14 @@
   }
   
   
-    .deletar{
+.deletar{
     color: black;
     float: right;
-    }
+    cursor: pointer;
+    position: relative;
+    top:-4mm;
+    left: 5mm;
+}
   
   
   #download{

@@ -92,6 +92,7 @@ export class ConsultarLiturgiaComponent implements OnInit {
                comentarista: JSON.parse(element.comentarista),
                leitores: JSON.parse(element.leitores),
                musicos: JSON.parse(element.musicos),
+               salmista: JSON.parse(element.salmista),
                id: element.id
 
              }
@@ -284,9 +285,11 @@ export class ConsultarLiturgiaComponent implements OnInit {
           
 
      if(this.pagina2[0] == null){
+  
 
          const pagina1 = JSON.stringify( this.pagina1)
-     
+
+       
          let formData = [{
            "tipo":"Liturgia",
            "pagina1": pagina1
@@ -821,6 +824,7 @@ export class ConsultarLiturgiaComponent implements OnInit {
          this.deleteData = res;
          this.snackbar.openSnackBar(this.deleteData.message,"") 
          this.loading = false;
+         location.reload();
 
          this.service.readDataLiturgia().subscribe((res)=>{
            this.readData = res;

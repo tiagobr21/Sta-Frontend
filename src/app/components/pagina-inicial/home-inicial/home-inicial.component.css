@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Calibri';
+    
 }
 
 :root{
@@ -93,11 +94,10 @@ mat-drawer-container{
 
 
 .contaneiner1{
-  min-height: calc(100vh - 170px);
-  width:150mm;
-  margin: 0 40px;
+  height: 145mm;
+  width:145mm;
+  margin: -30px 40px;
   border-radius: 10px;
-  margin-top: 1rem;
   background: white;
   color: black;
   font-size: 2rem;
@@ -141,6 +141,14 @@ mat-drawer-container{
 
 .manual-btn:hover{
   background-color: black;  
+}
+
+.slide img{
+  cursor: pointer;
+}
+
+#closeModal{
+  cursor: pointer;
 }
 
 
@@ -197,9 +205,25 @@ mat-drawer-container{
 
 @keyframes go3 {
   from {
-    margin-left: -40%;
     opacity: 0;
 
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.alert14{
+  animation-duration:3s;
+  animation-name:go4;
+
+}
+
+@keyframes go4 {
+  from {
+    margin-left: 40%;
+    opacity: 0;
   }
 
   to {
@@ -209,22 +233,70 @@ mat-drawer-container{
 }
 
 
+#model{
+  background-color: floralwhite;
+  position: absolute;
+  padding: 100px;
+  top: -3%;
+  left: 4mm;
+  border-radius: 15px;
+  height: 100%;
+  width: 97.7%;
+}
+
+#model img{
+  width: 40%;
+  position: relative;
+  display: flex;
+  margin: -90px auto;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+}
 
 
-.alert1,.alert12,.alert13, .alert2, .alert3{
-  max-width: 85%;
-  max-height: 100%;
+.alert1,.alert12,.alert13,.alert14{
+  margin-top: 20px;
+  width:78%;
+  max-height: 42%;
   border-radius: 10px;
   
 }
 
+.alert2,.alert3{
+  width: 38%;
+  margin: 0 auto;
+  border-radius: 10px;
+  cursor: pointer
+}
+
+/* .alert2:hover,.alert3:hover{
+  width: 50%;
+  height: 50%;
+  position: absolute;
+} */
+
+#title{
+  color: #0f172a;
+  text-decoration: underline;
+}
+
+
+
+#refresh{
+  cursor: pointer;
+  display: none;
+}
 
 
 
 /* media query for smaller screens */
 @media (max-width: 768px) {
 
-  
+   #model{
+    display: none;
+   }
 
   .img-logo{
     top:0px;
@@ -242,7 +314,7 @@ mat-drawer-container{
   }
 
   .contaneiner1{
-    min-height: 38vh ;
+    height: 40%;
     margin: 10px 0px;
     width: 82mm;
   }
@@ -255,12 +327,29 @@ mat-drawer-container{
     margin: 0 0px;
     width: 82mm;
   }
-  
+
+  .alert1,.alert12,.alert13,.alert14{
+    width: 100%;
+  }
+
+  .alert2,.alert3{
+    width: 78%;
+    margin-top: -10px;
+  }
+
+  #model img{
+    width: 100%;
+  }
+
+
   mat-drawer{
     width: 100%;
    
   }
-
+   
+  #refresh{
+    display: '';
+  }
   
   .page__box{
     font-size: 20px;

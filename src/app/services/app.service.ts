@@ -16,6 +16,12 @@ export class AppService{
   // dev: http://localhost:3000
   //prod: https://back-sta.herokuapp.com
 
+
+  //Config Home page
+
+  urlReadAvisos = 'https://back-sta.herokuapp.com/config_home_page/read';
+  urlUploadAvisos = 'https://back-sta.herokuapp.com/config_home_page/uploadaviso';
+
   //Pdf Geral
 
   urlGerarPdfGeral = 'https://back-sta.herokuapp.com/escala_geral/gerarpdf';
@@ -76,6 +82,8 @@ export class AppService{
     urlSelectComentaristas = 'https://back-sta.herokuapp.com/escala_liturgia/select_comentaristas';
     urlSelectLeitores = 'https://back-sta.herokuapp.com/escala_liturgia/select_leitores';
     urlSelectMusicos = 'https://back-sta.herokuapp.com/escala_liturgia/select_musicos';
+    urlSelectSalmistas = 'https://back-sta.herokuapp.com/escala_liturgia/select_salmistas';
+
 
     // Escala Celebrante
     urlCreateCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/create';
@@ -116,6 +124,11 @@ export class AppService{
     urlCreateMusicos ='https://back-sta.herokuapp.com/escala_liturgia/create_musicos';
     urlDeleteMusicos = 'https://back-sta.herokuapp.com/escala_liturgia/delete_musicos';
 
+    //Salmistas
+    urlUpdateSalmistas = 'https://back-sta.herokuapp.com/escala_liturgia/update_salmistas';
+    urlCreateSalmistas ='https://back-sta.herokuapp.com/escala_liturgia/create_salmistas';
+    urlDeleteSalmistas = 'https://back-sta.herokuapp.com/escala_liturgia/delete_salmistas';
+
     //PDF Liturgia
     urlGerarPdfLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/gerarpdf';
     urlGetPdfLiturgia = 'https://back-sta.herokuapp.com/escala_liturgia/getpdf';
@@ -124,6 +137,17 @@ export class AppService{
 
   constructor(private _http:HttpClient) { }
 
+ // Read Avisos
+
+ uploadAvisos(data:any,id:any):Observable<any>{
+  return this._http.patch(`${this.urlUploadAvisos}/${id}`,data);
+}
+
+  // Read Avisos
+
+  readAvisos():Observable<any>{
+    return this._http.get(`${this.urlReadAvisos}`);
+  }
 
   //Read Geral
 
@@ -331,6 +355,10 @@ gerarPdfGeral(data:any):Observable<any>{
   select_musicosData():Observable<any>{
     return this._http.get(`${this.urlSelectMusicos}`);
   }
+
+  select_salmistasData():Observable<any>{
+    return this._http.get(`${this.urlSelectSalmistas}`);
+  }
   
   select_comunidadeData():Observable<any>{
     return this._http.get(`${this.urlSelect_Comunidades}`);
@@ -456,6 +484,21 @@ deleteMusicos(id:any):Observable<any>{
   return this._http.delete(`${this.urlDeleteMusicos}/${ids}`);
 }
 
+ //Salmistas - criar-atualizar-deletar
+
+ updateSalmistas(data:any,id:any):Observable<any>{
+  let ids = id;
+  return this._http.put(`${this.urlUpdateSalmistas}/${ids}`,data);
+}
+
+createSalmistas(data:any):Observable<any>{
+  return this._http.post(`${this.urlCreateSalmistas}`,data);
+}
+
+deleteSalmistas(id:any):Observable<any>{
+  let ids = id;
+  return this._http.delete(`${this.urlDeleteSalmistas}/${ids}`);
+}
 
 
 

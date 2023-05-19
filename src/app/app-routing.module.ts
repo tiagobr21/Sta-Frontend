@@ -24,6 +24,7 @@ import { EscalaLiturgiaPdfComponent } from './components/arquivos-pdf/escala-lit
 import { EscalaGeralPdfComponent } from './components/arquivos-pdf/escala-geral-pdf/escala-geral-pdf.component';
 import { EscalaGeralComponent } from './components/consultar-escala/geral/escala-geral/escala-geral.component';
 import { HomeInicialComponent } from './components/pagina-inicial/home-inicial/home-inicial.component';
+import { ConfigHomePageComponent } from './components/funcoes-admin/home-page/config-home-page/config-home-page.component';
 
 const routes: Routes = [
   
@@ -105,6 +106,14 @@ const routes: Routes = [
   },
   {
     path:'admin/usuarios',component:PermissoesComponent,
+    loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
+    canActivate:[RouterGuardService],
+    data:{
+    expectedRole:['admin']  
+    }
+  },
+  {
+    path:'admin/config-home-page',component:ConfigHomePageComponent,
     loadChildren:()=> import('./material/material.module').then(m=>m.MaterialModule),
     canActivate:[RouterGuardService],
     data:{
