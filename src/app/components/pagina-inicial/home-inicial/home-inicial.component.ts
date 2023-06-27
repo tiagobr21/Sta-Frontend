@@ -88,7 +88,7 @@ refresh(){
 }
 
 openModal(img:string){
-  this.img = this.baseurl + img 
+  this.img = img 
   this.displayModal = ''
 }
 

@@ -16,13 +16,13 @@
                     </div> 
                 </div>
 
-                <button *ngIf="filename == 'null'" mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
+                <button *ngIf="url == 'null'" mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
                     <img src="../../../assets/user.png" alt="" class="user-image mr-1 p-2">
                     {{user}}
                     <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
               </button>
 
-                <button *ngIf="filename != 'null'" mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
+                <button *ngIf="url != 'null'" mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-item-center">
                     <img [src]="link" alt="" class="user-image mr-1 p-2">
                      {{user}}
                     <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
@@ -37,17 +37,17 @@
                           <span>Criar Usuário</span> 
                     </button>
 
-                    <button *ngIf="filename == 'null'" (click)="uploadImage()" mat-menu-item>
+                    <button *ngIf="url == 'null'" (click)="uploadImage()" mat-menu-item>
                         <mat-icon >folder_shared</mat-icon>
                           <span>Adicionar Foto de Perfil</span> 
                     </button>
 
-                    <button *ngIf="filename != 'null'" (click)="uploadImage()" mat-menu-item>
+                    <button *ngIf="url != 'null'" (click)="uploadImage()" mat-menu-item>
                         <mat-icon >folder_shared</mat-icon>
                           <span>Atualizar Foto de Perfil</span> 
                     </button>
 
-                    <button *ngIf="filename != 'null'" (click)="deleteImage()" mat-menu-item>
+                    <button *ngIf="url != 'null'" (click)="deleteImage()" mat-menu-item>
                         <mat-icon >delete</mat-icon>
                           <span>Deletar Foto de Perfil</span> 
                     </button>

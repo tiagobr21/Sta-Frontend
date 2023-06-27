@@ -20,12 +20,11 @@ export class HeaderComponent implements OnInit {
   @Output() toggleSidebarForMe: EventEmitter<any>=new EventEmitter();
 
   user:any
-  filename:any;
+  url:any;
   iduser:any;
   response:any;
   deleteFoto:any;
   loading:any;
-  baseurl:string = 'https://back-sta.herokuapp.com/files/';
   link:string = '';
 
   constructor(private dialog:MatDialog,
@@ -35,11 +34,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = localStorage.getItem("user");
-    this.filename = localStorage.getItem("filename");
+    this.url = localStorage.getItem("url");
     this.iduser = localStorage.getItem("iduser");
 
-    if( this.filename != null){
-      this.link = this.baseurl + this.filename;
+    if( this.url != null){
+      this.link = this.url;
     }
  
 
