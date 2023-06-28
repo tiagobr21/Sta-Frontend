@@ -96,7 +96,7 @@ mat-drawer-container{
 .contaneiner1{
   height: 145mm;
   width:145mm;
-  margin: -30px 40px;
+  margin: -5px 100px;
   border-radius: 10px;
   background: white;
   color: black;
@@ -106,7 +106,7 @@ mat-drawer-container{
 
 .contaneiner2{
   margin: 0 40px;
-  height: 230px;
+  height: 250px;
   width:150mm;
   border-radius: 10px;
   margin-top: 1rem;
@@ -117,7 +117,7 @@ mat-drawer-container{
 
 .contaneiner3{
   margin: 0 40px;
-  height: 230px;
+  height: 250px;
   width:150mm;
   border-radius: 10px;
   margin-top: 1rem;
@@ -265,7 +265,7 @@ mat-drawer-container{
 }
 
 .alert2,.alert3{
-  width: 38%;
+  width: 42%;
   margin: 0 auto;
   border-radius: 10px;
   cursor: pointer
@@ -305,7 +305,7 @@ mat-drawer-container{
 
   .page__content{
     font-size: 1.5rem;
-    min-height: 118vh;
+    min-height: 145vh;
   }
   
   .page__content-data{
@@ -315,7 +315,7 @@ mat-drawer-container{
 
   .contaneiner1{
     height: 40%;
-    margin: 10px 0px;
+    margin: 20px 0px;
     width: 82mm;
   }
 
