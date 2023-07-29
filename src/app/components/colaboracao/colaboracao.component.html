@@ -1,0 +1,39 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+          
+        <div class="container-fluid page">
+            <div class="page__box p-3 mt-2">Colaboração</div>
+                <div class="page__content shadow p-3 position-relative">
+                
+                    <div class="flex">
+                        <figure id="figure-dizimo">
+                            <img routerLink="/colaboracao/dizimo" id="img-dizimo" src="../../../assets/dizimo.png">
+                            <figcaption>Dízimo</figcaption>
+                        </figure>
+                        <figure id="figure-oferta">
+                            <img routerLink="/colaboracao/oferta" id="img-oferta" src="../../../assets/oferta.png" alt="">
+                            <figcaption>Ofertas</figcaption>
+                        </figure>
+                        <figure id="figure-doacao">
+                            <img routerLink="/colaboracao/doacoes" id="img-doacao" src="../../../assets/doacoes2.png" alt="">
+                            <figcaption>Doações</figcaption>
+                        </figure>  
+
+                    </div>
+
+                      <div id="info-colaboracao">
+                        <img src="../../../assets/info-colaboracao.jpg" alt="">
+                      </div>
+                 
+                    <div class="page__content-data position-absolute text-center">
+                   
+                </div>
+            </div>
+        </div>
+                
+    </mat-drawer-content>
+</mat-drawer-container>

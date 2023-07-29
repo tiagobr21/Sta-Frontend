@@ -84,7 +84,6 @@ export class AppService{
     urlSelectMusicos = 'https://back-sta.herokuapp.com/escala_liturgia/select_musicos';
     urlSelectSalmistas = 'https://back-sta.herokuapp.com/escala_liturgia/select_salmistas';
 
-
     // Escala Celebrante
     urlCreateCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/create';
     urlReadCelebrante = 'https://back-sta.herokuapp.com/escala_celebrante/read';

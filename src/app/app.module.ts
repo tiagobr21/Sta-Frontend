@@ -58,6 +58,10 @@ import { HomeInicialComponent } from './components/pagina-inicial/home-inicial/h
 import { MissasCelebracoesComponent } from './components/missas-celebracoes/missas-celebracoes.component';
 import { ConfigHomePageComponent } from './components/funcoes-admin/home-page/config-home-page/config-home-page.component';
 import { UploadAvisoComponent } from './components/funcoes-admin/home-page/upload-aviso/upload-aviso.component';
+import { ColaboracaoComponent } from './components/colaboracao/colaboracao.component';
+import { DizimoComponent } from './components/colaboracao/dizimo/dizimo.component';
+import { OfertaComponent } from './components/colaboracao/oferta/oferta.component';
+import { DoacoesComponent } from './components/colaboracao/doacoes/doacoes.component';
 
 
 
@@ -112,6 +116,10 @@ import { UploadAvisoComponent } from './components/funcoes-admin/home-page/uploa
     MissasCelebracoesComponent,
     ConfigHomePageComponent,
     UploadAvisoComponent,
+    ColaboracaoComponent,
+    DizimoComponent,
+    OfertaComponent,
+    DoacoesComponent,
  
 
   ],

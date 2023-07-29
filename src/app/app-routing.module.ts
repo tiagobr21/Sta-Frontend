@@ -25,6 +25,10 @@ import { EscalaGeralPdfComponent } from './components/arquivos-pdf/escala-geral-
 import { EscalaGeralComponent } from './components/consultar-escala/geral/escala-geral/escala-geral.component';
 import { HomeInicialComponent } from './components/pagina-inicial/home-inicial/home-inicial.component';
 import { ConfigHomePageComponent } from './components/funcoes-admin/home-page/config-home-page/config-home-page.component';
+import { ColaboracaoComponent } from './components/colaboracao/colaboracao.component';
+import { DizimoComponent } from './components/colaboracao/dizimo/dizimo.component';
+import { OfertaComponent } from './components/colaboracao/oferta/oferta.component';
+import { DoacoesComponent } from './components/colaboracao/doacoes/doacoes.component';
 
 const routes: Routes = [
   
@@ -77,6 +81,10 @@ const routes: Routes = [
   expectedRole:['admin']  
 }
 },
+  {path:'colaboracao',component:ColaboracaoComponent},
+  {path:'colaboracao/dizimo',component:DizimoComponent},
+  {path:'colaboracao/oferta',component:OfertaComponent},
+  {path:'colaboracao/doacoes',component:DoacoesComponent},
   {path:'criar-coroinha/:id',component:CriarCoroinhaComponent},
   {path:'criar-ministro/:id',component:CriarMinistroComponent},
   {path:'criar-celebrante/:id',component:CriarCelebranteComponent},
