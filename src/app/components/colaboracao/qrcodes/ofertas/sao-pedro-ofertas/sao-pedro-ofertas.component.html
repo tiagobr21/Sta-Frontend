@@ -1,0 +1,26 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+        <div class="container-fluid page">
+            <div class="page__box p-3 mt-2">QrCode São Pedro - Ofertas</div>
+                <div class="page__content shadow p-3 position-relative">
+                    <div class="whatsapp">
+                      <img src="../../../../../../assets/wp.png" alt="mande o comprovante pelo whatsapp">
+                      <span>(92)985021964</span>
+         
+                     
+                    </div>
+                    <div class="qrcode">
+                        <img src="../../../../../../assets/qrcodes/OFERTAS - SÃO PEDRO.jpeg">
+                   
+                    </div>
+                    <div class="page__content-data position-absolute text-center">
+                </div>
+            </div>
+        </div>
+                
+    </mat-drawer-content>
+</mat-drawer-container>

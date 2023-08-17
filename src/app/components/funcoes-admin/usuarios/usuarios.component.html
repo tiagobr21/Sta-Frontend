@@ -171,6 +171,27 @@
               
                   </div>
                   </div>
+                
+                  <!-- Salmistas -->
+
+                    <div (click)="onoffSalmistas()"   class="alert alert-light" role="alert">
+                        Salmistas
+                        <mat-icon id="eye" *ngIf="salmistasVisib">visibility</mat-icon>
+                        <mat-icon id="eye" *ngIf="!salmistasVisib">visibility_off</mat-icon>
+                    </div>
+                      
+                    <div *ngIf="salmistasVisib">
+                        <table *ngFor="let dados of listaSalmistas , let i = index" class="table">
+                              <tbody>
+                                  <tr>
+                                      <td>{{dados.nome}} <mat-icon (click)="deleteSalmistas(dados.id)"  id="delete">delete</mat-icon> <mat-icon (click)="openatualizarUsuario(dados.id)" id="edit">edit</mat-icon></td> 
+                                  </tr>
+                              </tbody>
+                        </table>
+                    <div>
+                      
+                          </div>
+                          </div>
 
     </div>
 

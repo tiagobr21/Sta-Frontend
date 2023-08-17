@@ -100,6 +100,14 @@ criarMusicos(){
   })  
 }
 
+criarSalmistas(){
+  this.service.createSalmistas(this.userForm.value).subscribe((res:any)=>{
+     console.log(res);
+     this.response = res;
+     this.snackbar.openSnackBar(this.response.message,"");
+  })  
+}
+
 
   close(){
     this.dialogRef.close();

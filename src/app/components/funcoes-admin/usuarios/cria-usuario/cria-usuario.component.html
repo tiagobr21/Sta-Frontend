@@ -4,7 +4,6 @@
  <form [formGroup]="selectOption">
     <label for="exampleInputPassword1" class="form-label">Escolha um categoria </label>
     <select formControlName="categoria" class="form-select" aria-label="Default select example">
-      <option selected>Open this select menu</option>
       <option>Coroinhas</option>
       <option>Acolitos</option>
       <option>Ministros</option>
@@ -12,6 +11,7 @@
       <option>Comentaristas<option>
       <option>Leitores</option>
       <option>Musicos</option>
+      <option>Salmistas</option>
     </select>
 
     <button id="categoria" (click)="selectCategoria()" type="submit" class="btn btn-primary">Escolher</button>
@@ -86,5 +86,15 @@
         <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
       </div>
       <button id="categoria" (click)="criarMusicos()" type="submit" class="btn btn-primary">Criar</button>
+  </form>
+</div>
+
+<div *ngIf="categoria == 'Salmistas'">
+  <form [formGroup]="userForm">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input formControlName="nome" type="text" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button id="categoria" (click)="criarSalmistas()" type="submit" class="btn btn-primary">Criar</button>
   </form>
 </div>

@@ -29,9 +29,24 @@ import { ColaboracaoComponent } from './components/colaboracao/colaboracao.compo
 import { DizimoComponent } from './components/colaboracao/dizimo/dizimo.component';
 import { OfertaComponent } from './components/colaboracao/oferta/oferta.component';
 import { DoacoesComponent } from './components/colaboracao/doacoes/doacoes.component';
+import { SantaTeresinhaComponent } from './components/colaboracao/qrcodes/dizimo/santa-teresinha/santa-teresinha.component';
+import { NsRosarioComponent } from './components/colaboracao/qrcodes/dizimo/ns-rosario/ns-rosario.component';
+import { NsPerpetuoSocorroComponent } from './components/colaboracao/qrcodes/dizimo/ns-perpetuo-socorro/ns-perpetuo-socorro.component';
+import { SaoPedroComponent } from './components/colaboracao/qrcodes/dizimo/sao-pedro/sao-pedro.component';
+import { ScJesusComponent } from './components/colaboracao/qrcodes/dizimo/sc-jesus/sc-jesus.component';
+import { SantaTeresinhaOfertasComponent } from './components/colaboracao/qrcodes/ofertas/santa-teresinha-ofertas/santa-teresinha-ofertas.component';
+import { NsRosarioOfertasComponent } from './components/colaboracao/qrcodes/ofertas/ns-rosario-ofertas/ns-rosario-ofertas.component';
+import { NsPerpetuoSocorroOfertasComponent } from './components/colaboracao/qrcodes/ofertas/ns-perpetuo-socorro-ofertas/ns-perpetuo-socorro-ofertas.component';
+import { SaoPedroOfertasComponent } from './components/colaboracao/qrcodes/ofertas/sao-pedro-ofertas/sao-pedro-ofertas.component';
+import { ScJesusOfertasComponent } from './components/colaboracao/qrcodes/ofertas/sc-jesus-ofertas/sc-jesus-ofertas.component';
+import { SantaTeresinhaDoacoesComponent } from './components/colaboracao/qrcodes/doacoes/santa-teresinha-doacoes/santa-teresinha-doacoes.component';
+import { NsRosarioDoacoesComponent } from './components/colaboracao/qrcodes/doacoes/ns-rosario-doacoes/ns-rosario-doacoes.component';
+import { NsPerpetuoSocorroDoacoesComponent } from './components/colaboracao/qrcodes/doacoes/ns-perpetuo-socorro-doacoes/ns-perpetuo-socorro-doacoes.component';
+import { SaoPedroDoacoesComponent } from './components/colaboracao/qrcodes/doacoes/sao-pedro-doacoes/sao-pedro-doacoes.component';
+import { ScJesusDoacoesComponent } from './components/colaboracao/qrcodes/doacoes/sc-jesus-doacoes/sc-jesus-doacoes.component';
 
-const routes: Routes = [
-  
+
+const routes: Routes = [  
   {
    path:'',
    redirectTo:'home-page',
@@ -81,6 +96,24 @@ const routes: Routes = [
   expectedRole:['admin']  
 }
 },
+  {path:'colaboracao/dizimo/qrcode/santa-teresinha',component:SantaTeresinhaComponent},
+  {path:'colaboracao/dizimo/qrcode/ns-rosario',component:NsRosarioComponent},
+  {path:'colaboracao/dizimo/qrcode/ns-perpetuo-socorro',component:NsPerpetuoSocorroComponent},
+  {path:'colaboracao/dizimo/qrcode/sao-pedro',component:SaoPedroComponent},
+  {path:'colaboracao/dizimo/qrcode/sc-jesus',component:ScJesusComponent},
+
+  {path:'colaboracao/ofertas/qrcode/santa-teresinha',component:SantaTeresinhaOfertasComponent},
+  {path:'colaboracao/ofertas/qrcode/ns-rosario',component:NsRosarioOfertasComponent},
+  {path:'colaboracao/ofertas/qrcode/ns-perpetuo-socorro',component:NsPerpetuoSocorroOfertasComponent},
+  {path:'colaboracao/ofertas/qrcode/sao-pedro',component:SaoPedroOfertasComponent},
+  {path:'colaboracao/ofertas/qrcode/sc-jesus',component:ScJesusOfertasComponent},
+
+  {path:'colaboracao/doacoes/qrcode/santa-teresinha',component:SantaTeresinhaDoacoesComponent},
+  {path:'colaboracao/doacoes/qrcode/ns-rosario',component:NsRosarioDoacoesComponent},
+  {path:'colaboracao/doacoes/qrcode/ns-perpetuo-socorro',component:NsPerpetuoSocorroDoacoesComponent},
+  {path:'colaboracao/doacoes/qrcode/sao-pedro',component:SaoPedroDoacoesComponent},
+  {path:'colaboracao/doacoes/qrcode/sc-jesus',component:ScJesusDoacoesComponent},
+
   {path:'colaboracao',component:ColaboracaoComponent},
   {path:'colaboracao/dizimo',component:DizimoComponent},
   {path:'colaboracao/oferta',component:OfertaComponent},

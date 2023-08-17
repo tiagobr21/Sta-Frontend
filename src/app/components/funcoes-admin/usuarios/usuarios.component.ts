@@ -29,6 +29,7 @@ export class UsuariosComponent implements OnInit {
    listaComentaristas:any
    listaLeitores:any
    listaMusicos:any
+   listaSalmistas:any
    coroinhasVisib:boolean = false;
    acolitosVisib:boolean = false;
    ministrosVisib:boolean = false;
@@ -36,6 +37,7 @@ export class UsuariosComponent implements OnInit {
    comentaristasVisib:boolean = false;
    leitoresVisib:boolean = false;
    musicosVisib:boolean = false;
+   salmistasVisib:boolean = false;
    response:any;
 
    sideBarToggler(){
@@ -75,6 +77,10 @@ export class UsuariosComponent implements OnInit {
 
       this.service.select_musicosData().subscribe((res)=>{
         this.listaMusicos = res;
+      });
+
+      this.service.select_salmistasData().subscribe((res)=>{
+        this.listaSalmistas = res;
       });
    }
 
@@ -165,6 +171,20 @@ export class UsuariosComponent implements OnInit {
 
   }
 
+  deleteSalmistas(id:any){
+  
+    this.service.deleteSalmistas(id).subscribe((res)=>{
+       console.log(res);
+       this.response = res;
+       this.snackbar.openSnackBar(this.response.message,""); 
+       this.service.select_celebranteData().subscribe((res)=>{
+        this.listaCelebrantes = res;
+     });   
+    }) 
+
+  }
+
+
    opencriarUsuario(){
     const dialogConfig = this.dialog.open(CriaUsuarioComponent,{
       width:'550px',
@@ -208,6 +228,11 @@ export class UsuariosComponent implements OnInit {
   onoffMusicos(){
     this.musicosVisib = !this.musicosVisib;
   }
+
+  onoffSalmistas(){
+    this.salmistasVisib = !this.salmistasVisib;
+  }
+
 
   refresh(){
  
